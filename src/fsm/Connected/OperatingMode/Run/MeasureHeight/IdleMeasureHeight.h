@@ -1,0 +1,30 @@
+/*
+ * IdleMeasureHeight.h
+ *
+ *  Created on: Dec 3, 2022
+ *      Author: daniel
+ */
+
+#ifndef SRC_FSM_CONNECTED_OPERATINGMODE_RUN_MEASUREHEIGHT_IDLEMEASUREHEIGHT_H_
+#define SRC_FSM_CONNECTED_OPERATINGMODE_RUN_MEASUREHEIGHT_IDLEMEASUREHEIGHT_H_
+
+#include "../../../Error.h"
+#include "../../../../gof/BaseState.h"
+#include "../../../../gof/SubEndState.h"
+
+class IdleMeasureHeight : public BaseState {
+public:
+	IdleMeasureHeight();
+	virtual ~IdleMeasureHeight();
+
+	//transition
+	bool handleHsWP();
+
+	//methods
+	void entry() override;
+
+private: 
+	void pollHS();
+};
+
+#endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_MEASUREHEIGHT_IDLEMEASUREHEIGHT_H_ */

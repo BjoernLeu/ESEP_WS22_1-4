@@ -1,0 +1,68 @@
+/*
+ * GoneReceipted.cpp
+ *
+ *  Created on: Dec 3, 2022
+ *      Author: daniel
+ */
+
+#include "GoneReceipted.h"
+
+GoneReceipted::GoneReceipted() {}
+
+GoneReceipted::~GoneReceipted() {}
+
+
+bool GoneReceipted::handleStartSp()
+{
+	exit();
+	new(this) SubEndState;
+	entry();
+	return true;
+}
+
+void GoneReceipted::entry()
+{
+	std::cout << "GoneReceipted entry" << std::endl;
+	lightOn(RED);
+	receipted();
+}
+
+void GoneReceipted::exit()
+{
+	std::cout << "GoneReceipted exit" << std::endl;
+	action->lightOff(RED);
+	sendSignalSlide();
+	motorOn();
+}
+
+void GoneReceipted::lightOn(int color)
+{
+	std::cout << "Red light on" << std::endl;
+	if (MsgSendPulse(coid, -1, static_cast<int>(LIGHT_RED_ON), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
+}
+
+void GoneReceipted::receipted()
+{
+	std::cout << "receipted" << std::endl;
+	if (MsgSendPulse(coid, -1, static_cast<int>(RECEIPTED), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
+}
+
+void GoneReceipted::sendSignalSlide()
+{
+	std::cout << "Send Signal to Slide" << std::endl;
+	if (MsgSendPulse(coid, -1, static_cast<int>(SEND_SIGNAL_SLIDE), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
+}
+
+void GoneReceipted::motorOn()
+{
+	std::cout << "Motor On" << std::endl;
+	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_ON), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
+}
