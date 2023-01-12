@@ -58,14 +58,14 @@ public:
 	bool handleWpDrilling() override;
 	bool handleWpID() override;
 
-	bool handleLbSL() override;
-	bool handleLbO() override;
+
+
 	bool handleWpArrived() override;
 	bool handleTransferOK() override; 
 	bool handleTransferWait() override;
 	bool handleLbOFree() override;
 	bool handleWpTransfer() override;
-	bool handleLbI() override;
+
 
 	//methods
 	void entry() override;
