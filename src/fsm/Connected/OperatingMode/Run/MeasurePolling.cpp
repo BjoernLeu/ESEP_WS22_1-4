@@ -7,8 +7,6 @@
 
 #include "MeasurePolling.h"
 
-
-
 // TODO needs clean up
 #include <stdio.h>
 #include <errno.h>
@@ -112,6 +110,8 @@ void MeasurePolling::setHigh() {
 	binaryZero = high * 0.85;
 	binaryOne = high * 0.75;
 	hole = high * 0.3;
+	factor = 25.0 / high;
+	std::cout << "factor: " << factor << std::endl;
 	std::cout << "High set at: " << high << std::endl;
 	sampling = true;
 	adc->sample();
@@ -212,6 +212,7 @@ void MeasurePolling::receivingRoutine(int channelID, ADC* adc) {
 			if(sampling) {
 				//TODO do evaluation shit here
 				diff = std::floor((zero - adcValue) * factor + 0.5);
+				std::cout << "diff: " << diff << std::endl;
 				if(diff != olddiff) {
 					std::cout << diff << std::endl;
 					olddiff = diff;

@@ -55,6 +55,10 @@ Context::Context(const char* nameReceive, const char* nameReceive2, const char* 
 		perror("name_open failed");	//loglevel replace
 		exit(EXIT_FAILURE);
 	}
+
+	data.mp = new MeasurePolling("cr");
+	data.mp->init();
+
 	data.setCoid(BaseState::coid);
 	data.setCoidExt(BaseState::coidExt);
 	state = new Connecting();

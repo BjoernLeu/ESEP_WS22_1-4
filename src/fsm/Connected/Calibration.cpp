@@ -51,3 +51,9 @@ bool Calibration::handleCalcDone()
 	substate->handleCalcDone();
 	return true;
 }
+
+bool Calibration::handleStartSp()
+{
+	substate->handleStartSp();
+	return true;
+}

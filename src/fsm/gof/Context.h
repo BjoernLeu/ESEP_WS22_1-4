@@ -14,6 +14,7 @@
 #include "../../utils/Events.h"
 #include "Actions.h"
 #include "BaseState.h"
+#include "../Connected/OperatingMode/Run/MeasurePolling.h"
 
 /*
  * (vgl. GOF Pattern)

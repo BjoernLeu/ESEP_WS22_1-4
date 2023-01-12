@@ -5,7 +5,7 @@
  *      Author: daniel
  */
 
-#include "StartCaliFastLow.h"
+#include "MeasureHighCali.h"
 #include "../../gof/BaseState.h"
 #include "../../gof/SubEndState.h"
 #include "../../Estop.h"
@@ -19,7 +19,7 @@ public:
 	virtual ~IdleCali();
 
 	void entry() override;
-	bool handleLbI() override;
+	bool handleStartSp() override;
 
 private:
 	void measureBelt();

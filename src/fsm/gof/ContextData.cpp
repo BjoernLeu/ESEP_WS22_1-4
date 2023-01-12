@@ -10,8 +10,6 @@
 ContextData::ContextData() {}
 ContextData::~ContextData() {}
 
-mp.init();
-
 /*================coid================*/
 int ContextData::coid;
 bool ContextData::blinkGreen;

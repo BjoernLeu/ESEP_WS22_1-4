@@ -12,6 +12,7 @@ StartCaliFastLow::~StartCaliFastLow() {}
 
 void StartCaliFastLow::entry()
 {
+	std::cout << "StartCaliFastLow entry" << std::endl;
 	startTimer();
 	getTime();
 	motorOn();	
@@ -19,6 +20,7 @@ void StartCaliFastLow::entry()
 
 bool StartCaliFastLow::handleHsWP()
 {
+	std::cout << "StartCaliFastLow" << std::endl;
 	new (this) MeasureCaliFastLow;
 	entry();
 	return true;

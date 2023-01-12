@@ -20,7 +20,7 @@
 
 class MeasurePolling {
 public:
-	MeasurePolling(const char* nameSen);
+	MeasurePolling(const char* nameSend);
 	~MeasurePolling();
 	void init();
 	void sample();

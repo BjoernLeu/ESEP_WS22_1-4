@@ -16,14 +16,13 @@ void IdleCali::entry()
 	measureBelt();
 }
 
-bool IdleCali::handleLbI()
+bool IdleCali::handleStartSp()
 {
-	data->mp.setHigh();
-	new (this) StartCaliFastLow;
+	new (this) MeasureHighCali;
 	entry();
 	return true;
 }
 
 void IdleCali::measureBelt(){
-	data->mp.setZero();
+	data->mp->setZero();
 }

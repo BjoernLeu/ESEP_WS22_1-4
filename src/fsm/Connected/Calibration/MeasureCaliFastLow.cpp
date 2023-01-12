@@ -12,6 +12,7 @@ MeasureCaliFastLow::~MeasureCaliFastLow() {}
 
 void MeasureCaliFastLow::entry()
 {
+	std::cout << "MeasureCaliFastLow entry" << std::endl;
 	getTime();
 	stopTimer();
 	motorOff();
@@ -44,6 +45,6 @@ void MeasureCaliFastLow::motorOff()
 
 void MeasureCaliFastLow::setLowValue()
 {
-	//Too: Code here
+	// data->mp->setLowValue();
 }
 

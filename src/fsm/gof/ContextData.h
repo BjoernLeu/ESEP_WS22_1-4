@@ -46,8 +46,6 @@ class ContextData {
 public:
 	ContextData(); // Konstruktor für die Klasse ContextData
 	virtual ~ContextData(); // Destruktor für die Klasse ContextData
-
-	MeasurePolling mp("cr");
 	
 	void setCoid(int con);
 //	void setCoid(int id);
@@ -151,7 +149,8 @@ public:
 	int getWpDrillingC();
 	int getWpIsMetalC();
 	
-	
+	MeasurePolling* mp;
+
 	static int coid;
 	static bool blinkGreen;
 	static bool blinkYellow;

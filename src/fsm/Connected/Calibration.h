@@ -26,6 +26,7 @@ public:
 	bool handleLbI() override;
 	bool handleHsWP() override;
 	bool handleCalcDone() override;
+	bool handleStartSp() override;
 };
 
 #endif /* SRC_FSM_CONNECTED_CALIBRATION_H_ */
