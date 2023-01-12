@@ -1,6 +1,5 @@
 /*
  * Dispatcher.h
- * TODO: Kommunikation mit anderem Fließband.
  *
  * @author Björn Leuendorf
  * @author Johannes Oehlers
