@@ -24,10 +24,10 @@ public:
 	bool handleFlat();
 	bool handleLbSwFree();
 	bool handleLbSW();
-	bool handleSLSelfFull();
-	bool handleSlFree();
-	bool handleSLExtFull();
-	bool handleBothFull();
+	bool handleSlSelfFull();
+	bool handleSlBothFree();
+	bool handleSlExtFull();
+	bool handleSlBothFull();
 	bool handleInOrder();
 	
 	//methods

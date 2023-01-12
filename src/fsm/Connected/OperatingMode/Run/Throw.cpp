@@ -53,22 +53,22 @@ bool Throw::handleLbSW()
 	// TODO Auto-generated destructor stub
 }
 
-bool Throw::handleSLSelfFull()
+bool Throw::handleSlSelfFull()
 {
 	// TODO Auto-generated destructor stub
 }
 
-bool Throw::handleSlFree()
+bool Throw::handleSlBothFree()
 {
 	// TODO Auto-generated destructor stub
 }
 
-bool Throw::handleSLExtFull()
+bool Throw::handleSlExtFull()
 {
 	// TODO Auto-generated destructor stub
 }
 
-bool Throw::handleBothFull()
+bool Throw::handleSlBothFull()
 {
 	// TODO Auto-generated destructor stub
 }

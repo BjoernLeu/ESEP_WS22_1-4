@@ -8,6 +8,8 @@
 #ifndef SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_SORTWPBOTHFULL_H_
 #define SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_SORTWPBOTHFULL_H_
 
+#include "TooFull.h"
+#include "Pass.h"
 #include "../../../Error.h"
 #include "../../../../gof/BaseState.h"
 #include "../../../../gof/SubEndState.h"
@@ -20,8 +22,8 @@ public:
 	void entry() override;
 
 	//transition
-	bool handleFlat();
-	bool handleOutOfOrder();
+	bool handleFlat() override;
+	bool handleOutOfOrder() override;
 
 	//methods
 };

@@ -7,37 +7,36 @@
 
 #include "CheckWP.h"
 
-CheckWP::CheckWP() {
-	// TODO Auto-generated constructor stub
+CheckWP::CheckWP() {}
 
-}
+CheckWP::~CheckWP() {}
 
-CheckWP::~CheckWP() {
-	// TODO Auto-generated destructor stub
+void CheckWP::entry()
+{
+	std::cout << "CheckWP entry" << std::endl;
+	checkWP();
 }
 
 bool CheckWP::handleOutOfOrder()
 {
-	//ToDo: implement here
-}
-
-bool CheckWP::handleFlat()
-{
-	//ToDo: implement here
+	new(this) CheckSlide();
+	entry();
+	return true;
 }
 
 bool CheckWP::handleInOrder()
 {
-	//ToDo: implement here
-}
-
-void CheckWP::entry()
-{
-	//ToDo: implement here
+	new(this) Pass();
+	entry();
+	return true;
 }
 
 void CheckWP::checkWP()
 {
-	//ToDo: implement here
+	if(data->getWP_Expected){
+		handleInOrder();
+	} else {
+		handleOutOfOrder();
+	}
 }
 

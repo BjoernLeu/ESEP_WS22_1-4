@@ -7,26 +7,25 @@
 
 #include "SortWPBothFull.h"
 
-SortWPBothFull::SortWPBothFull() {
-	// TODO Auto-generated constructor stub
+SortWPBothFull::SortWPBothFull() {}
 
-}
-
-SortWPBothFull::~SortWPBothFull() {
-	// TODO Auto-generated destructor stub
-}
+SortWPBothFull::~SortWPBothFull() {}
 
 void SortWPBothFull::entry()
 {
-	//ToDo: implement here
+	std::cout << "SortWPBothFull entry" << std::endl;
 }
 
 bool SortWPBothFull::handleFlat()
 {
-	//ToDo: implement here
+	new (this) TooFull;
+	entry();
+	return true;
 }
 
 bool SortWPBothFull::handleOutOfOrder()
 {
-	//ToDo: implement here
+	new (this) Pass;
+	entry();
+	return true;
 }

@@ -8,6 +8,7 @@
 #ifndef SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_TROWWP_H_
 #define SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_TROWWP_H_
 
+#include "IdleThrow.h"
 #include "../../../Error.h"
 #include "../../../../gof/BaseState.h"
 #include "../../../../gof/SubEndState.h"
@@ -18,11 +19,13 @@ public:
 	virtual ~ThrowWP();
 
 	//transition
-	bool handleThrown();
+	bool handleLbSwFree() override;
 
 	//method
 	void entry() override;
+	void exit() override;
 	void throwWP();
+	void throwWPOff();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_TROWWP_H_ */

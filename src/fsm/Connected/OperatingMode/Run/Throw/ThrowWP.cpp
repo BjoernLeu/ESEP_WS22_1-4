@@ -7,27 +7,42 @@
 
 #include "ThrowWP.h"
 
-ThrowWP::ThrowWP() {
-	// TODO Auto-generated constructor stub
+ThrowWP::ThrowWP() {}
 
-}
-
-ThrowWP::~ThrowWP() {
-	// TODO Auto-generated destructor stub
-}
-
-bool ThrowWP::handleThrown()
-{
-	//ToDo: implement here
-}
+ThrowWP::~ThrowWP() {}
 
 void ThrowWP::entry()
 {
-	//ToDo: implement here
+	std::cout << "TrowWP entry" << std::endl;
+	throwWP();
 }
 
-void ThrowWP::throwWP()
+void ThrowWP::exit()
 {
-	//ToDo: implement here
+	std::cout << "TrowWP exit" << std::endl;
+	throwWPOff();
 }
+
+bool ThrowWP::handleLbSwFree()
+{
+	exit();
+	new (this) IdleThrow;
+	entry();
+	return true;
+}
+
+bool ThrowWP::throwWP()
+{
+	if (MsgSendPulse(coid, -1, static_cast<int>(THROW_WP), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
+}
+
+void ThrowWP::throwWPOff()
+{
+	if (MsgSendPulse(coid, -1, static_cast<int>(SWITCH_OFF), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
+}
+
 
