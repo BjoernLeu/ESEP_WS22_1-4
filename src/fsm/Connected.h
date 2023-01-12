@@ -69,6 +69,11 @@ public:
 	bool handleMetalDetected() override;
 	bool handleSLExtFree() override;
 
+	bool handleWpHigh() override;
+	bool handleWpFlat() override;
+	bool handleWpDrilling() override;
+	bool handleWpID() override;
+
 	//Transitions -> serviceMode
 	bool handleResetSp() override;
 	bool handleLoadingCompleted() override;

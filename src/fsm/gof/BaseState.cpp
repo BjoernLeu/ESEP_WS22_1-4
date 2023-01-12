@@ -38,13 +38,14 @@ bool BaseState::handleSMDone(){return false;}
 bool BaseState::handleSorted(){return false;}
 
 //Werkstueck
-bool BaseState::handleWsMetal(){return false;}
+bool BaseState::handleWpMetal(){return false;}
 bool BaseState::handleWsCode0(){return false;}
 bool BaseState::handleWsCodeGroesser0(){return false;}
-bool BaseState::handleWsDrilling(){return false;}
+bool BaseState::handleWpDrilling(){return false;}
 bool BaseState::handleWsNoDrilling(){return false;}
-bool BaseState::handleWsFlat(){return false;}
-bool BaseState::handleWsHigh(){return false;}
+bool BaseState::handleWpFlat(){return false;}
+bool BaseState::handleWpHigh(){return false;}
+bool BaseState::handleWpID(){return false;}
 bool BaseState::handleEarly(){return false;}
 bool BaseState::handleWpLate(){return false;}
 bool BaseState::handleWpEarly(){return false;}

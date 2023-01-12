@@ -7,53 +7,45 @@
 
 #include "MeasureHeight.h"
 
-MeasureHeight::MeasureHeight() 
-{
-	// TODO Auto-generated constructor stub
-}
+MeasureHeight::MeasureHeight() {}
+MeasureHeight::~MeasureHeight() {}
 
-MeasureHeight::~MeasureHeight() 
-{
-	// TODO Auto-generated destructor stub
+void MeasureHeight::entry() {
+	std::cout << "MeasureHeight entry" << std::endl;
+	substate = new IdleMeasureHeight;
+	substate->setData(data);
+	substate->setAction(action);
+	substate->entry();
 }
 
 bool MeasureHeight::handleHsBelt() 
 {
-	// TODO Auto-generated destructor stub
+	substate->handleHsBelt();
+	return true;
 }
 
 bool MeasureHeight::handleHsWP() 
 {
-	// TODO Auto-generated destructor stub
+	substate->handleHsWP();
+	return true;
 }
 
-void MeasureHeight::entry() 
-{
-	// TODO Auto-generated destructor stub
+bool MeasureHeight::handleWpHigh(){
+	substate->handleWpHigh();
+	return true;
 }
 
-void MeasureHeight::motorSlow() 
-{
-	// TODO Auto-generated destructor stub
+bool MeasureHeight::handleWpFlat(){
+	substate->handleWpFlat();
+	return true;
 }
 
-void MeasureHeight::exit() 
-{
-	// TODO Auto-generated destructor stub
+bool MeasureHeight::handleWpDrilling(){
+	substate->handleWpDrilling();
+	return true;
 }
 
-void MeasureHeight::motorFast() 
-{
-	// TODO Auto-generated destructor stub
+bool MeasureHeight::handleWpID(){
+	substate->handleWpID();
+	return true;
 }
-
-void MeasureHeight::pollHS() 
-{
-	// TODO Auto-generated destructor stub
-}
-
-void MeasureHeight::setHType() 
-{
-	// TODO Auto-generated destructor stub
-}
-

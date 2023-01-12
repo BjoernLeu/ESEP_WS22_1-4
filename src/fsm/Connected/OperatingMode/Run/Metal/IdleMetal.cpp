@@ -8,15 +8,16 @@
 #include "IdleMetal.h"
 
 IdleMetal::IdleMetal() {}
-
 IdleMetal::~IdleMetal() {}
-
-bool IdleMetal::handleMetalDetected()
-{
-	//ToDo: Implement here
-}
 
 void IdleMetal::entry()
 {
-	//ToDo: Implement here
+	std::cout << "IdleMetal entry" << std::endl;
+}
+
+bool IdleMetal::handleMetalDetected()
+{
+	new (this) SetMetal;
+	entry();
+	return true;
 }

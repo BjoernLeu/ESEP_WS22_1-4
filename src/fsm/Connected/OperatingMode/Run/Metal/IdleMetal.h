@@ -11,6 +11,7 @@
 #include "../../../Error.h"
 #include "../../../../gof/BaseState.h"
 #include "../../../../gof/SubEndState.h"
+#include "SetMetal.h"
 
 class IdleMetal : public BaseState{
 public:
@@ -20,7 +21,7 @@ public:
 	void entry() override;
 
 	//transitions
-	bool handleMetalDetected();
+	bool handleMetalDetected() override;
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_METAL_IDLEMETAL_H_ */

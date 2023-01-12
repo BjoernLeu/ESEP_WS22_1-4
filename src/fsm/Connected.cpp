@@ -283,3 +283,23 @@ bool Connected::handleLoadingCompleted()
 	substate->handleLoadingCompleted();
 	return true;
 }
+
+bool Connected::handleWpHigh(){
+	substate->handleWpHigh();
+	return true;
+}
+
+bool Connected::handleWpFlat(){
+	substate->handleWpFlat();
+	return true;
+}
+
+bool Connected::handleWpDrilling(){
+	substate->handleWpDrilling();
+	return true;
+}
+
+bool Connected::handleWpID(){
+	substate->handleWpID();
+	return true;
+}

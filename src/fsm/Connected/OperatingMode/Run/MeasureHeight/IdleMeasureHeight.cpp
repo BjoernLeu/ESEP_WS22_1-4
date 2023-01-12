@@ -7,28 +7,16 @@
 
 #include "IdleMeasureHeight.h"
 
-IdleMeasureHeight::IdleMeasureHeight() {
-	// TODO Auto-generated constructor stub
-
-}
-
-IdleMeasureHeight::~IdleMeasureHeight() {
-	// TODO Auto-generated destructor stub
-}
-
+IdleMeasureHeight::IdleMeasureHeight() {}
+IdleMeasureHeight::~IdleMeasureHeight() {}
 
 bool IdleMeasureHeight::handleHsWP()
 {
-	//ToDo: Implement here
+	new (this) Measure;
+	entry();
+	return true;
 }
 
-void IdleMeasureHeight::entry()
-{
-	//ToDo: Implement here
+void IdleMeasureHeight::entry(){
+	std::cout << "IdleMeasureHeight entry" << std::endl;
 }
-
-void IdleMeasureHeight::pollHS()
-{
-	//ToDo: Implement here
-}
-

@@ -12,6 +12,7 @@ SaveCali::~SaveCali() {}
 
 void SaveCali::entry()
 {
+	std::cout << "SaveCali entry" << std::endl;
 	saveDataInFile();
 }	
 

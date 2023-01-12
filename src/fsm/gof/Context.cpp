@@ -129,20 +129,20 @@ void Context::handle_pulse(_pulse msg) {
 		state->handleFestoExtFull();
 		break;
 //Workpiece
-	case WS_DRILLING:
-		state->handleWsDrilling();
+	case WP_DRILLING:
+		state->handleWpDrilling();
 		break;
-	case WS_NO_DRILLING:
-		state->handleWsNoDrilling();
+	case WP_FLAT:
+		state->handleWpFlat();
 		break;
-	case WS_FLAT:
-		state->handleWsFlat();
+	case WP_HIGH:
+		state->handleWpHigh();
 		break;
-	case WS_HIGH:
-		state->handleWsHigh();
+	case WP_METAL:
+		state->handleWpMetal();
 		break;
-	case WS_METAL:
-		state->handleWsMetal();
+	case WP_ID:
+		state->handleWpID();
 		break;
 	case REMOVE_FROM_LIST:
 		state->handleStartSp();
@@ -209,7 +209,6 @@ void Context::handle_pulse(_pulse msg) {
 	case STOP_RELEASED:
 		state->handleStopReleased();
 		break;
-
 	case RESET_SP:
 		state->handleResetSp();
 		break;

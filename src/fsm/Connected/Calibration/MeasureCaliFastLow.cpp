@@ -16,7 +16,6 @@ void MeasureCaliFastLow::entry()
 	getTime();
 	stopTimer();
 	motorOff();
-	setLowValue();
 }
 
 bool MeasureCaliFastLow::handleLbI()
@@ -42,9 +41,3 @@ void MeasureCaliFastLow::motorOff()
 			perror("MsgSendPulse failed");
 	}
 }
-
-void MeasureCaliFastLow::setLowValue()
-{
-	// data->mp->setLowValue();
-}
-

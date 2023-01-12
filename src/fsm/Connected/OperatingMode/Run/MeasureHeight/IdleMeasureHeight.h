@@ -11,6 +11,7 @@
 #include "../../../Error.h"
 #include "../../../../gof/BaseState.h"
 #include "../../../../gof/SubEndState.h"
+#include "Measure.h"
 
 class IdleMeasureHeight : public BaseState {
 public:
@@ -22,9 +23,6 @@ public:
 
 	//methods
 	void entry() override;
-
-private: 
-	void pollHS();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_MEASUREHEIGHT_IDLEMEASUREHEIGHT_H_ */

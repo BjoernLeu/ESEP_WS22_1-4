@@ -7,31 +7,25 @@
 
 #include "Metal.h"
 
-Metal::Metal() {
-	// TODO Auto-generated constructor stub
+Metal::Metal() {}
+Metal::~Metal() {}
 
-}
-
-Metal::~Metal() {
-	// TODO Auto-generated destructor stub
+void Metal::entry() {
+	std::cout << "Metal entry" << std::endl;
+	substate = new IdleMetal;
+	substate->setData(data);
+	substate->setAction(action);
+	substate->entry();
 }
 
 bool Metal::handleNoMetal() 
 {
-	// TODO Auto-generated destructor stub
-}
-
-void Metal::entry() 
-{
-	// TODO Auto-generated destructor stub
-}
-
-void Metal::setMType() 
-{
-	// TODO Auto-generated destructor stub
+	substate->handleNoMetal();
+	return true;
 }
 
 bool Metal::handleMetalDetected() 
 {
-	// TODO Auto-generated destructor stub
+	substate->handleMetalDetected();
+	return true;
 }

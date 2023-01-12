@@ -12,10 +12,10 @@ MeasureCaliSlowHigh::~MeasureCaliSlowHigh() {}
 
 void MeasureCaliSlowHigh::entry()
 {
+	std::cout << "MeasureCaliSlowHigh entry" << std::endl;
 	getTime();
 	stopTimer();
 	motorOff();
-	setHighValue();
 }
 
 bool MeasureCaliSlowHigh::handleLbI()
@@ -37,12 +37,10 @@ void MeasureCaliSlowHigh::stopTimer()
 
 void MeasureCaliSlowHigh::motorOff()
 {
+	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_SLOW_OFF), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}
-}
-
-void MeasureCaliSlowHigh::setHighValue()
-{
-	// data->mp.setHigh();
 }

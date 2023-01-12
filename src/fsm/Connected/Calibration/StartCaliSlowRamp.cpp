@@ -12,6 +12,7 @@ StartCaliSlowRamp::~StartCaliSlowRamp() {}
 
 void StartCaliSlowRamp::entry()
 {
+	std::cout << "StartCaliSlowRamp entry" << std::endl;
 	startTimer();
 	getTime();
 	motorOn();
@@ -37,6 +38,9 @@ int StartCaliSlowRamp::getTime()
 void StartCaliSlowRamp::motorOn()
 {
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_ON), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
+	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_SLOW_ON), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}
 }

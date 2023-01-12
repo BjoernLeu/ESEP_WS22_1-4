@@ -14,17 +14,22 @@
 
 class Measure: public BaseState {
 public:
-	//transition
+	Measure();
+	virtual ~Measure();
 
 	//methods
 	void entry() override;
 	void exit() override;
 
-private: 
-	void motorSlow();
-	void motorFast();
-	void setHType();
 	bool handleHsBelt() override;
+	bool handleWpHigh() override;
+	bool handleWpFlat() override;
+	bool handleWpDrilling() override;
+	bool handleWpID() override;
+private: 
+	void motorSlowOn();
+	void motorSlowOff();
+	void setHType();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_MEASUREHEIGHT_MEASURE_H_ */

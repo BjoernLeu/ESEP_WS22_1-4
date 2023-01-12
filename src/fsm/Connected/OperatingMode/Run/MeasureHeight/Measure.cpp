@@ -7,34 +7,54 @@
 
 #include "Measure.h"
 
-bool Measure::handleHsBelt() {
-	//ToDo: Implement here
-	return false;
-}
-
+Measure::Measure() {}
+Measure::~Measure() {}
 
 void Measure::entry()
 {
-	//ToDo: Implement here
-}
-
-void Measure::motorSlow()
-{
-	//ToDo: Implement here
+	std::cout << "Measure entry" << std::endl;
+	motorSlowOn();
 }
 
 void Measure::exit()
 {
-	//ToDo: Implement here
+	motorSlowOff();
 }
 
-void Measure::motorFast()
+bool Measure::handleHsBelt() 
 {
-	//ToDo: Implement here
+	new (this) IdleMeasureHeight;
+	entry();
+	return true;
 }
 
-void Measure::setHType()
+void Measure::motorSlowOn()
 {
-	//ToDo: Implement here
+	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_SLOW_ON), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
+}
+
+void Measure::motorSlowOff()
+{
+	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_SLOW_OFF), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
+}
+
+bool Measure::handleWpHigh(){
+	return true;
+}
+
+bool Measure::handleWpFlat(){
+	return true;
+}
+
+bool Measure::handleWpDrilling(){
+	return true;
+}
+
+bool Measure::handleWpID(){
+	return true;
 }
 

@@ -12,6 +12,7 @@ StartCaliFastRamp::~StartCaliFastRamp() {}
 
 void StartCaliFastRamp::entry()
 {
+	std::cout << "StartCaliFastRamp entry" << std::endl;
 	startTimer();
 	getTime();
 	motorOn();

@@ -12,6 +12,7 @@ MeasureCaliFastRamp::~MeasureCaliFastRamp() {}
 
 void MeasureCaliFastRamp::entry()
 {
+	std::cout << "MeasureCaliFastRamp entry" << std::endl;
 	getTime();
 	stopTimer();
 	motorOff();

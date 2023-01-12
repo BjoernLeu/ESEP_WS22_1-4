@@ -12,6 +12,7 @@ StartCaliSlowHigh::~StartCaliSlowHigh() {}
 
 void StartCaliSlowHigh::entry()
 {
+	std::cout << "StartCaliSlowHigh entry" << std::endl;
 	startTimer();
 	getTime();
 	motorOn();
@@ -37,6 +38,9 @@ int StartCaliSlowHigh::getTime()
 void StartCaliSlowHigh::motorOn()
 {
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_ON), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
+	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_SLOW_ON), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}
 }

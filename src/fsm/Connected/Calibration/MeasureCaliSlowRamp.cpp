@@ -12,6 +12,7 @@ MeasureCaliSlowRamp::~MeasureCaliSlowRamp() {}
 
 void MeasureCaliSlowRamp::entry()
 {
+	std::cout << "MeasureCaliSlowRamp entry" << std::endl;
 	getTime();
 	stopTimer();
 	motorOff();
@@ -38,6 +39,9 @@ void MeasureCaliSlowRamp::stopTimer()
 
 void MeasureCaliSlowRamp::motorOff()
 {
+	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_SLOW_OFF), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}

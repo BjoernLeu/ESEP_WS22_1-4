@@ -101,6 +101,16 @@ public:
 	bool getSlSelf();
 
 	std::list<workpiece> wpList;
+	// void setWPType(int type);
+	// int getWPType();
+	// void setWPMetal(bool metal);
+	// bool getWPMetal();
+	// void setWPHeight(float height);
+	// float getWPHeight();
+	// void setWPFlipped(bool flipped);
+	// bool getWPFlipped();
+	// int getWPSegment();
+	// double distance;
 	double segmentDistanceList[3] = {0, 0, 0};
 
 	double slowFactor = 0;

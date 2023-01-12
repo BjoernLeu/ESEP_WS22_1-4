@@ -87,15 +87,14 @@ int main(int argc, char* argv[]) {
 //cr-ADC Events
 // 	dsp.subscribe("cr", ADC_DONE);
 //cr-Workpiece
- 	dsp.subscribe("cr", WS_DRILLING);
- 	dsp.subscribe("cr", WS_NO_DRILLING);
- 	dsp.subscribe("cr", WS_FLAT);
- 	dsp.subscribe("cr", WS_HIGH);
- 	dsp.subscribe("cr", WS_METAL);
+ 	dsp.subscribe("cr", WP_DRILLING);
+ 	dsp.subscribe("cr", WP_FLAT);
+ 	dsp.subscribe("cr", WP_HIGH);
+ 	dsp.subscribe("cr", WP_METAL);
 	dsp.subscribe("cr", ADD_TO_LIST);
 	dsp.subscribe("cr", ADD_WATCHER);
 	dsp.subscribe("cr", REMOVE_FROM_LIST); 
-	dsp.subscribe("cr", WS_ID);
+	dsp.subscribe("cr", WP_ID);
 //cr-Festo2
  	dsp.subscribe("cr", FESTO2_SORT);
  	dsp.subscribe("cr", FESTO2_NOT_SORT);

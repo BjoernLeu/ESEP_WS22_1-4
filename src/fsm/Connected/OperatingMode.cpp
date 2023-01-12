@@ -209,6 +209,26 @@ bool OperatingMode::handleLbI()
 	return true;
 }
 
+bool OperatingMode::handleWpHigh(){
+	substate->handleWpHigh();
+	return true;
+}
+
+bool OperatingMode::handleWpFlat(){
+	substate->handleWpFlat();
+	return true;
+}
+
+bool OperatingMode::handleWpDrilling(){
+	substate->handleWpDrilling();
+	return true;
+}
+
+bool OperatingMode::handleWpID(){
+	substate->handleWpID();
+	return true;
+}
+
 void OperatingMode::lightOn(int color)
 {
 	//TODO

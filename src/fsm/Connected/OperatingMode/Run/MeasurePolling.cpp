@@ -111,7 +111,6 @@ void MeasurePolling::setHigh() {
 	binaryOne = high * 0.75;
 	hole = high * 0.3;
 	factor = 25.0 / high;
-	std::cout << "factor: " << factor << std::endl;
 	std::cout << "High set at: " << high << std::endl;
 	sampling = true;
 	adc->sample();
@@ -212,9 +211,8 @@ void MeasurePolling::receivingRoutine(int channelID, ADC* adc) {
 			if(sampling) {
 				//TODO do evaluation shit here
 				diff = std::floor((zero - adcValue) * factor + 0.5);
-				std::cout << "diff: " << diff << std::endl;
 				if(diff != olddiff) {
-					std::cout << diff << std::endl;
+					// std::cout << diff << std::endl;
 					olddiff = diff;
 				}
 				if(slowFlag) {
@@ -248,7 +246,7 @@ void MeasurePolling::receivingRoutine(int channelID, ADC* adc) {
 					break;
 				case 19 ... 23:
 					if(highFlag) {
-						type = WS_CODE;
+						type = WP_CODE;
 						codeFlag = true;
 					}else {
 						if(!slowFlag) {
@@ -259,13 +257,13 @@ void MeasurePolling::receivingRoutine(int channelID, ADC* adc) {
 							slowFlag = true;
 							height = diff;
 						}
-						type = WS_FLAT;
+						type = WP_FLAT;
 //						height = diff;
 					}
 					break;
 				case 24 ... 26:
 					if(drillFlag) {
-						type = WS_DRILLING;
+						type = WP_DRILLING;
 //						height = diff;
 					}else if(codeFlag) {
 //						height = diff;
@@ -279,7 +277,7 @@ void MeasurePolling::receivingRoutine(int channelID, ADC* adc) {
 							height = diff;
 						}
 						highFlag = true;
-						type = WS_HIGH;
+						type = WP_HIGH;
 //						height = diff;
 					}
 					break;

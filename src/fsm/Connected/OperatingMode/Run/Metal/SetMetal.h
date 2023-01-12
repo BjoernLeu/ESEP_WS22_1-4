@@ -11,17 +11,19 @@
 #include "../../../Error.h"
 #include "../../../../gof/BaseState.h"
 #include "../../../../gof/SubEndState.h"
+#include "IdleMetal.h"
 
 class SetMetal : public BaseState{
 public:
 	SetMetal();
 	virtual ~SetMetal();
 
-	//transitions
-	bool no_Metal();
-
-	//methods
 	void entry() override;
+
+	//transitions
+	bool handleNoMetal() override;
+
+private:
 	void setMType();
 };
 

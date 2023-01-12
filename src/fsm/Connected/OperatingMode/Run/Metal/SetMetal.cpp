@@ -7,23 +7,19 @@
 
 #include "SetMetal.h"
 
-SetMetal::SetMetal() {
-	// TODO Auto-generated constructor stub
-
-}
-
-SetMetal::~SetMetal() {
-	// TODO Auto-generated destructor stub
-}
-
-bool SetMetal::no_Metal()
-{
-	//ToDo: Implement here
-}
+SetMetal::SetMetal() {}
+SetMetal::~SetMetal() {}
 
 void SetMetal::entry()
 {
-	//ToDo: Implement here
+	std::cout << "SetMetal entry" << std::endl;
+}
+
+bool SetMetal::handleNoMetal()
+{
+	new (this) IdleMetal;
+	entry();
+	return true;
 }
 
 void SetMetal::setMType()

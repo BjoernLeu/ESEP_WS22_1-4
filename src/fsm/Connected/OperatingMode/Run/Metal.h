@@ -11,6 +11,7 @@
 #include "../../../gof/BaseState.h"
 #include "../../../gof/SubEndState.h"
 #include "../../../Estop.h"
+#include "Metal/IdleMetal.h"
 
 class Metal : public BaseState {
 public:
@@ -18,15 +19,11 @@ public:
 	virtual ~Metal();
 
 	//transition
-	bool handleNoMetal();
-	bool handleMetalDetected();
+	bool handleNoMetal() override;
+	bool handleMetalDetected() override;
 
 	//methods
 	void entry() override;
-
-private:
-	void setMType();
-
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_COUNTDOWN_H_ */

@@ -237,6 +237,26 @@ bool Run::handleInOrder()
 	return true;
 }
 
+bool Run::handleWpHigh(){
+	substate->handleWpHigh();
+	return true;
+}
+
+bool Run::handleWpFlat(){
+	substate->handleWpFlat();
+	return true;
+}
+
+bool Run::handleWpDrilling(){
+	substate->handleWpDrilling();
+	return true;
+}
+
+bool Run::handleWpID(){
+	substate->handleWpID();
+	return true;
+}
+
 void Run::motorOff() 
 {
 	// TODO Auto-generated destructor stub

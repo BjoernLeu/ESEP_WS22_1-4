@@ -70,17 +70,16 @@ enum Event {
 //	ADC_SAMPLE,
 //	ADC_DONE,
 //Workpiece
-	WS_DRILLING,
-	WS_NO_DRILLING,
-	WS_FLAT,
-	WS_HIGH,
-	WS_METAL,
-	WS_ID,
+	WP_DRILLING,
+	WP_FLAT,
+	WP_HIGH,
+	WP_METAL,
+	WP_CODE,		//Event for all coded workpieces
+	WP_ID,
 	PLACEHOLDER,
 	REMOVE_FROM_LIST,
 	ADD_TO_LIST,
 	ADD_WATCHER,
-	WS_CODE,		//Event for all coded workpieces
 // custom
 	HIGHVALUE,
 	HEARTBEAT,

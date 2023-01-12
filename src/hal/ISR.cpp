@@ -187,7 +187,7 @@ void ISR::handleInterrupt(void) {
 				break;
 			case P_IS_METAL:
 				if (current_level) {
-					this->send(coid, static_cast<int>(WS_METAL), 0);
+					this->send(coid, static_cast<int>(WP_METAL), 0);
 				} else {
 
 				}

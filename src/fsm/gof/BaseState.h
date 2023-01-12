@@ -84,13 +84,14 @@ public:
 	virtual bool handleSorted();
 
 //Werkstueck
-	virtual bool handleWsMetal();
+	virtual bool handleWpMetal();
 	virtual bool handleWsCode0();
 	virtual bool handleWsCodeGroesser0();
-	virtual bool handleWsDrilling();
+	virtual bool handleWpDrilling();
 	virtual bool handleWsNoDrilling();
-	virtual bool handleWsFlat();
-	virtual bool handleWsHigh();
+	virtual bool handleWpFlat();
+	virtual bool handleWpHigh();
+	virtual bool handleWpID();
 	virtual bool handleEarly();
 	virtual bool handleWpEarly();
 	virtual bool handleLate();

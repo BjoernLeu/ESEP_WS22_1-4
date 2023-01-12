@@ -25,7 +25,6 @@ private:
 	int getTime();
 	void stopTimer();
 	void motorOff();
-	void setLowValue();
 };
 
 #endif /* SRC_FSM_CONNECTED_CALIBRATION_MEASURECALIFASTLOW_H_ */

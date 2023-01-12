@@ -11,6 +11,7 @@
 #include "../../../gof/BaseState.h"
 #include "../../../gof/SubEndState.h"
 #include "../../../Estop.h"
+#include "MeasureHeight/IdleMeasureHeight.h"
 
 class MeasureHeight : public BaseState {
 public:
@@ -18,18 +19,15 @@ public:
 	virtual ~MeasureHeight();
 
 	//transition
-	bool handleHsBelt();
-	bool handleHsWP();
+	bool handleHsBelt() override;
+	bool handleHsWP() override;
+	bool handleWpHigh() override;
+	bool handleWpFlat() override;
+	bool handleWpDrilling() override;
+	bool handleWpID() override;
 
 	//methods
-	void entry() override;
-	void exit() override;
-
-private:
-	void motorSlow();
-	void motorFast();
-	void setHType();
-	void pollHS();
+	void entry();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_COUNTDOWN_H_ */
