@@ -7,8 +7,8 @@
 
 #include "Com.h"
 
-Com::Com() {
-	// TODO Auto-generated constructor stub
+Com::Com(int festo, Dispatcher* disp) {
+	dp = disp;
 
 }
 

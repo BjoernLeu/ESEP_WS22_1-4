@@ -13,6 +13,7 @@
 //#include "../eventhandler/EventHandler.h"
 #include "../hal/HalControl.h"
 #include "../utils/Events.h"
+//#include "../com/Com.h"
 
 // system
 #include <chrono>
@@ -32,7 +33,6 @@
 class Dispatcher: public Communication {
 public:
 	/**
-	 * TODO: Kommunikation zum anderen Dispatcher
 	 *
 	 * Konstruktor der Klasse Dispatcher.
 	 * Registriert einen Namen im Pfadbereich und erstellt einen Kanal.

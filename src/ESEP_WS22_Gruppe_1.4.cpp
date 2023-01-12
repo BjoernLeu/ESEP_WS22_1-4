@@ -5,6 +5,7 @@
 #include "hal/HalControl.h"
 #include "hal/ISR.h"
 #include "dispatcher/Dispatcher.h"
+#include "com/Com.h"
 #include "utils/Gpio.h"
 #include "fsm/gof/Context.h"
 #include "fsm/Connected/OperatingMode/Run/MeasurePolling.h"
@@ -45,6 +46,7 @@ int main(int argc, char* argv[]) {
 
 
 	Dispatcher dsp("dr", "dr2", festo);
+	Com com(festo, &dsp);
 	ISR isr("dr", "dr2");
 	HalControl hc("hr", "dr");
 	Context ctx("cr", "cr2", "dr", "dr2", NULL, festo);

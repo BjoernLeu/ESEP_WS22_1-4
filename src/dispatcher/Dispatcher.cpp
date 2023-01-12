@@ -11,6 +11,7 @@
 
 Dispatcher::Dispatcher(const char* name, const char* name2, int festo) {
 	std::cout << "d: hi" << std::endl;
+
 	if (festo == 1) {
 		attachPointHere = "festo1";
 		attachPointRemote = "festo2";
