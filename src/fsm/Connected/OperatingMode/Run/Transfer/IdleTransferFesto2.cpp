@@ -8,9 +8,7 @@
 #include "IdleTransferFesto2.h"
 
 IdleTransferFesto2::IdleTransferFesto2() {}
-
 IdleTransferFesto2::~IdleTransferFesto2() {}
-
 
 	void entry()
 	{
@@ -18,10 +16,12 @@ IdleTransferFesto2::~IdleTransferFesto2() {}
 	}
 
 	//transitions
-	bool IdleTransferFesto2::handleLbSl()
+	bool IdleTransferFesto2::handleLbSL()
 	{
 		emptyBelt();
+		new (this) IdleTransferFesto2;
 		entry();
+		return true;
 	}
 
 	bool IdleTransferFesto2::handleLbO()
@@ -61,8 +61,8 @@ IdleTransferFesto2::~IdleTransferFesto2() {}
 		void motorOff()
 		{
 			if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
-				perror("MsgSendPulse failed");
-			}
+			perror("MsgSendPulse failed");
+		}
 		}
 
 		void sendWpArrived()

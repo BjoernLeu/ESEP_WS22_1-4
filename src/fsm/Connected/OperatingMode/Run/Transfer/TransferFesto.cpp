@@ -17,7 +17,7 @@ void TransferFesto::entry()
 		new (this) IdleTransferFesto1;
 		entry();
 	}
-	else if(data->getFesto == 2())
+	else if(data->getFesto() == 2)
 	{
 		new (this) IdleTransferFesto2;
 		entry();

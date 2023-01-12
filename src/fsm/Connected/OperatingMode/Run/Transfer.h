@@ -19,6 +19,17 @@ public:
 	virtual ~Transfer();
 
 	void entry() override;
+
+	//Transitions
+	bool handleLbSL() override;
+	bool handleLbO() override;
+	bool handleWpArrived() override;
+	bool handleTransferOK() override; 
+	bool handleTransferWait() override;
+	bool handleLbOFree() override;
+	bool handleWpTransfer() override;
+	bool handleLbI() override;
+
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_TRANSFER_H_ */

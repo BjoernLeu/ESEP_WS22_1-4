@@ -41,7 +41,9 @@ WaitFesto1::~WaitFesto1() {}
 
 	void WaitFesto1::closeSwitch()
 	{
-
+		if (MsgSendPulse(coid, -1, static_cast<int>(SWITCH_OFF), 0) == -1) {
+				perror("MsgSendPulse failed");
+		}
 	}
 
 	void WaitFesto1::motorOn()

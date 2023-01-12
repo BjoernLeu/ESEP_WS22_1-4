@@ -31,7 +31,7 @@ WaitFesto2::~WaitFesto2() {}
 		return true;
 	}
 
-	bool WaitFesto2::handleLbSl()
+	bool WaitFesto2::handleLbSL()
 	{
 		exit();
 		motorOn();

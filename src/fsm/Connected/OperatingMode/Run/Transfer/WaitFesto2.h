@@ -23,7 +23,7 @@ class WaitFesto2 : public BaseState{
 
 		//Transisions
 		bool handleLbOFree() override;
-		bool handleLbSl() override;
+		bool handleLbSL() override;
 		bool handleLbO() override;
 
 		//Methods

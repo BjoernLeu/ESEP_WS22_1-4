@@ -74,6 +74,12 @@ public:
 	bool handleWpDrilling() override;
 	bool handleWpID() override;
 
+	bool handleWpArrived() override;
+	bool handleTransferOK() override; 
+	bool handleTransferWait() override;
+	bool handleLbOFree() override;
+	bool handleWpTransfer() override;
+	
 	//Transitions -> serviceMode
 	bool handleResetSp() override;
 	bool handleLoadingCompleted() override;

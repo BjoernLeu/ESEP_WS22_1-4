@@ -22,7 +22,7 @@ IdleTransferFesto1::~IdleTransferFesto1() {
 	}
 
 	//Transitionen
-	bool IdleTransferFesto1::handleLbSl()
+	bool IdleTransferFesto1::handleLbSL()
 	{
 		checkEmptyBelt();
 		entry();

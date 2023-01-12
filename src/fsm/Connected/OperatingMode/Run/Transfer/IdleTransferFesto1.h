@@ -21,7 +21,7 @@ class IdleTransferFesto1 : public BaseState{
 		void entry() override;
 
 		//transitions
-		bool handleLbSl() override;
+		bool handleLbSL() override;
 		bool handleLbO() override;
 		bool handleWpArrived() override;
 

@@ -156,6 +156,10 @@ public:
 	virtual bool handleConEstablished();
 	virtual bool handleConLost();
 	virtual bool handleSavingDone();
+	virtual bool handleWpArrived();
+	virtual bool handleTransferOK();
+	virtual bool handleTransferWait();
+	virtual bool handleWpTransfer();
 	
 	static int coid;
 	static int coidExt;
