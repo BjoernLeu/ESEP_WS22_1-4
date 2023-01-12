@@ -11,20 +11,23 @@
 #include "../../../Error.h"
 #include "../../../../gof/BaseState.h"
 #include "../../../../gof/SubEndState.h"
+#include "IdleTransferFesto1.h"
+#include "WaitFesto1.h"
+
 
 class CheckFesto2 : public BaseState{
-public:
-	CheckFesto2();
-	virtual ~CheckFesto2();
+	public:
+		CheckFesto2();
+		virtual ~CheckFesto2();
 
-	void entry() override;
+		void entry() override;
 
-	//Transisions
-	bool handleTransferOK() override; 
-	bool handleTransferWait() override;
+		//Transisions
+		bool handleTransferOK() override; 
+		bool handleTransferWait() override;
 
-	//Methods
-	void sendWpTransfer();
+		//Methods
+		void sendWpTransfer();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_TRANSFER_CHECKFESTO2_H_ */

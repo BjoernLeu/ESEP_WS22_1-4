@@ -13,18 +13,22 @@ CheckFesto2::~CheckFesto2() {}
 
 	void CheckFesto2::entry()
 	{
-
+		sendWpTransfer();
 	}
 
 	//Transisions
 	bool CheckFesto2::handleTransferOK()
 	{
-
+		new (this) IdleTransferFesto1;
+		entry();
+		return true;
 	} 
 
 	bool CheckFesto2::handleTransferWait()
 	{
-
+		new (this) WaitFesto1;
+		entry();
+		return true;
 	}
 
 	//Methods

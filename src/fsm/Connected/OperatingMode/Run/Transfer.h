@@ -11,6 +11,7 @@
 #include "../../Error.h"
 #include "../../../gof/BaseState.h"
 #include "../../../gof/SubEndState.h"
+#include "Transfer/TransferFesto.h"
 
 class Transfer : public BaseState {
 public:

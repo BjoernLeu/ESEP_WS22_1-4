@@ -16,25 +16,35 @@ IdleTransferFesto1::~IdleTransferFesto1() {
 	// TODO Auto-generated destructor stub
 }
 
-IdleTransferFesto1::
-
-	void entry() 
+	void IdleTransferFesto1::entry() 
 	{
 		
 	}
 
 	//Transitionen
-	bool handleLbSl()
+	bool IdleTransferFesto1::handleLbSl()
 	{
-
+		checkEmptyBelt();
+		entry();
+		return true;
 	}
 
-	bool handleLbO()
+	bool IdleTransferFesto1::handleLbO()
 	{
-
+		new (this) CheckFesto2;
+		entry();
+		return true;
 	}
 
-	bool handleWpArrived()
+	bool IdleTransferFesto1::handleWpArrived()
 	{
-
+		checkEmptyBelt();
+		entry();
+		return true;
 	} 
+
+	//Methods
+	void IdleTransferFesto1::checkEmptyBelt()
+	{
+		
+	}

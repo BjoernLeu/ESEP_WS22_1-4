@@ -14,9 +14,8 @@ Transfer::~Transfer() {}
 void Transfer::entry()
 {
 	std::cout << "Transfer entry" << std::endl;
-	
-	void Transfer::entry()
-	{
-
-	}
+	substate = new TransferFesto;
+	substate->setData(data);
+	substate->setAction(action);
+	substate->entry();
 }
