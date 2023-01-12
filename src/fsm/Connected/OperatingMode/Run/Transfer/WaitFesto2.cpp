@@ -8,7 +8,6 @@
 #include "WaitFesto2.h"
 
 WaitFesto2::WaitFesto2() {}
-
 WaitFesto2::~WaitFesto2() {}
 
 	void WaitFesto2::entry()

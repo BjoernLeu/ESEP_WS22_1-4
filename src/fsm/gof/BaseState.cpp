@@ -114,5 +114,4 @@ bool BaseState::handleSavingDone(){return false;}
 bool BaseState::handleWpArrived(){return false;}
 bool BaseState::handleTransferOK(){return false;} 
 bool BaseState::handleTransferWait(){return false;}
-bool BaseState::handleLbOFree(){return false;}
 bool BaseState::handleWpTransfer(){return false;}

@@ -15,21 +15,21 @@
 
 
 class WaitFesto1 : public BaseState{
-public:
-	WaitFesto1();
-	virtual ~WaitFesto1();
+	public:
+		WaitFesto1();
+		virtual ~WaitFesto1();
 
-	void entry() override;
-	void exit() override;
+		void entry() override;
+		void exit() override;
 
-	//Transitions
-	bool handleTransferOK() override;
+		//Transitions
+		bool handleTransferOK() override;
 
-	//Methods
-	void motorOff();
-	void closeSwitch();
-	void motorOn();
-	void restoreSwitch();
+		//Methods
+		void motorOff();
+		void closeSwitch();
+		void motorOn();
+		void restoreSwitch();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_TRANSFER_WAITFESTO1_H_ */
