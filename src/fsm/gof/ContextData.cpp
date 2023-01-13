@@ -145,6 +145,10 @@ void ContextData::setWpDrillingCFalse(){drillingC = false;}
 void ContextData::setWpIsMetalCTrue(){isMetalC = true;}
 void ContextData::setWpIsMetalCFalse(){isMetalC = false;}
 
+/*================Workpiece List C================*/
+//get number of workpieces on the belt
+int ContextData::getNumberWpsOnBelt(){return wpList.size();}
+
 /*================Load workpieces from JSON================*/
 void ContextData::setLoadConfig(){
     std::string wpDataDir = "wp_cfg.json";

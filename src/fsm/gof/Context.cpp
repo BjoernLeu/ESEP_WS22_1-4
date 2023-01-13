@@ -153,6 +153,12 @@ void Context::handle_pulse(_pulse msg) {
 	case ADD_WATCHER:
 		state->handleStartSp();
 		break;
+	case WP_ARRIVED:
+		state->handleWpArrived();
+		break;
+	case WP_TRANSFER:
+		state->handleWpTransfer();
+		break;
 //Lightbarrier
 	case LB_I:
 		state->handleLbI();
@@ -258,6 +264,9 @@ void Context::handle_pulse(_pulse msg) {
 		break;
 	case ERROR:
 		state->handleError();
+		break;
+	case EMPTY_BELT:
+		state->handleEmptyBelt();
 		break;
 
 	default:

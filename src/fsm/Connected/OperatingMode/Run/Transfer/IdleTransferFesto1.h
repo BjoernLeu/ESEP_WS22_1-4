@@ -13,6 +13,8 @@
 #include "../../../../gof/SubEndState.h"
 #include "CheckFesto2.h"
 
+#define NO_WP_DETECTED 0
+
 class IdleTransferFesto1 : public BaseState{
 	public:
 		IdleTransferFesto1();

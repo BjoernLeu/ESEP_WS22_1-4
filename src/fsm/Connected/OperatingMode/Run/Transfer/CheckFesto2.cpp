@@ -34,5 +34,7 @@ CheckFesto2::~CheckFesto2() {}
 	//Methods
 	void CheckFesto2::sendWpTransfer()
 	{
-		
+		if (MsgSendPulse(coid, -1, static_cast<int>(WP_TRANSFER), 0) == -1) {
+			perror("MsgSendPulse failed");
+		}
 	}

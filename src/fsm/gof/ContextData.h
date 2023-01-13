@@ -101,6 +101,8 @@ public:
 	bool getSlSelf();
 
 	std::list<workpiece> wpList;
+	int getNumberWpsOnBelt();
+
 	// void setWPType(int type);
 	// int getWPType();
 	// void setWPMetal(bool metal);

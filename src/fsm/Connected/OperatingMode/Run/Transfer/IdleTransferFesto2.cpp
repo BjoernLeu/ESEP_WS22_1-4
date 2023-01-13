@@ -55,18 +55,22 @@ bool IdleTransferFesto2::handleLbI()
 //Methods
 void IdleTransferFesto2::emptyBelt()
 {
-	
+	if (MsgSendPulse(coid, -1, static_cast<int>(EMPTY_BELT), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}	
 }
 
 void IdleTransferFesto2::motorOff()
 {
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
-	perror("MsgSendPulse failed");
+		perror("MsgSendPulse failed");
 	}
 }
 
 void IdleTransferFesto2::sendWpArrived()
 {
-
+	if (MsgSendPulse(coid, -1, static_cast<int>(WP_ARRIVED), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 }
 

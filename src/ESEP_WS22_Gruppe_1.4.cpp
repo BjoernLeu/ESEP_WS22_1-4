@@ -95,6 +95,8 @@ int main(int argc, char* argv[]) {
 	dsp.subscribe("cr", ADD_WATCHER);
 	dsp.subscribe("cr", REMOVE_FROM_LIST); 
 	dsp.subscribe("cr", WP_ID);
+	dsp.subscribe("cr", WP_ARRIVED);
+	dsp.subscribe("hr", WP_TRANSFER);
 //cr-Festo2
  	dsp.subscribe("cr", FESTO2_SORT);
  	dsp.subscribe("cr", FESTO2_NOT_SORT);
@@ -137,6 +139,8 @@ int main(int argc, char* argv[]) {
 	dsp.subscribe("cr", PRINT_ERROR);
 	dsp.subscribe("cr", SEND_SIGNAL_SLIDE);
 	dsp.subscribe("cr", ERROR);
+	dsp.subscribe("cr", EMPTY_BELT);
+	
 
  	std::cout << "Subscribing done" << std::endl;
  	isr.startISR();
