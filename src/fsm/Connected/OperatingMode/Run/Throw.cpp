@@ -7,109 +7,82 @@
 
 #include "Throw.h"
 
-Throw::Throw()
-{
-	// TODO Auto-generated constructor stub
+Throw::Throw(){}
 
-}
-
-Throw::~Throw() 
-{
-	// TODO Auto-generated destructor stub
-}
+Throw::~Throw(){}
 
 void Throw::entry()
 {
-	// TODO Auto-generated destructor stub
+	std::cout << "Throw entry" << std::endl
+	substate = new IdleThrow;
+	substate->setData(data);
+	substate->setAction(action);
+	substate->entry();
 }
 
-bool Throw::handleSignalReceipted() 
+bool Throw::handleSlSelfFull() 
 {
-	// TODO Auto-generated destructor stub
+	substate->handleSlSelfFull();
+	return true;
 }
 
-bool Throw::handleThrown()
+bool Throw::handleSlBothFree() 
 {
-	// TODO Auto-generated destructor stub
+	substate->handleSlBothFree();
+	return true;
 }
 
-bool Throw::handleOutOfOrder()
+bool Throw::handleSlExtFull() 
 {
-	// TODO Auto-generated destructor stub
+	substate->handleSlExtFull();
+	return true;
 }
 
-bool Throw::handleFlat()
+bool Throw::handleSlBothFull() 
 {
-	// TODO Auto-generated destructor stub
+	substate->handleSlBothFull();
+	return true;
 }
 
-bool Throw::handleLbSwFree()
+bool Throw::handleOutOfOrder() 
 {
-	// TODO Auto-generated destructor stub
-}
-
-bool Throw::handleLbSW()
-{
-	// TODO Auto-generated destructor stub
-}
-
-bool Throw::handleSlSelfFull()
-{
-	// TODO Auto-generated destructor stub
-}
-
-bool Throw::handleSlBothFree()
-{
-	// TODO Auto-generated destructor stub
-}
-
-bool Throw::handleSlExtFull()
-{
-	// TODO Auto-generated destructor stub
-}
-
-bool Throw::handleSlBothFull()
-{
-	// TODO Auto-generated destructor stub
+	substate->handleOutOfOrder();
+	return true;
 }
 
 bool Throw::handleInOrder() 
 {
-	// ToDo: Implement me
+	substate->handleInOrder();
+	return true;
 }
 
-void Throw::sendError()
+bool Throw::handleLbSW() 
 {
-	// TODO Auto-generated destructor stub
+	substate->handleLbSW();
+	return true;
 }
 
-void Throw::blinkingOff(int color)
+bool Throw::handleLbSwFree() 
 {
-	// TODO Auto-generated destructor stub
+	substate->handleLbSwFree();
+	return true;
 }
 
-void Throw::throwWP()
+bool Throw::handleFlat() 
 {
-	// TODO Auto-generated destructor stub
+	substate->handleFlat();
+	return true;
 }
 
-void Throw::open()
+bool Throw::handleLbSwFree() 
 {
-	// TODO Auto-generated destructor stub
+	substate->handleLbSwFree();
+	return true;
 }
 
-void Throw::checkWP()
+bool Throw::handleSignalReceipted() 
 {
-	// TODO Auto-generated destructor stub
-}
-
-void Throw::checkFesto()
-{
-	// TODO Auto-generated destructor stub
-}
-
-void Throw::checkSlide()
-{
-	// TODO Auto-generated destructor stub
+	substate->handleSignalReceipted();
+	return true;
 }
 
