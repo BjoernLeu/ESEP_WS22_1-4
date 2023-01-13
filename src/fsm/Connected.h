@@ -68,12 +68,10 @@ public:
 	bool handleInOrder() override;
 	bool handleMetalDetected() override;
 	bool handleSLExtFree() override;
-
 	bool handleWpHigh() override;
 	bool handleWpFlat() override;
 	bool handleWpDrilling() override;
 	bool handleWpID() override;
-
 	bool handleWpArrived() override;
 	bool handleTransferOK() override; 
 	bool handleTransferWait() override;

@@ -55,8 +55,6 @@ public:
 	bool handleWpFlat() override;
 	bool handleWpDrilling() override;
 	bool handleWpID() override;
-
-
 	bool handleWpArrived() override;
 	bool handleTransferOK() override; 
 	bool handleTransferWait() override;
