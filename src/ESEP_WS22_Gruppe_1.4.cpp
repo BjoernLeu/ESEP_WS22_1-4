@@ -97,6 +97,9 @@ int main(int argc, char* argv[]) {
 	dsp.subscribe("cr", WP_ID);
 	dsp.subscribe("cr", WP_ARRIVED);
 	dsp.subscribe("hr", WP_TRANSFER);
+	dsp.subscribe("hr", TRANSFER_WAIT);
+	dsp.subscribe("hr", TRANSFER_OK);
+	
 //cr-Festo2
  	dsp.subscribe("cr", FESTO2_SORT);
  	dsp.subscribe("cr", FESTO2_NOT_SORT);

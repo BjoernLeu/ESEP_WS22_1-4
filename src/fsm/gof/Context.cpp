@@ -159,6 +159,15 @@ void Context::handle_pulse(_pulse msg) {
 	case WP_TRANSFER:
 		state->handleWpTransfer();
 		break;
+	case TRANSFER_WAIT:
+		state->handleTransferWait();
+		break;
+	case TRANSFER_OK:
+		state->handleTransferOK();
+		break;
+
+
+		
 //Lightbarrier
 	case LB_I:
 		state->handleLbI();

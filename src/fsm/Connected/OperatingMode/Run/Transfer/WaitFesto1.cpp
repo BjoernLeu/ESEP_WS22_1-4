@@ -53,6 +53,7 @@ WaitFesto1::~WaitFesto1() {}
 		}
 	}
 
+	/// @brief Ggf brauchen wir diesen Part nicht. Kann noch mal geprüft werden. Das ist ein Randfall.
 	void WaitFesto1::restoreSwitch()
 	{
 

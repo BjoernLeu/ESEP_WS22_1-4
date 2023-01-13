@@ -50,12 +50,16 @@ WaitFesto2::~WaitFesto2() {}
 	//Methods
 	void WaitFesto2::sendTransferWait()
 	{
-
+		if (MsgSendPulse(coid, -1, static_cast<int>(TRANSFER_WAIT), 0) == -1) {
+			perror("MsgSendPulse failed");
+		}
 	}
 
 	void WaitFesto2::sendTransferOK()
 	{
-
+		if (MsgSendPulse(coid, -1, static_cast<int>(TRANSFER_OK), 0) == -1) {
+			perror("MsgSendPulse failed");
+		}
 	}
 
 	void WaitFesto2::motorOff()
