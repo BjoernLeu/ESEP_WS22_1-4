@@ -111,3 +111,7 @@ bool BaseState::handleError(){return false;}
 bool BaseState::handleConEstablished(){return false;}
 bool BaseState::handleConLost(){return false;}
 bool BaseState::handleSavingDone(){return false;}
+bool BaseState::handleWpArrived(){return false;}
+bool BaseState::handleTransferOK(){return false;} 
+bool BaseState::handleTransferWait(){return false;}
+bool BaseState::handleWpTransfer(){return false;}

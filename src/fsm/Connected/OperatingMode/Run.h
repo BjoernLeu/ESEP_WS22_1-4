@@ -57,6 +57,12 @@ public:
 	bool handleWpFlat() override;
 	bool handleWpDrilling() override;
 	bool handleWpID() override;
+	bool handleWpArrived() override;
+	bool handleTransferOK() override; 
+	bool handleTransferWait() override;
+	bool handleLbOFree() override;
+	bool handleWpTransfer() override;
+
 
 	//methods
 	void entry() override;

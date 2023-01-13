@@ -303,3 +303,33 @@ bool Connected::handleWpID(){
 	substate->handleWpID();
 	return true;
 }
+
+bool Connected::handleWpArrived()
+{
+	substate->handleWpArrived();
+	return true;
+}
+
+bool Connected::handleTransferOK()
+{
+	substate->handleTransferOK();
+	return true;
+}
+
+bool Connected::handleTransferWait()
+{
+	substate->handleTransferWait();
+	return true;
+}
+
+bool Connected::handleLbOFree()
+{
+	substate->handleLbOFree();
+	return true;
+}
+
+bool Connected::handleWpTransfer()
+{
+	substate->handleWpTransfer();
+	return true;
+}
