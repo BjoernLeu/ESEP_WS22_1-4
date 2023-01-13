@@ -13,7 +13,7 @@ CheckSlide::~CheckSlide() {}
 
 void CheckSlide::entry()
 {
-	std::cout << "CheckSlide entry" << std::endl
+	std::cout << "CheckSlide entry" << std::endl;
 	//bothfree
 	if (checkSlide() == 1) {
 		handleSlBothFree(); 
@@ -105,13 +105,13 @@ int CheckSlide::checkFesto()
 
 int CheckSlide::checkSlide()
 {
-	if(data->getSlSelf == true && data->getSlExt == true){
+	if(data->getSlSelf() && data->getSlExt()){
 		return 1;
-	} else if (data->getSlSelf == false && data->getSlExt == false){
+	} else if (data->getSlSelf() == false && data->getSlExt() == false){
 		return 2;
-	} else if (data->getSlSelf == false){
+	} else if (data->getSlSelf() == false){
 		return 3;
-	} else if (data->getSlExt == false){
+	} else if (data->getSlExt() == false){
 		return 4;
 	} else {
 		std::cout << "Error! Can not read from Slide" << std::endl;

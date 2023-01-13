@@ -27,13 +27,13 @@ bool TooFull::handleSignalReceipted()
 
 void TooFull::sendError()
 {
-	//if (MsgSendPulse(coid, -1, static_cast<int>(ERROR), 0) == -1) {
-	//	perror("MsgSendPulse failed");
-	//}
+	if (MsgSendPulse(coid, -1, static_cast<int>(ERROR), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 }
 
 void TooFull::blinkingOff(int color)
 {
-	//ToDo: implement here
+	std::cout << "this is blinking now" << std::endl;
 }
 

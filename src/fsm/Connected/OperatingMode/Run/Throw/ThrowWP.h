@@ -24,7 +24,7 @@ public:
 	//method
 	void entry() override;
 	void exit() override;
-	void throwWP();
+	bool throwWP();
 	void throwWPOff();
 };
 

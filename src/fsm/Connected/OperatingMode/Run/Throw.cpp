@@ -13,7 +13,7 @@ Throw::~Throw(){}
 
 void Throw::entry()
 {
-	std::cout << "Throw entry" << std::endl
+	std::cout << "Throw entry" << std::endl;
 	substate = new IdleThrow;
 	substate->setData(data);
 	substate->setAction(action);
@@ -71,12 +71,6 @@ bool Throw::handleLbSwFree()
 bool Throw::handleFlat() 
 {
 	substate->handleFlat();
-	return true;
-}
-
-bool Throw::handleLbSwFree() 
-{
-	substate->handleLbSwFree();
 	return true;
 }
 

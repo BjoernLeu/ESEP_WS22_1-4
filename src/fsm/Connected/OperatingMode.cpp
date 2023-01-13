@@ -66,6 +66,12 @@ bool OperatingMode::handleThrown()
 	return true;
 }
 
+bool OperatingMode::handleSlBothFree() 
+{
+	substate->handleSlBothFree();
+	return true;
+}
+
 bool OperatingMode::handleOutOfOrder() 
 {
 	substate->handleOutOfOrder();
@@ -90,9 +96,9 @@ bool OperatingMode::handleLbSW()
 	return true;
 }
 
-bool OperatingMode::handleSLSelfFull() 
+bool OperatingMode::handleSlSelfFull() 
 {
-	substate->handleSLSelfFull();
+	substate->handleSlSelfFull();
 	return true;
 }
 
@@ -102,15 +108,15 @@ bool OperatingMode::handleSlFree()
 	return true;
 }
 
-bool OperatingMode::handleBothFull() 
+bool OperatingMode::handleSlBothFull() 
 {
-	substate->handleBothFull();
+	substate->handleSlBothFull();
 	return true;
 }
 
-bool OperatingMode::handleSLExtFull() 
+bool OperatingMode::handleSlExtFull() 
 {
-	substate->handleSLExtFull();
+	substate->handleSlExtFull();
 	return true;
 }
 
@@ -123,12 +129,6 @@ bool OperatingMode::handleWPExpected()
 bool OperatingMode::handleSLSelfFree() 
 {
 	substate->handleSLSelfFree();
-	return true;
-}
-
-bool OperatingMode::handleSLbothFree() 
-{
-	substate->handleSLbothFree();
 	return true;
 }
 

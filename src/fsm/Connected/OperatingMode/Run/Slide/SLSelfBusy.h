@@ -24,7 +24,7 @@ public:
 	//transition
 	bool handleWPExpected() override;
 	bool handleSLSelfFree() override;
-	bool handleSLExtFull() override;
+	bool handleSlExtFull() override;
 
 private:
 	void replySelfBusy();

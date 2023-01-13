@@ -161,15 +161,21 @@ bool Connected::handleLbSwFree()
 	return true;
 }
 
-bool Connected::handleSLSelfFull()
+bool Connected::handleSlBothFree()
 {
-	substate->handleSLSelfFull();
+	substate->handleSlBothFree();
 	return true;
 }
 
-bool Connected::handleSLExtFull()
+bool Connected::handleSlSelfFull()
 {
-	substate->handleSLExtFull();
+	substate->handleSlSelfFull();
+	return true;
+}
+
+bool Connected::handleSlExtFull()
+{
+	substate->handleSlExtFull();
 	return true;
 }
 
@@ -178,8 +184,8 @@ bool Connected::handleSlFree(){
 	return true;
 }
 
-bool Connected::handleBothFull(){
-	substate->handleBothFull();
+bool Connected::handleSlBothFull(){
+	substate->handleSlBothFull();
 	return true;
 }
 
@@ -204,11 +210,6 @@ bool Connected::handleSLSelfFree()
 bool Connected::handleLbSL()
 {
 	substate->handleLbSL();
-	return true;
-}
-bool Connected::handleSLbothFree()
-{
-	substate->handleSLbothFree();
 	return true;
 }
 

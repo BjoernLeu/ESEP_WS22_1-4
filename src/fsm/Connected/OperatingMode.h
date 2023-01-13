@@ -31,13 +31,13 @@ public:
 	bool handleFlat()override;
 	bool handleLbSwFree()override;
 	bool handleLbSW()override;
-	bool handleSLSelfFull()override;
+	bool handleSlSelfFull()override;
 	bool handleSlFree()override;
-	bool handleSLExtFull()override;
-	bool handleBothFull()override;
+	bool handleSlExtFull()override;
+	bool handleSlBothFree() override;
+	bool handleSlBothFull()override;
 	bool handleWPExpected()override;
 	bool handleSLSelfFree()override;
-	bool handleSLbothFree()override;
 	bool handleWpEarly()override;
 	bool handleWpLate()override;
 	bool handleEarly()override;

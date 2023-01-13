@@ -21,7 +21,6 @@ public:
 	virtual ~Throw();
 
 	void entry() override;
-	void exit() override;
 
 	//transition
 	bool handleSlSelfFull() override;
@@ -33,7 +32,6 @@ public:
 	bool handleLbSW() override;
 	bool handleLbSwFree() override;
 	bool handleFlat() override;	
-	bool handleLbSwFree() override;
 	bool handleSignalReceipted() override;
 };
 

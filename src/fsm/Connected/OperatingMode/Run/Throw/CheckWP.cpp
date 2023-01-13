@@ -33,7 +33,7 @@ bool CheckWP::handleInOrder()
 
 void CheckWP::checkWP()
 {
-	if(data->getWP_Expected){
+	if(data->getWP_Expected()){
 		handleInOrder();
 	} else {
 		handleOutOfOrder();

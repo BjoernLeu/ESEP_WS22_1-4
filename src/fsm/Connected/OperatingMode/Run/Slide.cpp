@@ -19,9 +19,9 @@ void Slide::entry()
 	substate->entry();
 }
 
-bool Slide::handleSLExtFull() 
+bool Slide::handleSlExtFull() 
 {
-	substate->handleSLExtFull();
+	substate->handleSlExtFull();
 	return true;
 }
 
@@ -31,9 +31,9 @@ bool Slide::handleSLSelfFree()
 	return true;
 }
 
-bool Slide::handleSLSelfFull() 
+bool Slide::handleSlSelfFull() 
 {
-	substate->handleSLSelfFull();
+	substate->handleSlSelfFull();
 	return true;
 }
 

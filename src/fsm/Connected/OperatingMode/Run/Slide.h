@@ -22,10 +22,10 @@ public:
 
 	//transitions
 	bool handleSLExtFree() override;
-	bool handleSLExtFull() override;
+	bool handleSlExtFull() override;
 	bool handleWPExpected() override;
 	bool handleSLSelfFree() override;
-	bool handleSLSelfFull() override;
+	bool handleSlSelfFull() override;
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_SLIDE_H_ */
