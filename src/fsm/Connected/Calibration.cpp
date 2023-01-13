@@ -46,6 +46,18 @@ bool Calibration::handleHsWP()
 	return true;
 }
 
+bool Calibration::handleLbSW()
+{
+	substate->handleLbSW();
+	return true;
+}
+
+bool Calibration::handleLbO()
+{
+	substate->handleLbO();
+	return true;
+}
+
 bool Calibration::handleCalcDone()
 {
 	substate->handleCalcDone();
@@ -54,6 +66,7 @@ bool Calibration::handleCalcDone()
 
 bool Calibration::handleStartSp()
 {
+	
 	substate->handleStartSp();
 	return true;
 }

@@ -9,6 +9,7 @@
 #define SRC_FSM_GOF_CONTEXTDATA_H_
 
 #include <iostream>
+#include <stdio.h>
 #include <time.h>
 #include <list>
 #include <ctime>
@@ -160,6 +161,33 @@ public:
 	int getWpHighC();
 	int getWpDrillingC();
 	int getWpIsMetalC();
+
+	//Timer WP-Tracking
+	void setTime_lbI_fast_max();
+	void setTime_hsWP_fast_max();
+	void setTime_lbSW_fast_max();
+	void setTime_lbO_fast_max();
+
+	void setTime_lbI_fast_min();
+	void setTime_hsWP_fast_min();
+	void setTime_lbSW_fast_min();
+	void setTime_lbO_fast_min();
+
+	void setTime_lbI_slow();
+	void setTime_hsWP_slow();
+
+	void setSectorDiff_max();
+	void setSectorDiff_min();
+
+	double getS1Max();
+	double getS2Max();
+	double getS3Max();
+
+	double getS1Min();
+	double getS2Min();
+	double getS3Min();
+
+	void setSlowFactor();
 	
 	MeasurePolling* mp;
 
@@ -186,11 +214,23 @@ private:
 	bool drillingC = false;
 	bool isMetalC = false;
 
-	
+	//Timer WP-Tracking
+	std::chrono::time_point<std::chrono::system_clock> lbI_fast_max, hsWP_fast_max, lbSW_fast_max, lbO_fast_max;
+	std::chrono::time_point<std::chrono::system_clock> lbI_fast_min, hsWP_fast_min, lbSW_fast_min, lbO_fast_min;
+	std::chrono::time_point<std::chrono::system_clock> lbI_slow_max, hsWP_slow_max;
+
+	//Sectors
+	std::chrono::duration<double> s1_length_max;
+	std::chrono::duration<double> s2_length_max;
+	std::chrono::duration<double> s3_length_max;
+	std::chrono::duration<double> s1_length_min;
+	std::chrono::duration<double> s2_length_min;
+	std::chrono::duration<double> s3_length_min;
+
+	//Lists
 	std::list<time_t> timerHeightQueue;
 	std::list<time_t> timerEndQueue;
 	std::list<time_t> timerWeicheOeffnenQueue;
-
 
 	//coid
 //	int coid;

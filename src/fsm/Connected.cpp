@@ -13,9 +13,6 @@ Connected::~Connected() {}
 void Connected::entry() 
 {
 	std::cout << "Connected entry" << std::endl;
-	action->blinkingOn(GREEN, FAST);
-	action->lightOn(START_LED);
-	action->lightOn(RESET_LED);
 	exit();
 	data->setConnectionTrue();
 	substate = new Idle;

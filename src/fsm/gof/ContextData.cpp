@@ -270,3 +270,43 @@ int ContextData::getWpIsMetalB(){return isMetalB;}
 int ContextData::getWpHighC(){return highC;}
 int ContextData::getWpDrillingC(){return drillingC;}
 int ContextData::getWpIsMetalC(){return isMetalC;}
+
+/*================Timer WP-Tracking================*/
+void ContextData::setTime_lbI_fast_max(){lbI_fast_max = std::chrono::system_clock::now();}
+void ContextData::setTime_hsWP_fast_max(){hsWP_fast_max = std::chrono::system_clock::now();}
+void ContextData::setTime_lbSW_fast_max(){lbSW_fast_max = std::chrono::system_clock::now();}
+void ContextData::setTime_lbO_fast_max(){lbO_fast_max = std::chrono::system_clock::now();}
+
+void ContextData::setTime_lbI_fast_min(){lbI_fast_min = std::chrono::system_clock::now();}
+void ContextData::setTime_hsWP_fast_min(){hsWP_fast_min = std::chrono::system_clock::now();}
+void ContextData::setTime_lbSW_fast_min(){lbSW_fast_min = std::chrono::system_clock::now();}
+void ContextData::setTime_lbO_fast_min(){lbO_fast_min = std::chrono::system_clock::now();}
+
+void ContextData::setTime_lbI_slow(){lbI_slow_max = std::chrono::system_clock::now();}
+void ContextData::setTime_hsWP_slow(){hsWP_slow_max = std::chrono::system_clock::now();}
+
+void ContextData::setSectorDiff_max()
+{
+    s1_length_max = hsWP_fast_max - lbI_fast_max;
+    s2_length_max = lbSW_fast_max - hsWP_fast_max;
+    s3_length_max = lbO_fast_max - lbSW_fast_max;
+}
+void ContextData::setSectorDiff_min()
+{
+    s1_length_min = hsWP_fast_min - lbI_fast_min;
+    s2_length_min = lbSW_fast_min - hsWP_fast_min;
+    s3_length_min = lbO_fast_min - lbSW_fast_min;
+}
+
+double ContextData::getS1Max(){return std::chrono::duration<double>(s1_length_max).count();}
+double ContextData::getS2Max(){return std::chrono::duration<double>(s2_length_max).count();}
+double ContextData::getS3Max(){return std::chrono::duration<double>(s3_length_max).count();}
+
+double ContextData::getS1Min(){return std::chrono::duration<double>(s1_length_min).count();}
+double ContextData::getS2Min(){return std::chrono::duration<double>(s2_length_min).count();}
+double ContextData::getS3Min(){return std::chrono::duration<double>(s3_length_min).count();}
+
+void ContextData::setSlowFactor()
+{
+
+}
