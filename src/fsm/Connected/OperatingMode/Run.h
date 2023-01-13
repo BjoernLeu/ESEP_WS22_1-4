@@ -11,6 +11,7 @@
 #include "../../gof/BaseState.h"
 #include "../../gof/SubEndState.h"
 #include "Run/ManageWP.h"
+#include "IdleRun.h"
 #include "Run/Transfer.h"
 #include "Run/MeasureHeight/IdleMeasureHeight.h"
 #include "Run/Metal/IdleMetal.h"
@@ -18,7 +19,6 @@
 #include "Run/Slide/IdleSlide.h"
 #include "Run/CountUp.h"
 #include "Run/CountDown.h"
-#include "Run.h"
 #include "../Error.h"
 
 class Run : public BaseState {

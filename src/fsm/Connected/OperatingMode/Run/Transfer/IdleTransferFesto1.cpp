@@ -46,5 +46,11 @@ IdleTransferFesto1::~IdleTransferFesto1() {
 	//Methods
 	void IdleTransferFesto1::checkEmptyBelt()
 	{
-		
+		if(data->getNumberWpsOnBelt() == NO_WP_DETECTED)
+		{
+			if (MsgSendPulse(coid, -1, static_cast<int>(EMPTY_BELT), 0) == -1) {
+				perror("MsgSendPulse failed");
+			}	
+		}
 	}
+	

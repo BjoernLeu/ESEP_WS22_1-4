@@ -82,6 +82,14 @@ bool Run::entryHistory()
 	return true;
 }
 
+bool Run::handleEmptyBelt() 
+{
+	exit();
+	new (this) IdleRun();
+	entry();
+	return true;
+}
+
 bool Run::handleSignalReceipted() 
 {
 	substate->handleSignalReceipted();
@@ -206,12 +214,6 @@ bool Run::handleHsBelt()
 bool Run::handleHsWP() 
 {
 	substate->handleHsWP();
-	return true;
-}
-
-bool Run::handleEmptyBelt() 
-{
-	substate->handleEmptyBelt();
 	return true;
 }
 
