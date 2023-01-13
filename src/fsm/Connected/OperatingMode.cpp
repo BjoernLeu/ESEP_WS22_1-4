@@ -238,3 +238,33 @@ void OperatingMode::lightOff(int color)
 {
 	//TODO
 }
+
+bool OperatingMode::handleWpArrived()
+{
+	substate->handleWpArrived();
+	return true;
+}
+
+bool OperatingMode::handleTransferOK()
+{
+	substate->handleTransferOK();
+	return true;
+}
+
+bool OperatingMode::handleTransferWait()
+{
+	substate->handleTransferWait();
+	return true;
+}
+
+bool OperatingMode::handleLbOFree()
+{
+	substate->handleLbOFree();
+	return true;
+}
+
+bool OperatingMode::handleWpTransfer()
+{
+	substate->handleWpTransfer();
+	return true;
+}

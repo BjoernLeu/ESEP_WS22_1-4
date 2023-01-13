@@ -266,3 +266,33 @@ void Run::motorOn()
 {
 	// TODO Auto-generated destructor stub
 }
+
+bool Run::handleWpArrived()
+{
+	substate->handleWpArrived();
+	return true;
+}
+
+bool Run::handleTransferOK()
+{
+	substate->handleTransferOK();
+	return true;
+}
+
+bool Run::handleTransferWait()
+{
+	substate->handleTransferWait();
+	return true;
+}
+
+bool Run::handleLbOFree()
+{
+	substate->handleLbOFree();
+	return true;
+}
+
+bool Run::handleWpTransfer()
+{
+	substate->handleWpTransfer();
+	return true;
+}
