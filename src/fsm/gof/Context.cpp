@@ -251,7 +251,7 @@ void Context::handle_pulse(_pulse msg) {
 		state->handlePrinted();
 		break;
 	case RECEIPTED:
-		state->handleStartSp();
+		state->handleSignalReceipted();
 		break;
 	case SEND_SIGNAL_SLIDE:
 		state->handleStartSp();

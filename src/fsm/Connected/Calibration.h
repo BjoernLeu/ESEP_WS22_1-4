@@ -25,6 +25,8 @@ public:
 	bool handleResetSp() override;
 	bool handleLbI() override;
 	bool handleHsWP() override;
+	bool handleLbSW() override;
+	bool handleLbO() override;
 	bool handleCalcDone() override;
 	bool handleStartSp() override;
 };

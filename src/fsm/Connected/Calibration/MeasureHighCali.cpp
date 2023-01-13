@@ -18,7 +18,7 @@ void MeasureHighCali::entry()
 
 bool MeasureHighCali::handleLbI()
 {
-	new (this) StartCaliFastLow;
+	new (this) InletStraight;
 	entry();
 	return true;
 }

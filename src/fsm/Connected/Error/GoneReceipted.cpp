@@ -12,6 +12,12 @@ GoneReceipted::GoneReceipted() {}
 GoneReceipted::~GoneReceipted() {}
 
 
+void GoneReceipted::entry()
+{
+	std::cout << "GoneReceipted entry" << std::endl;
+	lightOn(RED);
+}
+
 bool GoneReceipted::handleStartSp()
 {
 	exit();
@@ -20,17 +26,11 @@ bool GoneReceipted::handleStartSp()
 	return true;
 }
 
-void GoneReceipted::entry()
-{
-	std::cout << "GoneReceipted entry" << std::endl;
-	lightOn(RED);
-	receipted();
-}
-
 void GoneReceipted::exit()
 {
 	std::cout << "GoneReceipted exit" << std::endl;
 	action->lightOff(RED);
+	receipted();
 	sendSignalSlide();
 	motorOn();
 }
