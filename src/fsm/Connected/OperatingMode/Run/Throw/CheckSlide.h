@@ -8,6 +8,11 @@
 #ifndef SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_CHECKSLIDE_H_
 #define SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_CHECKSLIDE_H_
 
+#include "SortWPBothFull.h"
+#include "TooFull.h"
+#include "ThrowWP.h"
+#include "SortWPFree.h"
+#include "Pass.h"
 #include "../../../Error.h"
 #include "../../../../gof/BaseState.h"
 #include "../../../../gof/SubEndState.h"
@@ -18,15 +23,15 @@ public:
 	virtual ~CheckSlide();
 
 	//transition
-	bool handleSLSelfFull();
-	bool handleSlFree();
-	bool handleSLExtFull();
-	bool handleBothFull();
+	bool handleSlSelfFull() override;
+	bool handleSlBothFree() override;
+	bool handleSlExtFull() override;
+	bool handleSlBothFull() override;
 
 	//methods
 	void entry() override;
-	void checkFesto();
-	void checkSlide();
+	int checkFesto();
+	int checkSlide();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_CHECKSLIDE_H_ */

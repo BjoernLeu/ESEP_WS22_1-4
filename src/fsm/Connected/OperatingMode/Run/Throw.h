@@ -8,37 +8,31 @@
 #ifndef SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_H_
 #define SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_H_
 
+#include "../Run.h"
+#include "Throw/IdleThrow.h"
 #include "../../Error.h"
 #include "../../../gof/BaseState.h"
 #include "../../../gof/SubEndState.h"
+#include "../../../Estop.h"
 
 class Throw : public BaseState {
 public:
 	Throw();
 	virtual ~Throw();
 
+	void entry() override;
+
 	//transition
-	bool handleSignalReceipted();
-	bool handleThrown();
-	bool handleOutOfOrder();
-	bool handleFlat();
-	bool handleLbSwFree();
-	bool handleLbSW();
-	bool handleSLSelfFull();
-	bool handleSlFree();
-	bool handleSLExtFull();
-	bool handleBothFull();
-	bool handleInOrder();
-	
-	//methods
-	void entry();
-	void sendError();
-	void blinkingOff(int color);
-	void throwWP();
-	void open();
-	void checkWP();
-	void checkFesto();
-	void checkSlide();
+	bool handleSlSelfFull() override;
+	bool handleSlBothFree() override;
+	bool handleSlExtFull() override;
+	bool handleSlBothFull() override;
+	bool handleOutOfOrder() override;
+	bool handleInOrder() override;
+	bool handleLbSW() override;
+	bool handleLbSwFree() override;
+	bool handleFlat() override;	
+	bool handleSignalReceipted() override;
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_H_ */

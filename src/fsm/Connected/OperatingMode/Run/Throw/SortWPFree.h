@@ -20,8 +20,8 @@ public:
 	void entry() override;
 
 	//transition
-	bool handleOutOfOrder();
-	bool handleFlat();
+	bool handleOutOfOrder() override;
+	bool handleFlat() override;
 
 	//methods
 };

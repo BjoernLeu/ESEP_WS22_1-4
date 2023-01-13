@@ -7,21 +7,18 @@
 
 #include "IdleThrow.h"
 
-IdleThrow::IdleThrow() {
-	// TODO Auto-generated constructor stub
+IdleThrow::IdleThrow() {}
 
-}
-
-IdleThrow::~IdleThrow() {
-	// TODO Auto-generated destructor stub
-}
+IdleThrow::~IdleThrow() {}
 
 void IdleThrow::entry()
 {
-	//ToDo: implement here
+	std::cout << "IdleThrow entry" << std::endl;
 }
 
 bool IdleThrow::handleLbSW()
 {
-	//ToDo: implement here
+	new(this) CheckWP();
+	entry();
+	return true;
 }

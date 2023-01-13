@@ -28,7 +28,7 @@ bool SLSelfBusy::handleSLSelfFree()
 	return true;
 }
 
-bool SLSelfBusy::handleSLExtFull()
+bool SLSelfBusy::handleSlExtFull()
 {
 	new (this) BothBusy;
 	return true;

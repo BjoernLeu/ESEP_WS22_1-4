@@ -8,6 +8,7 @@
 #ifndef SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_TOOFULL_H_
 #define SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_TOOFULL_H_
 
+#include "ThrowWP.h"
 #include "../../../Error.h"
 #include "../../../../gof/BaseState.h"
 #include "../../../../gof/SubEndState.h"
@@ -18,7 +19,7 @@ public:
 	virtual ~TooFull();
 
 	//transition
-	bool handleSignalReceipted();
+	bool handleSignalReceipted() override;
 
 	//methods
 	void entry() override;

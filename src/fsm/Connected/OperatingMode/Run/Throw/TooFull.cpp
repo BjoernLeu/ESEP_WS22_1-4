@@ -7,32 +7,33 @@
 
 #include "TooFull.h"
 
-TooFull::TooFull() {
-	// TODO Auto-generated constructor stub
+TooFull::TooFull() {}
 
-}
+TooFull::~TooFull() {}
 
-TooFull::~TooFull() {
-	// TODO Auto-generated destructor stub
+void TooFull::entry()
+{
+	std::cout << "TooFull entry" << std::endl;
+	sendError();
+	blinkingOff(YELLOW);
 }
 
 bool TooFull::handleSignalReceipted()
 {
-	//ToDo: implement here
-}
-
-void TooFull::entry()
-{
-	//ToDo: implement here
+	new (this) ThrowWP;
+	entry();
+	return true;
 }
 
 void TooFull::sendError()
 {
-	//ToDo: implement here
+	if (MsgSendPulse(coid, -1, static_cast<int>(ERROR), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 }
 
 void TooFull::blinkingOff(int color)
 {
-	//ToDo: implement here
+	std::cout << "this is blinking now" << std::endl;
 }
 

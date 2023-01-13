@@ -9,6 +9,8 @@
 #define SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_CHECKWP_H_
 
 #include "../../../Error.h"
+#include "CheckSlide.h"
+#include "Pass.h"
 #include "../../../../gof/BaseState.h"
 #include "../../../../gof/SubEndState.h"
 
@@ -18,9 +20,8 @@ public:
 	virtual ~CheckWP();
 
 	//transition
-	bool handleOutOfOrder();
-	bool handleFlat();
-	bool handleInOrder();
+	bool handleOutOfOrder() override;
+	bool handleInOrder() override;
 
 	//methods
 	void entry() override;

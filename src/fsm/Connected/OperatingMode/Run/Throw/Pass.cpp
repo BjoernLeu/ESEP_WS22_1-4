@@ -7,27 +7,27 @@
 
 #include "Pass.h"
 
-Pass::Pass() {
-	// TODO Auto-generated constructor stub
+Pass::Pass() {}
 
-}
+Pass::~Pass() {}
 
-Pass::~Pass() {
-	// TODO Auto-generated destructor stub
+void Pass::entry()
+{
+	std::cout << "Pass entry" << std::endl;
+	passWP();
 }
 
 bool Pass::handleLbSwFree()
 {
-	//ToDo: implement here
+	new(this) IdleThrow();
+	entry();
+	return true;
 }
 
-void Pass::entry()
+void Pass::passWP()
 {
-	//ToDo: implement here
-}
-
-void Pass::open()
-{
-	//ToDo: implement here
+	if (MsgSendPulse(coid, -1, static_cast<int>(PASS_WP), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 }
 

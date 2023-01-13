@@ -118,27 +118,29 @@ bool Run::handleLbSW()
 	return true;
 }
 
-bool Run::handleSLSelfFull() 
+bool Run::handleSlSelfFull() 
 {
-	substate->handleSLSelfFull();
+	substate->handleSlSelfFull();
 	return true;
 }
 
-bool Run::handleSlFree() 
+
+
+bool Run::handleSlBothFree() 
 {
-	substate->handleSlFree();
+	substate->handleSlBothFree();
 	return true;
 }
 
-bool Run::handleBothFull() 
+bool Run::handleSlBothFull() 
 {
-	substate->handleBothFull();
+	substate->handleSlBothFull();
 	return true;
 }
 
-bool Run::handleSLExtFull() 
+bool Run::handleSlExtFull() 
 {
-	substate->handleSLExtFull();
+	substate->handleSlExtFull();
 	return true;
 }
 
@@ -151,12 +153,6 @@ bool Run::handleWPExpected()
 bool Run::handleSLSelfFree() 
 {
 	substate->handleSLSelfFree();
-	return true;
-}
-
-bool Run::handleSLbothFree() 
-{
-	substate->handleSLbothFree();
 	return true;
 }
 

@@ -128,11 +128,10 @@ public:
 
 //Slide
 	virtual bool handleSLSelfFree();
-	virtual bool handleSLSelfFull();
+	virtual bool handleSlSelfFull();
 	virtual bool handleSLExtFree();
-	virtual bool handleSLExtFull();
+	virtual bool handleSlExtFull();
 	virtual bool handleSlFree();
-	virtual bool handleSLbothFree();
 
 //custom new
 	virtual bool handleHsBelt();
@@ -146,7 +145,8 @@ public:
 	virtual bool handleSignalReceipted();
 	virtual bool handleThrown();
 	virtual bool handleInOrder();
-	virtual bool handleBothFull();
+	virtual bool handleSlBothFull();
+	virtual bool handleSlBothFree();
 	virtual bool handleEmptyBelt();
 	virtual bool handlePrinted();
 	virtual bool handleErrorGone();

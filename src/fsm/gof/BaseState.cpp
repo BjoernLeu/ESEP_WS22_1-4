@@ -13,7 +13,7 @@ void BaseState::initSubstate() {}
 bool BaseState::isSubEndState() {return false;}
 bool BaseState::isSubExitWithLast() {return false;}
 void BaseState::entryStartNode() {}
-bool BaseState::entryHistory() {}
+bool BaseState::entryHistory() {return false;}
 void BaseState::entryUp() {}
 void BaseState::entry() {}
 void BaseState::exit() {}
@@ -83,11 +83,11 @@ bool BaseState::handleWsComes(){return false;}
 
 //Slide
 bool BaseState::handleSLSelfFree(){return false;}
-bool BaseState::handleSLSelfFull(){return false;}
+bool BaseState::handleSlSelfFull(){return false;}
 bool BaseState::handleSLExtFree(){return false;}
-bool BaseState::handleSLExtFull(){return false;}
+bool BaseState::handleSlExtFull(){return false;}
 bool BaseState::handleSlFree(){return false;}
-bool BaseState::handleSLbothFree(){return false;}
+bool BaseState::handleSlBothFree(){return false;}
 
 //Custom new
 bool BaseState::handleHsBelt(){return false;}
@@ -101,7 +101,7 @@ bool BaseState::handleFlat(){return false;}
 bool BaseState::handleSignalReceipted(){return false;}
 bool BaseState::handleThrown(){return false;}
 bool BaseState::handleInOrder(){return false;}
-bool BaseState::handleBothFull(){return false;}
+bool BaseState::handleSlBothFull(){return false;}
 bool BaseState::handleEmptyBelt(){return false;}
 bool BaseState::handlePrinted(){return false;}
 bool BaseState::handleErrorGone(){return false;}

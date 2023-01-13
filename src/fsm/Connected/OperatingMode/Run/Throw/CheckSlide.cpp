@@ -7,47 +7,114 @@
 
 #include "CheckSlide.h"
 
-CheckSlide::CheckSlide() {
-	// TODO Auto-generated constructor stub
+CheckSlide::CheckSlide() {}
 
-}
-
-CheckSlide::~CheckSlide() {
-	// TODO Auto-generated destructor stub
-}
-
-bool CheckSlide::handleSLSelfFull()
-{
-	//ToDo: implement here
-}
-
-bool CheckSlide::handleSlFree()
-{
-	//ToDo: implement here
-}
-
-bool CheckSlide::handleSLExtFull()
-{
-	//ToDo: implement here
-}
-
-bool CheckSlide::handleBothFull()
-{
-	//ToDo: implement here
-}
+CheckSlide::~CheckSlide() {}
 
 void CheckSlide::entry()
 {
-	//ToDo: implement here
+	std::cout << "CheckSlide entry" << std::endl;
+	//bothfree
+	if (checkSlide() == 1) {
+		handleSlBothFree(); 
+	}
+	//bothfull
+	else if (checkSlide() == 2) {
+		handleSlBothFull();
+	}
+	else if (checkSlide() == 3) {
+		handleSlSelfFull();
+	}
+	//extfull
+	else if (checkSlide() == 3) {
+		handleSlExtFull();
+	}
+	else {
+		std::cout << "Error by Festo1" << std::endl;
+	}
 }
 
-void CheckSlide::checkFesto()
+bool CheckSlide::handleSlSelfFull()
 {
-	//ToDo: implement here
+	if(checkFesto() == 1){
+		new (this) Pass;
+		entry();
+		return true;
+	} else if (checkFesto() == 2){
+		new (this) TooFull;
+		entry();
+		return true;
+	} else {
+		std::cout << "Error! Identity of Festo unclear" << std::endl;
+	}
+	return false;
 }
 
-void CheckSlide::checkSlide()
-
+bool CheckSlide::handleSlBothFree()
 {
-	//ToDo: implement here
+	if(checkFesto() == 1){
+		new (this) SortWPFree;
+		entry();
+		return true;
+	} else if (checkFesto() == 2){
+		new (this) ThrowWP;
+		entry();
+		return true;
+	} else {
+		std::cout << "Error! Identity of Festo unclear" << std::endl;
+	}
+	return false;
+}
+
+bool CheckSlide::handleSlExtFull()
+{
+	if(checkFesto() == 1){
+		new (this) SortWPFree;
+		entry();
+		return true;
+	} else if (checkFesto() == 2){
+		new (this) ThrowWP;
+		entry();
+		return true;
+	} else {
+		std::cout << "Error! Identity of Festo unclear" << std::endl;
+	}
+	return false;
+}
+
+bool CheckSlide::handleSlBothFull()
+{
+	if(checkFesto() == 1){
+		new (this) SortWPBothFull;
+		entry();
+		return true;
+	} else if (checkFesto() == 2){
+		new (this) TooFull;
+		entry();
+		return true;
+	} else {
+		std::cout << "Error! Identity of Festo unclear" << std::endl;
+	}
+	return false;
+}
+
+int CheckSlide::checkFesto()
+{
+	return data->getFesto();
+}
+
+int CheckSlide::checkSlide()
+{
+	if(data->getSlSelf() && data->getSlExt()){
+		return 1;
+	} else if (data->getSlSelf() == false && data->getSlExt() == false){
+		return 2;
+	} else if (data->getSlSelf() == false){
+		return 3;
+	} else if (data->getSlExt() == false){
+		return 4;
+	} else {
+		std::cout << "Error! Can not read from Slide" << std::endl;
+	}
+	return 0; 
 }

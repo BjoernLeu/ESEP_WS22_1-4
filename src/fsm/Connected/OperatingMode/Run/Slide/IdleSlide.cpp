@@ -16,7 +16,7 @@ void IdleSlide::entry()
 	action->blinkingOff(YELLOW);
 }
 
-bool IdleSlide::handleSLSelfFull()
+bool IdleSlide::handleSlSelfFull()
 {
 	new (this) SLSelfBusy;
 	entry();
@@ -29,7 +29,7 @@ bool IdleSlide::handleWPExpected()
 	entry();
 }
 
-bool IdleSlide::handleSLExtFull()
+bool IdleSlide::handleSlExtFull()
 {
 	new (this) SLExtBusy;
 	entry();

@@ -22,9 +22,9 @@ public:
 	void entry() override;
 
 	//transitions
-	bool handleSLSelfFull() override;
+	bool handleSlSelfFull() override;
 	bool handleWPExpected() override;
-	bool handleSLExtFull() override;
+	bool handleSlExtFull() override;
 
 private:
 	void replyBothFree();

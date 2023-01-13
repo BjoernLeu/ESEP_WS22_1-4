@@ -23,7 +23,7 @@ public:
 
 	//transitions
 	bool handleSLExtFree() override;
-	bool handleSLSelfFull() override;
+	bool handleSlSelfFull() override;
 	bool handleWPExpected() override;
 
 private:

@@ -9,6 +9,7 @@
 #define SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_IDLETHROW_H_
 
 #include "../../../Error.h"
+#include "CheckWP.h"
 #include "../../../../gof/BaseState.h"
 #include "../../../../gof/SubEndState.h"
 
@@ -20,7 +21,7 @@ public:
 	void entry() override;
 
 	//transition
-	bool handleLbSW();
+	bool handleLbSW() override;
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_IDLETHROW_H_ */

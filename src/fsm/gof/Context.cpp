@@ -173,13 +173,13 @@ void Context::handle_pulse(_pulse msg) {
 		state->handleLbSLFree();
 		break;
 	case LB_SL_SELF_FULL:
-		state->handleSLSelfFull();
+		state->handleSlSelfFull();
 		break;
 	case LB_SL_SELF_FREE:
 		state->handleSLSelfFree();
 		break;
 	case LB_SL_EXT_FULL:
-		state->handleSLExtFull();
+		state->handleSlExtFull();
 		break;
 	case LB_SL_EXT_FREE:
 		state->handleSLExtFree();

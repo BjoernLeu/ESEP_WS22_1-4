@@ -8,6 +8,7 @@
 #ifndef SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_PASS_H_
 #define SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_PASS_H_
 
+#include "IdleThrow.h"
 #include "../../../Error.h"
 #include "../../../../gof/BaseState.h"
 #include "../../../../gof/SubEndState.h"
@@ -18,11 +19,11 @@ public:
 	virtual ~Pass();
 
 	//transition
-	bool handleLbSwFree();
+	bool handleLbSwFree() override;
 
 	//methods
 	void entry() override;
-	void open();
+	void passWP();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_PASS_H_ */

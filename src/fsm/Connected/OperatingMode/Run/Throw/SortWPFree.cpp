@@ -7,26 +7,25 @@
 
 #include "SortWPFree.h"
 
-SortWPFree::SortWPFree() {
-	// TODO Auto-generated constructor stub
+SortWPFree::SortWPFree() {}
 
-}
-
-SortWPFree::~SortWPFree() {
-	// TODO Auto-generated destructor stub
-}
+SortWPFree::~SortWPFree() {}
 
 void SortWPFree::entry()
 {
-	//ToDo: implement here
+	std::cout << "SortWPFree entry" << std::endl;
 }
 
 bool SortWPFree::handleOutOfOrder()
 {
-	//ToDo: implement here
+	new (this) Pass;
+	entry();
+	return true;
 }
 
 bool SortWPFree::handleFlat()
 {
-	//ToDo: implement here
+	new (this) ThrowWP;
+	entry();
+	return true;
 }

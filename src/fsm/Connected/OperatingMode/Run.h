@@ -29,17 +29,17 @@ public:
 	//transition
 	bool handleSignalReceipted() override;
 	bool handleThrown() override;
+	bool handleSlSelfFull() override;
+	bool handleSlBothFree() override;
+	bool handleSlExtFull() override;
+	bool handleSlBothFull() override;
 	bool handleOutOfOrder() override;
-	bool handleFlat() override;
-	bool handleLbSwFree() override;
+	bool handleInOrder() override;
 	bool handleLbSW() override;
-	bool handleSLSelfFull() override;
-	bool handleSlFree() override;
-	bool handleSLExtFull() override;
-	bool handleBothFull() override;
+	bool handleLbSwFree() override;
+	bool handleFlat() override;	
 	bool handleWPExpected() override;
 	bool handleSLSelfFree() override;
-	bool handleSLbothFree() override;
 	bool handleWpEarly() override;
 	bool handleWpLate() override;
 	bool handleEarly() override;
@@ -50,7 +50,6 @@ public:
 	bool handleHsWP() override;
 	bool handleNoMetal() override;
 	bool handleEmptyBelt() override;
-	bool handleInOrder() override;
 	bool handleMetalDetected() override;
 	bool handleLbI() override;	
 	bool handleWpHigh() override;
