@@ -30,7 +30,7 @@ bool IdleRun::hadleWpTransfer()
 	return true;
 }
 
-bool IdleRun::sendTransferOK() 
+void IdleRun::sendTransferOK() 
 {
 	std::cout << "Hier wird was gesendet." << std::endl;
 	//send(":)");
