@@ -21,7 +21,7 @@ public:
 
 	//transition
 	bool handleLbI() override;
-	bool hadleWpTransfer() override;
+	bool handleWpTransfer() override;
 
 	void entry() override;
 
