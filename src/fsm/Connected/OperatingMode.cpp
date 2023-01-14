@@ -267,3 +267,8 @@ bool OperatingMode::handleWpTransfer()
 	substate->handleWpTransfer();
 	return true;
 }
+
+bool OperatingMode::handleManageDone()
+{
+	//ToDo not implemented yet
+}
