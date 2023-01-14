@@ -80,6 +80,12 @@ bool Connected::handleHsWP()
 	return true;
 }
 
+bool Connected::handleManageDone()
+{
+	substate->handleManageDone();
+	return true;
+}
+
 bool Connected::handleCalcDone() 
 {
 	substate->handleCalcDone();

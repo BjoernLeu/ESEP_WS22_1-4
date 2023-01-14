@@ -7,32 +7,28 @@
 
 #include "IdleWatch.h"
 
-IdleWatch::IdleWatch() 
+IdleWatch::IdleWatch(){}
+IdleWatch::~IdleWatch(){}
+
+void IdleWatch::entry(){} //empty entry
+
+bool IdleWatch::handleHsWP()
 {
-	// TODO Auto-generated constructor stub
+	new (this) ArrivedHeight;
+	entry();
+	return true;
 }
 
-IdleWatch::~IdleWatch() 
+bool IdleWatch::handleLbSW()
 {
-	// TODO Auto-generated destructor stub
+	new (this) ArrivedSwitch;
+	entry();
+	return true;
 }
 
-void IdleWatch::entry()
+bool IdleWatch::handleLbO()
 {
-	//ToDo: implement here
-}
-
-bool IdleWatch::handleWpEarly() 
-{
-	// TODO Auto-generated destructor stub
-}
-
-bool IdleWatch::handleWpLate() 
-{
-	// TODO Auto-generated destructor stub
-}
-
-bool IdleWatch::watchWS() 
-{
-	// TODO Auto-generated destructor stub
+	new (this) ArrivedOut;
+	entry();
+	return true;
 }

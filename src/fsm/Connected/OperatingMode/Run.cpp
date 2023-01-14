@@ -306,3 +306,9 @@ bool Run::handleWpTransfer()
 	substate->handleWpTransfer();
 	return true;
 }
+
+bool Run::handleManageDone()
+{
+	substate->handleManageDone();
+	return true;
+}

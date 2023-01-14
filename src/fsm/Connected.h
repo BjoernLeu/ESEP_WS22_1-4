@@ -77,6 +77,7 @@ public:
 	bool handleTransferWait() override;
 	bool handleLbOFree() override;
 	bool handleWpTransfer() override;
+	bool handleManageDone() override;
 	
 	//Transitions -> serviceMode
 	bool handleResetSp() override;

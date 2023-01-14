@@ -7,12 +7,32 @@
 
 #include "ArrivedHeight.h"
 
-ArrivedHeight::ArrivedHeight() {
-	// TODO Auto-generated constructor stub
+ArrivedHeight::ArrivedHeight() {}
+ArrivedHeight::~ArrivedHeight() {}
+
+void ArrivedHeight::entry()
+{
+	checkEarly();
+	manageList();
+}
+
+//transitions
+bool ArrivedHeight::handleManageDone()
+{
+	new (this) IdleWatch;
+	entry();
+	return true;
+}
+
+
+//methods
+void ArrivedHeight::checkEarly()
+{
 
 }
 
-ArrivedHeight::~ArrivedHeight() {
-	// TODO Auto-generated destructor stub
+void ArrivedHeight::manageList()
+{
+
 }
 

@@ -7,12 +7,31 @@
 
 #include "ArrivedOut.h"
 
-ArrivedOut::ArrivedOut() {
-	// TODO Auto-generated constructor stub
+ArrivedOut::ArrivedOut() {}
+ArrivedOut::~ArrivedOut() {}
+
+void ArrivedOut::entry()
+{
+	checkEarly();
+	manageList();
+}
+
+//transitions
+bool ArrivedOut::handleManageDone()
+{
+	new (this) IdleWatch;
+	entry();
+	return true;
+}
+
+
+//methods
+void ArrivedOut::checkEarly()
+{
 
 }
 
-ArrivedOut::~ArrivedOut() {
-	// TODO Auto-generated destructor stub
-}
+void ArrivedOut::manageList()
+{
 
+}
