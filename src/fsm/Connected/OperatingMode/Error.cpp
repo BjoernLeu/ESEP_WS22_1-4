@@ -28,14 +28,16 @@ void Error::entry()
 
 bool Error::handleStartSp()
 {
-	new(this) OperatingMode;
+	new(this) Run;
+//	new(this) OperatingMode;
 	entryHistory();
 	return true;
 }
 
 bool Error::handlePrinted()
 {
-	new(this) OperatingMode;
+	new(this) Run;
+//	new(this) OperatingMode;
 	entryHistory();
 	return true;
 }
