@@ -23,22 +23,26 @@ bool ManageWP::handleLbI()
 
 bool ManageWP::handleManageDone()
 {
-	//ToDo not implemented yet
+	substate->handleManageDone();
+	return true;
 }
 
 bool ManageWP::handleHsWP()
 {
-	//ToDo not implemented yet
+	substate->handleHsWP();
+	return true;
 }
 
 bool ManageWP::handleLbSW()
 {
-	//ToDo not implemented yet
+	substate->handleLbSW();
+	return true;
 }
 
 bool ManageWP::handleLbO()
 {
-	//ToDo not implemented yet
+	substate->handleLbO();
+	return true;
 }
 
 void ManageWP::startWatchLateThread()

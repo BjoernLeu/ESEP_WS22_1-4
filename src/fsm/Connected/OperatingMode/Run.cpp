@@ -309,5 +309,6 @@ bool Run::handleWpTransfer()
 
 bool Run::handleManageDone()
 {
-	//ToDo not implemented yet
+	substate->handleManageDone();
+	return true;
 }

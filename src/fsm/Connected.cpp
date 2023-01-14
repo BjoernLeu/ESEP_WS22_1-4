@@ -82,7 +82,8 @@ bool Connected::handleHsWP()
 
 bool Connected::handleManageDone()
 {
-	//ToDo not implemented yet
+	substate->handleManageDone();
+	return true;
 }
 
 bool Connected::handleCalcDone() 
