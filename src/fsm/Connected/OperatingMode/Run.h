@@ -17,8 +17,6 @@
 #include "Run/Metal/IdleMetal.h"
 #include "Run/Throw/IdleThrow.h"
 #include "Run/Slide/IdleSlide.h"
-#include "Run/CountUp.h"
-#include "Run/CountDown.h"
 #include "../Error.h"
 
 class Run : public BaseState {
