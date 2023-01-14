@@ -12,9 +12,13 @@
 #include "GoneUnreceipted.h"
 #include "WPAppeared.h"
 #include "WPDisappeared.h"
-#include "../../gof/BaseState.h"
-#include "../../gof/SubEndState.h"
-#include "../../Estop.h"
+//#include "../../gof/BaseState.h"
+//#include "../../gof/SubEndState.h"
+//#include "../../Estop.h"
+#include "../../../gof/BaseState.h"
+#include "../../../gof/SubEndState.h"
+#include "../../../Estop.h"
+
 
 class PendingUnreceipted : public BaseState{
 public:

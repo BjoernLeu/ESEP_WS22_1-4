@@ -59,6 +59,7 @@ public:
 	bool handleTransferWait() override;
 	bool handleLbOFree() override;
 	bool handleWpTransfer() override;
+	bool handleError()override;
 
 
 	//methods

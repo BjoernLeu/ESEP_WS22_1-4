@@ -9,7 +9,8 @@
 #define SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_TROWWP_H_
 
 #include "IdleThrow.h"
-#include "../../../Error.h"
+#include "../../Error.h"
+//#include "../../../Error.h"
 #include "../../../../gof/BaseState.h"
 #include "../../../../gof/SubEndState.h"
 

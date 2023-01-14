@@ -10,8 +10,8 @@
 
 #include "../gof/BaseState.h"
 #include "../gof/SubEndState.h"
-#include "Error.h"
 #include "Idle.h"
+//#include "Error.h"
 #include "OperatingMode/IdleRun.h"
 #include "OperatingMode/Run.h"
 #include "../Estop.h"
@@ -24,7 +24,7 @@ public:
 
 	//transition
 	bool handleStopSp()override;
-	bool handleError()override;
+
 	bool handleSignalReceipted()override;
 	bool handleThrown()override;
 	bool handleOutOfOrder()override;
@@ -60,12 +60,13 @@ public:
 	bool handleTransferWait() override;
 	bool handleLbOFree() override;
 	bool handleWpTransfer() override;
+	//bool handleError()override;
 
 
 	//methods
 	void entry() override;
 	void exit() override;
-	bool entryHistory() override;
+	//bool entryHistory() override;
 
 public: 
 	void lightOn(int color);

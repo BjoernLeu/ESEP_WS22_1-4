@@ -12,7 +12,8 @@ Error::~Error(){}
 
 bool Error::entryHistory()
 {
-	new(this) OperatingMode;
+	new(this) Run;
+	//new(this) OperatingMode;
 	entryHistory();
 	return true;
 }

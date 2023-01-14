@@ -8,7 +8,8 @@
 #ifndef SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_CHECKWP_H_
 #define SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_CHECKWP_H_
 
-#include "../../../Error.h"
+#include "../../Error.h"
+//#include "../../../Error.h"
 #include "CheckSlide.h"
 #include "Pass.h"
 #include "../../../../gof/BaseState.h"

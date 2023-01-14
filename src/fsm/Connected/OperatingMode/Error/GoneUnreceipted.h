@@ -8,9 +8,13 @@
 #ifndef SRC_FSM_CONNECTED_ERROR_GONEUNRECEIPTED_H_
 #define SRC_FSM_CONNECTED_ERROR_GONEUNRECEIPTED_H_
 
-#include "../../gof/BaseState.h"
-#include "../../gof/SubEndState.h"
-#include "../../Estop.h"
+#include "../../../gof/BaseState.h"
+#include "../../../gof/SubEndState.h"
+#include "../../../Estop.h"
+
+//#include "../../gof/BaseState.h"
+//#include "../../gof/SubEndState.h"
+//#include "../../Estop.h"
 
 class GoneUnreceipted : public BaseState{
 public:
