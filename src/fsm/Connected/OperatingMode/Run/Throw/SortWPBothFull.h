@@ -10,7 +10,8 @@
 
 #include "TooFull.h"
 #include "Pass.h"
-#include "../../../Error.h"
+#include "../../Error.h"
+//#include "../../../Error.h"
 #include "../../../../gof/BaseState.h"
 #include "../../../../gof/SubEndState.h"
 

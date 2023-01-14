@@ -8,7 +8,8 @@
 #ifndef SRC_FSM_CONNECTED_OPERATINGMODE_RUN_METAL_SETMETAL_H_
 #define SRC_FSM_CONNECTED_OPERATINGMODE_RUN_METAL_SETMETAL_H_
 
-#include "../../../Error.h"
+#include "../../Error.h"
+//#include "../../../Error.h"
 #include "../../../../gof/BaseState.h"
 #include "../../../../gof/SubEndState.h"
 #include "IdleMetal.h"

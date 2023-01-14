@@ -17,7 +17,8 @@
 #include "Run/Metal/IdleMetal.h"
 #include "Run/Throw/IdleThrow.h"
 #include "Run/Slide/IdleSlide.h"
-#include "../Error.h"
+//#include "../Error.h"
+#include "Error.h"
 
 class Run : public BaseState {
 public:
@@ -59,6 +60,7 @@ public:
 	bool handleTransferWait() override;
 	bool handleLbOFree() override;
 	bool handleWpTransfer() override;
+	bool handleError()override;
 
 
 	//methods

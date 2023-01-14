@@ -82,6 +82,20 @@ bool Run::entryHistory()
 	return true;
 }
 
+bool Run::handleError()
+{
+	std::cout << "Error" << std::endl;
+	if (MsgSendPulse(coid, -1, static_cast<int>(ERROR), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
+
+	exit();
+	new(this) Error;
+	entry();
+
+	return true;
+}
+
 bool Run::handleEmptyBelt() 
 {
 	exit();
@@ -131,8 +145,6 @@ bool Run::handleSlSelfFull()
 	substate->handleSlSelfFull();
 	return true;
 }
-
-
 
 bool Run::handleSlBothFree() 
 {

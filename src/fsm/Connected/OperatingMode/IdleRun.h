@@ -11,8 +11,8 @@
 #include "../../gof/BaseState.h"
 #include "../../gof/SubEndState.h"
 #include "Run.h"
-#include "../Error.h"
-
+//#include "../Error.h"
+#include "Error.h"
 
 class IdleRun: public BaseState {
 public:
