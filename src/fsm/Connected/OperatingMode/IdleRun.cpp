@@ -22,9 +22,9 @@ bool IdleRun::handleLbI()
 	return true;
 }
 
-bool IdleRun::hadleWpTransfer() 
+bool IdleRun::handleWpTransfer() 
 {
-	sendTransfer();
+	sendTransferOK();
 	new(this) Run();
 	entry();
 	return true;
