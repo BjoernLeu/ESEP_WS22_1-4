@@ -50,7 +50,7 @@ bool Error::handleErrorGone()
 
 bool Error::handleResetSp()
 {
-	substate->handleErrorGone();
+	substate->handleResetSp();
 	return true;
 }
 
