@@ -61,6 +61,7 @@ public:
 	bool handleLbOFree() override;
 	bool handleWpTransfer() override;
 	//bool handleError()override;
+	bool handleManageDone() override;
 
 
 	//methods

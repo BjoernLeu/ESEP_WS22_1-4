@@ -96,6 +96,7 @@ public:
 	virtual bool handleWpEarly();
 	virtual bool handleLate();
 	virtual bool handleWpLate();
+	virtual bool handleManageDone();
 
 //Lightbarier
 	virtual bool handleLbI();

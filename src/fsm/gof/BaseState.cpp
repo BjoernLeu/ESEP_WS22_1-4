@@ -50,7 +50,7 @@ bool BaseState::handleEarly(){return false;}
 bool BaseState::handleWpLate(){return false;}
 bool BaseState::handleWpEarly(){return false;}
 bool BaseState::handleLate(){return false;}
-
+bool BaseState::handleManageDone(){return false;}
 
 //Lightbarier
 bool BaseState::handleLbI(){return false;}

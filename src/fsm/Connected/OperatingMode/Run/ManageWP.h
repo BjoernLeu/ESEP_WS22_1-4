@@ -16,11 +16,15 @@ public:
 	virtual ~ManageWP();
 
 	//transitions
-	bool handleWpEarly();
-	bool handleWpLate();
-	bool handleEarly();
-	bool handleLate();
-	bool handleLbI();
+	bool handleWpEarly() override;
+	bool handleWpLate() override;
+	bool handleEarly() override;
+	bool handleLate() override;
+	bool handleLbI() override;
+	bool handleManageDone() override;
+	bool handleHsWP() override;
+	bool handleLbSW() override;
+	bool handleLbO() override;
 
 	//methods
 	bool watchWS();
