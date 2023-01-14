@@ -21,8 +21,11 @@ public:
 
 	//transition
 	bool handleLbI() override;
+	bool hadleWpTransfer() override;
 
 	void entry() override;
+
+	void sendTransferOK();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_IDLERUN_H_ */

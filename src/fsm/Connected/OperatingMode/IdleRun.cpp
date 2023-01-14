@@ -11,6 +11,10 @@ IdleRun::IdleRun() {}
 
 IdleRun::~IdleRun() {}
 
+void IdleRun::entry(){
+	std::cout << "IdleRun entry" << std::endl;
+}
+
 bool IdleRun::handleLbI() 
 {
 	new(this) Run();
@@ -18,6 +22,16 @@ bool IdleRun::handleLbI()
 	return true;
 }
 
-void IdleRun::entry(){
-	std::cout << "IdleRun entry" << std::endl;
+bool IdleRun::hadleWpTransfer() 
+{
+	sendTransfer();
+	new(this) Run();
+	entry();
+	return true;
+}
+
+bool IdleRun::sendTransferOK() 
+{
+	std::cout << "Hier wird was gesendet." << std::endl;
+	//send(":)");
 }
