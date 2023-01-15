@@ -34,6 +34,7 @@ bool SLExtBusy::handleWPExpected()
 {
 	replyExtBusy();
 	entry();
+	return true;
 }
 
 void SLExtBusy::replyExtBusy() 

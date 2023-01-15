@@ -13,6 +13,8 @@ BothBusy::~BothBusy() {}
 bool BothBusy::handleWPExpected()
 {
 	replyBothBusy();
+	entry();
+	return true;
 }
 
 bool BothBusy::handleSLSelfFree()

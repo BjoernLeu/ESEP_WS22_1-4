@@ -24,7 +24,7 @@ public:
 	
 private:
 	//Methods
-	bool loadCfg();
+	void loadCfg();
 
 };
 
