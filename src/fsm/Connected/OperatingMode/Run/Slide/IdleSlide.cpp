@@ -27,6 +27,7 @@ bool IdleSlide::handleWPExpected()
 {
 	replyBothFree();
 	entry();
+	return true;
 }
 
 bool IdleSlide::handleSlExtFull()

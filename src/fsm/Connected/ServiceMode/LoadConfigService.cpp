@@ -25,7 +25,7 @@ bool LoadConfigService::handleLoadingCompleted()
 	return true;
 }
 
-bool LoadConfigService::loadCfg() 
+void LoadConfigService::loadCfg() 
 {
 	std::cout << "Service/Load config for workpieces..." << std::endl;
 	data->setLoadConfig();

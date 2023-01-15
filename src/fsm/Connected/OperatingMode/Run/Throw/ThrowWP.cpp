@@ -31,7 +31,7 @@ bool ThrowWP::handleLbSwFree()
 	return true;
 }
 
-bool ThrowWP::throwWP()
+void ThrowWP::throwWP()
 {
 	if (MsgSendPulse(coid, -1, static_cast<int>(THROW_WP), 0) == -1) {
 		perror("MsgSendPulse failed");

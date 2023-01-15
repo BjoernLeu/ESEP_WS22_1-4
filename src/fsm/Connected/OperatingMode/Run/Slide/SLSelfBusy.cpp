@@ -19,6 +19,7 @@ bool SLSelfBusy::handleWPExpected()
 {
 	replySelfBusy();
 	entry();
+	return true;
 }
 
 bool SLSelfBusy::handleSLSelfFree()

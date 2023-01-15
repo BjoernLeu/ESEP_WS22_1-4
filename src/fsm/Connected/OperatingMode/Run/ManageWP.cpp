@@ -18,7 +18,7 @@ void ManageWP::entry()
 bool ManageWP::handleLbI()
 {
 	addWP();
-	entry();
+	return true;
 }
 
 bool ManageWP::handleManageDone()
