@@ -187,7 +187,11 @@ public:
 	double getS2Min();
 	double getS3Min();
 
+	void setSlowDur();
+	double getSlowDur();
+
 	void setSlowFactor();
+	double getSlowFactor();
 	
 	MeasurePolling* mp;
 
@@ -226,6 +230,8 @@ private:
 	std::chrono::duration<double> s1_length_min;
 	std::chrono::duration<double> s2_length_min;
 	std::chrono::duration<double> s3_length_min;
+
+	std::chrono::duration<double> slowDur;
 
 	//Lists
 	std::list<time_t> timerHeightQueue;

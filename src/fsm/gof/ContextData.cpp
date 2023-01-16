@@ -306,7 +306,23 @@ double ContextData::getS1Min(){return std::chrono::duration<double>(s1_length_mi
 double ContextData::getS2Min(){return std::chrono::duration<double>(s2_length_min).count();}
 double ContextData::getS3Min(){return std::chrono::duration<double>(s3_length_min).count();}
 
+void ContextData::setSlowDur(){slowDur = hsWP_slow_max-lbI_slow_max;}
+double ContextData::getSlowDur(){return std::chrono::duration<double>(slowDur).count();}
+
 void ContextData::setSlowFactor()
 {
-
+    auto diff = slowDur - s1_length_min;
+    slowFactor = diff / s1_length_min;
 }
+ /**
+  * @brief Calculates the Factor for the difference between fast and slow. 
+  * The Difference has to be added to the thime past with slow Belt running.
+  *
+  * Bsp.    S1 Slow = 8,55  S1 Fast = 2,75  SlowFactor = 2,11
+  *         When the Belt ran slow for 2,75 Seconds, you have to multiply the slow-duration with the Slow Factor and add the result to the 2,75 seconds.
+  *         2,75 * 2,11 = 5,8 (the time that needs to be added)
+  *             -> fyi: 5,8 is the difference between 8,55 and 2,75
+  * 
+  * @return double The Slowfactor
+  */
+double ContextData::getSlowFactor(){return slowFactor;}
