@@ -196,7 +196,7 @@ public:
 
 	void addWp(int type, bool metal, float height, bool flipped, int segment, double distance);
 	void popWp();
-	Workpiece getWp();
+	workpiece getWp();
 	bool getWpEmpty();
 	void addWpMetal();
 	bool getWpMetal();

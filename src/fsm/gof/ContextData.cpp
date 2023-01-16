@@ -58,9 +58,9 @@ void ContextData::setDissapearedFalse(){disappeared = false;}
 bool ContextData::getDissapeared(){return disappeared;}
 
 /*================Current Count================*/
-void ContextData::incCurrentCount(){currentCount++;}
-void ContextData::decCurrentCount(){currentCount--;}
-int ContextData::getCurrentCount(){return currentCount;}
+void ContextData::incWpCount(){wpCount++;}
+void ContextData::decWpCount(){wpCount--;}
+int ContextData::getWpCount(){return wpCount;}
 
 /*================WP_Expected================*/
 void ContextData::setWP_ExpectedTrue(){wp_expected = true;}
@@ -297,12 +297,12 @@ void ContextData::addWp(int type, bool metal, float height, bool flipped, int se
 	std::cout << "WS added" << std::endl;
 }
 void ContextData::popWp() {wpList.pop_back();}
-Werkstueck ContextData::getWp() {return wpList.back();}
+workpiece ContextData::getWp() {return wpList.back();}
 bool ContextData::getWpEmpty() {return wpList.empty();}
 
 void ContextData::addWpMetal() {
     if(wpList.size() > 0){
-        for (int i = 0, i<wpList.size(), i++){
+        for (int i = 0; i<wpList.size(); i++){
             if(wpList(i).segment == 2 && wpList(i).distance > wpList(i+1).distance){
                 wplist(i).metal = true;
             }

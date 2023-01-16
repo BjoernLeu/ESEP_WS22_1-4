@@ -267,3 +267,23 @@ bool OperatingMode::handleManageDone()
 	substate->handleManageDone();
 	return true;
 }
+
+bool OperatingMode::handleWpCode(int height){
+	substate->handleWpCode(height);
+	return true;
+}
+
+bool OperatingMode::handleWpDrilling(int height){
+	substate->handleWpDrilling(height);
+	return true;
+}
+
+bool OperatingMode::handleWpFlat(int height){
+	substate->handleWpFlat(height);
+	return true;
+}
+
+bool OperatingMode::handleWpHigh(int height){
+	substate->handleWpHigh(height);
+	return true;
+}

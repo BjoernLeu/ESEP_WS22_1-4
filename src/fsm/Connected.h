@@ -79,6 +79,11 @@ public:
 	bool handleWpTransfer() override;
 	bool handleManageDone() override;
 	
+	bool handleWpCode(int height) override;
+	bool handleWpDrilling(int height) override;
+	bool handleWpFlat(int height) override;
+	bool handleWpHigh(int height) override;
+
 	//Transitions -> serviceMode
 	bool handleResetSp() override;
 	bool handleLoadingCompleted() override;

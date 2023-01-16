@@ -337,3 +337,23 @@ bool Connected::handleWpTransfer()
 	substate->handleWpTransfer();
 	return true;
 }
+
+bool Connected::handleWpCode(int height){
+	substate->handleWpCode(height);
+	return true;
+}
+
+bool Connected::handleWpDrilling(int height){
+	substate->handleWpDrilling(height);
+	return true;
+}
+
+bool Connected::handleWpFlat(int height){
+	substate->handleWpFlat(height);
+	return true;
+}
+
+bool Connected::handleWpHigh(int height){
+	substate->handleWpHigh(height);
+	return true;
+}

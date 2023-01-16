@@ -49,3 +49,23 @@ bool MeasureHeight::handleWpID(){
 	substate->handleWpID();
 	return true;
 }
+
+bool MeasureHeight::handleWpCode(int height){
+	substate->handleWpCode(height);
+	return true;
+}
+
+bool MeasureHeight::handleWpDrilling(int height){
+	substate->handleWpDrilling(height);
+	return true;
+}
+
+bool MeasureHeight::handleWpFlat(int height){
+	substate->handleWpFlat(height);
+	return true;
+}
+
+bool MeasureHeight::handleWpHigh(int height){
+	substate->handleWpHigh(height);
+	return true;
+}

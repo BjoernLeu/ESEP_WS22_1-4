@@ -134,6 +134,12 @@ public:
 	virtual bool handleSlExtFull();
 	virtual bool handleSlFree();
 
+//WP
+	virtual bool handleWpCode(int height);
+	virtual bool handleWpDrilling(int height);
+	virtual bool handleWpFlat(int height);
+	virtual bool handleWpHigh(int height);
+
 //custom new
 	virtual bool handleHsBelt();
 	virtual bool handleDone();
