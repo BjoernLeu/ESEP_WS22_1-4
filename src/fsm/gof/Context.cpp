@@ -277,6 +277,11 @@ void Context::handle_pulse(_pulse msg) {
 	case EMPTY_BELT:
 		state->handleEmptyBelt();
 		break;
+	case BOTH_FULL:
+		state->handleSlBothFull();
+		break;
+
+
 
 	default:
 		std::cout << "not handled:" << event << std::endl;

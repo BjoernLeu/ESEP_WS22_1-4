@@ -14,14 +14,14 @@ PendingUnreceipted::~PendingUnreceipted() {}
 void PendingUnreceipted::entry()
 {
 	std::cout << "PendingUnreceipted entry" << std::endl;
-	blinkingOn(RED, FAST);
+	action->blinkingOn(RED, FAST);
 	motorOff();
 }
 
 void PendingUnreceipted::exit()
 {
 	std::cout << "PendingUnreceipted exit" << std::endl;
-	blinkingOff(RED);
+	action->blinkingOff(RED);
 }
 
 bool PendingUnreceipted::handleErrorGone()
@@ -53,20 +53,10 @@ bool PendingUnreceipted::handleResetSp()
 
 }
 
-void PendingUnreceipted::blinkingOn(int color, int speed)
-{
-	std::cout << "this is blinking now" << std::endl;
-}
-
 void PendingUnreceipted::motorOff()
 {
 	std::cout << "Motor Off" << std::endl;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}
-}
-
-void PendingUnreceipted::blinkingOff(int color)
-{
-	std::cout << "this is not blinking now" << std::endl;
 }

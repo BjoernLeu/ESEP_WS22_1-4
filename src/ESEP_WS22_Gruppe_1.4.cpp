@@ -89,8 +89,8 @@ int main(int argc, char* argv[]) {
 //cr-Workpiece
  	dsp.subscribe("cr", WP_DRILLING);
  	dsp.subscribe("cr", WP_FLAT);
- 	dsp.subscribe("cr", WP_HIGH);
  	dsp.subscribe("cr", WP_METAL);
+ 	dsp.subscribe("cr", WP_HIGH);
 	dsp.subscribe("cr", ADD_TO_LIST);
 	dsp.subscribe("cr", ADD_WATCHER);
 	dsp.subscribe("cr", REMOVE_FROM_LIST); 
@@ -143,6 +143,11 @@ int main(int argc, char* argv[]) {
 	dsp.subscribe("cr", SEND_SIGNAL_SLIDE);
 	dsp.subscribe("cr", ERROR);
 	dsp.subscribe("cr", EMPTY_BELT);
+	dsp.subscribe("cr", BOTH_FULL);
+	dsp.subscribe("cr", EXT_FULL);
+	dsp.subscribe("cr", SELF_FULL);
+	dsp.subscribe("cr", BOTH_FREE);
+	
 	
 
  	std::cout << "Subscribing done" << std::endl;

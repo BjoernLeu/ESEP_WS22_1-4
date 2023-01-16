@@ -34,9 +34,7 @@ public:
 	void exit() override;
 
 private:
-	void blinkingOn(int color, int speed);
 	void motorOff();
-	void blinkingOff(int color);
 };
 
 

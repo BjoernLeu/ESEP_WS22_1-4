@@ -12,7 +12,7 @@ BothBusy::~BothBusy() {}
 
 bool BothBusy::handleWPExpected()
 {
-	replyBothBusy();
+	replyBothFull();
 	entry();
 	return true;
 }
@@ -40,8 +40,10 @@ bool BothBusy::handleSLExtFree()
 	return true;
 }
 
-void BothBusy::replyBothBusy()
+void BothBusy::replyBothFull()
 {
-	//ToDo: implement me
+	if (MsgSendPulse(coid, -1, static_cast<int>(BOTH_FULL), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 }
 

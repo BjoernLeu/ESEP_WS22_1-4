@@ -26,7 +26,7 @@ public:
 	bool handleSLExtFree() override;
 
 private:
-	void replyBothBusy();
+	void replyBothFull();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_SLIDE_BOTHBUSY_H_ */

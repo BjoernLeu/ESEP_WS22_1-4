@@ -29,7 +29,6 @@ public:
 	void exit() override;
 
 private:
-	void lightOn(int color);
 	void receipted();
 	void sendSignalSlide();
 	void motorOn();

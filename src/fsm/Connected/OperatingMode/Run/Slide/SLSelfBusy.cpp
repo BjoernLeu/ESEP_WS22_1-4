@@ -17,7 +17,7 @@ void SLSelfBusy::entry()
 
 bool SLSelfBusy::handleWPExpected()
 {
-	replySelfBusy();
+	replySelfFull();
 	entry();
 	return true;
 }
@@ -35,7 +35,9 @@ bool SLSelfBusy::handleSlExtFull()
 	return true;
 }
 
-void SLSelfBusy::replySelfBusy()
+void SLSelfBusy::replySelfFull()
 {
-	// ToDo: Implement me
+	if (MsgSendPulse(coid, -1, static_cast<int>(SELF_FULL), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 }

@@ -16,6 +16,9 @@
 #include "IdleTransferFesto1.h"
 #include "IdleTransferFesto2.h"
 
+#define FESTOONE 1
+#define FESTOTWO 2
+
 class TransferFesto : public BaseState {
 public:
 	TransferFesto();

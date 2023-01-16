@@ -36,6 +36,12 @@ enum Event {
 	SET_SW_TYPE,
 	THROW_WP,
 	PASS_WP,
+//Slide
+	BOTH_FULL,
+	EXT_FULL,
+	SELF_FULL,
+	BOTH_FREE,
+	
 //Pressable
 	START_SP,
 	START_LP,

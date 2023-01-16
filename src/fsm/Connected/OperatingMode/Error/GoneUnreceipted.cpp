@@ -22,7 +22,7 @@ bool GoneUnreceipted::handlePrinted()
 void GoneUnreceipted::entry()
 {
 	std::cout << "GoneUnreceipted entry" << std::endl;
-	blinkingOn(RED, SLOW, 30);
+	action->timeBlinking(RED, SLOW, 30);
 	printError();
 }
 
@@ -30,11 +30,6 @@ void GoneUnreceipted::exit()
 {
 	std::cout << "GoneUnreceipted exit" << std::endl;
 	motorOn();
-}
-
-void GoneUnreceipted::blinkingOn(int color, int speed, int seconds)
-{
-	std::cout << "this is blinking now" << std::endl;
 }
 
 void GoneUnreceipted::printError()

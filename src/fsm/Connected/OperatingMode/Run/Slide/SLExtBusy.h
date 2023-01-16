@@ -27,7 +27,7 @@ public:
 	bool handleWPExpected() override;
 
 private:
-	void replyExtBusy();
+	void replyExtFull();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_SLIDE_SLEXTBUSY_H_ */

@@ -27,7 +27,7 @@ public:
 	bool handleSlExtFull() override;
 
 private:
-	void replySelfBusy();
+	void replySelfFull();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_SLIDE_SLSELFBUSY_H_ */

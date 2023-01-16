@@ -15,7 +15,7 @@ GoneReceipted::~GoneReceipted() {}
 void GoneReceipted::entry()
 {
 	std::cout << "GoneReceipted entry" << std::endl;
-	lightOn(RED);
+	action->lightOn(RED);
 }
 
 bool GoneReceipted::handleStartSp()
@@ -33,14 +33,6 @@ void GoneReceipted::exit()
 	receipted();
 	sendSignalSlide();
 	motorOn();
-}
-
-void GoneReceipted::lightOn(int color)
-{
-	std::cout << "Red light on" << std::endl;
-	if (MsgSendPulse(coid, -1, static_cast<int>(LIGHT_RED_ON), 0) == -1) {
-			perror("MsgSendPulse failed");
-	}
 }
 
 void GoneReceipted::receipted()

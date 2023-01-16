@@ -23,6 +23,7 @@ void Measure::exit()
 
 bool Measure::handleHsBelt() 
 {
+	exit();
 	new (this) IdleMeasureHeight;
 	entry();
 	return true;
@@ -41,20 +42,3 @@ void Measure::motorSlowOff()
 			perror("MsgSendPulse failed");
 	}
 }
-
-bool Measure::handleWpHigh(){
-	return true;
-}
-
-bool Measure::handleWpFlat(){
-	return true;
-}
-
-bool Measure::handleWpDrilling(){
-	return true;
-}
-
-bool Measure::handleWpID(){
-	return true;
-}
-

@@ -69,9 +69,6 @@ public:
 	void exit() override;
 	//bool entryHistory() override;
 
-public: 
-	void lightOn(int color);
-	void lightOff(int color);
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_H_ */

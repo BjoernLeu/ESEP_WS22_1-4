@@ -16,7 +16,7 @@ void Estop::entry()
 	std::cout << "ESTOP entry" << std::endl;
 	action->blinkingOff(ALL);
 	action->lightOn(RED);
-
+	action->lightOn(RED);
 	substate = new SafeState;
 	substate->setData(data);
 	substate->entry();

@@ -269,12 +269,16 @@ bool Run::handleWpID(){
 
 void Run::motorOff() 
 {
-	// TODO Auto-generated destructor stub
+	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 }
 
 void Run::motorOn() 
 {
-	// TODO Auto-generated destructor stub
+	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_ON), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 }
 
 bool Run::handleWpArrived()
