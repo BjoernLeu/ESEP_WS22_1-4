@@ -78,6 +78,7 @@ enum Event {
 //Workpiece
 	WP_DRILLING,
 	WP_FLAT,
+	WP_HIGH,
 	WP_METAL,
 	WP_CODE,		//Event for all coded workpieces
 	WP_ID,

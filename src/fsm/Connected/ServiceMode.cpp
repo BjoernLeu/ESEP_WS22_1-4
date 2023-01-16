@@ -14,7 +14,7 @@ ServiceMode::~ServiceMode() {}
 void ServiceMode::entry() 
 {
 	std::cout << "ServiceMode entry" << std::endl;
-	action->blinkingOn(GREEN, SLOW)
+	action->blinkingOn(GREEN, SLOW);
 	substate = new LoadConfigService();
 	substate->setData(data);
 	substate->setAction(action);

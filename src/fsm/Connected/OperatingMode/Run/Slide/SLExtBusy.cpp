@@ -32,7 +32,7 @@ bool SLExtBusy::handleSlSelfFull()
 
 bool SLExtBusy::handleWPExpected()
 {
-	replyExtBusy();
+	replyExtFull();
 	entry();
 	return true;
 }

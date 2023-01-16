@@ -12,7 +12,7 @@ BothBusy::~BothBusy() {}
 
 bool BothBusy::handleWPExpected()
 {
-	replyBothBusy();
+	replyBothFull();
 	entry();
 	return true;
 }

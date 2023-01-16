@@ -90,6 +90,7 @@ int main(int argc, char* argv[]) {
  	dsp.subscribe("cr", WP_DRILLING);
  	dsp.subscribe("cr", WP_FLAT);
  	dsp.subscribe("cr", WP_METAL);
+ 	dsp.subscribe("cr", WP_HIGH);
 	dsp.subscribe("cr", ADD_TO_LIST);
 	dsp.subscribe("cr", ADD_WATCHER);
 	dsp.subscribe("cr", REMOVE_FROM_LIST); 

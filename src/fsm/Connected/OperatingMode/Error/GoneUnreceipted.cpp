@@ -22,7 +22,6 @@ bool GoneUnreceipted::handlePrinted()
 void GoneUnreceipted::entry()
 {
 	std::cout << "GoneUnreceipted entry" << std::endl;
-	blinkingOn(RED, SLOW, 30);
 	action->timeBlinking(RED, SLOW, 30);
 	printError();
 }

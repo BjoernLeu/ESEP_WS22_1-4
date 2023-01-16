@@ -17,7 +17,7 @@ void SLSelfBusy::entry()
 
 bool SLSelfBusy::handleWPExpected()
 {
-	replySelfBusy();
+	replySelfFull();
 	entry();
 	return true;
 }
