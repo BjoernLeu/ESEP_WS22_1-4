@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <time.h>
 #include <list>
+#include <vector>
+#include <iterator>
 #include <ctime>
 #include <chrono>
 #include <sys/dispatch.h>
@@ -98,7 +100,7 @@ public:
 	void setSlSelfFalse();
 	bool getSlSelf();
 
-	std::list<workpiece> wpList;
+	std::vector<workpiece> wpList;
 
 	int getNumberWpsOnBelt();
 

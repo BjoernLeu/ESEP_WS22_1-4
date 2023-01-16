@@ -45,16 +45,20 @@ void Measure::motorSlowOff()
 
 bool Measure::handleWpDrilling(int height){
 	data->addWpType(55, height);
+	return true;
 }
 
 bool Measure::handleWpFlat(int height){
 	data->addWpType(56, height);
+	return true;
 }
 
 bool Measure::handleWpHigh(int height){
 	data->addWpType(57, height);
+	return true;
 }
 
 bool Measure::handleWpCode(int height){
 	data->addWpType(59, height);
+	return true;
 }
