@@ -22,12 +22,15 @@ class Measure: public BaseState {
 		void entry() override;
 		void exit() override;
 
-		bool handleHsBelt() override;
+	bool handleHsBelt() override;
+	bool handleWpCode(int height) override;
+	bool handleWpDrilling(int height) override;
+	bool handleWpFlat(int height) override;
+	bool handleWpHigh(int height) override;
 
-	private: 
-		void motorSlowOn();
-		void motorSlowOff();
-		void setHType();
+private: 
+	void motorSlowOn();
+	void motorSlowOff();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_MEASUREHEIGHT_MEASURE_H_ */

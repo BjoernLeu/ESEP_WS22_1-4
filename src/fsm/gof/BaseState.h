@@ -85,10 +85,10 @@ public:
 
 //Werkstueck
 	virtual bool handleWpMetal();
-	virtual bool handleWsCode0();
-	virtual bool handleWsCodeGroesser0();
+	virtual bool handleWpCode0();
+	virtual bool handleWpCodeGroesser0();
 	virtual bool handleWpDrilling();
-	virtual bool handleWsNoDrilling();
+	virtual bool handleWpNoDrilling();
 	virtual bool handleWpFlat();
 	virtual bool handleWpHigh();
 	virtual bool handleWpID();
@@ -125,7 +125,7 @@ public:
 	virtual bool handleEstopExtPressed();
 	virtual bool handleEstopExtReleased();
 	virtual bool handleEstopDone();
-	virtual bool handleWsComes();
+	virtual bool handleWpComes();
 
 //Slide
 	virtual bool handleSLSelfFree();

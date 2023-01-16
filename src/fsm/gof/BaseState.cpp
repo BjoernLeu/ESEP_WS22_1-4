@@ -39,10 +39,10 @@ bool BaseState::handleSorted(){return false;}
 
 //Werkstueck
 bool BaseState::handleWpMetal(){return false;}
-bool BaseState::handleWsCode0(){return false;}
-bool BaseState::handleWsCodeGroesser0(){return false;}
+bool BaseState::handleWpCode0(){return false;}
+bool BaseState::handleWpCodeGroesser0(){return false;}
 bool BaseState::handleWpDrilling(){return false;}
-bool BaseState::handleWsNoDrilling(){return false;}
+bool BaseState::handleWpNoDrilling(){return false;}
 bool BaseState::handleWpFlat(){return false;}
 bool BaseState::handleWpHigh(){return false;}
 bool BaseState::handleWpID(){return false;}
@@ -79,7 +79,7 @@ bool BaseState::handleEstopSelfReleased(){return false;}
 bool BaseState::handleEstopExtPressed(){return false;}
 bool BaseState::handleEstopExtReleased(){return false;}
 bool BaseState::handleEstopDone(){return false;}
-bool BaseState::handleWsComes(){return false;}
+bool BaseState::handleWpComes(){return false;}
 
 //Slide
 bool BaseState::handleSLSelfFree(){return false;}

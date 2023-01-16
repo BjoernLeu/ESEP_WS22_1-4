@@ -44,7 +44,18 @@ void Measure::motorSlowOff()
 	}
 }
 
-void Measure::setHType()
-{
-	//not implemented yet
+void Measure::handleWpDrilling(int height){
+	data->addWpType(55, height);
+}
+
+void Measure::handleWpFlat(int height){
+	data->addWpType(56, height);
+}
+
+void Measure::handleWpHigh(int height){
+	data->addWpType(57, height);
+}
+
+void Measure::handleWpCode(int height){
+	data->addWpType(59, height);
 }
