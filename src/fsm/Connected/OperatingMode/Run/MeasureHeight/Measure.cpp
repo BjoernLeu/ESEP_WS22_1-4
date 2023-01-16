@@ -14,6 +14,7 @@ void Measure::entry()
 {
 	std::cout << "Measure entry" << std::endl;
 	motorSlowOn();
+	setHType();
 }
 
 void Measure::exit()
@@ -41,4 +42,9 @@ void Measure::motorSlowOff()
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_SLOW_OFF), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}
+}
+
+void Measure::setHType()
+{
+	//not implemented yet
 }

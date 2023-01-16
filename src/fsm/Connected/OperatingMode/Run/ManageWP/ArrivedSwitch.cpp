@@ -12,6 +12,7 @@ ArrivedSwitch::~ArrivedSwitch() {}
 
 void ArrivedSwitch::entry()
 {
+	std::cout << "ArrivedSwitch entry" << std::endl;
 	checkEarly();
 	manageList();
 }

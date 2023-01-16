@@ -12,6 +12,7 @@ ArrivedHeight::~ArrivedHeight() {}
 
 void ArrivedHeight::entry()
 {
+	std::cout << "ArrivedHeight entry" << std::endl;
 	checkEarly();
 	manageList();
 }
