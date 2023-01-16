@@ -12,6 +12,7 @@ TransferFesto::~TransferFesto() {}
 
 void TransferFesto::entry()
 {
+	std::cout << "Transfer/TransferFesto entry" << std::endl;
 	if(data->getFesto() == FESTOONE)
 	{
 		new (this) IdleTransferFesto1;

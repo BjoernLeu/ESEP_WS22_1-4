@@ -17,7 +17,7 @@
 
 
 class CheckFesto2 : public BaseState{
-	public:
+public:
 		CheckFesto2();
 		virtual ~CheckFesto2();
 
@@ -26,7 +26,7 @@ class CheckFesto2 : public BaseState{
 		//Transisions
 		bool handleTransferOK() override; 
 		bool handleTransferWait() override;
-
+private:
 		//Methods
 		void sendWpTransfer();
 };

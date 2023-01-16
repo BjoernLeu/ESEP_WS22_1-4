@@ -7,50 +7,41 @@
 
 #include "IdleTransferFesto1.h"
 
-IdleTransferFesto1::IdleTransferFesto1() {
-	// TODO Auto-generated constructor stub
+IdleTransferFesto1::IdleTransferFesto1() {}
+IdleTransferFesto1::~IdleTransferFesto1() {}
 
+void IdleTransferFesto1::entry() 
+{
+	std::cout << "Transfer/IdleTransferFesto1 entry" << std::endl;
 }
 
-IdleTransferFesto1::~IdleTransferFesto1() {
-	// TODO Auto-generated destructor stub
+//Transitionen
+bool IdleTransferFesto1::handleLbSL()
+{
+	checkEmptyBelt();
+	return true;
 }
 
-	void IdleTransferFesto1::entry() 
-	{
-		
-	}
+bool IdleTransferFesto1::handleWpArrived()
+{
+	checkEmptyBelt();
+	return true;
+} 
 
-	//Transitionen
-	bool IdleTransferFesto1::handleLbSL()
-	{
-		checkEmptyBelt();
-		entry();
-		return true;
-	}
+bool IdleTransferFesto1::handleLbO()
+{
+	new (this) CheckFesto2;
+	entry();
+	return true;
+}
 
-	bool IdleTransferFesto1::handleLbO()
+//Methods
+void IdleTransferFesto1::checkEmptyBelt()
+{
+	if(data->getNumberWpsOnBelt() == NO_WP_DETECTED)
 	{
-		new (this) CheckFesto2;
-		entry();
-		return true;
+		if (MsgSendPulse(coid, -1, static_cast<int>(EMPTY_BELT), 0) == -1) {
+			perror("MsgSendPulse failed");
+		}	
 	}
-
-	bool IdleTransferFesto1::handleWpArrived()
-	{
-		checkEmptyBelt();
-		entry();
-		return true;
-	} 
-
-	//Methods
-	void IdleTransferFesto1::checkEmptyBelt()
-	{
-		if(data->getNumberWpsOnBelt() == NO_WP_DETECTED)
-		{
-			if (MsgSendPulse(coid, -1, static_cast<int>(EMPTY_BELT), 0) == -1) {
-				perror("MsgSendPulse failed");
-			}	
-		}
-	}
-	
+}
