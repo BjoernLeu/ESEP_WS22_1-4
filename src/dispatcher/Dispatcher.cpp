@@ -35,17 +35,24 @@ Dispatcher::Dispatcher(const char* name, const char* name2, int festo) {
 	std::cout << "d: bye" << std::endl;
 }
 
-void Dispatcher::startThreads(const char* nameSendCtx2) {
+void Dispatcher::startThreads(const char* nameSendCtx2, const char* nameSendCom) {
 	context2Coid = name_open(nameSendCtx2, 0);
 	if (context2Coid == -1) {
 		perror("name_open failed");	//loglevel replace
 		exit(EXIT_FAILURE);
 	}
-	if(attachPointHere != NULL) {
-		std::thread serverThread(&Dispatcher::server, this);
-		serverThread.detach();
-		connectToServer();
+
+	comCoid = name_open(nameSendCom, 0);
+	if (comCoid == -1) {
+		perror("name_open failed");	//loglevel replace
+		exit(EXIT_FAILURE);
 	}
+
+//	if(attachPointHere != NULL) {
+//		std::thread serverThread(&Dispatcher::server, this);
+//		serverThread.detach();
+//		connectToServer();
+//	}
 	std::thread receivingThread2(&Dispatcher::receive2, this, attach2);
 	std::thread receivingThread(&Dispatcher::receive, this, attach);
 	receivingThread2.detach();
@@ -64,9 +71,7 @@ void Dispatcher::receive2(name_attach_t *attach) {
 
 		if (recvid == 0) {	//pulse received.
 //			printf("Success");
-			if((serverCoid != 0) && (!lost)) {
-				this->sendToServer(msg.code, msg.value.sival_int);
-			}
+			this->send(comCoid, msg.code, msg.value.sival_int);
 		}
 	}
 }
@@ -81,8 +86,8 @@ void Dispatcher::subscribe(const char* name, Event event) {
 }
 
 void Dispatcher::handle_pulse(_pulse msg) {
-//	for (int value : dispatch_map[static_cast<Event>(msg.code)]) {
-	this->send(dispatch_map[static_cast<Event>(msg.code)], msg.code, msg.value.sival_int);
+//	for(int value : dispatch_map[static_cast<Event>(msg.code)]) {
+		this->send(dispatch_map[static_cast<Event>(msg.code)], msg.code, msg.value.sival_int);
 //	}
 }
 

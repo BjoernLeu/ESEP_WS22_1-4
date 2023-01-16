@@ -46,7 +46,7 @@ public:
 	/**
 	 * Erstellt jeweils einen unabhängigen Thread für die Methoden dispatch und receive.
 	 */
-	void startThreads(const char* nameSendCtx2);
+	void startThreads(const char* nameSendCtx2, const char* nameSendCom);
 
 	/**
 	 * Stellt die Verbindung zum Server, der den Namen registriert hat, her.
@@ -68,6 +68,11 @@ public:
 
 	std::thread dispatcherThread;
 	std::thread receivingThread;
+
+	int context2Coid = 0;
+	int comCoid = 0;
+
+	std::map<Event, int> dispatch_map;
 private:
 	struct my_msg {
 		short type;
@@ -95,13 +100,11 @@ private:
 	std::mutex mutex;
 	std::condition_variable cvd;
 
-	std::map<Event, int> dispatch_map;
 
 	const char* attachPointHere = NULL;
 	const char* attachPointRemote = NULL;
 
 	int serverCoid = 0;
-	int context2Coid = 0;
 
 	name_attach_t *attach = 0;
 	name_attach_t *attach2 = 0;

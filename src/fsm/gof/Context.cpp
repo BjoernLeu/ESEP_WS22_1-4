@@ -253,6 +253,9 @@ void Context::handle_pulse(_pulse msg) {
 		state->handleEstopDone();
 		break;
 //Custom
+	case CON_LOST:
+		state->handleConLost();
+		break;
 	case CON_ESTABLISHED:
 		state->handleConEstablished();
 		break;
