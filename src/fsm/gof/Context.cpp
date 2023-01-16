@@ -141,6 +141,9 @@ void Context::handle_pulse(_pulse msg) {
 	case WP_METAL:
 		state->handleWpMetal();
 		break;
+	case WP_CODE:
+		state->handleWpCode();
+		break;
 	case WP_ID:
 		state->handleWpID();
 		break;

@@ -85,44 +85,6 @@ void ContextData::setSlSelfTrue(){slSelf = true;}
 void ContextData::setSlSelfFalse(){slSelf = false;}
 bool ContextData::getSlSelf(){return slSelf;}
 
-///*================WP================*/
-//void ContextData::addWs(int id, int type, int height) {
-//	wsList.push_back({id, type, height, false, false});
-//	std::cout << "WS added" << std::endl;
-//}
-//void ContextData::addWsExt(int id, int height) {
-//	wsListExt.push_back({id, height, false, false});
-//	std::cout << "WS added" << std::endl;
-//}
-//void ContextData::setWsId(int id) {wsList.back().id = id;}
-//void ContextData::addWsMetal() {wsList.front().metal = true;}
-//void ContextData::addWsSort() {wsList.back().sort = true;}
-//void ContextData::popWs() {wsList.pop_front();}
-//bool ContextData::getWsEmpty() {return wsList.empty();}
-//bool ContextData::getWsSort() {return wsList.front().sort;}
-//Werkstueck ContextData::getWs() {return wsList.front();}
-//void ContextData::addWsMetalExt() {wsListExt.front().metal = true;}
-//void ContextData::addWsSortExt() {wsListExt.back().sort = true;}
-//void ContextData::popWsExt() {wsListExt.pop_front();}
-//void ContextData::clearWsList(){wsListExt.clear();}
-//std::list<Werkstueck> ContextData::getWsList(){return wsListExt;}
-//bool ContextData::getWsEmptyExt() {return wsListExt.empty();}
-//bool ContextData::getWsSortExt() {return wsListExt.front().sort;}
-//bool ContextData::getWsMetal(){
-//	std::cout << "metall: " << wsList.front().metal << std::endl;
-//	return wsList.front().metal;
-//}
-//void ContextData::setWsExt(Werkstueck w) {wsExt = w;}
-//void ContextData::setTypeExt(int t) {typeExt = t;}
-//void ContextData::setHeightExt(int h) {heightExt = h;}
-//void ContextData::setMetalExt(bool m) {metalExt = m;}
-//void ContextData::setSortExt(bool s) {sortExt = s;}
-//Werkstueck ContextData::getWsExt() {return wsExt;}
-//int ContextData::getTypeExt() {return typeExt;}
-//int ContextData::getHeightExt() {return heightExt;}
-//bool ContextData::getMetalExt() {return metalExt;}
-//bool ContextData::getSortExt() {return sortExt;}
-//void ContextData::setWpId(int id) {wsList.back().id = id;}
 /*================Setter for WP A================*/
 void ContextData::setWpHighATrue(){highA = true;}
 void ContextData::setWpHighAFalse(){highA = false;}
@@ -316,3 +278,59 @@ void ContextData::setSlowFactor(){slowFactor = s1_length_min / slowDur;}
   * @return double The Slowfactor
   */
 double ContextData::getSlowFactor(){return slowFactor;}
+
+/*================WP================*/
+
+/* 
+    struct workpiece {
+        int id;
+        int type;
+        bool metal;
+        float height;
+        bool flipped;
+        int segment;
+        double distance;
+    };
+*/
+void ContextData::addWp(int type, bool metal, float height, bool flipped, int segment, double distance) {
+	wpList.push_front({getWpCount(), type, metal, height, flipped, segment, distance});
+	std::cout << "WS added" << std::endl;
+}
+void ContextData::popWp() {wpList.pop_back();}
+Werkstueck ContextData::getWp() {return wpList.back();}
+bool ContextData::getWpEmpty() {return wpList.empty();}
+
+void ContextData::addWpMetal() {
+    if(wpList.size() > 0){
+        for (int i = 0, i<wpList.size(), i++){
+            if(wpList(i).segment == 2 && wpList(i).distance > wpList(i+1).distance){
+                wplist(i).metal = true;
+            }
+        }
+    } else {
+        wplist(0).metal = true;
+    }
+}
+
+bool ContextData::getWpMetal(){
+	std::cout << "metall: " << wpList.back().metal << std::endl;
+	return wpList.back().metal;
+}
+
+void ContextData::addWpType(int type, int height){
+    if(wpList.size() > 0){
+        for (int i = 0, i<wpList.size(), i++){
+            if(wpList(i).segment == 1 && wpList(i).distance > wpList(i+1).distance){
+                wplist(0).type = type;
+                wplist(0).height = height;
+            }
+        }
+    } else {
+        wplist(0).type = type;
+        wplist(0).height = height;
+    }
+}
+
+void ContextData::addFlipped(){
+    wpList.back().flipped = true;
+}

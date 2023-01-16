@@ -224,7 +224,7 @@ void MeasurePolling::receivingRoutine(int channelID, ADC* adc) {
 				case -5 ... 5:
 					//TODO WPList add type and height if existing
 					if(type != 0) {
-						std::cout << "WS is: " << type << " and " << height << " mm high" << std::endl;
+						std::cout << "WP is: " << type << " and " << height << " mm high" << std::endl;
 						if (MsgSendPulse(coid, -1, type, (int)height) == -1) {
 							perror("MsgSendPulse failed");
 						}

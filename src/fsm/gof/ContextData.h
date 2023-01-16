@@ -78,9 +78,6 @@ public:
 	void setDissapearedFalse();
 	bool getDissapeared();
 
-	void incCurrentCount();
-	void decCurrentCount();
-	int getCurrentCount();
 
 	void setWP_ExpectedTrue();
 	void setWP_ExpectedFalse();
@@ -102,6 +99,7 @@ public:
 	bool getSlSelf();
 
 	std::list<workpiece> wpList;
+
 	int getNumberWpsOnBelt();
 
 	// void setWPType(int type);
@@ -121,8 +119,6 @@ public:
 	bool motor = false;
 	bool motorSlow = false;
 	bool motorStop = false;
-	void addWs(int id, int type, int height);
-	void addWsExt(int id, int height);
 
 	void setWpId(int id);
 
@@ -192,6 +188,20 @@ public:
 
 	void setSlowFactor();
 	double getSlowFactor();
+
+//================= WP LIST =================
+	void incWpCount();
+	void decWpCount();
+	int getWpCount();
+
+	void addWp(int type, bool metal, float height, bool flipped, int segment, double distance);
+	void popWp();
+	Workpiece getWp();
+	bool getWpEmpty();
+	void addWpMetal();
+	bool getWpMetal();
+	void addWpType(int type, int height);
+	void addFlipped();
 	
 	MeasurePolling* mp;
 
@@ -252,7 +262,7 @@ private:
 	bool appeared = false;
 	bool disappeared = false;
 	//Operating Mode
-	int currentCount = 0;
+	int wpCount = 0;
 	//throw
 	bool wp_expected = false;
 	int festo = 0;
