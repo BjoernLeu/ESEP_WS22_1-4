@@ -15,6 +15,10 @@ void OperatingMode::entry()
 {
 	std::cout << "OperatingMode entry" << std::endl;
 	action->lightOn(GREEN);
+	substate = new IdleRun;
+	substate->setData(data);
+	substate->setAction(action);
+	substate->entry();
 }
 
 void OperatingMode::exit()

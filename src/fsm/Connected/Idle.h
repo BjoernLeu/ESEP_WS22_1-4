@@ -10,9 +10,9 @@
 #ifndef SRC_FSM_CONNECTED_IDLE_H_
 #define SRC_FSM_CONNECTED_IDLE_H_
 
-// #include "ServiceMode.h"
+#include "ServiceMode.h"
 #include "Calibration.h"
-// #include "OperatingMode.h"
+#include "OperatingMode.h"
 #include "../gof/BaseState.h"
 #include "../gof/SubEndState.h"
 #include "../Estop.h"
@@ -23,10 +23,9 @@ public:
 	void exit() override;
 
 	//transitions
-	// bool handleStartSp() override;
-	// bool handleStartLp() override;
+	bool handleStartSp() override;
+	bool handleStartLp() override;
 	bool handleResetLp() override;
-	// bool handleLbSW() override;
 	
 private:
 	void loadConf();
