@@ -37,7 +37,9 @@ bool SLExtBusy::handleWPExpected()
 	return true;
 }
 
-void SLExtBusy::replyExtBusy() 
+void SLExtBusy::replyExtFull() 
 {
-	
+	if (MsgSendPulse(coid, -1, static_cast<int>(EXT_FULL), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 }

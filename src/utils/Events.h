@@ -37,7 +37,10 @@ enum Event {
 	THROW_WP,
 	PASS_WP,
 //Slide
-	BOTH_BUSY,
+	BOTH_FULL,
+	EXT_FULL,
+	SELF_FULL,
+	BOTH_FREE,
 	
 //Pressable
 	START_SP,

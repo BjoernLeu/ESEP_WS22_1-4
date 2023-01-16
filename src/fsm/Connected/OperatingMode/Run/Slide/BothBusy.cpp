@@ -40,9 +40,9 @@ bool BothBusy::handleSLExtFree()
 	return true;
 }
 
-void BothBusy::replyBothBusy()
+void BothBusy::replyBothFull()
 {
-	if (MsgSendPulse(coid, -1, static_cast<int>(BOTH_BUSY), 0) == -1) {
+	if (MsgSendPulse(coid, -1, static_cast<int>(BOTH_FULL), 0) == -1) {
 		perror("MsgSendPulse failed");
 	}
 }

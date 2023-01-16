@@ -143,7 +143,10 @@ int main(int argc, char* argv[]) {
 	dsp.subscribe("cr", SEND_SIGNAL_SLIDE);
 	dsp.subscribe("cr", ERROR);
 	dsp.subscribe("cr", EMPTY_BELT);
-	dsp.subscribe("cr", BOTH_BUSY);
+	dsp.subscribe("cr", BOTH_FULL);
+	dsp.subscribe("cr", EXT_FULL);
+	dsp.subscribe("cr", SELF_FULL);
+	dsp.subscribe("cr", BOTH_FREE);
 	
 	
 

@@ -39,5 +39,7 @@ bool IdleSlide::handleSlExtFull()
 
 void IdleSlide::replyBothFree() 
 {
-	//ToDo: implement me
+	if (MsgSendPulse(coid, -1, static_cast<int>(BOTH_FREE), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 }
