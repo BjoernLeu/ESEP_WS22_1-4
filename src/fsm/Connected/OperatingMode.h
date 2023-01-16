@@ -13,7 +13,6 @@
 #include "Idle.h"
 //#include "Error.h"
 #include "OperatingMode/IdleRun.h"
-#include "OperatingMode/Run.h"
 #include "../Estop.h"
 #include <string>
 

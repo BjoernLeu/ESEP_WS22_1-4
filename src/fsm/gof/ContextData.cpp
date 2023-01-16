@@ -28,8 +28,8 @@ int ContextData::getCoid() {return coid;}
 int ContextData::getCoidExt() {return coidExt;}
 
 /*================LoadedConf================*/
-void ContextData::setLoadedConfFalse(){loadedConf = true;}
-void ContextData::setLoadedConfTrue(){loadedConf = false;}
+void ContextData::setLoadedConfFalse(){loadedConf = false;}
+void ContextData::setLoadedConfTrue(){loadedConf = true;}
 bool ContextData::getLoadedConf(){return loadedConf;}
 
 /*================Connection================*/

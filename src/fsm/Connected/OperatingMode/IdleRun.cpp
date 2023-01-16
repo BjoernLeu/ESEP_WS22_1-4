@@ -8,7 +8,6 @@
 #include "IdleRun.h"
 
 IdleRun::IdleRun() {}
-
 IdleRun::~IdleRun() {}
 
 void IdleRun::entry(){
@@ -33,5 +32,7 @@ bool IdleRun::handleWpTransfer()
 void IdleRun::sendTransferOK() 
 {
 	std::cout << "Hier wird was gesendet." << std::endl;
-	//send(":)");
+	if (MsgSendPulse(coid, -1, static_cast<int>(TRANSFER_OK), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
 }

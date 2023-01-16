@@ -21,25 +21,27 @@ void Idle::exit()
 	action->lightOff(START_LED);
 }
 
-// bool Idle::handleStartLp() 
-// {
-	// exit();
-// 	new (this) ServiceMode();
-// 	entry();
-// 	return true;
-// }
+bool Idle::handleStartLp() 
+{
+	exit();
+	new (this) ServiceMode();
+	entry();
+	return true;
+}
 
-// bool Idle::handleStartSp() 
-// {
-// 	if(loadedConf){
-		// exit();
-// 		new (this) OperatingMode();
-// 		entry();
-// 		return true;
-// 	}else{
-// 		return false;
-// 	}
-// }
+bool Idle::handleStartSp() 
+{
+	std::cout << "conf: " << data->getLoadedConf() << std::endl;
+	if(data->getLoadedConf()){
+		exit();
+		new (this) OperatingMode();
+		entry();
+		return true;
+	}else{
+		std::cout << "Config not loaded" << std::endl;
+		return false;
+	}
+}
 
 bool Idle::handleResetLp() 
 {
@@ -50,18 +52,10 @@ bool Idle::handleResetLp()
 	return true;
 }
 
-// bool Idle::handleLbSW()
-// {
-// 	std::cout << "Connected/handleLbSW" << std::endl;
-// 	if (MsgSendPulse(coid, -1, static_cast<int>(THROW_WP), 0) == -1) {
-// 			perror("MsgSendPulse failed");
-// 	}
-// 	return true;
-// }
-
 void Idle::loadConf() 
 {
 	std::cout << "Load config for workpieces..." << std::endl;
 	//data->setLoadConfig();
+	data->setLoadedConfTrue();
 	std::cout << "Config for workpieces loaded." << std::endl;	
 }
