@@ -48,12 +48,12 @@ bool ManageWP::handleLbO()
 
 void ManageWP::startWatchLateThread()
 {
-	//not implemented yet
+	std::thread wT (&ManageWP::watchWPLate, this);
 }
 
 void ManageWP::addWP()
 {
-	//not implemented yet
+	//ToDo: Not implemented yet
 }
 
 void ManageWP::watchWPLate() {
