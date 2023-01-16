@@ -24,5 +24,7 @@ bool SetMetal::handleNoMetal()
 
 void SetMetal::setMType()
 {
-	//ToDo: Implement here
+	if (MsgSendPulse(coid, -1, static_cast<int>(WP_METAL), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 }

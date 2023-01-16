@@ -89,7 +89,6 @@ int main(int argc, char* argv[]) {
 //cr-Workpiece
  	dsp.subscribe("cr", WP_DRILLING);
  	dsp.subscribe("cr", WP_FLAT);
- 	dsp.subscribe("cr", WP_HIGH);
  	dsp.subscribe("cr", WP_METAL);
 	dsp.subscribe("cr", ADD_TO_LIST);
 	dsp.subscribe("cr", ADD_WATCHER);

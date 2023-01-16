@@ -14,13 +14,13 @@ OperatingMode::~OperatingMode() {}
 void OperatingMode::entry()
 {
 	std::cout << "OperatingMode entry" << std::endl;
-	lightOn(GREEN);
+	action->lightOn(GREEN);
 }
 
 void OperatingMode::exit()
 {
 	std::cout << "OperatingMode exit" << std::endl;
-	lightOff(GREEN);
+	action->lightOff(GREEN);
 }
 
 // bool OperatingMode::entryHistory()
@@ -226,16 +226,6 @@ bool OperatingMode::handleWpDrilling(){
 bool OperatingMode::handleWpID(){
 	substate->handleWpID();
 	return true;
-}
-
-void OperatingMode::lightOn(int color)
-{
-	//TODO
-}
-
-void OperatingMode::lightOff(int color)
-{
-	//TODO
 }
 
 bool OperatingMode::handleWpArrived()
