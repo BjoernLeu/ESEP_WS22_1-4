@@ -23,10 +23,7 @@ public:
 	void exit() override;
 
 	bool handleHsBelt() override;
-	bool handleWpHigh() override;
-	bool handleWpFlat() override;
-	bool handleWpDrilling() override;
-	bool handleWpID() override;
+
 private: 
 	void motorSlowOn();
 	void motorSlowOff();

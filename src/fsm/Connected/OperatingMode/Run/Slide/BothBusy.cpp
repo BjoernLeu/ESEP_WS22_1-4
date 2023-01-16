@@ -42,6 +42,8 @@ bool BothBusy::handleSLExtFree()
 
 void BothBusy::replyBothBusy()
 {
-	//ToDo: implement me
+	if (MsgSendPulse(coid, -1, static_cast<int>(BOTH_BUSY), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 }
 

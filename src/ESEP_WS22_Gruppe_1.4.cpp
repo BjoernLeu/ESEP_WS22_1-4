@@ -143,6 +143,8 @@ int main(int argc, char* argv[]) {
 	dsp.subscribe("cr", SEND_SIGNAL_SLIDE);
 	dsp.subscribe("cr", ERROR);
 	dsp.subscribe("cr", EMPTY_BELT);
+	dsp.subscribe("cr", BOTH_BUSY);
+	
 	
 
  	std::cout << "Subscribing done" << std::endl;

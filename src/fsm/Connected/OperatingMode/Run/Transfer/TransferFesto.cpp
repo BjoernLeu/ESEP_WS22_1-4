@@ -12,12 +12,12 @@ TransferFesto::~TransferFesto() {}
 
 void TransferFesto::entry()
 {
-	if(data->getFesto() == 1)
+	if(data->getFesto() == FESTOONE)
 	{
 		new (this) IdleTransferFesto1;
 		entry();
 	}
-	else if(data->getFesto() == 2)
+	else if(data->getFesto() == FESTOTWO)
 	{
 		new (this) IdleTransferFesto2;
 		entry();
