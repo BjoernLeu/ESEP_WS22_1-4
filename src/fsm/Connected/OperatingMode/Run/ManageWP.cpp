@@ -18,7 +18,7 @@ void ManageWP::entry()
 
 bool ManageWP::handleLbI()
 {
-	addWP();
+	data->addWP(INIT_TYPE, INIT_METAL, INIT_HEIGHT, INIT_FLIPPED, INIT_SEGMENT, INIT_DISTANCE);
 	return true;
 }
 
@@ -49,11 +49,6 @@ bool ManageWP::handleLbO()
 void ManageWP::startWatchLateThread()
 {
 	std::thread wT (&ManageWP::watchWPLate, this);
-}
-
-void ManageWP::addWP()
-{
-	//ToDo: Not implemented yet
 }
 
 void ManageWP::watchWPLate() {
