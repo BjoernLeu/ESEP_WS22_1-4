@@ -27,10 +27,6 @@ public:
 	void entry() override;
 	void exit() override;
 
-private:
-
-	void blinkingOn(int color, int speed);
-	void blinkingOff(int color);
 };
 
 #endif /* SRC_FSM_CONNECTED_SERVICEMODE_H_ */
