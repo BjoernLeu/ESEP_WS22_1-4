@@ -14,20 +14,20 @@
 #include "../../../../gof/SubEndState.h"
 
 class Measure: public BaseState {
-public:
-	Measure();
-	virtual ~Measure();
+	public:
+		Measure();
+		virtual ~Measure();
 
-	//methods
-	void entry() override;
-	void exit() override;
+		//methods
+		void entry() override;
+		void exit() override;
 
-	bool handleHsBelt() override;
+		bool handleHsBelt() override;
 
-private: 
-	void motorSlowOn();
-	void motorSlowOff();
-	void setHType();
+	private: 
+		void motorSlowOn();
+		void motorSlowOff();
+		void setHType();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_MEASUREHEIGHT_MEASURE_H_ */

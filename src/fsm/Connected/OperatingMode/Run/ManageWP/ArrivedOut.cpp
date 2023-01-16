@@ -12,6 +12,7 @@ ArrivedOut::~ArrivedOut() {}
 
 void ArrivedOut::entry()
 {
+		std::cout << "ArrivedOut entry" << std::endl;
 	checkEarly();
 	manageList();
 }

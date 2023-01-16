@@ -15,15 +15,15 @@
 #include "Measure.h"
 
 class IdleMeasureHeight : public BaseState {
-public:
-	IdleMeasureHeight();
-	virtual ~IdleMeasureHeight();
+	public:
+		IdleMeasureHeight();
+		virtual ~IdleMeasureHeight();
 
-	//transition
-	bool handleHsWP();
+		//transition
+		bool handleHsWP() override;
 
-	//methods
-	void entry() override;
+		//methods
+		void entry() override;
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_MEASUREHEIGHT_IDLEMEASUREHEIGHT_H_ */

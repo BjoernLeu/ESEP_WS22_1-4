@@ -10,7 +10,10 @@
 IdleWatch::IdleWatch(){}
 IdleWatch::~IdleWatch(){}
 
-void IdleWatch::entry(){} //empty entry
+void IdleWatch::entry()
+{
+	std::cout << "idleWatch entry" << std::endl;
+}
 
 bool IdleWatch::handleHsWP()
 {
