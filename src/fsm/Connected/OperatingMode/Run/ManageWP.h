@@ -12,6 +12,13 @@
 #include "../../../gof/SubEndState.h"
 #include "../../../Estop.h"
 
+#define INIT_TYPE -1
+#define INIT_METAL false
+#define INIT_HEIGHT -1
+#define INIT_FLIPPED false
+#define INIT_SEGMENT 1
+#define INIT_DISTANCE 0
+
 class ManageWP: public BaseState {
 public:
 	ManageWP();
@@ -24,9 +31,6 @@ public:
 	bool handleHsWP() override;
 	bool handleLbSW() override;
 	bool handleLbO() override;
-
-	//methods
-	void addWP();
 
 	//thread
 	void watchWPLate();
