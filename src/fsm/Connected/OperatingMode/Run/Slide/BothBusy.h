@@ -20,6 +20,8 @@ public:
 	BothBusy();
 	virtual ~BothBusy();
 
+	void entry() override;
+
 	//transitions
 	bool handleWPExpected() override;
 	bool handleSLSelfFree() override;

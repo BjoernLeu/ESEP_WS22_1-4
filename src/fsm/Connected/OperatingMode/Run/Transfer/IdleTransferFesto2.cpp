@@ -12,14 +12,13 @@ IdleTransferFesto2::~IdleTransferFesto2() {}
 
 void IdleTransferFesto2::entry()
 {
-	
+	std::cout << "Tranfer/IdleTransferFesto2 entry" << std::endl;
 }
 
 //transitions
 bool IdleTransferFesto2::handleLbSL()
 {
 	emptyBelt();
-	new (this) IdleTransferFesto2;
 	entry();
 	return true;
 }

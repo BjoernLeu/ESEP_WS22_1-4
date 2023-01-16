@@ -10,51 +10,37 @@
 WaitFesto1::WaitFesto1() {}
 WaitFesto1::~WaitFesto1() {}
 
-	void WaitFesto1::entry()
-	{
-		motorOff();
-		closeSwitch();
-	}
+void WaitFesto1::entry()
+{
+	std::cout << "Tranfer/WaitFesto1 entry" << std::endl;
+	motorOff();
+}
 
-	void WaitFesto1::exit()
-	{
-		motorOn();
-		restoreSwitch();
-	}
+void WaitFesto1::exit()
+{
+	motorOn();
+}
 
-	//Transitions
-	bool WaitFesto1::handleTransferOK()
-	{
-		exit();
-		new (this) IdleTransferFesto1;
-		entry();
-		return true;
-	}
+//Transitions
+bool WaitFesto1::handleTransferOK()
+{
+	exit();
+	new (this) IdleTransferFesto1;
+	entry();
+	return true;
+}
 
-	//Methods
-	void WaitFesto1::motorOff()
-	{
-		if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
-			perror("MsgSendPulse failed");
-		}
+//Methods
+void WaitFesto1::motorOff()
+{
+	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
+		perror("MsgSendPulse failed");
 	}
+}
 
-	void WaitFesto1::closeSwitch()
-	{
-		if (MsgSendPulse(coid, -1, static_cast<int>(SWITCH_OFF), 0) == -1) {
-				perror("MsgSendPulse failed");
-		}
+void WaitFesto1::motorOn()
+{
+	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_ON), 0) == -1) {
+		perror("MsgSendPulse failed");
 	}
-
-	void WaitFesto1::motorOn()
-	{
-		if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_ON), 0) == -1) {
-			perror("MsgSendPulse failed");
-		}
-	}
-
-	/// @brief Ggf brauchen wir diesen Part nicht. Kann noch mal geprüft werden. Das ist ein Randfall.
-	void WaitFesto1::restoreSwitch()
-	{
-
-	}
+}

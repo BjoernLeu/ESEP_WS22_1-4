@@ -28,9 +28,7 @@ class WaitFesto1 : public BaseState{
 
 		//Methods
 		void motorOff();
-		void closeSwitch();
 		void motorOn();
-		void restoreSwitch();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_TRANSFER_WAITFESTO1_H_ */

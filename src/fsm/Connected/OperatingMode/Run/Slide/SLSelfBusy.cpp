@@ -18,7 +18,6 @@ void SLSelfBusy::entry()
 bool SLSelfBusy::handleWPExpected()
 {
 	replySelfFull();
-	entry();
 	return true;
 }
 
@@ -32,6 +31,7 @@ bool SLSelfBusy::handleSLSelfFree()
 bool SLSelfBusy::handleSlExtFull()
 {
 	new (this) BothBusy;
+	entry();
 	return true;
 }
 
