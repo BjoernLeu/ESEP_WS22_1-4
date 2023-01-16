@@ -24,7 +24,6 @@ public:
 	bool handleOutOfOrder() override;
 	bool handleFlat() override;
 
-	//methods
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_SORTWPFREE_H_ */

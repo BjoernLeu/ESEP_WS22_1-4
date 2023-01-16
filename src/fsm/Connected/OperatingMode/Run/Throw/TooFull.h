@@ -25,7 +25,6 @@ public:
 	//methods
 	void entry() override;
 	void sendError();
-	void blinkingOff(int color);
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_TOOFULL_H_ */
