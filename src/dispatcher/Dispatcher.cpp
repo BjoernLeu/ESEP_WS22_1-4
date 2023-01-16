@@ -43,7 +43,7 @@ void Dispatcher::startThreads(const char* nameSendCtx2) {
 	if(attachPointHere != NULL) {
 		std::thread serverThread(&Dispatcher::server, this);
 		serverThread.detach();
-		//connectToServer();
+		connectToServer();
 	}
 	std::thread receivingThread2(&Dispatcher::receive2, this, attach2);
 	std::thread receivingThread(&Dispatcher::receive, this, attach);
@@ -158,6 +158,7 @@ void Dispatcher::heartBeatReceive() {
 	do {
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 		if(heartBeat) {
+			std::cout << "hbr" << std::endl;
 			start = std::chrono::system_clock::now();
 			heartBeat = false;
 		}

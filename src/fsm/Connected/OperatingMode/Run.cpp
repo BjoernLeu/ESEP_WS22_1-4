@@ -14,6 +14,7 @@ Run::~Run() {}
 void Run::entry() 
 {
 	std::cout << "Run entry" << std::endl;
+	motorOn();
 	multiSubstateManage = new ManageWP();
 	multiSubstateManage->setData(data);
 	multiSubstateManage->entry();

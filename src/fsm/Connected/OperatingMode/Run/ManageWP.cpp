@@ -12,6 +12,7 @@ ManageWP::~ManageWP() {}
 
 void ManageWP::entry()
 {
+	std::cout << "ManageWP entry" << std::endl;
 	startWatchLateThread();
 }
 
