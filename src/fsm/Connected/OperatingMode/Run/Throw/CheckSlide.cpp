@@ -14,23 +14,21 @@ CheckSlide::~CheckSlide() {}
 void CheckSlide::entry()
 {
 	std::cout << "CheckSlide entry" << std::endl;
+
 	//bothfree
-	if (checkSlide() == 1) {
+	if(data->getSlSelf() && data->getSlExt()){
 		handleSlBothFree(); 
-	}
 	//bothfull
-	else if (checkSlide() == 2) {
+	} else if (data->getSlSelf() == false && data->getSlExt() == false){
 		handleSlBothFull();
-	}
-	else if (checkSlide() == 3) {
+	//selffull
+	} else if (data->getSlSelf() == false){
 		handleSlSelfFull();
-	}
 	//extfull
-	else if (checkSlide() == 3) {
+	} else if (data->getSlExt() == false){
 		handleSlExtFull();
-	}
-	else {
-		std::cout << "Error by Festo1" << std::endl;
+	} else {
+		std::cout << "Error! Can not read from Slide" << std::endl;
 	}
 }
 
@@ -101,20 +99,4 @@ bool CheckSlide::handleSlBothFull()
 int CheckSlide::checkFesto()
 {
 	return data->getFesto();
-}
-
-int CheckSlide::checkSlide()
-{
-	if(data->getSlSelf() && data->getSlExt()){
-		return 1;
-	} else if (data->getSlSelf() == false && data->getSlExt() == false){
-		return 2;
-	} else if (data->getSlSelf() == false){
-		return 3;
-	} else if (data->getSlExt() == false){
-		return 4;
-	} else {
-		std::cout << "Error! Can not read from Slide" << std::endl;
-	}
-	return 0; 
 }

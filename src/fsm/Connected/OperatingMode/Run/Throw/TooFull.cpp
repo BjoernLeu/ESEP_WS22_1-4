@@ -15,7 +15,7 @@ void TooFull::entry()
 {
 	std::cout << "TooFull entry" << std::endl;
 	sendError();
-	blinkingOff(YELLOW);
+	action->blinkingOff(YELLOW);
 }
 
 bool TooFull::handleSignalReceipted()
@@ -31,9 +31,3 @@ void TooFull::sendError()
 		perror("MsgSendPulse failed");
 	}
 }
-
-void TooFull::blinkingOff(int color)
-{
-	std::cout << "this is blinking now" << std::endl;
-}
-

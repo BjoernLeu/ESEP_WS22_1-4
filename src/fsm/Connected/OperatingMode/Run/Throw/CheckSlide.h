@@ -32,7 +32,6 @@ public:
 	//methods
 	void entry() override;
 	int checkFesto();
-	int checkSlide();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_CHECKSLIDE_H_ */
