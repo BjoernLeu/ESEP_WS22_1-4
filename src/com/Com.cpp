@@ -33,7 +33,7 @@ Com::Com(const char* name, int festo, Dispatcher* disp) {
 void Com::handle_pulse(_pulse msg) {
 	if(msg.code == CONNECT) {
 		std::cout << "Com CONNECT" << std::endl;
-		if(attachPointHere != NULL) {
+		if(lost) {
 			std::thread serverThread(&Com::server, this);
 			serverThread.detach();
 			connectToServer();
@@ -45,17 +45,16 @@ void Com::handle_pulse(_pulse msg) {
 }
 
 void Com::connectToServer() {
-	_pulse msg;
 	receivingConnect = true;
-	int i = 0;
+//	int i = 0;
+	std::cout << "trying to connect" << std::endl;
 	while (receivingConnect) {
 		usleep(100000);
-		std::cout << "before name_open in connectToServer" << std::endl;
 		serverCoid = name_open(attachPointRemote, NAME_FLAG_ATTACH_GLOBAL);
 		if (serverCoid == -1) {
-			perror("Client: name_open failed");
-			std::cout << "try " << i << std::endl;
-			i++;
+//			perror("Client: name_open failed");
+//			std::cout << "try " << i << std::endl;
+//			i++;
 		}else {
 			std::cout << "Connection success" << std::endl;
 			receivingConnect = false;
@@ -76,9 +75,9 @@ void Com::handle_pulseOtherFesto(_pulse msg) {
 	if(msg.code == HEARTBEAT) {
 		heartBeat = true;
 //		std::cout << "got hb" << std::endl;
-	}else if(msg.code == KILL_SERVER){
-		std::cout << "kill received" << std::endl;
-		serverRunning = false;
+//	}else if(msg.code == KILL_SERVER){
+//		std::cout << "kill received" << std::endl;
+//		serverRunning = false;
 	}else {
 		std::cout << "Dispatcher: sending to ctx2" << std::endl;
 		dp->send(dp->context2Coid, msg.code, msg.value.sival_int);
@@ -109,27 +108,6 @@ void Com::heartBeatReceive() {
 //	for (int value : dp->dispatch_map[static_cast<Event>(CON_LOST)]) {
 		dp->send(dp->dispatch_map[static_cast<Event>(CON_LOST)], CON_LOST, 0);
 //	}
-
-//		std::cout << "heart beat lost" << std::endl;
-//		//TODO stop everything, then try to connect again
-//		lost = true;
-//		while(lost) {
-//			sleep(1);
-//			//name_detach() or name_close()
-////			name_detach(attachRemote, 0)
-//			serverCoid = name_open(attachPointRemote, NAME_FLAG_ATTACH_GLOBAL);;
-//			attachHere = name_attach(NULL, attachPointHere, NAME_FLAG_ATTACH_GLOBAL);
-//			if (serverCoid != -1) {
-//				std::cout << "name_open success" << std::endl;
-//				if (MsgSendPulse(serverCoid, -1, HEARTBEAT, 0) != -1) {
-//					std::cout << "reconnected" << std::endl;
-//					lost = false;
-//				}
-//			}else {
-//				std::cout << "name_open failed: " << attachPointRemote << std::endl;
-//			}
-//		}
-//		std::cout << "left lost loop" << std::endl;
 }
 
 void Com::heartBeatSend() {
@@ -153,7 +131,7 @@ void Com::server() {
 		perror("Server: name_attach failed");
 		failed = true;
 	}else {
-		std::cout << "name_attach success" << std::endl;
+		std::cout << "Server: name_attach success" << std::endl;
 	}
 	}while(failed);
 //	std::unique_lock<std::mutex> lk(mutex);

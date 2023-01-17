@@ -13,8 +13,10 @@ Connected::~Connected() {}
 void Connected::entry() 
 {
 	std::cout << "Connected entry" << std::endl;
-	exit();
-	data->setConnectionTrue();
+	action->blinkingOn(GREEN, FAST);
+	action->lightOn(START_LED);
+	action->lightOn(RESET_LED);
+//	exit();
 	substate = new Idle;
 	substate->setData(data);
 	substate->setAction(action);
@@ -26,10 +28,14 @@ void Connected::exit()
 	std::cout << "Connected exit" << std::endl;
 	motorOff();
 	switchOff();
+	action->blinkingOff(GREEN);
+	action->lightOff(START_LED);
+	action->lightOff(RESET_LED);
 }
 
 bool Connected::handleConLost() 
 {
+	data->setConnectionFalse();
 	exit();
 	new (this) Connecting;
 	entry();

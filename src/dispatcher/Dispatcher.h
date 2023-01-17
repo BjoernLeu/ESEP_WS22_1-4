@@ -55,16 +55,6 @@ public:
 	 */
 	void subscribe(const char* name, Event event);
 
-	/**
-	 * Dispatcht die Nachrichten in der Queue an die zugehörigen Empfänger.
-	 */
-//	void dispatch();
-	void sendToServer(int code, int value);
-
-	/**
-	 * Stellt eine Verbindung zur anderen Festo her. Hierzu muss der Nutzer den Start-Button betätigen, sobald auf der anderen Festo-Anlage der Server läuft.
-	 */
-	void connectToServer();
 
 	std::thread dispatcherThread;
 	std::thread receivingThread;
@@ -83,13 +73,7 @@ private:
 	 * Das Event ISR_ESTOP wird beim Eintreffen direkt an den Anfang der Queue hinzugefügt.
 	 */
 	void handle_pulse(_pulse msg);
-	void handle_pulseOtherFesto(_pulse msg);
 	void receive2(name_attach_t *attach);
-
-	void server();
-
-	void heartBeatSend();
-	void heartBeatReceive();
 
 	bool receivingConnect = true;
 	bool lost = false;

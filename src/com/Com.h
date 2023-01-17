@@ -39,7 +39,7 @@ private:
 
 
 	bool receivingConnect = true;
-	bool lost = false;
+	bool lost = true;
 	bool heartBeat = false;
 	bool hbthreadsRunning = false;
 	bool serverRunning = false;
