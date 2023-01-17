@@ -18,7 +18,7 @@ void Run::entry()
 	multiSubstateManage = new ManageWP();
 	multiSubstateManage->setData(data);
 	multiSubstateManage->entry();
-	multiSubstateHeight = new IdleMeasureHeight();
+	multiSubstateHeight = new IdleRun();
 	multiSubstateHeight->setData(data);
 	multiSubstateHeight->entry();
 	multiSubstateMetal = new IdleMetal();
@@ -315,5 +315,25 @@ bool Run::handleWpTransfer()
 bool Run::handleManageDone()
 {
 	substate->handleManageDone();
+	return true;
+}
+
+bool Run::handleWpCode(int height){
+	substate->handleWpCode(height);
+	return true;
+}
+
+bool Run::handleWpDrilling(int height){
+	substate->handleWpDrilling(height);
+	return true;
+}
+
+bool Run::handleWpFlat(int height){
+	substate->handleWpFlat(height);
+	return true;
+}
+
+bool Run::handleWpHigh(int height){
+	substate->handleWpHigh(height);
 	return true;
 }

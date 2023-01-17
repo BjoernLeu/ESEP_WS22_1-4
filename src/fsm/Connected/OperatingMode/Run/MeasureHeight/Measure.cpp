@@ -14,7 +14,6 @@ void Measure::entry()
 {
 	std::cout << "Measure entry" << std::endl;
 	motorSlowOn();
-	setHType();
 }
 
 void Measure::exit()
@@ -44,18 +43,22 @@ void Measure::motorSlowOff()
 	}
 }
 
-void Measure::handleWpDrilling(int height){
+bool Measure::handleWpDrilling(int height){
 	data->addWpType(55, height);
+	return true;
 }
 
-void Measure::handleWpFlat(int height){
+bool Measure::handleWpFlat(int height){
 	data->addWpType(56, height);
+	return true;
 }
 
-void Measure::handleWpHigh(int height){
+bool Measure::handleWpHigh(int height){
 	data->addWpType(57, height);
+	return true;
 }
 
-void Measure::handleWpCode(int height){
+bool Measure::handleWpCode(int height){
 	data->addWpType(59, height);
+	return true;
 }

@@ -18,7 +18,7 @@ void ManageWP::entry()
 
 bool ManageWP::handleLbI()
 {
-	data->addWP(INIT_TYPE, INIT_METAL, INIT_HEIGHT, INIT_FLIPPED, INIT_SEGMENT, INIT_DISTANCE);
+	data->addWp(INIT_TYPE, INIT_METAL, INIT_HEIGHT, INIT_FLIPPED, INIT_SEGMENT, INIT_DISTANCE);
 	return true;
 }
 
@@ -69,7 +69,7 @@ void ManageWP::watchWPLate() {
 			std::chrono::duration<double> elapsed_seconds = now-prev;
 			double addDistance = elapsed_seconds.count();
 			if(data->motorSlow) {
-				addDistance *= data->slowFactor;
+				addDistance *= data->getSlowFactor();
 			}
 			for(workpiece wp: data->wpList) {
 				wp.distance += addDistance;

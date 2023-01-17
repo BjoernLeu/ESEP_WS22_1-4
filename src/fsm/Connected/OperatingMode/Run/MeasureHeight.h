@@ -25,6 +25,10 @@ public:
 	bool handleWpFlat() override;
 	bool handleWpDrilling() override;
 	bool handleWpID() override;
+	bool handleWpCode(int height) override;
+	bool handleWpDrilling(int height) override;
+	bool handleWpFlat(int height) override;
+	bool handleWpHigh(int height) override;
 
 	//methods
 	void entry();

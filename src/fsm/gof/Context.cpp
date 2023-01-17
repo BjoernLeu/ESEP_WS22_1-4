@@ -130,19 +130,19 @@ void Context::handle_pulse(_pulse msg) {
 		break;
 //Workpiece
 	case WP_DRILLING:
-		state->handleWpDrilling();
+		state->handleWpDrilling(-1);
 		break;
 	case WP_FLAT:
-		state->handleWpFlat();
+		state->handleWpFlat(-1);
 		break;
 	case WP_HIGH:
-		state->handleWpHigh();
+		state->handleWpHigh(-1);
 		break;
 	case WP_METAL:
 		state->handleWpMetal();
 		break;
 	case WP_CODE:
-		state->handleWpCode();
+		state->handleWpCode(-1);
 		break;
 	case WP_ID:
 		state->handleWpID();

@@ -58,9 +58,9 @@ void ContextData::setDissapearedFalse(){disappeared = false;}
 bool ContextData::getDissapeared(){return disappeared;}
 
 /*================Current Count================*/
-void ContextData::incCurrentCount(){currentCount++;}
-void ContextData::decCurrentCount(){currentCount--;}
-int ContextData::getCurrentCount(){return currentCount;}
+void ContextData::incWpCount(){wpCount++;}
+void ContextData::decWpCount(){wpCount--;}
+int ContextData::getWpCount(){return wpCount;}
 
 /*================WP_Expected================*/
 void ContextData::setWP_ExpectedTrue(){wp_expected = true;}
@@ -292,42 +292,46 @@ double ContextData::getSlowFactor(){return slowFactor;}
         double distance;
     };
 */
+
 void ContextData::addWp(int type, bool metal, float height, bool flipped, int segment, double distance) {
-	wpList.push_front({getWpCount(), type, metal, height, flipped, segment, distance});
+    std::rotate(wpList.begin(), wpList.end(), wpList.end());
+	wpList.push_back({getWpCount(), type, metal, height, flipped, segment, distance});
 	std::cout << "WS added" << std::endl;
+    std::rotate(wpList.begin(), wpList.end(), wpList.end());
+//    std::cout << wpList <<std::endl;
 }
 void ContextData::popWp() {wpList.pop_back();}
-Werkstueck ContextData::getWp() {return wpList.back();}
+workpiece ContextData::getWp() {return wpList.back();}
 bool ContextData::getWpEmpty() {return wpList.empty();}
 
 void ContextData::addWpMetal() {
     if(wpList.size() > 0){
-        for (int i = 0, i<wpList.size(), i++){
-            if(wpList(i).segment == 2 && wpList(i).distance > wpList(i+1).distance){
-                wplist(i).metal = true;
+        for (int i = 0; i < wpList.size(); i++){
+            if(wpList[i].segment == 2 && wpList[i].distance > wpList[i+1].distance){
+                wpList[i].metal = true;
             }
         }
     } else {
-        wplist(0).metal = true;
+        wpList[0].metal = true;
     }
 }
 
 bool ContextData::getWpMetal(){
-	std::cout << "metall: " << wpList.back().metal << std::endl;
+	std::cout << "metal: " << wpList.back().metal << std::endl;
 	return wpList.back().metal;
 }
 
 void ContextData::addWpType(int type, int height){
     if(wpList.size() > 0){
-        for (int i = 0, i<wpList.size(), i++){
-            if(wpList(i).segment == 1 && wpList(i).distance > wpList(i+1).distance){
-                wplist(0).type = type;
-                wplist(0).height = height;
+        for (int i = 0; i < wpList.size(); i++){
+            if(wpList[i].segment == 1 && wpList[i].distance > wpList[i+1].distance){
+                wpList[i].type = type;
+                wpList[i].height = height;
             }
         }
     } else {
-        wplist(0).type = type;
-        wplist(0).height = height;
+        wpList[0].type = type;
+        wpList[0].height = height;
     }
 }
 

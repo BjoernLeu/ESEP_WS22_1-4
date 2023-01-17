@@ -89,6 +89,12 @@ bool BaseState::handleSlExtFull(){return false;}
 bool BaseState::handleSlFree(){return false;}
 bool BaseState::handleSlBothFree(){return false;}
 
+//WP
+bool BaseState::handleWpCode(int height){return false;}
+bool BaseState::handleWpDrilling(int height){return false;}
+bool BaseState::handleWpFlat(int height){return false;}
+bool BaseState::handleWpHigh(int height){return false;}
+
 //Custom new
 bool BaseState::handleHsBelt(){return false;}
 bool BaseState::handleDone(){return false;}
