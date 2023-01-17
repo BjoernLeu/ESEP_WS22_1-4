@@ -44,21 +44,33 @@ void Measure::motorSlowOff()
 }
 
 bool Measure::handleWpDrilling(int height){
-	data->addWpType(55, height);
+	std::cout << "data->addWpType(55, height);" << std::endl;
+	exit();
+	new (this) IdleMeasureHeight;
+	entry();
 	return true;
 }
 
 bool Measure::handleWpFlat(int height){
-	data->addWpType(56, height);
+	std::cout << "data->addWpType(56, height);" << std::endl;
+	exit();
+	new (this) IdleMeasureHeight;
+	entry();
 	return true;
 }
 
 bool Measure::handleWpHigh(int height){
-	data->addWpType(57, height);
+	std::cout << "data->addWpType(57, height);" << std::endl;
+	exit();
+	new (this) IdleMeasureHeight;
+	entry();
 	return true;
 }
 
 bool Measure::handleWpCode(int height){
-	data->addWpType(59, height);
+	std::cout << "data->addWpType(59, height);" << std::endl;
+	exit();
+	new (this) IdleMeasureHeight;
+	entry();
 	return true;
 }
