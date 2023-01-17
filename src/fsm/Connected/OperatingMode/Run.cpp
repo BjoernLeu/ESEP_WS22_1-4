@@ -107,7 +107,6 @@ bool Run::handleEmptyBelt()
 
 bool Run::handleSignalReceipted() 
 {
-	multiSubstateManage->handleSignalReceipted();
 	multiSubstateThrow->handleSignalReceipted();
 	multiSubstateSlide->handleSignalReceipted();
 	return true;
@@ -115,32 +114,24 @@ bool Run::handleSignalReceipted()
 
 bool Run::handleThrown() 
 {
-	multiSubstateManage->handleThrown();
-	multiSubstateSlide->handleThrown();
 	return true;
 }
 
 bool Run::handleOutOfOrder() 
 {
-	multiSubstateManage->handleOutOfOrder();
 	multiSubstateThrow->handleOutOfOrder();
-	multiSubstateSlide->handleOutOfOrder();
 	return true;
 }
 
 bool Run::handleFlat() 
 {
-	multiSubstateManage->handleFlat();
 	multiSubstateThrow->handleFlat();
-	multiSubstateSlide->handleFlat();
 	return true;
 }
 
 bool Run::handleLbSwFree() 
 {
-	multiSubstateManage->handleLbSwFree();
 	multiSubstateThrow->handleLbSwFree();
-	multiSubstateSlide->handleLbSwFree();
 	return true;
 }
 
@@ -148,13 +139,11 @@ bool Run::handleLbSW()
 {
 	multiSubstateManage->handleLbSW();
 	multiSubstateThrow->handleLbSW();
-	multiSubstateSlide->handleLbSW();
 	return true;
 }
 
 bool Run::handleSlSelfFull() 
 {
-	multiSubstateManage->handleSlSelfFull();
 	multiSubstateThrow->handleSlSelfFull();
 	multiSubstateSlide->handleSlSelfFull();
 	return true;
@@ -162,23 +151,18 @@ bool Run::handleSlSelfFull()
 
 bool Run::handleSlBothFree() 
 {
-	multiSubstateManage->handleSlBothFree();
 	multiSubstateThrow->handleSlBothFree();
-	multiSubstateSlide->handleSlBothFree();
 	return true;
 }
 
 bool Run::handleSlBothFull() 
 {
-	multiSubstateManage->handleSlBothFull();
 	multiSubstateThrow->handleSlBothFull();
-	multiSubstateSlide->handleSlBothFull();
 	return true;
 }
 
 bool Run::handleSlExtFull() 
 {
-	multiSubstateManage->handleSlExtFull();
 	multiSubstateThrow->handleSlExtFull();
 	multiSubstateSlide->handleSlExtFull();
 	return true;
@@ -186,74 +170,57 @@ bool Run::handleSlExtFull()
 
 bool Run::handleWpExpected() 
 {
-	multiSubstateManage->handleWpExpected();
 	multiSubstateSlide->handleWpExpected();
 	return true;
 }
 
 bool Run::handleSlSelfFree() 
 {
-	multiSubstateManage->handleSlSelfFree();
 	multiSubstateSlide->handleSlSelfFree();
 	return true;
 }
 
 bool Run::handleWpEarly() 
 {
-	multiSubstateManage->handleWpEarly();
-	multiSubstateSlide->handleWpEarly();
 	return true;
 }
 
 bool Run::handleWpLate() 
 {
-	multiSubstateManage->handleWpLate();
-	multiSubstateSlide->handleWpLate();
 	return true;
 }
 
 bool Run::handleEarly() 
 {
-	multiSubstateManage->handleEarly();
-	multiSubstateSlide->handleEarly();
 	return true;
 }
 
 bool Run::handleLate() 
 {
-	multiSubstateManage->handleLate();
-	multiSubstateSlide->handleLate();
 	return true;
 }
 
 bool Run::handleLbO() 
 {
 	multiSubstateManage->handleLbO();
-	multiSubstateSlide->handleLbO();
 	multiSubstateTransfer->handleLbO();		//good
 	return true;
 }
 
 bool Run::handleLbSL() 
 {
-	multiSubstateManage->handleLbSL();
-	multiSubstateSlide->handleLbSL();
 	multiSubstateTransfer->handleLbSL();	//good
 	return true;
 }
 bool Run::handleNoMetal() 
 {
-	multiSubstateManage->handleNoMetal();
 	multiSubstateMetal->handleNoMetal();
-	multiSubstateSlide->handleNoMetal();
 	return true;
 }
 
 bool Run::handleHsBelt() 
 {
-	multiSubstateManage->handleHsBelt();
 	multiSubstateHeight->handleHsBelt();	//good
-	multiSubstateSlide->handleHsBelt();
 	return true;
 }
 
@@ -261,55 +228,47 @@ bool Run::handleHsWP()
 {
 	multiSubstateManage->handleHsWP();
 	multiSubstateHeight->handleHsWP();		//good
-	multiSubstateSlide->handleHsWP();
 	return true;
 }
 
 bool Run::handleMetalDetected() 
 {
-	multiSubstateManage->handleMetalDetected();
 	multiSubstateMetal->handleMetalDetected();
-	multiSubstateSlide->handleMetalDetected();
 	return true;
 }
 
 bool Run::handleLbI() 
 {
 	multiSubstateManage->handleLbI();
-	multiSubstateSlide->handleLbI();
 	multiSubstateTransfer->handleLbI();		//good
 	return true;
 }
 
 bool Run::handleInOrder() 
 {
-	multiSubstateManage->handleInOrder();
 	multiSubstateThrow->handleInOrder();
-	multiSubstateSlide->handleInOrder();
 	return true;
 }
 
 bool Run::handleWpHigh(){
-	multiSubstateManage->handleWpHigh();
-	multiSubstateSlide->handleWpHigh();
 	return true;
 }
 
 bool Run::handleWpFlat(){
-	multiSubstateManage->handleWpFlat();
-	multiSubstateSlide->handleWpFlat();
 	return true;
 }
 
 bool Run::handleWpDrilling(){
-	multiSubstateManage->handleWpDrilling();
-	multiSubstateSlide->handleWpDrilling();
 	return true;
 }
 
 bool Run::handleWpID(){
-	multiSubstateManage->handleWpID();
-	multiSubstateSlide->handleWpID();
+	return true;
+}
+
+bool Run::handleSlExtFree() 
+{
+	multiSubstateSlide->handleSlExtFree();
 	return true;
 }
 
@@ -329,40 +288,30 @@ void Run::motorOn()
 
 bool Run::handleWpArrived()
 {
-	multiSubstateManage->handleWpArrived();
-	multiSubstateSlide->handleWpArrived();
 	multiSubstateTransfer->handleWpArrived();		//good
 	return true;
 }
 
 bool Run::handleTransferOK()
 {
-	multiSubstateManage->handleTransferOK();
-	multiSubstateSlide->handleTransferOK();
 	multiSubstateTransfer->handleTransferOK();		//good
 	return true;
 }
 
 bool Run::handleTransferWait()
 {
-	multiSubstateManage->handleTransferWait();
-	multiSubstateSlide->handleTransferWait();
 	multiSubstateTransfer->handleTransferWait();	//good
 	return true;
 }
 
 bool Run::handleLbOFree()
 {
-	multiSubstateManage->handleLbOFree();
-	multiSubstateSlide->handleLbOFree();
 	multiSubstateTransfer->handleLbOFree();			//good
 	return true;
 }
 
 bool Run::handleWpTransfer()
 {
-	multiSubstateManage->handleWpTransfer();
-	multiSubstateSlide->handleWpTransfer();
 	multiSubstateTransfer->handleWpTransfer();		//good
 	return true;
 }
@@ -370,7 +319,6 @@ bool Run::handleWpTransfer()
 bool Run::handleManageDone()
 {
 	multiSubstateManage->handleManageDone();
-	multiSubstateSlide->handleManageDone();
 	return true;
 }
 
