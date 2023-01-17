@@ -40,6 +40,12 @@ struct workpiece {
 	double distance;
 };
 
+//struct for expected workpieces
+struct workpieceExpected {
+	bool height;
+	bool metal;
+	bool isDrilling;
+};
 
 /*
  * (vgl. GOF Pattern)
@@ -100,7 +106,10 @@ public:
 	void setSlSelfFalse();
 	bool getSlSelf();
 
+	//List for workpieces
 	std::vector<workpiece> wpList;
+	//list for expected workpieces
+	std::vector<workpieceExpected> wpExpList;
 
 	int getNumberWpsOnBelt();
 
@@ -208,6 +217,11 @@ public:
 	void changeSeg2();
 	void changeSeg3();
 	
+
+	//============Expected Workpieces==================
+	void setAddExpectedWorkpiece(bool height, bool metal, bool isDrilling);
+	int* getExpectedWp();
+
 	MeasurePolling* mp;
 
 	static int coid;
@@ -278,6 +292,8 @@ private:
 	bool slExt = true;
 	bool slSelf = true;
 
+	//expected wp from 0 to 2
+	int expectedCount = 0;
 };
 
 #endif /* SRC_FSM_GOF_CONTEXTDATA_H_ */

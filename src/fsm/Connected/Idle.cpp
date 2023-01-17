@@ -55,7 +55,7 @@ bool Idle::handleResetLp()
 void Idle::loadConf() 
 {
 	std::cout << "Load config for workpieces..." << std::endl;
-	// data->setLoadConfig();
-    data->setLoadedConfTrue();
+	data->setLoadConfig();
+    //data->setLoadedConfTrue();
 	std::cout << "Config for workpieces loaded." << std::endl;	
 }

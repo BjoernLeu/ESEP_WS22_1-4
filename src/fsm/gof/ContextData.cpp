@@ -220,6 +220,9 @@ void ContextData::setLoadConfig(){
     std::cout << "\tDrilling TypeC:\t\t" << getWpDrillingC() <<std::endl;
     std::cout << "\tMetal TypeC:\t\t" << getWpIsMetalC() <<std::endl;
   
+  setAddExpectedWorkpiece(getWpHighA(), getWpDrillingA(), getWpIsMetalA());
+  setAddExpectedWorkpiece(getWpHighB(), getWpDrillingB(), getWpIsMetalB());
+  setAddExpectedWorkpiece(getWpHighC(), getWpDrillingC(), getWpIsMetalC());
 }
 
 //Getter for WP A
@@ -425,4 +428,31 @@ void ContextData::changeSeg3(){
         std::cout << "changeSeg3 nur eins in Liste" << std::endl;
         wpList[0].segment = 3;
     }
+}
+/// @brief Add a new workpiece in the list of expected workpieces
+/// @param height height workpiece 
+/// @param metal workpiece with metal
+/// @param isDrilling drilling in workpiece
+void ContextData::setAddExpectedWorkpiece(bool height, bool metal, bool isDrilling) 
+{
+	wpExpList.push_back({height, metal, isDrilling});
+}
+
+
+
+/// @brief get a specific expected workpiece
+/// @param count number of the workpiece -> 0 == TypeA, 1 == TypeB, 2 == TypeC
+/// @return the expected workpiece
+int* ContextData::getExpectedWp()
+{
+    int result [3] = {wpExpList[expectedCount].height, wpExpList[expectedCount].metal, wpExpList[expectedCount].isDrilling} ;
+    if (expectedCount <= 2) 
+    {
+        expectedCount++;    
+    }
+    else
+    {
+        expectedCount = 0;
+    }
+    return result;
 }

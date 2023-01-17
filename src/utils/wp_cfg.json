@@ -1,8 +1,8 @@
 {
     "TypeA": {
       	"high": "true",
-      	"drilling": "true",
-      	"isMetal": "true"
+      	"drilling": "false",
+      	"isMetal": "false"
     },
     "TypeB": {
       	"high": "true",
@@ -12,6 +12,6 @@
     "TypeC": {
       	"high": "true",
       	"drilling": "true",
-      	"isMetal": "true"
+      	"isMetal": "false"
     }
 }

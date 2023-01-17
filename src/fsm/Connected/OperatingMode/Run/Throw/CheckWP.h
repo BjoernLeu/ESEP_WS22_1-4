@@ -15,6 +15,10 @@
 #include "../../../../gof/BaseState.h"
 #include "../../../../gof/SubEndState.h"
 
+#define EXP_HEIGHT 0
+#define EXP_METAL 1
+#define EXP_ISDRILLING 2
+
 class CheckWP : public BaseState{
 public:
 	CheckWP();
