@@ -46,6 +46,7 @@ bool Connecting::handleEstopSelfPressed()
 
 void Connecting::establishConnection(){
 	std::cout << "Connecting here..." << std::endl;
+	sleep(5);
 	if (MsgSendPulse(coid, -1, static_cast<int>(CONNECT), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}

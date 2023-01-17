@@ -46,27 +46,27 @@ void Com::handle_pulse(_pulse msg) {
 
 void Com::connectToServer() {
 	_pulse msg;
-	bool received = false;
 	receivingConnect = true;
+	int i = 0;
 	while (receivingConnect) {
 		usleep(100000);
+		std::cout << "before name_open in connectToServer" << std::endl;
 		serverCoid = name_open(attachPointRemote, NAME_FLAG_ATTACH_GLOBAL);
 		if (serverCoid == -1) {
-//			perror("Client: name_open failed");
-//			std::cout << "try again" << std::endl;
-			received = false;
+			perror("Client: name_open failed");
+			std::cout << "try " << i << std::endl;
+			i++;
 		}else {
 			std::cout << "Connection success" << std::endl;
 			receivingConnect = false;
 		}
 	}
-	if(!hbthreadsRunning) {
 		std::thread heartBeatSendT(&Com::heartBeatSend, this);
 		std::thread heartBeatReceiveT(&Com::heartBeatReceive, this);
 		heartBeatSendT.detach();
 		heartBeatReceiveT.detach();
 		hbthreadsRunning = true;
-	}
+
 //	for (int value : dp->dispatch_map[static_cast<Event>(CON_ESTABLISHED)]) {
 		dp->send(dp->dispatch_map[static_cast<Event>(CON_ESTABLISHED)], CON_ESTABLISHED, 0);
 //	}
@@ -87,6 +87,7 @@ void Com::handle_pulseOtherFesto(_pulse msg) {
 
 void Com::heartBeatReceive() {
 
+	lost = false;
 	auto start = std::chrono::system_clock::now();
 	std::chrono::duration<double> diff;
 	do {
@@ -102,6 +103,8 @@ void Com::heartBeatReceive() {
 
 	lost = true;
 	serverRunning = false;
+	int hereCoid = name_open(attachPointHere, NAME_FLAG_ATTACH_GLOBAL);
+	this->send(hereCoid, KILL_SERVER, 0);
 
 //	for (int value : dp->dispatch_map[static_cast<Event>(CON_LOST)]) {
 		dp->send(dp->dispatch_map[static_cast<Event>(CON_LOST)], CON_LOST, 0);
@@ -156,7 +159,7 @@ void Com::server() {
 //	std::unique_lock<std::mutex> lk(mutex);
 	serverRunning = true;
 	_pulse msg;
-	while (1) {
+	while (serverRunning) {
 //		std::cout << "server receiving" << std::endl;
 		int recvid = MsgReceive(attachHere->chid, &msg, sizeof(msg), NULL); // recvid < 0 Pulse failed, == 0 success
 //		std::cout << "server received msg" << std::endl;
@@ -179,12 +182,11 @@ void Com::server() {
 				std::cout << "replied" << std::endl;
 			}
 		}
-		if(!serverRunning) {
-//			cvd.wait(lk);
-//			serverRunning = true;
-			break;
+		if(msg.type == KILL_SERVER) {
+
 		}
 	}
+	name_detach(attachHere, NAME_FLAG_ATTACH_GLOBAL);
 	std::cout << "server terminated" << std::endl;
 }
 
