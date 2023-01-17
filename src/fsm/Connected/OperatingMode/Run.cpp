@@ -112,11 +112,6 @@ bool Run::handleSignalReceipted()
 	return true;
 }
 
-bool Run::handleThrown() 
-{
-	return true;
-}
-
 bool Run::handleOutOfOrder() 
 {
 	multiSubstateThrow->handleOutOfOrder();
@@ -180,26 +175,6 @@ bool Run::handleSlSelfFree()
 	return true;
 }
 
-bool Run::handleWpEarly() 
-{
-	return true;
-}
-
-bool Run::handleWpLate() 
-{
-	return true;
-}
-
-bool Run::handleEarly() 
-{
-	return true;
-}
-
-bool Run::handleLate() 
-{
-	return true;
-}
-
 bool Run::handleLbO() 
 {
 	multiSubstateManage->handleLbO();
@@ -247,22 +222,6 @@ bool Run::handleLbI()
 bool Run::handleInOrder() 
 {
 	multiSubstateThrow->handleInOrder();
-	return true;
-}
-
-bool Run::handleWpHigh(){
-	return true;
-}
-
-bool Run::handleWpFlat(){
-	return true;
-}
-
-bool Run::handleWpDrilling(){
-	return true;
-}
-
-bool Run::handleWpID(){
 	return true;
 }
 

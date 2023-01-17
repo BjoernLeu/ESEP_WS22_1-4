@@ -63,12 +63,6 @@ bool OperatingMode::handleSignalReceipted()
 	return true;
 }
 
-bool OperatingMode::handleThrown() 
-{
-	substate->handleThrown();
-	return true;
-}
-
 bool OperatingMode::handleSlBothFree() 
 {
 	substate->handleSlBothFree();
@@ -141,30 +135,6 @@ bool OperatingMode::handleSlSelfFree()
 	return true;
 }
 
-bool OperatingMode::handleWpEarly() 
-{
-	substate->handleWpEarly();
-	return true;
-}
-
-bool OperatingMode::handleWpLate() 
-{
-	substate->handleWpLate();
-	return true;
-}
-
-bool OperatingMode::handleEarly()
-{
-	substate->handleEarly();
-	return true;
-}
-
-bool OperatingMode::handleLate()
-{
-	substate->handleLate();
-	return true;
-}
-
 bool OperatingMode::handleLbO()
 {
 	substate->handleLbO();
@@ -215,26 +185,6 @@ bool OperatingMode::handleMetalDetected()
 bool OperatingMode::handleLbI()
 {
 	substate->handleLbI();
-	return true;
-}
-
-bool OperatingMode::handleWpHigh(){
-	substate->handleWpHigh();
-	return true;
-}
-
-bool OperatingMode::handleWpFlat(){
-	substate->handleWpFlat();
-	return true;
-}
-
-bool OperatingMode::handleWpDrilling(){
-	substate->handleWpDrilling();
-	return true;
-}
-
-bool OperatingMode::handleWpID(){
-	substate->handleWpID();
 	return true;
 }
 

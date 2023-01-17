@@ -87,15 +87,7 @@ public:
 	virtual bool handleWpMetal();
 	virtual bool handleWpCode0();
 	virtual bool handleWpCodeGroesser0();
-	virtual bool handleWpDrilling();
 	virtual bool handleWpNoDrilling();
-	virtual bool handleWpFlat();
-	virtual bool handleWpHigh();
-	virtual bool handleWpID();
-	virtual bool handleEarly();
-	virtual bool handleWpEarly();
-	virtual bool handleLate();
-	virtual bool handleWpLate();
 	virtual bool handleManageDone();
 
 //Lightbarier
@@ -150,7 +142,6 @@ public:
 	virtual bool handleOutOfOrder();
 	virtual bool handleFlat();
 	virtual bool handleSignalReceipted();
-	virtual bool handleThrown();
 	virtual bool handleInOrder();
 	virtual bool handleSlBothFull();
 	virtual bool handleSlBothFree();

@@ -25,7 +25,6 @@ public:
 	bool handleStopSp()override;
 
 	bool handleSignalReceipted()override;
-	bool handleThrown()override;
 	bool handleOutOfOrder()override;
 	bool handleFlat()override;
 	bool handleLbSwFree()override;
@@ -37,10 +36,6 @@ public:
 	bool handleSlBothFull()override;
 	bool handleWpExpected()override;
 	bool handleSlSelfFree()override;
-	bool handleWpEarly()override;
-	bool handleWpLate()override;
-	bool handleEarly()override;
-	bool handleLate()override;
 	bool handleLbO()override;
 	bool handleLbSL()override;
 	bool handleHsBelt()override;
@@ -50,10 +45,6 @@ public:
 	bool handleInOrder()override;
 	bool handleLbI()override;
 	bool handleMetalDetected()override;
-	bool handleWpHigh() override;
-	bool handleWpFlat() override;
-	bool handleWpDrilling() override;
-	bool handleWpID() override;
 	bool handleWpArrived() override;
 	bool handleTransferOK() override; 
 	bool handleTransferWait() override;
