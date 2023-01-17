@@ -34,8 +34,10 @@ bool CheckWP::handleInOrder()
 void CheckWP::checkWP()
 {
 	if(data->getWP_Expected()){
+		std::cout << "CheckWP handleInOrder" << std::endl;
 		handleInOrder();
 	} else {
+		std::cout << "CheckWP handleOutOfOrder" << std::endl;
 		handleOutOfOrder();
 	}
 }
