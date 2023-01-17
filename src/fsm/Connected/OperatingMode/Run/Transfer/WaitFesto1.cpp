@@ -33,6 +33,7 @@ bool WaitFesto1::handleTransferOK()
 //Methods
 void WaitFesto1::motorOff()
 {
+	data->motor = false;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
 		perror("MsgSendPulse failed");
 	}
@@ -40,6 +41,7 @@ void WaitFesto1::motorOff()
 
 void WaitFesto1::motorOn()
 {
+	data->motor = true;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_ON), 0) == -1) {
 		perror("MsgSendPulse failed");
 	}

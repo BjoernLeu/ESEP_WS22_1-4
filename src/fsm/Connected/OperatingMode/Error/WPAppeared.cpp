@@ -50,6 +50,7 @@ void WPAppeared::addWatcher(bool current_lb)
 
 void WPAppeared::motorOn()
 {
+	data->motor = true;
 	std::cout << "Motor On" << std::endl;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_ON), 0) == -1) {
 			perror("MsgSendPulse failed");

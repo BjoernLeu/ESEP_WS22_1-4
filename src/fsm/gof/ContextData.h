@@ -114,7 +114,7 @@ public:
 	// bool getWPFlipped();
 	// int getWPSegment();
 	// double distance;
-	double segmentDistanceList[3] = {0, 0, 0};
+	double segmentDistanceList[3] = {-1, -1, -1};
 
 	double slowFactor = 0;
 
@@ -205,6 +205,8 @@ public:
 	void addWpType(int type, int height);
 	int getWpType();  //first one in front of Switch
 	void addFlipped();
+	void changeSeg2();
+	void changeSeg3();
 	
 	MeasurePolling* mp;
 

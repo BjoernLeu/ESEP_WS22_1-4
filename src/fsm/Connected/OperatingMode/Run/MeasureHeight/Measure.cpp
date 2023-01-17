@@ -31,6 +31,7 @@ bool Measure::handleHsBelt()
 
 void Measure::motorSlowOn()
 {
+	data->motorSlow = true;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_SLOW_ON), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}
@@ -38,6 +39,7 @@ void Measure::motorSlowOn()
 
 void Measure::motorSlowOff()
 {
+	data->motorSlow = false;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_SLOW_OFF), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}

@@ -61,6 +61,7 @@ void IdleTransferFesto2::emptyBelt()
 
 void IdleTransferFesto2::motorOff()
 {
+	data->motor = false;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
 		perror("MsgSendPulse failed");
 	}

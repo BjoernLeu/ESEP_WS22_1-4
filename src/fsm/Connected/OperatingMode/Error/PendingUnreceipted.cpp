@@ -56,6 +56,7 @@ bool PendingUnreceipted::handleResetSp()
 void PendingUnreceipted::motorOff()
 {
 	std::cout << "Motor Off" << std::endl;
+	data->motor = false;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}

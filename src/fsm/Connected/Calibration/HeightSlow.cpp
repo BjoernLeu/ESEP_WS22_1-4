@@ -14,9 +14,11 @@ void HeightSlow::entry()
 {
 	std::cout << "HeightSlow entry" << std::endl;
 	data->setTime_hsWP_slow();
+	data->motorSlow = false;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_SLOW_OFF), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}
+	data->motor = false;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}

@@ -34,6 +34,7 @@ void WPDisappeared::exit()
 void WPDisappeared::motorOn()
 {
 	std::cout << "Motor On" << std::endl;
+	data->motor =true;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_ON), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}

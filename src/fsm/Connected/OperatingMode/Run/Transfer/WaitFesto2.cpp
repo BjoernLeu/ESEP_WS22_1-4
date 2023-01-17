@@ -63,6 +63,7 @@ void WaitFesto2::sendTransferOK()
 
 void WaitFesto2::motorOff()
 {
+	data->motor = false;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
 		perror("MsgSendPulse failed");
 	}
@@ -70,6 +71,7 @@ void WaitFesto2::motorOff()
 
 void WaitFesto2::motorOn()
 {
+	data->motor = true;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_ON), 0) == -1) {
 		perror("MsgSendPulse failed");
 	}

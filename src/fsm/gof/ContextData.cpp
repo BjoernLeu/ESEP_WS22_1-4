@@ -260,6 +260,9 @@ void ContextData::setSectorDiff_min()
     s1_length_min = hsWP_fast_min - lbI_fast_min;
     s2_length_min = lbSW_fast_min - hsWP_fast_min;
     s3_length_min = lbO_fast_min - lbSW_fast_min;
+    segmentDistanceList[0] = std::chrono::duration<double>(s1_length_min).count();
+    segmentDistanceList[1] = std::chrono::duration<double>(s1_length_max + s2_length_min).count();
+    segmentDistanceList[2] = std::chrono::duration<double>(s1_length_max + s2_length_min + s3_length_min).count();
 }
 
 double ContextData::getS1Max(){return std::chrono::duration<double>(s1_length_max).count();}
@@ -386,4 +389,40 @@ int ContextData::getWpType(){
 
 void ContextData::addFlipped(){
     wpList.back().flipped = true;
+}
+
+void ContextData::changeSeg2(){
+    if(wpList.size() > 1){
+        std::cout << "changeSeg2: wpList.size > 0" << std::endl;
+        for (int i = 0; i < wpList.size()-1; i++){
+            if(wpList[i].segment == 1 && wpList.size() == i+1){
+                std::cout << "changeSeg2 letztes aus Liste" << std::endl;
+                wpList[0].segment = 2;
+            } else if(wpList[i].segment == 1 && wpList[i+1].segment >= 2){        
+                std::cout << "changeSeg2 anderes schon in seg2" << std::endl;
+                wpList[0].segment = 2;
+            }
+        }
+    } else {
+        std::cout << "changeSeg2 nur eins in Liste" << std::endl;
+        wpList[0].segment = 2;
+    }
+}
+
+void ContextData::changeSeg3(){
+    if(wpList.size() > 1){
+        std::cout << "changeSeg3: wpList.size > 0" << std::endl;
+        for (int i = 0; i < wpList.size()-1; i++){
+            if(wpList[i].segment == 2 && wpList.size() == i+1){
+                std::cout << "changeSeg3 letztes aus Liste" << std::endl;
+                wpList[0].segment = 3;
+            } else if(wpList[i].segment == 2 && wpList[i+1].segment >= 3){        
+                std::cout << "changeSeg3 anderes schon in seg2" << std::endl;
+                wpList[0].segment = 3;
+            }
+        }
+    } else {
+        std::cout << "changeSeg3 nur eins in Liste" << std::endl;
+        wpList[0].segment = 3;
+    }
 }

@@ -66,6 +66,9 @@ void ManageWP::watchWPLate() {
 	bool watching = true;
 	auto prev = std::chrono::system_clock::now();
 	auto now = std::chrono::system_clock::now();
+	for (int i=0; i<3; i++){
+		std::cout << data->segmentDistanceList[i] << std::endl;
+	}
 
 	while(watching) {
 		//std::cout << "Bernd 4" << std::endl;
@@ -76,12 +79,28 @@ void ManageWP::watchWPLate() {
 			if(data->motorSlow) {
 				addDistance *= data->getSlowFactor();
 			}
-			for(workpiece wp: data->wpList) {
-				wp.distance += addDistance;
-				if(wp.distance > data->segmentDistanceList[wp.segment]) {
-					//send Error here
-				}
+			
+			for(std::vector<workpiece>::iterator it = data->wpList.begin(); it != data->wpList.end(); ++it) {
+				(*it).distance += addDistance;
+				// std::cout << "(*it).distance: " << (*it).distance << std::endl;
+				// std::cout << "(*it).segment: " << (*it).segment << std::endl;
+				// std::cout << "SEGMENT DISTANCE IN LIST" << data->segmentDistanceList[(*it).segment - 1] << std::endl;
+				// if((*it).distance > data->segmentDistanceList[(*it).segment - 1]) {
+				// 	if ((*it).segment == 3){
+				// 		std::cout << "ENDE VON SEGMENT 3!!!!" << std::endl;
+				// 	}else {
+				// 		(*it).segment = (*it).segment + 1;
+				// 		std::cout << "(*it).segment: " << (*it).segment << std::endl;
+				// 	}
+				// }
 			}
+
+			// for(workpiece wp: data->wpList) {
+			// 	wp.distance += addDistance;
+			// 	if(wp.distance > data->segmentDistanceList[wp.segment]) {
+			// 		//send Error here
+			// 	}
+			// }
 		}
 		prev = now;
 		usleep(50000);

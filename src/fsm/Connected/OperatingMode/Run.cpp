@@ -236,6 +236,7 @@ bool Run::handleSlExtFree()
 
 void Run::motorOff() 
 {
+	data->motor = false;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
 		perror("MsgSendPulse failed");
 	}
@@ -243,6 +244,7 @@ void Run::motorOff()
 
 void Run::motorOn() 
 {
+	data->motor = true;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_ON), 0) == -1) {
 		perror("MsgSendPulse failed");
 	}
