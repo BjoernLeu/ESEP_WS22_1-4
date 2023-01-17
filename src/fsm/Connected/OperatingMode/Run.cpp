@@ -96,7 +96,6 @@ bool Run::handleError()
 	exit();
 	new(this) Error;
 	entry();
-
 	return true;
 }
 
@@ -137,6 +136,7 @@ bool Run::handleLbSW()
 {
 	multiSubstateManage->handleLbSW();
 	multiSubstateThrow->handleLbSW();
+
 	return true;
 }
 

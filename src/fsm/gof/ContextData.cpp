@@ -109,7 +109,9 @@ void ContextData::setWpIsMetalCFalse(){isMetalC = false;}
 
 /*================Workpiece List C================*/
 //get number of workpieces on the belt
-int ContextData::getNumberWpsOnBelt(){return wpList.size();}
+int ContextData::getNumberWpsOnBelt(){
+    std::cout << "wpList.size: " <<wpList.size() << std::endl;
+    return wpList.size();}
 
 /*================Load workpieces from JSON================*/
 void ContextData::setLoadConfig(){
@@ -300,14 +302,24 @@ void ContextData::addWp(int type, bool metal, float height, bool flipped, int se
     std::rotate(wpList.begin(), wpList.end(), wpList.end());
 //    std::cout << wpList <<std::endl;
 }
-void ContextData::popWp() {wpList.pop_back();}
+void ContextData::popWp() {
+    if(wpList.size() > 1){
+        for(std::vector<workpiece>::iterator it = wpList.begin(); it != wpList.end(); ++it) {
+            if((*it).segment == 3 && (*it).distance > (*it).distance){
+                wpList.erase(it);
+            }
+        }
+    } else {
+        wpList.pop_back();
+    }
+}
 workpiece ContextData::getWp() {return wpList.back();}
 bool ContextData::getWpEmpty() {return wpList.empty();}
 
 void ContextData::addWpMetal() {
     if(wpList.size() > 1){
         for (int i = 1; i < wpList.size()-1; i++){
-            if(wpList[i].segment == 2 && wpList[i].distance > wpList[i+1].distance){
+            if(wpList[i].segment == 3 && wpList[i].distance > wpList[i+1].distance){
                 wpList[i].metal = true;
                 break;
             }
@@ -335,6 +347,7 @@ bool ContextData::getWpMetal(){
 
 
 void ContextData::addWpType(int type, int height){
+    std::cout << "wpList.size: " <<wpList.size() << std::endl;
     if(wpList.size() > 1){
         std::cout << "addWpType: wpList.size > 0" << std::endl;
         for (int i = 1; i < wpList.size()-1; i++){

@@ -45,10 +45,6 @@ public:
 	bool handleInOrder()override;
 	bool handleLbI()override;
 	bool handleWpMetal()override;
-	bool handleWpHigh() override;
-	bool handleWpFlat() override;
-	bool handleWpDrilling() override;
-	bool handleWpID() override;
 	bool handleWpArrived() override;
 	bool handleTransferOK() override; 
 	bool handleTransferWait() override;
