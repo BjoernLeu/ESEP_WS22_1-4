@@ -144,9 +144,6 @@ void Context::handle_pulse(_pulse msg) {
 	case WP_CODE:
 		state->handleWpCode(-1);
 		break;
-	case WP_ID:
-		state->handleWpID();
-		break;
 	case REMOVE_FROM_LIST:
 		state->handleStartSp();
 		break;
