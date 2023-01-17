@@ -292,6 +292,7 @@ double ContextData::getSlowFactor(){return slowFactor;}
         double distance;
     };
 */
+
 void ContextData::addWp(int type, bool metal, float height, bool flipped, int segment, double distance) {
     std::rotate(wpList.begin(), wpList.end(), wpList.end());
 	wpList.push_back({getWpCount(), type, metal, height, flipped, segment, distance});
