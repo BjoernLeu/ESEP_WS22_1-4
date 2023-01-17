@@ -31,7 +31,7 @@ public:
 	bool handleWpHigh(int height) override;
 
 	//methods
-	void entry();
+	void entry() override;
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_COUNTDOWN_H_ */
