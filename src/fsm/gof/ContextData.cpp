@@ -305,10 +305,11 @@ workpiece ContextData::getWp() {return wpList.back();}
 bool ContextData::getWpEmpty() {return wpList.empty();}
 
 void ContextData::addWpMetal() {
-    if(wpList.size() > 0){
-        for (int i = 0; i < wpList.size(); i++){
+    if(wpList.size() > 1){
+        for (int i = 1; i < wpList.size()-1; i++){
             if(wpList[i].segment == 2 && wpList[i].distance > wpList[i+1].distance){
                 wpList[i].metal = true;
+                break;
             }
         }
     } else {
@@ -317,21 +318,56 @@ void ContextData::addWpMetal() {
 }
 
 bool ContextData::getWpMetal(){
-	std::cout << "metal: " << wpList.back().metal << std::endl;
-	return wpList.back().metal;
-}
-
-void ContextData::addWpType(int type, int height){
-    if(wpList.size() > 0){
-        for (int i = 0; i < wpList.size(); i++){
-            if(wpList[i].segment == 1 && wpList[i].distance > wpList[i+1].distance){
-                wpList[i].type = type;
-                wpList[i].height = height;
+	if(wpList.size() > 1){
+        std::cout << "addWpType: wpList.size > 0" << std::endl;
+        for (int i = 1; i < wpList.size()-1; i++){
+            if(wpList[i].segment == 3 && wpList[i].distance > wpList[i+1].distance && wpList[i-1].segment == 2){        
+                std::cout << "addWpType: " << wpList[i].type << std::endl;
+                return wpList[i].metal;
             }
         }
     } else {
+        std::cout << "addWpType: wpList.size <= 1" << std::endl;
+        std::cout << "addWpType: " << wpList[0].type << std::endl;
+        return wpList[0].metal;
+    }
+}
+
+
+void ContextData::addWpType(int type, int height){
+    if(wpList.size() > 1){
+        std::cout << "addWpType: wpList.size > 0" << std::endl;
+        for (int i = 1; i < wpList.size()-1; i++){
+            if(wpList[i].segment == 1 && wpList[i].type == -1){
+                wpList[i].type = type;
+                wpList[i].height = height;
+                break;
+            }
+        }
+    } else {
+        std::cout << "addWpType: wpList.size <= 1" << std::endl;
         wpList[0].type = type;
         wpList[0].height = height;
+    }
+}
+ /**
+  * @brief Returns the Wp Type of the Wp in lbSW
+  * 
+  * @return int WP_DRILLING = 55, WP_FLAT = 56, WP_HIGH = 57, WP_CODE = 59
+  */
+int ContextData::getWpType(){
+    if(wpList.size() > 1){
+        std::cout << "addWpType: wpList.size > 0" << std::endl;
+        for (int i = 1; i < wpList.size()-1; i++){
+            if(wpList[i].segment == 3 && wpList[i].distance > wpList[i+1].distance && wpList[i-1].segment == 2){        
+                std::cout << "addWpType: " << wpList[i].type << std::endl;
+                return wpList[i].type;
+            }
+        }
+    } else {
+        std::cout << "addWpType: wpList.size <= 1" << std::endl;
+        std::cout << "addWpType: " << wpList[0].type << std::endl;
+        return wpList[0].type;
     }
 }
 

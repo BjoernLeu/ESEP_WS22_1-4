@@ -246,9 +246,9 @@ bool Connected::handleInOrder()
 	return true;
 }
 
-bool Connected::handleMetalDetected()
+bool Connected::handleWpMetal()
 {
-	substate->handleMetalDetected();
+	substate->handleWpMetal();
 	return true;
 }
 

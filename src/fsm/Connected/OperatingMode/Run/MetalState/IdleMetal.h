@@ -21,7 +21,7 @@ public:
 	void entry() override;
 
 	//transitions
-	bool handleMetalDetected() override;
+	bool handleWpMetal() override;
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_METAL_IDLEMETAL_H_ */

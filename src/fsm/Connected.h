@@ -61,7 +61,7 @@ public:
 	bool handleNoMetal() override;
 	bool handleEmptyBelt() override;
 	bool handleInOrder() override;
-	bool handleMetalDetected() override;
+	bool handleWpMetal() override;
 	bool handleSlExtFree() override;
 	bool handleWpArrived() override;
 	bool handleTransferOK() override; 

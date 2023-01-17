@@ -14,6 +14,7 @@ SortWPFree::~SortWPFree() {}
 void SortWPFree::entry()
 {
 	std::cout << "SortWPFree entry" << std::endl;
+	checkFlat();
 }
 
 bool SortWPFree::handleOutOfOrder()
@@ -28,4 +29,12 @@ bool SortWPFree::handleFlat()
 	new (this) ThrowWP;
 	entry();
 	return true;
+}
+
+void SortWPFree::checkFlat(){
+	if (data->getWpType() == 56){
+		handleFlat();
+	} else {
+		handleOutOfOrder();
+	}
 }

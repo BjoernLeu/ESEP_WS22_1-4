@@ -25,9 +25,9 @@ bool MetalState::handleNoMetal()
 	return true;
 }
 
-bool MetalState::handleMetalDetected() 
+bool MetalState::handleWpMetal() 
 {
-	std::cout << "MetalState handleMetalDetected" << std::endl;
-	substate->handleMetalDetected();
+	std::cout << "MetalState handleWpMetal" << std::endl;
+	substate->handleWpMetal();
 	return true;
 }

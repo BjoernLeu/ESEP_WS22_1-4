@@ -44,7 +44,7 @@ public:
 	bool handleHsWP() override;
 	bool handleNoMetal() override;
 	bool handleEmptyBelt() override;
-	bool handleMetalDetected() override;
+	bool handleWpMetal() override;
 	bool handleLbI() override;	
 	bool handleWpArrived() override;
 	bool handleTransferOK() override; 

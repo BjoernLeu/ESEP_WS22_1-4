@@ -20,7 +20,7 @@ public:
 
 	//transition
 	bool handleNoMetal() override;
-	bool handleMetalDetected() override;
+	bool handleWpMetal() override;
 
 	//methods
 	void entry() override;

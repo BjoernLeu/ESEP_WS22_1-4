@@ -203,6 +203,7 @@ public:
 	void addWpMetal();
 	bool getWpMetal();
 	void addWpType(int type, int height);
+	int getWpType();  //first one in front of Switch
 	void addFlipped();
 	
 	MeasurePolling* mp;

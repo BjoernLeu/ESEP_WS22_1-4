@@ -23,6 +23,8 @@ public:
 	//transition
 	bool handleOutOfOrder() override;
 	bool handleFlat() override;
+private:
+	void checkFlat();
 
 };
 

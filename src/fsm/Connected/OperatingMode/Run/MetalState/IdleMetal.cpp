@@ -15,9 +15,9 @@ void IdleMetal::entry()
 	std::cout << "IdleMetal entry" << std::endl;
 }
 
-bool IdleMetal::handleMetalDetected()
+bool IdleMetal::handleWpMetal()
 {
-	std::cout << "IdleMetal handleMetalDetected" << std::endl;
+	std::cout << "IdleMetal handleWpMetal" << std::endl;
 	new (this) SetMetal;
 	entry();
 	return true;

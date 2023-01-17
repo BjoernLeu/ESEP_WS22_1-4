@@ -25,8 +25,8 @@ public:
 	//transition
 	bool handleFlat() override;
 	bool handleOutOfOrder() override;
-
-	//methods
+private:
+	void checkFlat();
 };
 
 #endif /* SRC_FSM_CONNECTED_OPERATINGMODE_RUN_THROW_SORTWPBOTHFULL_H_ */

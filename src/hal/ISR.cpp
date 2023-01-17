@@ -189,7 +189,7 @@ void ISR::handleInterrupt(void) {
 				if (current_level) {
 					this->send(coid, static_cast<int>(WP_METAL), 0);
 				} else {
-
+					this->send(coid, static_cast<int>(NO_METAL), 0);
 				}
 				break;
 			case P_IN_SWITCH:

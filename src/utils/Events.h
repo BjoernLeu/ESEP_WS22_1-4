@@ -116,6 +116,7 @@ enum Event {
 	SEND_SIGNAL_SLIDE,
 	ERROR,
 	EMPTY_BELT,
+	NO_METAL,
 };
 
 #endif /* SRC_UTILS_EVENTS_H_ */
