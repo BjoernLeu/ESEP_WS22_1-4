@@ -41,15 +41,7 @@ bool BaseState::handleSorted(){return false;}
 bool BaseState::handleWpMetal(){return false;}
 bool BaseState::handleWpCode0(){return false;}
 bool BaseState::handleWpCodeGroesser0(){return false;}
-bool BaseState::handleWpDrilling(){return false;}
 bool BaseState::handleWpNoDrilling(){return false;}
-bool BaseState::handleWpFlat(){return false;}
-bool BaseState::handleWpHigh(){return false;}
-bool BaseState::handleWpID(){return false;}
-bool BaseState::handleEarly(){return false;}
-bool BaseState::handleWpLate(){return false;}
-bool BaseState::handleWpEarly(){return false;}
-bool BaseState::handleLate(){return false;}
 bool BaseState::handleManageDone(){return false;}
 
 //Lightbarier
@@ -105,7 +97,6 @@ bool BaseState::handleHsWP(){return false;}
 bool BaseState::handleOutOfOrder(){return false;}
 bool BaseState::handleFlat(){return false;}
 bool BaseState::handleSignalReceipted(){return false;}
-bool BaseState::handleThrown(){return false;}
 bool BaseState::handleInOrder(){return false;}
 bool BaseState::handleSlBothFull(){return false;}
 bool BaseState::handleEmptyBelt(){return false;}
