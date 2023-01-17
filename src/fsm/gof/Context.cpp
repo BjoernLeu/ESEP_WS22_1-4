@@ -194,13 +194,13 @@ void Context::handle_pulse(_pulse msg) {
 		state->handleSlSelfFull();
 		break;
 	case LB_SL_SELF_FREE:
-		state->handleSLSelfFree();
+		state->handleSlSelfFree();
 		break;
 	case LB_SL_EXT_FULL:
 		state->handleSlExtFull();
 		break;
 	case LB_SL_EXT_FREE:
-		state->handleSLExtFree();
+		state->handleSlExtFree();
 		break;
 	case LB_O:
 		state->handleLbO();
@@ -263,7 +263,7 @@ void Context::handle_pulse(_pulse msg) {
 		state->handleCalcDone();
 		break;
 	case WP_EXPECTED:
-		state->handleWPExpected();
+		state->handleWpExpected();
 		break;
 	case PRINT_ERROR:
 		state->handlePrinted();

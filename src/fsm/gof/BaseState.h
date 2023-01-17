@@ -128,16 +128,16 @@ public:
 	virtual bool handleWpComes();
 
 //Slide
-	virtual bool handleSLSelfFree();
+	virtual bool handleSlSelfFree();
 	virtual bool handleSlSelfFull();
-	virtual bool handleSLExtFree();
+	virtual bool handleSlExtFree();
 	virtual bool handleSlExtFull();
 	virtual bool handleSlFree();
 
 //custom new
 	virtual bool handleHsBelt();
 	virtual bool handleDone();
-	virtual bool handleWPExpected();
+	virtual bool handleWpExpected();
 	virtual bool handleNoMetal();
 	virtual bool handleMetalDetected();
 	virtual bool handleHsWP();

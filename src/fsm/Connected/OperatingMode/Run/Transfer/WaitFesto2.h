@@ -27,11 +27,9 @@ class WaitFesto2 : public BaseState{
 		bool handleLbSL() override;
 		bool handleLbO() override;
 
-		//Methods
+	private:
 		void sendTransferWait();
 		void sendTransferOK();
-
-	private:
 		void motorOn();
 		void motorOff();	
 };

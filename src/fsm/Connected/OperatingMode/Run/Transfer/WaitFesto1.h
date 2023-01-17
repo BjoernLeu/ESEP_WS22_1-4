@@ -26,6 +26,7 @@ class WaitFesto1 : public BaseState{
 		//Transitions
 		bool handleTransferOK() override;
 
+	private:
 		//Methods
 		void motorOff();
 		void motorOn();

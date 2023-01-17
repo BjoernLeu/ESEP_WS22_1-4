@@ -37,8 +37,8 @@ public:
 	bool handleLbSW() override;
 	bool handleLbSwFree() override;
 	bool handleFlat() override;	
-	bool handleWPExpected() override;
-	bool handleSLSelfFree() override;
+	bool handleWpExpected() override;
+	bool handleSlSelfFree() override;
 	bool handleWpEarly() override;
 	bool handleWpLate() override;
 	bool handleEarly() override;

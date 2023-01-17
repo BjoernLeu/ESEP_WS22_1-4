@@ -21,10 +21,10 @@ public:
 	void entry() override;
 
 	//transitions
-	bool handleSLExtFree() override;
+	bool handleSlExtFree() override;
 	bool handleSlExtFull() override;
-	bool handleWPExpected() override;
-	bool handleSLSelfFree() override;
+	bool handleWpExpected() override;
+	bool handleSlSelfFree() override;
 	bool handleSlSelfFull() override;
 };
 

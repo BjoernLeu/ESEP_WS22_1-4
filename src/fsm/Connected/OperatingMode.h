@@ -35,8 +35,8 @@ public:
 	bool handleSlExtFull()override;
 	bool handleSlBothFree() override;
 	bool handleSlBothFull()override;
-	bool handleWPExpected()override;
-	bool handleSLSelfFree()override;
+	bool handleWpExpected()override;
+	bool handleSlSelfFree()override;
 	bool handleWpEarly()override;
 	bool handleWpLate()override;
 	bool handleEarly()override;

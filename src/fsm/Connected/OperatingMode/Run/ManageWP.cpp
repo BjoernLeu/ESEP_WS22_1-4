@@ -36,6 +36,7 @@ bool ManageWP::handleHsWP()
 
 bool ManageWP::handleLbSW()
 {
+	std::cout << "kommst du hier an in 'LB_SW' managewp" << std::endl;
 	substate->handleLbSW();
 	return true;
 }
@@ -48,17 +49,23 @@ bool ManageWP::handleLbO()
 
 void ManageWP::startWatchLateThread()
 {
+	std::cout << "Bernd 1" << std::endl;	
 	std::thread wT (&ManageWP::watchWPLate, this);
+	wT.detach();
 }
 
 void ManageWP::watchWPLate() {
+	std::cout << "Bernd 2" << std::endl;
 	bool watching = true;
 	auto prev = std::chrono::system_clock::now();
 	auto now = std::chrono::system_clock::now();
 
+	std::cout << "Bernd 3" << std::endl;
 	while(watching) {
+		//std::cout << "Bernd 4" << std::endl;
 		now = std::chrono::system_clock::now();
 		if(data->motor && !data->motorStop) {
+			std::cout << "Bernd 5" << std::endl;
 			std::chrono::duration<double> elapsed_seconds = now-prev;
 			double addDistance = elapsed_seconds.count();
 			if(data->motorSlow) {
@@ -74,6 +81,7 @@ void ManageWP::watchWPLate() {
 		prev = now;
 		usleep(50000);
 	}
+	
 }
 
 

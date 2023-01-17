@@ -123,15 +123,15 @@ bool OperatingMode::handleSlExtFull()
 	return true;
 }
 
-bool OperatingMode::handleWPExpected() 
+bool OperatingMode::handleWpExpected() 
 {
-	substate->handleWPExpected();
+	substate->handleWpExpected();
 	return true;
 }
 
-bool OperatingMode::handleSLSelfFree() 
+bool OperatingMode::handleSlSelfFree() 
 {
-	substate->handleSLSelfFree();
+	substate->handleSlSelfFree();
 	return true;
 }
 
