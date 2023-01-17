@@ -109,7 +109,6 @@ bool Run::handleSignalReceipted()
 {
 	multiSubstateManage->handleSignalReceipted();
 	multiSubstateHeight->handleSignalReceipted();
-	multiSubstateMetal->handleSignalReceipted();
 	multiSubstateThrow->handleSignalReceipted();
 	multiSubstateSlide->handleSignalReceipted();
 	multiSubstateTransfer->handleSignalReceipted();
@@ -120,8 +119,6 @@ bool Run::handleThrown()
 {
 	multiSubstateManage->handleThrown();
 	multiSubstateHeight->handleThrown();
-	multiSubstateMetal->handleThrown();
-	multiSubstateThrow->handleThrown();
 	multiSubstateSlide->handleThrown();
 	multiSubstateTransfer->handleThrown();
 	return true;
@@ -131,7 +128,6 @@ bool Run::handleOutOfOrder()
 {
 	multiSubstateManage->handleOutOfOrder();
 	multiSubstateHeight->handleOutOfOrder();
-	multiSubstateMetal->handleOutOfOrder();
 	multiSubstateThrow->handleOutOfOrder();
 	multiSubstateSlide->handleOutOfOrder();
 	multiSubstateTransfer->handleOutOfOrder();
@@ -142,7 +138,6 @@ bool Run::handleFlat()
 {
 	multiSubstateManage->handleFlat();
 	multiSubstateHeight->handleFlat();
-	multiSubstateMetal->handleFlat();
 	multiSubstateThrow->handleFlat();
 	multiSubstateSlide->handleFlat();
 	multiSubstateTransfer->handleFlat();
@@ -153,7 +148,6 @@ bool Run::handleLbSwFree()
 {
 	multiSubstateManage->handleLbSwFree();
 	multiSubstateHeight->handleLbSwFree();
-	multiSubstateMetal->handleLbSwFree();
 	multiSubstateThrow->handleLbSwFree();
 	multiSubstateSlide->handleLbSwFree();
 	multiSubstateTransfer->handleLbSwFree();
@@ -164,7 +158,6 @@ bool Run::handleLbSW()
 {
 	multiSubstateManage->handleLbSW();
 	multiSubstateHeight->handleLbSW();
-	multiSubstateMetal->handleLbSW();
 	multiSubstateThrow->handleLbSW();
 	multiSubstateSlide->handleLbSW();
 	multiSubstateTransfer->handleLbSW();
@@ -175,7 +168,6 @@ bool Run::handleSlSelfFull()
 {
 	multiSubstateManage->handleSlSelfFull();
 	multiSubstateHeight->handleSlSelfFull();
-	multiSubstateMetal->handleSlSelfFull();
 	multiSubstateThrow->handleSlSelfFull();
 	multiSubstateSlide->handleSlSelfFull();
 	multiSubstateTransfer->handleSlSelfFull();
@@ -186,7 +178,6 @@ bool Run::handleSlBothFree()
 {
 	multiSubstateManage->handleSlBothFree();
 	multiSubstateHeight->handleSlBothFree();
-	multiSubstateMetal->handleSlBothFree();
 	multiSubstateThrow->handleSlBothFree();
 	multiSubstateSlide->handleSlBothFree();
 	multiSubstateTransfer->handleSlBothFree();
@@ -197,7 +188,6 @@ bool Run::handleSlBothFull()
 {
 	multiSubstateManage->handleSlBothFull();
 	multiSubstateHeight->handleSlBothFull();
-	multiSubstateMetal->handleSlBothFull();
 	multiSubstateThrow->handleSlBothFull();
 	multiSubstateSlide->handleSlBothFull();
 	multiSubstateTransfer->handleSlBothFull();
@@ -208,7 +198,6 @@ bool Run::handleSlExtFull()
 {
 	multiSubstateManage->handleSlExtFull();
 	multiSubstateHeight->handleSlExtFull();
-	multiSubstateMetal->handleSlExtFull();
 	multiSubstateThrow->handleSlExtFull();
 	multiSubstateSlide->handleSlExtFull();
 	multiSubstateTransfer->handleSlExtFull();
@@ -219,8 +208,6 @@ bool Run::handleWpExpected()
 {
 	multiSubstateManage->handleWpExpected();
 	multiSubstateHeight->handleWpExpected();
-	multiSubstateMetal->handleWpExpected();
-	multiSubstateThrow->handleWpExpected();
 	multiSubstateSlide->handleWpExpected();
 	multiSubstateTransfer->handleWpExpected();
 	return true;
@@ -230,8 +217,6 @@ bool Run::handleSlSelfFree()
 {
 	multiSubstateManage->handleSlSelfFree();
 	multiSubstateHeight->handleSlSelfFree();
-	multiSubstateMetal->handleSlSelfFree();
-	multiSubstateThrow->handleSlSelfFree();
 	multiSubstateSlide->handleSlSelfFree();
 	multiSubstateTransfer->handleSlSelfFree();
 	return true;
@@ -241,8 +226,6 @@ bool Run::handleWpEarly()
 {
 	multiSubstateManage->handleWpEarly();
 	multiSubstateHeight->handleWpEarly();
-	multiSubstateMetal->handleWpEarly();
-	multiSubstateThrow->handleWpEarly();
 	multiSubstateSlide->handleWpEarly();
 	multiSubstateTransfer->handleWpEarly();
 	return true;
@@ -252,8 +235,6 @@ bool Run::handleWpLate()
 {
 	multiSubstateManage->handleWpLate();
 	multiSubstateHeight->handleWpLate();
-	multiSubstateMetal->handleWpLate();
-	multiSubstateThrow->handleWpLate();
 	multiSubstateSlide->handleWpLate();
 	multiSubstateTransfer->handleWpLate();
 	return true;
@@ -263,8 +244,6 @@ bool Run::handleEarly()
 {
 	multiSubstateManage->handleEarly();
 	multiSubstateHeight->handleEarly();
-	multiSubstateMetal->handleEarly();
-	multiSubstateThrow->handleEarly();
 	multiSubstateSlide->handleEarly();
 	multiSubstateTransfer->handleEarly();
 	return true;
@@ -274,8 +253,6 @@ bool Run::handleLate()
 {
 	multiSubstateManage->handleLate();
 	multiSubstateHeight->handleLate();
-	multiSubstateMetal->handleLate();
-	multiSubstateThrow->handleLate();
 	multiSubstateSlide->handleLate();
 	multiSubstateTransfer->handleLate();
 	return true;
@@ -285,8 +262,6 @@ bool Run::handleLbO()
 {
 	multiSubstateManage->handleLbO();
 	multiSubstateHeight->handleLbO();
-	multiSubstateMetal->handleLbO();
-	multiSubstateThrow->handleLbO();
 	multiSubstateSlide->handleLbO();
 	multiSubstateTransfer->handleLbO();
 	return true;
@@ -296,8 +271,6 @@ bool Run::handleLbSL()
 {
 	multiSubstateManage->handleLbSL();
 	multiSubstateHeight->handleLbSL();
-	multiSubstateMetal->handleLbSL();
-	multiSubstateThrow->handleLbSL();
 	multiSubstateSlide->handleLbSL();
 	multiSubstateTransfer->handleLbSL();
 	return true;
@@ -307,7 +280,6 @@ bool Run::handleNoMetal()
 	multiSubstateManage->handleNoMetal();
 	multiSubstateHeight->handleNoMetal();
 	multiSubstateMetal->handleNoMetal();
-	multiSubstateThrow->handleNoMetal();
 	multiSubstateSlide->handleNoMetal();
 	multiSubstateTransfer->handleNoMetal();
 	return true;
@@ -317,8 +289,6 @@ bool Run::handleHsBelt()
 {
 	multiSubstateManage->handleHsBelt();
 	multiSubstateHeight->handleHsBelt();
-	multiSubstateMetal->handleHsBelt();
-	multiSubstateThrow->handleHsBelt();
 	multiSubstateSlide->handleHsBelt();
 	multiSubstateTransfer->handleHsBelt();
 	return true;
@@ -328,8 +298,6 @@ bool Run::handleHsWP()
 {
 	multiSubstateManage->handleHsWP();
 	multiSubstateHeight->handleHsWP();
-	multiSubstateMetal->handleHsWP();
-	multiSubstateThrow->handleHsWP();
 	multiSubstateSlide->handleHsWP();
 	multiSubstateTransfer->handleHsWP();
 	return true;
@@ -340,7 +308,6 @@ bool Run::handleMetalDetected()
 	multiSubstateManage->handleMetalDetected();
 	multiSubstateHeight->handleMetalDetected();
 	multiSubstateMetal->handleMetalDetected();
-	multiSubstateThrow->handleMetalDetected();
 	multiSubstateSlide->handleMetalDetected();
 	multiSubstateTransfer->handleMetalDetected();
 	return true;
@@ -350,8 +317,6 @@ bool Run::handleLbI()
 {
 	multiSubstateManage->handleLbI();
 	multiSubstateHeight->handleLbI();
-	multiSubstateMetal->handleLbI();
-	multiSubstateThrow->handleLbI();
 	multiSubstateSlide->handleLbI();
 	multiSubstateTransfer->handleLbI();
 	return true;
@@ -361,7 +326,6 @@ bool Run::handleInOrder()
 {
 	multiSubstateManage->handleInOrder();
 	multiSubstateHeight->handleInOrder();
-	multiSubstateMetal->handleInOrder();
 	multiSubstateThrow->handleInOrder();
 	multiSubstateSlide->handleInOrder();
 	multiSubstateTransfer->handleInOrder();
@@ -371,8 +335,6 @@ bool Run::handleInOrder()
 bool Run::handleWpHigh(){
 	multiSubstateManage->handleWpHigh();
 	multiSubstateHeight->handleWpHigh();
-	multiSubstateMetal->handleWpHigh();
-	multiSubstateThrow->handleWpHigh();
 	multiSubstateSlide->handleWpHigh();
 	multiSubstateTransfer->handleWpHigh();
 	return true;
@@ -381,8 +343,6 @@ bool Run::handleWpHigh(){
 bool Run::handleWpFlat(){
 	multiSubstateManage->handleWpFlat();
 	multiSubstateHeight->handleWpFlat();
-	multiSubstateMetal->handleWpFlat();
-	multiSubstateThrow->handleWpFlat();
 	multiSubstateSlide->handleWpFlat();
 	multiSubstateTransfer->handleWpFlat();
 	return true;
@@ -391,8 +351,6 @@ bool Run::handleWpFlat(){
 bool Run::handleWpDrilling(){
 	multiSubstateManage->handleWpDrilling();
 	multiSubstateHeight->handleWpDrilling();
-	multiSubstateMetal->handleWpDrilling();
-	multiSubstateThrow->handleWpDrilling();
 	multiSubstateSlide->handleWpDrilling();
 	multiSubstateTransfer->handleWpDrilling();
 	return true;
@@ -401,8 +359,6 @@ bool Run::handleWpDrilling(){
 bool Run::handleWpID(){
 	multiSubstateManage->handleWpID();
 	multiSubstateHeight->handleWpID();
-	multiSubstateMetal->handleWpID();
-	multiSubstateThrow->handleWpID();
 	multiSubstateSlide->handleWpID();
 	multiSubstateTransfer->handleWpID();
 	return true;
@@ -426,8 +382,6 @@ bool Run::handleWpArrived()
 {
 	multiSubstateManage->handleWpArrived();
 	multiSubstateHeight->handleWpArrived();
-	multiSubstateMetal->handleWpArrived();
-	multiSubstateThrow->handleWpArrived();
 	multiSubstateSlide->handleWpArrived();
 	multiSubstateTransfer->handleWpArrived();
 	return true;
@@ -437,8 +391,6 @@ bool Run::handleTransferOK()
 {
 	multiSubstateManage->handleTransferOK();
 	multiSubstateHeight->handleTransferOK();
-	multiSubstateMetal->handleTransferOK();
-	multiSubstateThrow->handleTransferOK();
 	multiSubstateSlide->handleTransferOK();
 	multiSubstateTransfer->handleTransferOK();
 	return true;
@@ -448,8 +400,6 @@ bool Run::handleTransferWait()
 {
 	multiSubstateManage->handleTransferWait();
 	multiSubstateHeight->handleTransferWait();
-	multiSubstateMetal->handleTransferWait();
-	multiSubstateThrow->handleTransferWait();
 	multiSubstateSlide->handleTransferWait();
 	multiSubstateTransfer->handleTransferWait();
 	return true;
@@ -459,8 +409,6 @@ bool Run::handleLbOFree()
 {
 	multiSubstateManage->handleLbOFree();
 	multiSubstateHeight->handleLbOFree();
-	multiSubstateMetal->handleLbOFree();
-	multiSubstateThrow->handleLbOFree();
 	multiSubstateSlide->handleLbOFree();
 	multiSubstateTransfer->handleLbOFree();
 	return true;
@@ -470,8 +418,6 @@ bool Run::handleWpTransfer()
 {
 	multiSubstateManage->handleWpTransfer();
 	multiSubstateHeight->handleWpTransfer();
-	multiSubstateMetal->handleWpTransfer();
-	multiSubstateThrow->handleWpTransfer();
 	multiSubstateSlide->handleWpTransfer();
 	multiSubstateTransfer->handleWpTransfer();
 	return true;
@@ -481,8 +427,6 @@ bool Run::handleManageDone()
 {
 	multiSubstateManage->handleManageDone();
 	multiSubstateHeight->handleManageDone();
-	multiSubstateMetal->handleManageDone();
-	multiSubstateThrow->handleManageDone();
 	multiSubstateSlide->handleManageDone();
 	multiSubstateTransfer->handleManageDone();
 	return true;
