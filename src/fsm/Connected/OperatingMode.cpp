@@ -99,6 +99,12 @@ bool OperatingMode::handleLbSW()
 	return true;
 }
 
+bool OperatingMode::handleSlExtFree() 
+{
+	substate->handleSlExtFree();
+	return true;
+}
+
 bool OperatingMode::handleSlSelfFull() 
 {
 	substate->handleSlSelfFull();

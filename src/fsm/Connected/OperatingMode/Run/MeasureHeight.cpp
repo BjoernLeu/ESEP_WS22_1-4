@@ -32,32 +32,6 @@ bool MeasureHeight::handleHsWP()
 	return true;
 }
 
-bool MeasureHeight::handleWpHigh()
-{
-	std::cout << "MeasureHeight entry" << std::endl;
-	substate->handleWpHigh();
-	return true;
-}
-
-bool MeasureHeight::handleWpFlat()
-{
-	std::cout << "MeasureHeight entry" << std::endl;
-	substate->handleWpFlat();
-	return true;
-}
-
-bool MeasureHeight::handleWpDrilling()
-{
-	std::cout << "MeasureHeight entry" << std::endl;
-	substate->handleWpDrilling();
-	return true;
-}
-
-bool MeasureHeight::handleWpID(){
-	substate->handleWpID();
-	return true;
-}
-
 bool MeasureHeight::handleWpCode(int height)
 {
 	std::cout << "MeasureHeight entry" << std::endl;
