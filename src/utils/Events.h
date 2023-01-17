@@ -58,6 +58,7 @@ enum Event {
 	ESTOP_SELF_RELEASED,
 	ESTOP_EXT_RELEASED,
 	ESTOP_DONE,
+	CHECK_ESTOP,
 	STOP_ALL,
 //Lightbarrier
 	LB_I,

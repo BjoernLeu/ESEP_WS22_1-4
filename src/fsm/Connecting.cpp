@@ -12,6 +12,7 @@ Connecting::~Connecting() {}
 
 void Connecting::entry() {
 	std::cout << "Connecting entry" << std::endl;
+
 	for (int i = 1; i < 8; i++) {
 		action->lightOff(i);
 	}
@@ -39,9 +40,17 @@ bool Connecting::handleEstopSelfPressed()
 {
 	std::cout << "Handling EstopSelfPressed" << std::endl;
 	data->setEstopSelfTrue();
-	exit();
-	new (this) Estop;
-	entry();
+//	if (MsgSendPulse(coidExt, -1, static_cast<int>(KILL_SERVER), 0) == -1) {
+//			perror("MsgSendPulse failed");
+//	}
+//	exit();
+//	new (this) Estop;
+//	entry();
+	return true;
+}
+
+bool Connecting::handleEstopSelfReleased() {
+	data->setEstopSelfFalse();
 	return true;
 }
 

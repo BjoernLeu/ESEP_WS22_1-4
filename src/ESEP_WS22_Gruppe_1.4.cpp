@@ -48,7 +48,7 @@ int main(int argc, char* argv[]) {
 	Dispatcher dsp("dr", "dr2", festo);
 	Com com("comr",festo, &dsp);
 	ISR isr("dr", "dr2");
-	HalControl hc("hr", "dr");
+	HalControl hc("hr", "dr", "dr2");
 	Context ctx("cr", "cr2", "dr", "dr2", NULL, festo);
 
 //cr-ISR Events
@@ -135,6 +135,7 @@ int main(int argc, char* argv[]) {
 	dsp.subscribe("hr", THROW_WP);
 	dsp.subscribe("hr", PASS_WP);
 	dsp.subscribe("hr", SET_SW_TYPE);
+	dsp.subscribe("hr", CHECK_ESTOP);
 
 //Com
 	dsp.subscribe("comr", CONNECT);

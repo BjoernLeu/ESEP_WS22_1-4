@@ -56,7 +56,7 @@ private:
 	name_attach_t *attach = 0;
 	int coid, coid2;
 	int interruptID = 0;
-	int old_level = -1;
+	int old_level = 1;
 	bool receivingRunning = false;
 	bool isMetal = false;
 	

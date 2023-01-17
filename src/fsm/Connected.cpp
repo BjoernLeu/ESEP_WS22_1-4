@@ -13,6 +13,20 @@ Connected::~Connected() {}
 void Connected::entry() 
 {
 	std::cout << "Connected entry" << std::endl;
+
+	if (MsgSendPulse(coid, -1, static_cast<int>(CHECK_ESTOP), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
+
+	if(data->getEstopSelf()) {
+		if (MsgSendPulse(coid, -1, static_cast<int>(ESTOP_SELF_PRESSED), 0) == -1) {
+				perror("MsgSendPulse failed");
+		}
+		if (MsgSendPulse(coidExt, -1, static_cast<int>(ESTOP_SELF_PRESSED), 0) == -1) {
+				perror("MsgSendPulse failed");
+		}
+	}
+
 	action->blinkingOn(GREEN, FAST);
 	action->lightOn(START_LED);
 	action->lightOn(RESET_LED);

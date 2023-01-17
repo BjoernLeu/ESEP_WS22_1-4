@@ -26,7 +26,7 @@
  */
 class HalControl: public Communication {
 public:
-	HalControl(const char* nameReceive, const char* nameSend); // Konstruktor für die Klasse HalControl
+	HalControl(const char* nameReceive, const char* nameSend, const char* nameSend2); // Konstruktor für die Klasse HalControl
 	virtual ~HalControl() {}; // Destruktor für die Klasse HalControl
 	std::thread receivingThread;
 
@@ -46,10 +46,12 @@ private:
 
 	void throwWP();
 	void passWP();
+	void getEstop();
 	void setSwitchType();
 
 	static bool switchType;	// true if Switch & false if Extruder
 	static int coid;
+	static int coidExt;
 	static void saveState();
 };
 
