@@ -220,7 +220,10 @@ public:
 
 	//============Expected Workpieces==================
 	void setAddExpectedWorkpiece(bool height, bool metal, bool isDrilling);
-	int* getExpectedWp();
+	void increaseExpectedCount();
+	int getExpectedWpHeight();
+	int getExpectedWpMetal();
+	int getExpectedWpIsDrilling();
 
 	MeasurePolling* mp;
 

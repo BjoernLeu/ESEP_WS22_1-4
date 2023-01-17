@@ -435,17 +435,14 @@ void ContextData::changeSeg3(){
 /// @param isDrilling drilling in workpiece
 void ContextData::setAddExpectedWorkpiece(bool height, bool metal, bool isDrilling) 
 {
-	wpExpList.push_back({height, metal, isDrilling});
+    wpExpList.push_back({height, metal, isDrilling});
 }
 
 
 
-/// @brief get a specific expected workpiece
-/// @param count number of the workpiece -> 0 == TypeA, 1 == TypeB, 2 == TypeC
-/// @return the expected workpiece
-int* ContextData::getExpectedWp()
+/// @brief increase the global counter for expectedCount
+void ContextData::increaseExpectedCount()
 {
-    int result [3] = {wpExpList[expectedCount].height, wpExpList[expectedCount].metal, wpExpList[expectedCount].isDrilling} ;
     if (expectedCount <= 2) 
     {
         expectedCount++;    
@@ -454,5 +451,8 @@ int* ContextData::getExpectedWp()
     {
         expectedCount = 0;
     }
-    return result;
 }
+
+int ContextData::getExpectedWpHeight(){return wpExpList[expectedCount].height;}
+int ContextData::getExpectedWpMetal(){return wpExpList[expectedCount].metal;}
+int ContextData::getExpectedWpIsDrilling(){return wpExpList[expectedCount].isDrilling;}

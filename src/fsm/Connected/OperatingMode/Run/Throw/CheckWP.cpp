@@ -32,16 +32,28 @@ bool CheckWP::handleInOrder()
 }
 
 void CheckWP::checkWP()
-{  
-	int* expWp = data->getExpectedWp(); //[0] == height, [1] == metal, [2] == isDrilling    
+{
+	struct {
+		bool height;
+		bool metal;
+		bool isDrilling;
+	} tempExpectedWorkpiece;
 
-	if ((data->getWpType() == WP_HIGH) == expWp[EXP_HEIGHT]) //getWpType is not implemented yet
+	tempExpectedWorkpiece.height = data->getExpectedWpHeight(); 
+	tempExpectedWorkpiece.height = data->getExpectedWpMetal();
+	tempExpectedWorkpiece.height = data->getExpectedWpIsDrilling();
+	data->increaseExpectedCount();
+	std::cout << "\tstruct height " << tempExpectedWorkpiece.height << std::endl << "\tmetal " << tempExpectedWorkpiece.metal << std::endl << "\tdrilling " << tempExpectedWorkpiece.isDrilling << std::endl;
+
+
+
+	if ((data->getWpType() == WP_HIGH) == tempExpectedWorkpiece.height)
 	{
 		handleInOrder();
 	}
-	else if ((data->getWpType() == WP_DRILLING) == expWp[EXP_ISDRILLING])
+	else if ((data->getWpType() == WP_DRILLING) == tempExpectedWorkpiece.isDrilling)
 	{
-		if (data->getWpMetal() == expWp[EXP_METAL])//getWpType is noch implemented yet 
+		if (data->getWpMetal() == tempExpectedWorkpiece.metal)
 		{
 			handleInOrder();
 		}
@@ -50,7 +62,7 @@ void CheckWP::checkWP()
 			handleOutOfOrder();
 		}
 	}
-	else if ((data->getWpType() == WP_FLAT) == !expWp[EXP_HEIGHT])
+	else if ((data->getWpType() == WP_FLAT) == !tempExpectedWorkpiece.height)
 	{
 		handleInOrder();
 	}
