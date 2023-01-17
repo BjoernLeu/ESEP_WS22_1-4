@@ -19,12 +19,8 @@ public:
 	virtual ~MeasureHeight();
 
 	//transition
-	bool handleHsBelt() override;
 	bool handleHsWP() override;
-	bool handleWpHigh() override;
-	bool handleWpFlat() override;
-	bool handleWpDrilling() override;
-	bool handleWpID() override;
+	bool handleHsBelt() override;
 	bool handleWpCode(int height) override;
 	bool handleWpDrilling(int height) override;
 	bool handleWpFlat(int height) override;
