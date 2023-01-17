@@ -15,6 +15,9 @@ void Run::entry()
 {
 	std::cout << "Run entry" << std::endl;
 	motorOn();
+	if (MsgSendPulse(coid, -1, static_cast<int>(LB_I), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
 	multiSubstateManage = new ManageWP();
 	multiSubstateManage->setData(data);
 	multiSubstateManage->entry();
@@ -93,7 +96,6 @@ bool Run::handleError()
 	exit();
 	new(this) Error;
 	entry();
-
 	return true;
 }
 
@@ -134,6 +136,7 @@ bool Run::handleLbSW()
 {
 	multiSubstateManage->handleLbSW();
 	multiSubstateThrow->handleLbSW();
+
 	return true;
 }
 
@@ -206,9 +209,9 @@ bool Run::handleHsWP()
 	return true;
 }
 
-bool Run::handleMetalDetected() 
+bool Run::handleWpMetal() 
 {
-	multiSubstateMetal->handleMetalDetected();
+	multiSubstateMetal->handleWpMetal();
 	return true;
 }
 

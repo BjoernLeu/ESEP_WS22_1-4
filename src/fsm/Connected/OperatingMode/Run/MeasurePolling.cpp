@@ -215,9 +215,7 @@ void MeasurePolling::receivingRoutine(int channelID, ADC* adc) {
 					// std::cout << diff << std::endl;
 					olddiff = diff;
 				}
-				if(slowFlag) {
-					height = (height + diff) / 2.0;
-				}
+				
 
 
 				switch(diff) {
@@ -281,6 +279,9 @@ void MeasurePolling::receivingRoutine(int channelID, ADC* adc) {
 //						height = diff;
 					}
 					break;
+				}
+				if(slowFlag) {
+					height = (height + diff) / 2.0;
 				}
 
 			// Do not ignore OS pulses!

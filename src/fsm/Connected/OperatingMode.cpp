@@ -176,9 +176,9 @@ bool OperatingMode::handleInOrder()
 	return true;
 }
 
-bool OperatingMode::handleMetalDetected()
+bool OperatingMode::handleWpMetal()
 {
-	substate->handleMetalDetected();
+	substate->handleWpMetal();
 	return true;
 }
 

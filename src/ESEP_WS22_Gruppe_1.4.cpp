@@ -97,7 +97,6 @@ int main(int argc, char* argv[]) {
 	dsp.subscribe("cr", ADD_TO_LIST);
 	dsp.subscribe("cr", ADD_WATCHER);
 	dsp.subscribe("cr", REMOVE_FROM_LIST); 
-	dsp.subscribe("cr", WP_ID);
 	dsp.subscribe("cr", WP_ARRIVED);
 	dsp.subscribe("cr", WP_TRANSFER);
 	dsp.subscribe("cr", TRANSFER_WAIT);
@@ -154,6 +153,7 @@ int main(int argc, char* argv[]) {
 	dsp.subscribe("cr", EXT_FULL);
 	dsp.subscribe("cr", SELF_FULL);
 	dsp.subscribe("cr", BOTH_FREE);
+	dsp.subscribe("cr", NO_METAL);
 	
 	
 

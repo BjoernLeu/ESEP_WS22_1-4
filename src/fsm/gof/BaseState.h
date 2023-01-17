@@ -137,7 +137,6 @@ public:
 	virtual bool handleDone();
 	virtual bool handleWpExpected();
 	virtual bool handleNoMetal();
-	virtual bool handleMetalDetected();
 	virtual bool handleHsWP();
 	virtual bool handleOutOfOrder();
 	virtual bool handleFlat();

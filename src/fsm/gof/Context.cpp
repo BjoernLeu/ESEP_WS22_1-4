@@ -130,19 +130,19 @@ void Context::handle_pulse(_pulse msg) {
 		break;
 //Workpiece
 	case WP_DRILLING:
-		state->handleWpDrilling(-1);
+		state->handleWpDrilling(msg.value.sival_int);
 		break;
 	case WP_FLAT:
-		state->handleWpFlat(-1);
+		state->handleWpFlat(msg.value.sival_int);
 		break;
 	case WP_HIGH:
-		state->handleWpHigh(-1);
+		state->handleWpHigh(msg.value.sival_int);
 		break;
 	case WP_METAL:
 		state->handleWpMetal();
 		break;
 	case WP_CODE:
-		state->handleWpCode(-1);
+		state->handleWpCode(msg.value.sival_int);
 		break;
 	case REMOVE_FROM_LIST:
 		state->handleStartSp();
@@ -259,6 +259,9 @@ void Context::handle_pulse(_pulse msg) {
 	case HS_WP:
 		state->handleHsWP();
 		break;
+	case HS_BELT:
+		state->handleHsBelt();
+		break;
 	case CALC_DONE:
 		state->handleCalcDone();
 		break;
@@ -283,9 +286,9 @@ void Context::handle_pulse(_pulse msg) {
 	case BOTH_FULL:
 		state->handleSlBothFull();
 		break;
-
-
-
+	case NO_METAL:
+		state->handleNoMetal();
+		break;
 	default:
 		std::cout << "not handled:" << event << std::endl;
 	}

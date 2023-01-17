@@ -8,7 +8,6 @@
 #include "SortWPBothFull.h"
 
 SortWPBothFull::SortWPBothFull() {}
-
 SortWPBothFull::~SortWPBothFull() {}
 
 void SortWPBothFull::entry()
@@ -28,4 +27,12 @@ bool SortWPBothFull::handleOutOfOrder()
 	new (this) Pass;
 	entry();
 	return true;
+}
+
+void SortWPBothFull::checkFlat(){
+	if (data->getWpType() == 56){
+		handleFlat();
+	} else {
+		handleOutOfOrder();
+	}
 }

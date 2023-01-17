@@ -92,7 +92,6 @@ bool BaseState::handleHsBelt(){return false;}
 bool BaseState::handleDone(){return false;}
 bool BaseState::handleWpExpected(){return false;}
 bool BaseState::handleNoMetal(){return false;}
-bool BaseState::handleMetalDetected(){return false;}
 bool BaseState::handleHsWP(){return false;}
 bool BaseState::handleOutOfOrder(){return false;}
 bool BaseState::handleFlat(){return false;}

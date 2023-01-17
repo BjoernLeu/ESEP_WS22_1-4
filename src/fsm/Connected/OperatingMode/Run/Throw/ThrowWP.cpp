@@ -13,13 +13,14 @@ ThrowWP::~ThrowWP() {}
 
 void ThrowWP::entry()
 {
-	std::cout << "TrowWP entry" << std::endl;
+	std::cout << "ThrowWP entry" << std::endl;
 	throwWP();
+	data->popWp();
 }
 
 void ThrowWP::exit()
 {
-	std::cout << "TrowWP exit" << std::endl;
+	std::cout << "ThrowWP exit" << std::endl;
 	throwWPOff();
 }
 
