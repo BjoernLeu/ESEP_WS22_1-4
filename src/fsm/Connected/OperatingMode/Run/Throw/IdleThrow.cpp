@@ -8,7 +8,6 @@
 #include "IdleThrow.h"
 
 IdleThrow::IdleThrow() {}
-
 IdleThrow::~IdleThrow() {}
 
 void IdleThrow::entry()
@@ -18,6 +17,7 @@ void IdleThrow::entry()
 
 bool IdleThrow::handleLbSW()
 {
+	std::cout << "IdleThrow handleLbSW" << std::endl;
 	new(this) CheckWP();
 	entry();
 	return true;

@@ -11,6 +11,7 @@
 #include "../../../gof/BaseState.h"
 #include "../../../gof/SubEndState.h"
 #include "../../../Estop.h"
+#include "ManageWP/IdleWatch.h"
 
 #define INIT_TYPE -1
 #define INIT_METAL false
