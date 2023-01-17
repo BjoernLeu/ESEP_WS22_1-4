@@ -30,21 +30,18 @@ bool ManageWP::handleManageDone()
 
 bool ManageWP::handleHsWP()
 {
-	std::cout << "problem HSWP" << std::endl;
 	substate->handleHsWP();
 	return true;
 }
 
 bool ManageWP::handleLbSW()
 {
-	std::cout << "problem LBSW" << std::endl;
 	substate->handleLbSW();
 	return true;
 }
 
 bool ManageWP::handleLbO()
 {
-	std::cout << "problem LBO" << std::endl;
 	substate->handleLbO();
 	return true;
 }
@@ -54,7 +51,6 @@ void ManageWP::startWatchLateThread()
 	std::cout << "Bernd 1" << std::endl;	
 	std::thread wT (&ManageWP::watchWPLate, this);
 	wT.detach();
-	std::cout << "nach thread" << std::endl;
 }
 
 void ManageWP::watchWPLate() {
