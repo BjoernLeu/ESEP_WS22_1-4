@@ -165,15 +165,15 @@ bool Run::handleSlExtFull()
 	return true;
 }
 
-bool Run::handleWPExpected() 
+bool Run::handleWpExpected() 
 {
-	substate->handleWPExpected();
+	substate->handleWpExpected();
 	return true;
 }
 
-bool Run::handleSLSelfFree() 
+bool Run::handleSlSelfFree() 
 {
-	substate->handleSLSelfFree();
+	substate->handleSlSelfFree();
 	return true;
 }
 

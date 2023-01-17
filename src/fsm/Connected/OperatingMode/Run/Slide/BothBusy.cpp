@@ -14,14 +14,14 @@ void BothBusy::entry(){
 	std::cout << "BothBusy entry" << std::endl;
 }
 
-bool BothBusy::handleWPExpected()
+bool BothBusy::handleWpExpected()
 {
 	replyBothFull();
 	entry();
 	return true;
 }
 
-bool BothBusy::handleSLSelfFree()
+bool BothBusy::handleSlSelfFree()
 {
 	if (data->getSlExt())
 	{
@@ -37,7 +37,7 @@ bool BothBusy::handleSLSelfFree()
 	}
 }
 
-bool BothBusy::handleSLExtFree()
+bool BothBusy::handleSlExtFree()
 {
 	new (this) SLSelfBusy;
 	entry();

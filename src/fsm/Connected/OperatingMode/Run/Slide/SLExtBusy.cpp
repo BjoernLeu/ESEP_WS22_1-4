@@ -16,7 +16,7 @@ void SLExtBusy::entry()
 	action->blinkingOn(YELLOW, SLOW);
 }
 
-bool SLExtBusy::handleSLExtFree()
+bool SLExtBusy::handleSlExtFree()
 {
 	new (this) IdleSlide;
 	entry();
@@ -30,7 +30,7 @@ bool SLExtBusy::handleSlSelfFull()
 	return true;
 }
 
-bool SLExtBusy::handleWPExpected()
+bool SLExtBusy::handleWpExpected()
 {
 	replyExtFull();
 	return true;

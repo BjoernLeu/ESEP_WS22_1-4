@@ -54,8 +54,8 @@ public:
 	bool handleSlExtFull() override;
 	bool handleSlBothFull() override;
 	bool handleSlBothFree() override;
-	bool handleWPExpected() override;
-	bool handleSLSelfFree() override;
+	bool handleWpExpected() override;
+	bool handleSlSelfFree() override;
 	bool handleWpEarly() override;
 	bool handleWpLate() override;
 	bool handleEarly() override;
@@ -67,7 +67,7 @@ public:
 	bool handleEmptyBelt() override;
 	bool handleInOrder() override;
 	bool handleMetalDetected() override;
-	bool handleSLExtFree() override;
+	bool handleSlExtFree() override;
 	bool handleWpHigh() override;
 	bool handleWpFlat() override;
 	bool handleWpDrilling() override;

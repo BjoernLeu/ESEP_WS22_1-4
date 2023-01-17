@@ -15,13 +15,13 @@ void SLSelfBusy::entry()
 	action->blinkingOn(YELLOW, SLOW);
 }
 
-bool SLSelfBusy::handleWPExpected()
+bool SLSelfBusy::handleWpExpected()
 {
 	replySelfFull();
 	return true;
 }
 
-bool SLSelfBusy::handleSLSelfFree()
+bool SLSelfBusy::handleSlSelfFree()
 {
 	new (this) IdleSlide;
 	entry();

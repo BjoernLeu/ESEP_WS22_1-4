@@ -23,7 +23,7 @@ bool IdleSlide::handleSlSelfFull()
 	return true;
 }
 
-bool IdleSlide::handleWPExpected()
+bool IdleSlide::handleWpExpected()
 {
 	replyBothFree();
 	entry();

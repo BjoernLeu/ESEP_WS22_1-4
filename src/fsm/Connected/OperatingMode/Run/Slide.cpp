@@ -25,9 +25,9 @@ bool Slide::handleSlExtFull()
 	return true;
 }
 
-bool Slide::handleSLSelfFree() 
+bool Slide::handleSlSelfFree() 
 {
-	substate->handleSLSelfFree();
+	substate->handleSlSelfFree();
 	return true;
 }
 
@@ -37,14 +37,14 @@ bool Slide::handleSlSelfFull()
 	return true;
 }
 
-bool Slide::handleWPExpected() 
+bool Slide::handleWpExpected() 
 {
-	substate->handleWPExpected();
+	substate->handleWpExpected();
 	return true;
 }
 
-bool Slide::handleSLExtFree()
+bool Slide::handleSlExtFree()
 {
-	substate->handleSLExtFree();
+	substate->handleSlExtFree();
 	return true;
 }

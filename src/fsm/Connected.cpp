@@ -192,21 +192,21 @@ bool Connected::handleSlBothFull(){
 	return true;
 }
 
-bool Connected::handleSLExtFree()
+bool Connected::handleSlExtFree()
 {
-	substate->handleSLExtFree();
+	substate->handleSlExtFree();
 	return true;
 }
 
-bool Connected::handleWPExpected()
+bool Connected::handleWpExpected()
 {
-	substate->handleWPExpected();
+	substate->handleWpExpected();
 	return true;
 }
 
-bool Connected::handleSLSelfFree()
+bool Connected::handleSlSelfFree()
 {
-	substate->handleSLSelfFree();
+	substate->handleSlSelfFree();
 	return true;
 }
 

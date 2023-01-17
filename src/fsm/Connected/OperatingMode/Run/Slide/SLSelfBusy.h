@@ -22,8 +22,8 @@ public:
 	void entry() override;
 
 	//transition
-	bool handleWPExpected() override;
-	bool handleSLSelfFree() override;
+	bool handleWpExpected() override;
+	bool handleSlSelfFree() override;
 	bool handleSlExtFull() override;
 
 private:

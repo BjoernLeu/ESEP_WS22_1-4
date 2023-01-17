@@ -82,9 +82,9 @@ bool BaseState::handleEstopDone(){return false;}
 bool BaseState::handleWpComes(){return false;}
 
 //Slide
-bool BaseState::handleSLSelfFree(){return false;}
+bool BaseState::handleSlSelfFree(){return false;}
 bool BaseState::handleSlSelfFull(){return false;}
-bool BaseState::handleSLExtFree(){return false;}
+bool BaseState::handleSlExtFree(){return false;}
 bool BaseState::handleSlExtFull(){return false;}
 bool BaseState::handleSlFree(){return false;}
 bool BaseState::handleSlBothFree(){return false;}
@@ -92,7 +92,7 @@ bool BaseState::handleSlBothFree(){return false;}
 //Custom new
 bool BaseState::handleHsBelt(){return false;}
 bool BaseState::handleDone(){return false;}
-bool BaseState::handleWPExpected(){return false;}
+bool BaseState::handleWpExpected(){return false;}
 bool BaseState::handleNoMetal(){return false;}
 bool BaseState::handleMetalDetected(){return false;}
 bool BaseState::handleHsWP(){return false;}
