@@ -5,6 +5,7 @@
 #include "hal/HalControl.h"
 #include "hal/ISR.h"
 #include "dispatcher/Dispatcher.h"
+#include "com/Com.h"
 #include "utils/Gpio.h"
 #include "fsm/gof/Context.h"
 #include "fsm/Connected/OperatingMode/Run/MeasurePolling.h"
@@ -45,6 +46,7 @@ int main(int argc, char* argv[]) {
 
 
 	Dispatcher dsp("dr", "dr2", festo);
+	Com com("comr",festo, &dsp);
 	ISR isr("dr", "dr2");
 	HalControl hc("hr", "dr");
 	Context ctx("cr", "cr2", "dr", "dr2", NULL, festo);
@@ -134,8 +136,12 @@ int main(int argc, char* argv[]) {
 	dsp.subscribe("hr", PASS_WP);
 	dsp.subscribe("hr", SET_SW_TYPE);
 
+//Com
+	dsp.subscribe("comr", CONNECT);
+
 //Custom
 	dsp.subscribe("cr", CON_ESTABLISHED);
+	dsp.subscribe("cr", CON_LOST);
 	dsp.subscribe("cr", HS_WP);
 	dsp.subscribe("cr", CALC_DONE);
 	dsp.subscribe("cr", SAVING_DONE);
@@ -154,7 +160,7 @@ int main(int argc, char* argv[]) {
  	std::cout << "Subscribing done" << std::endl;
  	isr.startISR();
 
- 	dsp.startThreads("cr2");	//TODO: eventuell woanders starten
+ 	dsp.startThreads("cr2", "comr");	//TODO: eventuell woanders starten
 
  	 //  sleep(10);
  	 //  ctx.start();

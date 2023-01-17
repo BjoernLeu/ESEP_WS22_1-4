@@ -29,6 +29,7 @@ public:
 	bool handleEstopExtReleased() override;	
 	bool handleResetSp() override;
 	// bool handleStopLp() override;
+	bool handleConLost() override;
 };
 
 #endif /* SRC_FSM_ESTOP_H_ */

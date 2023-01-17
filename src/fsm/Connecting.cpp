@@ -28,6 +28,7 @@ void Connecting::exit() {
 
 bool Connecting::handleConEstablished() 
 {
+	data->setConnectionTrue();
 	exit();
 	new (this) Connected;
 	entry();
@@ -36,7 +37,7 @@ bool Connecting::handleConEstablished()
 
 bool Connecting::handleEstopSelfPressed()
 {
-	std::cout << "Handleing EstopSelfPressed" << std::endl;
+	std::cout << "Handling EstopSelfPressed" << std::endl;
 	data->setEstopSelfTrue();
 	exit();
 	new (this) Estop;
@@ -46,7 +47,7 @@ bool Connecting::handleEstopSelfPressed()
 
 void Connecting::establishConnection(){
 	std::cout << "Connecting here..." << std::endl;
-	if (MsgSendPulse(coid, -1, static_cast<int>(CON_ESTABLISHED), 0) == -1) {
+	if (MsgSendPulse(coid, -1, static_cast<int>(CONNECT), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}
 }

@@ -74,4 +74,9 @@ bool Estop::handleEstopExtReleased()
 // 	substate->handleStopLp();
 // 	return true;
 // }
+bool Estop::handleConLost() {
+	data->setConnectionFalse();
+	substate->handleConLost();
+	return true;
+}
 
