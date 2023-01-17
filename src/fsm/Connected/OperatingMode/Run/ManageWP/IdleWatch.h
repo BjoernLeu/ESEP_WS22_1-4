@@ -21,7 +21,7 @@ public:
 	IdleWatch();
 	virtual ~IdleWatch();
 
-	void entry();
+	void entry() override;
 
 	// transitions
 	bool handleHsWP() override;

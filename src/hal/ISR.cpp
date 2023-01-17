@@ -193,7 +193,6 @@ void ISR::handleInterrupt(void) {
 				}
 				break;
 			case P_IN_SWITCH:
-			std::cout << "switch" << std::endl;
 				if (current_level) {
 					this->send(coid, static_cast<int>(LB_SW_FREE), 0);
 				} else {

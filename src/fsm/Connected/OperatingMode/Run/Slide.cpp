@@ -21,30 +21,35 @@ void Slide::entry()
 
 bool Slide::handleSlExtFull() 
 {
+	std::cout << "Slide handleSlExtFull" << std::endl;
 	substate->handleSlExtFull();
 	return true;
 }
 
 bool Slide::handleSlSelfFree() 
 {
+	std::cout << "Slide handleSlSelfFree" << std::endl;
 	substate->handleSlSelfFree();
 	return true;
 }
 
 bool Slide::handleSlSelfFull() 
 {
+	std::cout << "Slide handleSlSelfFull" << std::endl;
 	substate->handleSlSelfFull();
 	return true;
 }
 
 bool Slide::handleWpExpected() 
 {
+	std::cout << "Slide handleWpExpected" << std::endl;
 	substate->handleWpExpected();
 	return true;
 }
 
 bool Slide::handleSlExtFree()
 {
+	std::cout << "Slide handleSlExtFree" << std::endl;
 	substate->handleSlExtFree();
 	return true;
 }

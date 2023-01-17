@@ -17,6 +17,7 @@ void IdleMetal::entry()
 
 bool IdleMetal::handleMetalDetected()
 {
+	std::cout << "IdleMetal handleMetalDetected" << std::endl;
 	new (this) SetMetal;
 	entry();
 	return true;

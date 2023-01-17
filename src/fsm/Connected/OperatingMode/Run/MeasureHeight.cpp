@@ -20,27 +20,35 @@ void MeasureHeight::entry() {
 
 bool MeasureHeight::handleHsBelt() 
 {
+	std::cout << "MeasureHeight entry" << std::endl;
 	substate->handleHsBelt();
 	return true;
 }
 
 bool MeasureHeight::handleHsWP() 
 {
+	std::cout << "MeasureHeight entry" << std::endl;
 	substate->handleHsWP();
 	return true;
 }
 
-bool MeasureHeight::handleWpHigh(){
+bool MeasureHeight::handleWpHigh()
+{
+	std::cout << "MeasureHeight entry" << std::endl;
 	substate->handleWpHigh();
 	return true;
 }
 
-bool MeasureHeight::handleWpFlat(){
+bool MeasureHeight::handleWpFlat()
+{
+	std::cout << "MeasureHeight entry" << std::endl;
 	substate->handleWpFlat();
 	return true;
 }
 
-bool MeasureHeight::handleWpDrilling(){
+bool MeasureHeight::handleWpDrilling()
+{
+	std::cout << "MeasureHeight entry" << std::endl;
 	substate->handleWpDrilling();
 	return true;
 }
@@ -50,22 +58,30 @@ bool MeasureHeight::handleWpID(){
 	return true;
 }
 
-bool MeasureHeight::handleWpCode(int height){
+bool MeasureHeight::handleWpCode(int height)
+{
+	std::cout << "MeasureHeight entry" << std::endl;
 	substate->handleWpCode(height);
 	return true;
 }
 
-bool MeasureHeight::handleWpDrilling(int height){
+bool MeasureHeight::handleWpDrilling(int height)
+{
+	std::cout << "MeasureHeight entry" << std::endl;
 	substate->handleWpDrilling(height);
 	return true;
 }
 
-bool MeasureHeight::handleWpFlat(int height){
+bool MeasureHeight::handleWpFlat(int height)
+{
+	std::cout << "MeasureHeight entry" << std::endl;
 	substate->handleWpFlat(height);
 	return true;
 }
 
-bool MeasureHeight::handleWpHigh(int height){
+bool MeasureHeight::handleWpHigh(int height)
+{
+	std::cout << "MeasureHeight entry" << std::endl;
 	substate->handleWpHigh(height);
 	return true;
 }
