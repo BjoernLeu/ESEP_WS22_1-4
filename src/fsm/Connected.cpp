@@ -134,12 +134,6 @@ bool Connected::handleSignalReceipted()
 	return true;
 }
 
-bool Connected::handleThrown()
-{
-	substate->handleThrown();
-	return true;
-}
-
 bool Connected::handleOutOfOrder()
 {
 	substate->handleOutOfOrder();
@@ -216,30 +210,6 @@ bool Connected::handleLbSL()
 	return true;
 }
 
-bool Connected::handleWpEarly()
-{
-	substate->handleWpEarly();
-	return true;
-}
-
-bool Connected::handleWpLate()
-{
-	substate->handleWpLate();
-	return true;
-}
-
-bool Connected::handleEarly()
-{
-	substate->handleEarly();
-	return true;
-}
-
-bool Connected::handleLate()
-{
-	substate->handleLate();
-	return true;
-}
-
 bool Connected::handleLbO()
 {
 	substate->handleLbO();
@@ -285,26 +255,6 @@ bool Connected::handleResetSp()
 bool Connected::handleLoadingCompleted()
 {
 	substate->handleLoadingCompleted();
-	return true;
-}
-
-bool Connected::handleWpHigh(){
-	substate->handleWpHigh();
-	return true;
-}
-
-bool Connected::handleWpFlat(){
-	substate->handleWpFlat();
-	return true;
-}
-
-bool Connected::handleWpDrilling(){
-	substate->handleWpDrilling();
-	return true;
-}
-
-bool Connected::handleWpID(){
-	substate->handleWpID();
 	return true;
 }
 
