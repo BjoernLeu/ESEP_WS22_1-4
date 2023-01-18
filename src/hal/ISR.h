@@ -52,6 +52,8 @@ private:
 	void receivingRoutine(int);
 	void handleInterrupt(void);
 	void handle_pulse(_pulse msg);
+	void slideWatchThread();
+	void slideWatch();
 
 	name_attach_t *attach = 0;
 	int coid, coid2;
@@ -59,7 +61,7 @@ private:
 	int old_level = -1;
 	bool receivingRunning = false;
 	bool isMetal = false;
-	
+
 	double diff_t_SL;
 
 	double diff_t_start;

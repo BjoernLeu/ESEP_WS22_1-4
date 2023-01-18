@@ -190,8 +190,6 @@ void Context::handle_pulse(_pulse msg) {
 		state->handleStartSp();
 		break;
 
-
-		
 //Lightbarrier
 	case LB_I:
 		state->handleLbI();

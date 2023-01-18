@@ -23,7 +23,6 @@ bool IdleSlide::handleSlSelfFull()
 	return true;
 }
 
-
 bool IdleSlide::handleSlExtFull()
 {
 	new (this) SLExtBusy;
