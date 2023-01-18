@@ -61,6 +61,8 @@ private:
 	int old_level = -1;
 	bool receivingRunning = false;
 	bool isMetal = false;
+	
+	bool threadSL = false;
 
 	double diff_t_SL;
 
