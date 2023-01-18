@@ -47,7 +47,6 @@ void Measure::motorSlowOff()
 
 bool Measure::handleWpDrilling(int height){
 	std::cout << "data->addWpType(55, height);" << std::endl;
-	std::cout << "height: " << height << std::endl;
 	data->addWpType(55, height);
 	exit();
 	new (this) IdleMeasureHeight;
