@@ -46,9 +46,9 @@ void Measure::motorSlowOff()
 }
 
 bool Measure::handleWpDrilling(int height){
-	std::cout << "data->addWpType(WP_DRILLING, height);" << std::endl;
+	std::cout << "data->addWpType( " << WP_DRILLING << ", height);" << std::endl;
 	std::cout << "height: " << height << std::endl;
-	data->addWpType(WP_DRILLING, height);
+	data->addWpType(/*56*/ WP_DRILLING, height);
 	exit();
 	new (this) IdleMeasureHeight;
 	entry();
@@ -56,8 +56,8 @@ bool Measure::handleWpDrilling(int height){
 }
 
 bool Measure::handleWpFlat(int height){
-	std::cout << "data->addWpType(56, height);" << std::endl;
-	data->addWpType(WP_FLAT, height);
+	std::cout << "data->addWpType(" << WP_FLAT << ", height);" << std::endl;
+	data->addWpType(/*57*/ WP_FLAT, height);
 	exit();
 	new (this) IdleMeasureHeight;
 	entry();
@@ -65,8 +65,8 @@ bool Measure::handleWpFlat(int height){
 }
 
 bool Measure::handleWpHigh(int height){
-	std::cout << "data->addWpType(57, height);" << std::endl;
-	data->addWpType(WP_HIGH, height);
+	std::cout << "data->addWpType( " << WP_HIGH << ", height);" << std::endl;
+	data->addWpType(/*58*/ WP_HIGH, height);
 	exit();
 	new (this) IdleMeasureHeight;
 	entry();
@@ -74,8 +74,8 @@ bool Measure::handleWpHigh(int height){
 }
 
 bool Measure::handleWpCode(int height){
-	std::cout << "data->addWpType(59, height);" << std::endl;
-	data->addWpType(WP_CODE, height);
+	std::cout << "data->addWpType( " << WP_CODE << ", height);" << std::endl;
+	data->addWpType(/*60*/ WP_CODE, height);
 	exit();
 	new (this) IdleMeasureHeight;
 	entry();

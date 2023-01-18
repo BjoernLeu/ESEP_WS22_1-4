@@ -30,4 +30,7 @@ void TooFull::sendError()
 	if (MsgSendPulse(coid, -1, static_cast<int>(ERROR), 0) == -1) {
 		perror("MsgSendPulse failed");
 	}
+	if (MsgSendPulse(coidExt, -1, static_cast<int>(ERROR), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 }

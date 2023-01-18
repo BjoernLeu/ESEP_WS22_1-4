@@ -376,16 +376,16 @@ void ContextData::addWpType(int type, int height){
   */
 int ContextData::getWpType(){
     if(wpList.size() > 1){
-        std::cout << "addWpType: wpList.size > 0" << std::endl;
+        std::cout << "getWpType: wpList.size > 0" << std::endl;
         for (int i = 1; i < wpList.size()-1; i++){
             if(wpList[i].segment == 3 && wpList[i].distance > wpList[i+1].distance && wpList[i-1].segment == 2){        
-                std::cout << "addWpType: " << wpList[i].type << std::endl;
+                std::cout << "getWpType: " << wpList[i].type << std::endl;
                 return wpList[i].type;
             }
         }
     } else {
-        std::cout << "addWpType: wpList.size <= 1" << std::endl;
-        std::cout << "addWpType: " << wpList[0].type << std::endl;
+        std::cout << "getWpType: wpList.size <= 1" << std::endl;
+        std::cout << "getWpType: " << wpList[0].type << std::endl;
         return wpList[0].type;
     }
 }

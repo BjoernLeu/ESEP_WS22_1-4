@@ -27,10 +27,10 @@ void Connected::entry()
 		}
 	}
 
-	action->blinkingOn(GREEN, FAST);
-	action->lightOn(START_LED);
-	action->lightOn(RESET_LED);
+
 //	exit();
+	
+
 	substate = new Idle;
 	substate->setData(data);
 	substate->setAction(action);
@@ -42,9 +42,10 @@ void Connected::exit()
 	std::cout << "Connected exit" << std::endl;
 	motorOff();
 	switchOff();
-	action->blinkingOff(GREEN);
 	action->lightOff(START_LED);
 	action->lightOff(RESET_LED);
+	action->lightOff(Q1);
+	action->lightOff(Q2);
 }
 
 bool Connected::handleConLost() 

@@ -17,7 +17,6 @@ void IdleMetal::entry()
 
 bool IdleMetal::handleWpMetal()
 {
-	std::cout << "IdleMetal handleWpMetal" << std::endl;
 	new (this) SetMetal;
 	entry();
 	return true;

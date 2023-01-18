@@ -20,14 +20,12 @@ void MetalState::entry() {
 
 bool MetalState::handleNoMetal() 
 {
-	std::cout << "MetalState handleNoMetal" << std::endl;
 	substate->handleNoMetal();
 	return true;
 }
 
 bool MetalState::handleWpMetal() 
 {
-	std::cout << "MetalState handleWpMetal" << std::endl;
 	substate->handleWpMetal();
 	return true;
 }

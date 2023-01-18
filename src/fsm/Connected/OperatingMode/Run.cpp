@@ -89,10 +89,6 @@ bool Run::entryHistory()
 bool Run::handleError()
 {
 	std::cout << "Error" << std::endl;
-	if (MsgSendPulse(coid, -1, static_cast<int>(ERROR), 0) == -1) {
-			perror("MsgSendPulse failed");
-	}
-
 	exit();
 	new(this) Error;
 	entry();

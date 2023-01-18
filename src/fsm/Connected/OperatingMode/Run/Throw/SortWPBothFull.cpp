@@ -30,7 +30,7 @@ bool SortWPBothFull::handleOutOfOrder()
 }
 
 void SortWPBothFull::checkFlat(){
-	if (data->getWpType() == 56){
+	if (data->getWpType() == /*56*/ WP_DRILLING){
 		handleFlat();
 	} else {
 		handleOutOfOrder();

@@ -18,7 +18,6 @@ void IdleSlide::entry()
 
 bool IdleSlide::handleSlSelfFull()
 {
-	std::cout << "IdleSlide handleSlSelfFull" << std::endl;
 	new (this) SLSelfBusy;
 	entry();
 	return true;
@@ -26,7 +25,6 @@ bool IdleSlide::handleSlSelfFull()
 
 bool IdleSlide::handleWpExpected()
 {
-	std::cout << "IdleSlide handleWpExpected" << std::endl;
 	replyBothFree();
 	entry();
 	return true;
@@ -34,7 +32,6 @@ bool IdleSlide::handleWpExpected()
 
 bool IdleSlide::handleSlExtFull()
 {
-	std::cout << "IdleSlide handleSlExtFull" << std::endl;
 	new (this) SLExtBusy;
 	entry();
 	return true;
@@ -42,7 +39,6 @@ bool IdleSlide::handleSlExtFull()
 
 void IdleSlide::replyBothFree() 
 {
-	std::cout << "IdleSlide replyBothFree" << std::endl;
 	if (MsgSendPulse(coid, -1, static_cast<int>(BOTH_FREE), 0) == -1) {
 		perror("MsgSendPulse failed");
 	}
