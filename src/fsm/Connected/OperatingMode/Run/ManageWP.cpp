@@ -76,7 +76,7 @@ void ManageWP::watchWPLate() {
 			
 			for(std::vector<workpiece>::iterator it = data->wpList.begin(); it != data->wpList.end(); ++it) {
 				(*it).distance += addDistance;
-				std::cout << "(*it).distance: " << (*it).distance << std::endl;
+				// std::cout << "(*it).distance: " << (*it).distance << std::endl;
 				// std::cout << "(*it).segment: " << (*it).segment << std::endl;
 				// std::cout << "SEGMENT DISTANCE IN LIST" << data->segmentDistanceList[(*it).segment - 1] << std::endl;
 				// if((*it).distance > data->segmentDistanceList[(*it).segment - 1]) {
