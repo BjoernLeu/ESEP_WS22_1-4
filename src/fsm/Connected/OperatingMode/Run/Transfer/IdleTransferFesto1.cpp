@@ -18,21 +18,18 @@ void IdleTransferFesto1::entry()
 //Transitionen
 bool IdleTransferFesto1::handleLbSL()
 {
-	std::cout << "Transfer/IdleTransferFesto1 handleLbSL" << std::endl;
 	checkEmptyBelt();
 	return true;
 }
 
 bool IdleTransferFesto1::handleWpArrived()
 {
-	std::cout << "Transfer/IdleTransferFesto1 handleWpArrived" << std::endl;
 	checkEmptyBelt();
 	return true;
 } 
 
 bool IdleTransferFesto1::handleLbO()
 {
-	std::cout << "Transfer/IdleTransferFesto1 handleLbO" << std::endl;
 	new (this) CheckFesto2;
 	entry();
 	return true;
@@ -41,7 +38,6 @@ bool IdleTransferFesto1::handleLbO()
 //Methods
 void IdleTransferFesto1::checkEmptyBelt()
 {
-	std::cout << "Transfer/IdleTransferFesto1 checkEmptyBelt" << std::endl;
 	if(data->getNumberWpsOnBelt() == NO_WP_DETECTED)
 	{
 		if (MsgSendPulse(coid, -1, static_cast<int>(EMPTY_BELT), 0) == -1) {

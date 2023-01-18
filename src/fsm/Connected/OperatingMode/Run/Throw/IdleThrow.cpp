@@ -17,7 +17,6 @@ void IdleThrow::entry()
 
 bool IdleThrow::handleLbSW()
 {
-	std::cout << "IdleThrow handleLbSW" << std::endl;
 	data->changeSeg3();
 	new(this) CheckWP();
 	entry();
