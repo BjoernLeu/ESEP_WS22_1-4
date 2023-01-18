@@ -32,7 +32,7 @@ bool SortWPFree::handleFlat()
 }
 
 void SortWPFree::checkFlat(){
-	if (data->getWpType() == 56){
+	if (data->getWpType() == /*57*/ WP_FLAT){
 		handleFlat();
 	} else {
 		handleOutOfOrder();
