@@ -12,17 +12,15 @@ SLSelfBusy::~SLSelfBusy() {}
 
 void SLSelfBusy::entry()
 {
+	std::cout << "SLSelfBusy entry" << std::endl;
+	data->setSlSelfTrue();
 	action->blinkingOn(YELLOW, SLOW);
 }
 
-bool SLSelfBusy::handleWpExpected()
-{
-	replySelfFull();
-	return true;
-}
 
 bool SLSelfBusy::handleSlSelfFree()
 {
+	data->setSlSelfFalse();
 	new (this) IdleSlide;
 	entry();
 	return true;
@@ -30,8 +28,15 @@ bool SLSelfBusy::handleSlSelfFree()
 
 bool SLSelfBusy::handleSlExtFull()
 {
+	data->setSlExtTrue();
 	new (this) BothBusy;
 	entry();
+	return true;
+}
+
+bool SLSelfBusy::handleWpExpected()
+{
+	replySelfFull();
 	return true;
 }
 

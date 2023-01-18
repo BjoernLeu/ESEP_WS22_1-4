@@ -22,6 +22,7 @@ void HeightSlow::entry()
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}
+	action->lightOn(RESET_LED);
 }
 
 void HeightSlow::exit() 

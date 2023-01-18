@@ -209,8 +209,12 @@ void ISR::handleInterrupt(void) {
 			case P_LIMIT_SLIDE:
 				if (current_level) {
 					this->send(coid, static_cast<int>(LB_SL_FREE), 0);
+					this->send(coid, static_cast<int>(LB_SL_SELF_FREE), 0);
+					this->send(coid2, static_cast<int>(LB_SL_EXT_FREE), 0);
 				} else {
 					this->send(coid, static_cast<int>(LB_SL), 0);
+					this->send(coid, static_cast<int>(LB_SL_SELF_FULL), 0);
+					this->send(coid2, static_cast<int>(LB_SL_EXT_FULL), 0);
 				}
 				break;
 			case P_IN_OUTLET:

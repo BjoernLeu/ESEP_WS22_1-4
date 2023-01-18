@@ -16,6 +16,17 @@ void Connecting::entry() {
 	for (int i = 1; i < 8; i++) {
 		action->lightOff(i);
 	}
+	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
+	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_SLOW_OFF), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
+	if(data->getFesto() == 1){
+		action->blinkingOn(Q1, FAST);
+	}else{
+		action->blinkingOn(Q2, FAST);
+	}
 	establishConnection();
 	if (MsgSendPulse(coid, -1, static_cast<int>(SET_SW_TYPE), 0) == -1) {
 			perror("MsgSendPulse failed");
@@ -23,8 +34,8 @@ void Connecting::entry() {
 }
 
 void Connecting::exit() {
-	// substate = new SubEndState;
-	// substate->entry();
+	action->blinkingOff(Q1);
+	action->blinkingOff(Q2);
 }
 
 bool Connecting::handleConEstablished() 
