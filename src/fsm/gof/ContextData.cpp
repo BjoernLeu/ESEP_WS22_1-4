@@ -470,7 +470,7 @@ void ContextData::changeSeg3(){
 /// @param height height workpiece 
 /// @param metal workpiece with metal
 /// @param isDrilling drilling in workpiece
-void ContextData::setAddExpectedWorkpiece(bool height, bool metal, bool isDrilling) 
+void ContextData::setAddExpectedWorkpiece(bool height, bool isDrilling, bool metal) 
 {
     wpExpList.push_back({height, metal, isDrilling});
 }
@@ -480,7 +480,7 @@ void ContextData::setAddExpectedWorkpiece(bool height, bool metal, bool isDrilli
 /// @brief increase the global counter for expectedCount
 void ContextData::increaseExpectedCount()
 {
-    if(expectedCount % 2 == 0){
+    if(expectedCount % 3 == 0 && expectedCount != 0){
         expectedCount = 0;
     }else{
         expectedCount++;
@@ -491,3 +491,10 @@ bool ContextData::getExpectedWpHeight(){return wpExpList[expectedCount].height;}
 bool ContextData::getExpectedWpMetal(){return wpExpList[expectedCount].metal;}
 bool ContextData::getExpectedWpIsDrilling(){return wpExpList[expectedCount].isDrilling;}
 
+// void ContextData::printExpected(){
+//     for(int i = 0; i < wpExpList.size(); i++){
+//         std::cout << "height: " << wpExpList[i].height << std::endl;
+//         std::cout << "metal: " << wpExpList[i].metal << std::endl;
+//         std::cout << "isDrilling: " << wpExpList[i].isDrilling << std::endl;
+//     }
+// }
