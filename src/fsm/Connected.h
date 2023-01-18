@@ -69,6 +69,7 @@ public:
 	bool handleLbOFree() override;
 	bool handleWpTransfer() override;
 	bool handleManageDone() override;
+	bool handleStopSp()override;
 	
 	bool handleWpCode(int height) override;
 	bool handleWpDrilling(int height) override;

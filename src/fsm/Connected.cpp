@@ -144,6 +144,12 @@ bool Connected::handleResetLp()
 	return true;
 }
 
+bool Connected::handleStopSp()
+{
+	substate->handleStopSp();
+	return true;
+}
+
 bool Connected::handleError()
 {
 	substate->handleError();
