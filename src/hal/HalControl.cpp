@@ -102,6 +102,9 @@ void HalControl::handle_pulse(_pulse msg) {
 	case PASS_WP:
 		HalControl::passWP();
 		break;
+	case PASS_WP_OFF:
+		HalControl::passWPOff();
+		break;
 	case SET_SW_TYPE:
 		HalControl::setSwitchType();
 		break;
@@ -140,7 +143,13 @@ void HalControl::passWP(){
 		//just let the WP pass the Extruder
 	}else{
 		Hal::switchOn();
-		sleep(1);
+	}
+}
+
+void HalControl::passWPOff(){
+	if(switchType){
+		//just let the WP pass the Extruder
+	}else{
 		Hal::switchOff();
 	}
 }

@@ -52,6 +52,12 @@ bool Calibration::handleLbSW()
 	return true;
 }
 
+bool Calibration::handleLbSwFree()
+{
+	substate->handleLbSwFree();
+	return true;
+}
+
 bool Calibration::handleLbO()
 {
 	substate->handleLbO();

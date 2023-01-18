@@ -19,6 +19,9 @@ void Pass::entry()
 
 bool Pass::handleLbSwFree()
 {
+	if (MsgSendPulse(coid, -1, static_cast<int>(PASS_WP_OFF), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 	new(this) IdleThrow();
 	entry();
 	return true;

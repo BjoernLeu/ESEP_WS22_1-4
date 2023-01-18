@@ -46,6 +46,7 @@ private:
 
 	void throwWP();
 	void passWP();
+	void passWPOff();
 	void getEstop();
 	void setSwitchType();
 

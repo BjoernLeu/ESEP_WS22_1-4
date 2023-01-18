@@ -133,6 +133,7 @@ int main(int argc, char* argv[]) {
 	dsp.subscribe("hr", STOP_ALL);
 	dsp.subscribe("hr", THROW_WP);
 	dsp.subscribe("hr", PASS_WP);
+	dsp.subscribe("hr", PASS_WP_OFF);
 	dsp.subscribe("hr", SET_SW_TYPE);
 	dsp.subscribe("hr", CHECK_ESTOP);
 

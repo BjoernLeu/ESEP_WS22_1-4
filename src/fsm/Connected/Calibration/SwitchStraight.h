@@ -20,6 +20,7 @@ public:
 
 	void entry() override;
 	bool handleLbO() override;
+	bool handleLbSwFree() override;
 };
 
 #endif /* SRC_FSM_CONNECTED_CALIBRATION_SWITCHSTRAIGHT_H_ */

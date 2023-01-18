@@ -175,14 +175,13 @@ void ISR::handleInterrupt(void) {
 		unsigned int mask = (uint32_t) BIT_MASK(pin);
 		if (intrStatusReg == mask) {
 			int current_level = (in32((uintptr_t) gpioBase + GPIO_DATA_IN) >> pin) & 0x1;
-			printf("Interrupt on pin %d, now %d\n", pin, current_level);
+			//printf("Interrupt on pin %d, now %d\n", pin, current_level);
 			
 			switch (pin) {
 			case P_IN_INLET:
 				if (current_level) {
 					this->send(coid, static_cast<int>(LB_I_FREE), 0);
 				} else {
-					std::cout << "LB_I" << std::endl;
 					this->send(coid, static_cast<int>(LB_I), 0);
 				}
 				break;

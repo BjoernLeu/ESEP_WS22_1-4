@@ -15,7 +15,6 @@ void ThrowWP::entry()
 {
 	std::cout << "ThrowWP entry" << std::endl;
 	throwWP();
-	data->eraseWp();
 }
 
 void ThrowWP::exit()
@@ -26,6 +25,8 @@ void ThrowWP::exit()
 
 bool ThrowWP::handleLbSwFree()
 {
+	//throwWPOff();
+	data->eraseWp();
 	exit();
 	new (this) IdleThrow;
 	entry();

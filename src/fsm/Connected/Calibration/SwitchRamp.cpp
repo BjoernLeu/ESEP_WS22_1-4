@@ -19,6 +19,13 @@ void SwitchRamp::entry()
 	data->setTime_lbSW_fast_max();
 }
 
+bool SwitchRamp::handleLbSwFree() {
+	if (MsgSendPulse(coid, -1, static_cast<int>(PASS_WP_OFF), 0) == -1) {
+			perror("MsgSendPulse failed");
+	}
+	return true;
+}
+
 bool SwitchRamp::handleLbO()
 {
 	new (this) OutletRamp;

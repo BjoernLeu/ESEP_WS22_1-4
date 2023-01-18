@@ -480,11 +480,7 @@ void ContextData::setAddExpectedWorkpiece(bool height, bool isDrilling, bool met
 /// @brief increase the global counter for expectedCount
 void ContextData::increaseExpectedCount()
 {
-    if(expectedCount % 3 == 0 && expectedCount != 0){
-        expectedCount = 0;
-    }else{
-        expectedCount++;
-    }
+    expectedCount = (expectedCount + 1) % 3;
 }
 
 bool ContextData::getExpectedWpHeight(){return wpExpList[expectedCount].height;}

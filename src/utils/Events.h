@@ -36,6 +36,7 @@ enum Event {
 	SET_SW_TYPE,
 	THROW_WP,
 	PASS_WP,
+	PASS_WP_OFF,
 //Slide
 	BOTH_FULL,
 	EXT_FULL,
