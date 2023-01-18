@@ -24,6 +24,7 @@ void Estop::entry()
 
 bool Estop::handleResetSp()
 {
+	std::cout << "Estop handleResetSp" << std::endl;
 	substate->handleResetSp();
 
 	if(substate->isSubEndState()){
