@@ -16,7 +16,6 @@ Actions::~Actions() {}
 * @param light GEREEN, YELLOW, RED, Q1, Q2, START_LED or RESET_LED
 */
 void Actions::lightOn(int light){
-
 	switch(light){
 	case 1:
     	// std::cout << "green-on" << std::endl;
@@ -38,12 +37,14 @@ void Actions::lightOn(int light){
 		break;
 	case 4:
     	// std::cout << "q1-on" << std::endl;
+		ContextData::q1On = true;
 		if (MsgSendPulse(ContextData::coid, -1, static_cast<int>(LIGHT_Q1_ON), 0) == -1) {
 			perror("MsgSendPulse failed");
 		}
 		break;
 	case 5:
     	// std::cout << "q2-on" << std::endl;
+		ContextData::q2On = true;
 		if (MsgSendPulse(ContextData::coid, -1, static_cast<int>(LIGHT_Q2_ON), 0) == -1) {
 				perror("MsgSendPulse failed");
 		}
@@ -89,12 +90,14 @@ void Actions::lightOff(int light){
 		break;
 	case 4:
     	// std::cout << "q1-off" << std::endl;
+		ContextData::q1On = false;
 		if (MsgSendPulse(ContextData::coid, -1, static_cast<int>(LIGHT_Q1_OFF), 0) == -1) {
 			perror("MsgSendPulse failed");
 		}
 		break;
 	case 5:
     	// std::cout << "q2-off" << std::endl;
+		ContextData::q2On = false;
 		if (MsgSendPulse(ContextData::coid, -1, static_cast<int>(LIGHT_Q2_OFF), 0) == -1) {
 			perror("MsgSendPulse failed");
 		}
@@ -204,6 +207,9 @@ void Actions::blinking(int light, int speed){
 				perror("MsgSendPulse failed");
 			}
 			usleep(speed);
+			if(ContextData::q1On){
+				break;
+			}
 			if (MsgSendPulse(ContextData::coid, -1, static_cast<int>(LIGHT_Q1_OFF), 0) == -1) {
 				perror("MsgSendPulse failed");
 			}
@@ -217,6 +223,9 @@ void Actions::blinking(int light, int speed){
 				perror("MsgSendPulse failed");
 			}
 			usleep(speed);
+			if(ContextData::q2On){
+				break;
+			}
 			if (MsgSendPulse(ContextData::coid, -1, static_cast<int>(LIGHT_Q2_OFF), 0) == -1) {
 				perror("MsgSendPulse failed");
 			}
@@ -390,6 +399,9 @@ void Actions::timeBlinking(int light, int speed, int seconds){
 			std::chrono::duration<double> elapsed_seconds = now-prev;
 			if(elapsed_seconds > std::chrono::seconds(seconds))
 			{
+				if(ContextData::q1On){
+					break;
+				}
 				if (MsgSendPulse(ContextData::coid, -1, static_cast<int>(LIGHT_Q1_OFF), 0) == -1) {
 					perror("MsgSendPulse failed");
 				}
@@ -411,6 +423,9 @@ void Actions::timeBlinking(int light, int speed, int seconds){
 			std::chrono::duration<double> elapsed_seconds = now-prev;
 			if(elapsed_seconds > std::chrono::seconds(seconds))
 			{
+				if(ContextData::q2On){
+					break;
+				}
 				if (MsgSendPulse(ContextData::coid, -1, static_cast<int>(LIGHT_Q2_OFF), 0) == -1) {
 					perror("MsgSendPulse failed");
 				}

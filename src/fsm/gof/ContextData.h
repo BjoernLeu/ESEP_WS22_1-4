@@ -235,6 +235,8 @@ public:
 	static bool blinkQ2;
 	static bool blinkStart;
 	static bool blinkReset;
+	static bool q1On;
+	static bool q2On;
 
 private:
 	// Workpiece A
