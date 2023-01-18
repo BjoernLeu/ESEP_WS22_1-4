@@ -12,7 +12,7 @@ SLExtBusy::~SLExtBusy() {}
 
 void SLExtBusy::entry()
 {
-	std::cout << "SLExtBusy entry" << std::endl;
+	// std::cout << "SLExtBusy entry" << std::endl;
 	data->setSlExtTrue();
 	action->blinkingOn(YELLOW, SLOW);
 }

@@ -11,11 +11,12 @@ IdleRun::IdleRun() {}
 IdleRun::~IdleRun() {}
 
 void IdleRun::entry(){
-	std::cout << "IdleRun entry" << std::endl;
+	// std::cout << "IdleRun entry" << std::endl;
 }
 
 bool IdleRun::handleLbI() 
 {
+	data->addWp(INIT_TYPE, INIT_METAL, INIT_HEIGHT, INIT_FLIPPED, INIT_SEGMENT, INIT_DISTANCE);
 	new(this) Run();
 	entry();
 	return true;

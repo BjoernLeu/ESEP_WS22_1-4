@@ -12,7 +12,7 @@ Measure::~Measure() {}
 
 void Measure::entry()
 {
-	std::cout << "Measure entry" << std::endl;
+	// std::cout << "Measure entry" << std::endl;
 	motorSlowOn();
 }
 

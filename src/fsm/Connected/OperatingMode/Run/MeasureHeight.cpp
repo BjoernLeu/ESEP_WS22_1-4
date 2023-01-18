@@ -11,7 +11,7 @@ MeasureHeight::MeasureHeight() {}
 MeasureHeight::~MeasureHeight() {}
 
 void MeasureHeight::entry() {
-	std::cout << "MeasureHeight entry" << std::endl;
+	// std::cout << "MeasureHeight entry" << std::endl;
 	substate = new IdleMeasureHeight;
 	substate->setData(data);
 	substate->setAction(action);

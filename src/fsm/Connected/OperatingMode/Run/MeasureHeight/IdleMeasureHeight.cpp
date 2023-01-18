@@ -19,5 +19,5 @@ bool IdleMeasureHeight::handleHsWP()
 }
 
 void IdleMeasureHeight::entry(){
-	std::cout << "IdleMeasureHeight entry" << std::endl;
+	// std::cout << "IdleMeasureHeight entry" << std::endl;
 }

@@ -12,13 +12,13 @@ HeightStraight::~HeightStraight() {}
 
 void HeightStraight::entry() 
 {
-	std::cout << "HeightStraight entry" << std::endl;
+	// std::cout << "HeightStraight entry" << std::endl;
 	data->setTime_hsWP_fast_min();
 }
 
 bool HeightStraight::handleLbSW()
 {
-	std::cout << "handleLbSW" << std::endl;
+	// std::cout << "handleLbSW" << std::endl;
 	new (this) SwitchStraight;
 	entry();
 	return true;

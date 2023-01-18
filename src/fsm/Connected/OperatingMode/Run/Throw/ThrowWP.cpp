@@ -15,13 +15,13 @@ void ThrowWP::entry()
 {
 	std::cout << "ThrowWP entry" << std::endl;
 	throwWP();
-	data->popWp();
+	data->eraseWp();
 }
 
 void ThrowWP::exit()
 {
 	std::cout << "ThrowWP exit" << std::endl;
-	throwWPOff();
+	// throwWPOff();
 }
 
 bool ThrowWP::handleLbSwFree()

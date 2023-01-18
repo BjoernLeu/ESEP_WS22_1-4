@@ -150,13 +150,16 @@ void HalControl::passWP(){
  * 
  */
 void HalControl::setSwitchType (){
+	std::cout << "setting switch Type" << std::endl;
 	uintptr_t gpioBase = mmap_device_io(GPIO_REGISTER_LENGHT, GPIO_PORT0);
 	int current_level = (in32((uintptr_t) gpioBase + GPIO_DATA_IN) >> 14) & 0x1;
 
 	if(current_level)
 	{
+	std::cout << "setting switch Type: True" << std::endl;
 		switchType = true;
 	}else{
+	std::cout << "setting switch Type: False" << std::endl;
 		switchType = false;
 	}
 }

@@ -12,7 +12,7 @@ IdleMetal::~IdleMetal() {}
 
 void IdleMetal::entry()
 {
-	std::cout << "IdleMetal entry" << std::endl;
+	// std::cout << "IdleMetal entry" << std::endl;
 }
 
 bool IdleMetal::handleWpMetal()

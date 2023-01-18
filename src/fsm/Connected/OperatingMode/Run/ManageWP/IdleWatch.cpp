@@ -12,12 +12,12 @@ IdleWatch::~IdleWatch(){}
 
 void IdleWatch::entry()
 {
-	std::cout << "idleWatch entry" << std::endl;
+	// std::cout << "idleWatch entry" << std::endl;
 }
 
 bool IdleWatch::handleHsWP()
 {
-	std::cout << "idleWatch handleHsWP" << std::endl;
+	// std::cout << "idleWatch handleHsWP" << std::endl;
 	new (this) ArrivedHeight;
 	entry();
 	return true;
@@ -25,7 +25,7 @@ bool IdleWatch::handleHsWP()
 
 bool IdleWatch::handleLbSW()
 {
-	std::cout << "idleWatch handleLbSW" << std::endl;
+	// std::cout << "idleWatch handleLbSW" << std::endl;
 	new (this) ArrivedSwitch;
 	entry();
 	return true;
@@ -33,7 +33,7 @@ bool IdleWatch::handleLbSW()
 
 bool IdleWatch::handleLbO()
 {
-	std::cout << "idleWatch handleLbO" << std::endl;
+	// std::cout << "idleWatch handleLbO" << std::endl;
 	new (this) ArrivedOut;
 	entry();
 	return true;

@@ -12,7 +12,7 @@ Calibration::~Calibration() {}
 
 void Calibration::entry() 
 {
-	std::cout << "Calibration entry" << std::endl;
+	// std::cout << "Calibration entry" << std::endl;
 	action->blinkingOn(YELLOW, SLOW);
 	substate = new IdleCali;
 	substate->setData(data);

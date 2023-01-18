@@ -12,7 +12,7 @@ OutletRamp::~OutletRamp() {}
 
 void OutletRamp::entry() 
 {
-	std::cout << "OutletRamp entry" << std::endl;
+	// std::cout << "OutletRamp entry" << std::endl;
 	data->setTime_lbO_fast_max();
 	data->motor = false;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_OFF), 0) == -1) {

@@ -12,7 +12,7 @@ HeightRamp::~HeightRamp() {}
 
 void HeightRamp::entry() 
 {
-	std::cout << "HeightRamp entry" << std::endl;
+	// std::cout << "HeightRamp entry" << std::endl;
 	data->setTime_hsWP_fast_max();
 }
 

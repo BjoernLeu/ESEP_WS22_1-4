@@ -12,7 +12,7 @@ SLSelfBusy::~SLSelfBusy() {}
 
 void SLSelfBusy::entry()
 {
-	std::cout << "SLSelfBusy entry" << std::endl;
+	// std::cout << "SLSelfBusy entry" << std::endl;
 	data->setSlSelfTrue();
 	action->blinkingOn(YELLOW, SLOW);
 }

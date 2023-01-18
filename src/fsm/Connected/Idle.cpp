@@ -9,7 +9,7 @@
 
 void Idle::entry() 
 {
-	std::cout << "Connected/Idle entry" << std::endl;
+	// std::cout << "Connected/Idle entry" << std::endl;
 	data->setLoadedConfFalse();
 	loadConf();
 	action->lightOn(START_LED);
@@ -19,7 +19,7 @@ void Idle::entry()
 	}else{
 		action->lightOn(Q2);
 	}
-	std::cout << "Q-LED On" << std::endl;
+	// std::cout << "Q-LED On" << std::endl;
 }
 
 void Idle::exit()
@@ -38,7 +38,7 @@ bool Idle::handleStartLp()
 
 bool Idle::handleStartSp() 
 {
-	std::cout << "conf: " << data->getLoadedConf() << std::endl;
+	// std::cout << "conf: " << data->getLoadedConf() << std::endl;
 	if(data->getLoadedConf()){
 		exit();
 		new (this) OperatingMode();

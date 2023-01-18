@@ -13,7 +13,7 @@ CheckSlide::~CheckSlide() {}
 
 void CheckSlide::entry()
 {
-	std::cout << "CheckSlide entry" << std::endl;
+	// std::cout << "CheckSlide entry" << std::endl;
 
 	//bothfree
 	if(data->getSlSelf() && data->getSlExt()){

@@ -302,7 +302,14 @@ double ContextData::getSlowFactor(){return slowFactor;}
         double distance;
     };
 */
-
+void ContextData::printVector(){
+    for (int i = 0; i < wpList.size()-1; i++){
+        std::cout << "ID:" << wpList[i].id << std::endl;
+        std::cout << "Type:" << wpList[i].type << std::endl;
+        std::cout << "Metal:" << wpList[i].metal << std::endl;
+        std::cout << "Segment:" << wpList[i].segment << std::endl;
+    } 
+}
 void ContextData::addWp(int type, bool metal, float height, bool flipped, int segment, double distance) {
     std::rotate(wpList.begin(), wpList.end(), wpList.end());
 	wpList.push_back({getWpCount(), type, metal, height, flipped, segment, distance});
@@ -310,10 +317,11 @@ void ContextData::addWp(int type, bool metal, float height, bool flipped, int se
     std::rotate(wpList.begin(), wpList.end(), wpList.end());
 //    std::cout << wpList <<std::endl;
 }
-void ContextData::popWp() {
+void ContextData::eraseWp() {
     if(wpList.size() > 1){
         for(std::vector<workpiece>::iterator it = wpList.begin(); it != wpList.end(); ++it) {
-            if((*it).segment == 3 && (*it).distance > (*it).distance){
+            auto prevIt = std::prev(it);
+            if((*it).segment == 3 && (*prevIt).segment == 2){
                 wpList.erase(it);
             }
         }
@@ -462,7 +470,7 @@ void ContextData::changeSeg3(){
 /// @param height height workpiece 
 /// @param metal workpiece with metal
 /// @param isDrilling drilling in workpiece
-void ContextData::setAddExpectedWorkpiece(bool height, bool isDrilling, bool metal) 
+void ContextData::setAddExpectedWorkpiece(bool height, bool metal, bool isDrilling) 
 {
     wpExpList.push_back({height, metal, isDrilling});
 }
@@ -472,19 +480,12 @@ void ContextData::setAddExpectedWorkpiece(bool height, bool isDrilling, bool met
 /// @brief increase the global counter for expectedCount
 void ContextData::increaseExpectedCount()
 {
-    if (expectedCount <= 2) 
-    {
+    if(expectedCount % 2 == 0){
+        expectedCount = 0;
+    }else{
         expectedCount++;
     }
-    else
-    {
-        expectedCount = 0;
-    }
 }
-
-
-
-
 
 bool ContextData::getExpectedWpHeight(){return wpExpList[expectedCount].height;}
 bool ContextData::getExpectedWpMetal(){return wpExpList[expectedCount].metal;}

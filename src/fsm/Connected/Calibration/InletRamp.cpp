@@ -12,7 +12,7 @@ InletRamp::~InletRamp() {}
 
 void InletRamp::entry() 
 {
-	std::cout << "InletRamp entry" << std::endl;
+	// std::cout << "InletRamp entry" << std::endl;
 	data->setTime_lbI_fast_max();
 	data->motor = true;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_ON), 0) == -1) {

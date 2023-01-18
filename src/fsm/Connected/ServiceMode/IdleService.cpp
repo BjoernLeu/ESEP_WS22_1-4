@@ -13,11 +13,11 @@ IdleService::~IdleService() {}
 
 void IdleService::entry()
 {
-	std::cout << "IdleService entry" << std::endl;
+	// std::cout << "IdleService entry" << std::endl;
 }
 
 bool IdleService::handleResetSp() {
-	std::cout << "ServiceMode/LoadConfigService" << std::endl;
+	// std::cout << "ServiceMode/LoadConfigService" << std::endl;
 	new(this) SubEndState;
 	entry();
 	return true;

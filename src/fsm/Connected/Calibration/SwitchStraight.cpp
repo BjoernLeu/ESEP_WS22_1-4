@@ -12,7 +12,7 @@ SwitchStraight::~SwitchStraight() {}
 
 void SwitchStraight::entry() 
 {
-	std::cout << "SwitchStraight entry" << std::endl;
+	// std::cout << "SwitchStraight entry" << std::endl;
 	if (MsgSendPulse(coid, -1, static_cast<int>(PASS_WP), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}

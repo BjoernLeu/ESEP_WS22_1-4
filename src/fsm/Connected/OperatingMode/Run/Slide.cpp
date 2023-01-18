@@ -12,7 +12,7 @@ Slide::~Slide(){}
 
 void Slide::entry() 
 {
-	std::cout << "Slide entry" << std::endl;
+	// std::cout << "Slide entry" << std::endl;
 	substate = new IdleSlide;
 	substate->setData(data);
 	substate->setAction(action);

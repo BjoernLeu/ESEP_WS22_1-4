@@ -12,8 +12,7 @@ ManageWP::~ManageWP() {}
 
 void ManageWP::entry()
 {
-	std::cout << "ManageWP entry" << std::endl;
-	handleLbI();
+	// std::cout << "ManageWP entry" << std::endl;
 	startWatchLateThread();
 	substate = new IdleWatch;
 	substate->setData(data);

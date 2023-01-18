@@ -11,7 +11,7 @@ Connecting::Connecting() {}
 Connecting::~Connecting() {}
 
 void Connecting::entry() {
-	std::cout << "Connecting entry" << std::endl;
+	// std::cout << "Connecting entry" << std::endl;
 
 	for (int i = 1; i < 8; i++) {
 		action->lightOff(i);

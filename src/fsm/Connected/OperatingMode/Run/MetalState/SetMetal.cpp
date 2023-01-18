@@ -12,7 +12,7 @@ SetMetal::~SetMetal() {}
 
 void SetMetal::entry()
 {
-	std::cout << "SetMetal entry" << std::endl;
+	// std::cout << "SetMetal entry" << std::endl;
 	setMType();
 }
 

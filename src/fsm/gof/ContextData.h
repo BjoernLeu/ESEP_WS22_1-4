@@ -207,8 +207,9 @@ public:
 	void decWpCount();
 	int getWpCount();
 
+	void printVector();
 	void addWp(int type, bool metal, float height, bool flipped, int segment, double distance);
-	void popWp();
+	void eraseWp();
 	workpiece getWp();
 	bool getWpEmpty();
 	void addWpMetal();

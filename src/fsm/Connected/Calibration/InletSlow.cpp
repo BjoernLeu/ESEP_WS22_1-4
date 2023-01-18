@@ -12,7 +12,7 @@ InletSlow::~InletSlow() {}
 
 void InletSlow::entry() 
 {
-	std::cout << "InletSlow entry" << std::endl;
+	// std::cout << "InletSlow entry" << std::endl;
 	data->setTime_lbI_slow();
 	data->motor = true;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_ON), 0) == -1) {

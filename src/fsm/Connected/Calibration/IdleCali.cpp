@@ -12,7 +12,7 @@ IdleCali::~IdleCali() {}
 
 void IdleCali::entry() 
 {
-	std::cout << "IdleCali entry" << std::endl;
+	// std::cout << "IdleCali entry" << std::endl;
 	measureBelt();
 }
 

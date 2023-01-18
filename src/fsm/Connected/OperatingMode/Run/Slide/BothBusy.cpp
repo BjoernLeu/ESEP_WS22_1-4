@@ -11,7 +11,7 @@ BothBusy::BothBusy() {}
 BothBusy::~BothBusy() {}
 
 void BothBusy::entry(){
-	std::cout << "BothBusy entry" << std::endl;
+	// std::cout << "BothBusy entry" << std::endl;
 }
 
 bool BothBusy::handleWpExpected()

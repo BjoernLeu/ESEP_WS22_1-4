@@ -12,7 +12,7 @@ HeightSlow::~HeightSlow() {}
 
 void HeightSlow::entry() 
 {
-	std::cout << "HeightSlow entry" << std::endl;
+	// std::cout << "HeightSlow entry" << std::endl;
 	data->setTime_hsWP_slow();
 	data->motorSlow = false;
 	if (MsgSendPulse(coid, -1, static_cast<int>(MOTOR_SLOW_OFF), 0) == -1) {
@@ -27,7 +27,7 @@ void HeightSlow::entry()
 
 void HeightSlow::exit() 
 {
-	std::cout << "HeightSlow exit" << std::endl;
+	// std::cout << "HeightSlow exit" << std::endl;
 	data->setSectorDiff_max();
 	data->setSectorDiff_min();
 	data->setSlowDur();

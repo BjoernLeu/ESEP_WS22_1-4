@@ -182,6 +182,7 @@ void ISR::handleInterrupt(void) {
 				if (current_level) {
 					this->send(coid, static_cast<int>(LB_I_FREE), 0);
 				} else {
+					std::cout << "LB_I" << std::endl;
 					this->send(coid, static_cast<int>(LB_I), 0);
 				}
 				break;

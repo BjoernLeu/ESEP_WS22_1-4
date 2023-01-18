@@ -12,7 +12,7 @@ IdleThrow::~IdleThrow() {}
 
 void IdleThrow::entry()
 {
-	std::cout << "IdleThrow entry" << std::endl;
+	// std::cout << "IdleThrow entry" << std::endl;
 }
 
 bool IdleThrow::handleLbSW()

@@ -12,7 +12,7 @@ Connected::~Connected() {}
 
 void Connected::entry() 
 {
-	std::cout << "Connected entry" << std::endl;
+	// std::cout << "Connected entry" << std::endl;
 
 	if (MsgSendPulse(coid, -1, static_cast<int>(CHECK_ESTOP), 0) == -1) {
 			perror("MsgSendPulse failed");

@@ -12,7 +12,7 @@ MeasureHighCali::~MeasureHighCali() {}
 
 void MeasureHighCali::entry() 
 {
-	std::cout << "MeasureHighCali entry" << std::endl;
+	// std::cout << "MeasureHighCali entry" << std::endl;
 	measureHigh();
 }
 

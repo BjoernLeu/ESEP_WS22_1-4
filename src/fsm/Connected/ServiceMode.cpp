@@ -13,7 +13,7 @@ ServiceMode::~ServiceMode() {}
 
 void ServiceMode::entry() 
 {
-	std::cout << "ServiceMode entry" << std::endl;
+	// std::cout << "ServiceMode entry" << std::endl;
 	action->blinkingOn(GREEN, SLOW);
 	substate = new LoadConfigService();
 	substate->setData(data);
@@ -23,13 +23,13 @@ void ServiceMode::entry()
 
 void ServiceMode::exit() 
 {
-	std::cout << "ServiceMode entry" << std::endl;
+	// std::cout << "ServiceMode entry" << std::endl;
 	action->blinkingOff(ALL);
 }
 
 bool ServiceMode::handleResetSp()
 {
-	std::cout << "ServiceMode/handleResetSp" << std::endl;
+	// std::cout << "ServiceMode/handleResetSp" << std::endl;
 	new (this) Idle();
 	entry();
 	return true;

@@ -46,6 +46,9 @@ void CheckWP::checkWP()
 	int type = data->getWpType(); 
 	bool isMetal = data->getWpMetal();
 
+	std::cout << "List WP: Type: " << type << " Metal: " << isMetal << std::endl;
+	std::cout << "Expected WP: Height: " << tempExpectedWorkpiece.height << " Metal: " << tempExpectedWorkpiece.metal << " Drilling: " << tempExpectedWorkpiece.isDrilling << std::endl;
+
 	//If the workpiece is High
 	if (((type != WP_FLAT) && (type == WP_HIGH) && (type != WP_DRILLING) && !isMetal) && (tempExpectedWorkpiece.height && !tempExpectedWorkpiece.isDrilling && !tempExpectedWorkpiece.metal))
 	{
@@ -63,7 +66,7 @@ void CheckWP::checkWP()
 	//If the Workpiece have metal
 	else if (((type != WP_FLAT) && (type != WP_HIGH) && (type == WP_DRILLING) && isMetal) && (tempExpectedWorkpiece.height && tempExpectedWorkpiece.isDrilling && tempExpectedWorkpiece.metal))
 	{
-		//std::cout << "\t\tMetal in order" << std::endl;
+		std::cout << "\t\tMetal in order" << std::endl;
 		data->increaseExpectedCount();
 		handleInOrder();
 	}

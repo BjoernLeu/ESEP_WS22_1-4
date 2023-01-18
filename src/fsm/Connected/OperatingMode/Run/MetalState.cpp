@@ -11,7 +11,7 @@ MetalState::MetalState() {}
 MetalState::~MetalState() {}
 
 void MetalState::entry() {
-	std::cout << "MetalState entry" << std::endl;
+	// std::cout << "MetalState entry" << std::endl;
 	substate = new IdleMetal;
 	substate->setData(data);
 	substate->setAction(action);

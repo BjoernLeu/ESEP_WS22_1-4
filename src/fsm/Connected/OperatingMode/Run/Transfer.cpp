@@ -12,7 +12,7 @@ Transfer::~Transfer() {}
 
 void Transfer::entry()
 {
-	std::cout << "Transfer entry" << std::endl;
+	// std::cout << "Transfer entry" << std::endl;
 	substate = new TransferFesto;
 	substate->setData(data);
 	substate->setAction(action);

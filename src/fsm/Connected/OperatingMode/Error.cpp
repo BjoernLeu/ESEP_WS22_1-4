@@ -20,7 +20,7 @@ bool Error::entryHistory()
 
 void Error::entry()
 {
-	std::cout << "Error entry" << std::endl;
+	// std::cout << "Error entry" << std::endl;
 	substate = new PendingUnreceipted;
 	substate->setData(data);
 	substate->entry();

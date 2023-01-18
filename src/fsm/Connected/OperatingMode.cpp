@@ -13,7 +13,7 @@ OperatingMode::~OperatingMode() {}
 
 void OperatingMode::entry()
 {
-	std::cout << "OperatingMode entry" << std::endl;
+	// std::cout << "OperatingMode entry" << std::endl;
 	action->lightOn(GREEN);
 	substate = new IdleRun;
 	substate->setData(data);
@@ -23,7 +23,7 @@ void OperatingMode::entry()
 
 void OperatingMode::exit()
 {
-	std::cout << "OperatingMode exit" << std::endl;
+	// std::cout << "OperatingMode exit" << std::endl;
 	action->lightOff(GREEN);
 }
 
@@ -54,7 +54,7 @@ bool OperatingMode::handleError()
 
 bool OperatingMode::handleStopSp()
 {
-	std::cout << "Connected/handleStopSp" << std::endl;
+	// std::cout << "Connected/handleStopSp" << std::endl;
 	exit();
 	new (this) Idle();
 	entry();
