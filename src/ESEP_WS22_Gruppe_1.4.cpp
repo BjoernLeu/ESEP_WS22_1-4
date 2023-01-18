@@ -156,6 +156,7 @@ int main(int argc, char* argv[]) {
 	dsp.subscribe("cr", SELF_FULL);
 	dsp.subscribe("cr", BOTH_FREE);
 	dsp.subscribe("cr", NO_METAL);
+	dsp.subscribe("cr", ERROR_GONE);
 	
 	
 

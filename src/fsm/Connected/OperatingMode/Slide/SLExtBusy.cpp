@@ -12,14 +12,14 @@ SLExtBusy::~SLExtBusy() {}
 
 void SLExtBusy::entry()
 {
-	// std::cout << "SLExtBusy entry" << std::endl;
-	data->setSlExtTrue();
-	action->blinkingOn(YELLOW, SLOW);
+	std::cout << "SLExtBusy entry" << std::endl;
+	data->setSlExtFalse();
+	// action->blinkingOn(YELLOW, SLOW);
 }
 
 bool SLExtBusy::handleSlExtFree()
 {
-	data->setSlExtFalse();
+	data->setSlExtTrue();
 	new (this) IdleSlide;
 	entry();
 	return true;
@@ -27,7 +27,9 @@ bool SLExtBusy::handleSlExtFree()
 
 bool SLExtBusy::handleSlSelfFull()
 {
-	data->setSlSelfTrue();
+	if (MsgSendPulse(coidExt, -1, static_cast<int>(LB_SL_EXT_FULL), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 	new (this) BothBusy;
 	entry();
 	return true;
@@ -41,7 +43,7 @@ bool SLExtBusy::handleWpExpected()
 
 void SLExtBusy::replyExtFull() 
 {
-	if (MsgSendPulse(coid, -1, static_cast<int>(EXT_FULL), 0) == -1) {
+	if (MsgSendPulse(coid, -1, static_cast<int>(LB_SL_EXT_FULL), 0) == -1) {
 		perror("MsgSendPulse failed");
 	}
 }

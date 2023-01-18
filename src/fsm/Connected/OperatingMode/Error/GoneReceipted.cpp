@@ -21,7 +21,7 @@ void GoneReceipted::entry()
 bool GoneReceipted::handleStartSp()
 {
 	exit();
-	new(this) SubEndState;
+	new(this) IdleError;
 	entry();
 	return true;
 }

@@ -14,7 +14,7 @@ WPAppeared::~WPAppeared() {}
 bool WPAppeared::handleStartSp()
 {
 	exit();
-	new(this) SubEndState;
+	new(this) IdleError;
 	entry();
 	return true;
 }

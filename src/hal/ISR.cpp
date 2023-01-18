@@ -323,13 +323,13 @@ void ISR::slideWatch() {
 		
 		if(threadSL)
 		{
-			std::cout << "-------------------------------> if what" << std::endl;
+			// std::cout << "-------------------------------> if what" << std::endl;
 			break;
 		}
 
 		if (diff_t_SL > 3) 
 		{
-			std::cout << "Slide Full" << std::endl;
+			// std::cout << "Slide Full" << std::endl;
 			this->send(coid, static_cast<int>(LB_SL_SELF_FULL), 0);
 			this->send(coid2, static_cast<int>(LB_SL_EXT_FULL), 0);
 			break;

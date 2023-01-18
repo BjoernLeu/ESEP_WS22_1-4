@@ -21,6 +21,7 @@ void PendingUnreceipted::entry()
 void PendingUnreceipted::exit()
 {
 	std::cout << "PendingUnreceipted exit" << std::endl;
+	data->setErrorFalse();
 	action->blinkingOff(RED);
 }
 

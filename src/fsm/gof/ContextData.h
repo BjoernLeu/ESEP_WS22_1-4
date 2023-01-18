@@ -202,6 +202,10 @@ public:
 	void setSlowFactor();
 	double getSlowFactor();
 
+	void setErrorTrue();
+	void setErrorFalse();
+	bool getError();
+
 //================= WP LIST =================
 	void incWpCount();
 	void decWpCount();
@@ -302,6 +306,8 @@ private:
 
 	//expected wp from 0 to 2
 	int expectedCount = 0;
+
+	bool errorState = false;
 };
 
 #endif /* SRC_FSM_GOF_CONTEXTDATA_H_ */

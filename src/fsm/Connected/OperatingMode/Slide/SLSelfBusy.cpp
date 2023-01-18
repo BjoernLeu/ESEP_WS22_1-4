@@ -12,15 +12,18 @@ SLSelfBusy::~SLSelfBusy() {}
 
 void SLSelfBusy::entry()
 {
-	// std::cout << "SLSelfBusy entry" << std::endl;
-	data->setSlSelfTrue();
+	std::cout << "SLSelfBusy entry" << std::endl;
+	data->setSlSelfFalse();
 	action->blinkingOn(YELLOW, SLOW);
+	if (MsgSendPulse(coidExt, -1, static_cast<int>(LB_SL_EXT_FULL), 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
 }
 
 
 bool SLSelfBusy::handleSlSelfFree()
 {
-	data->setSlSelfFalse();
+	data->setSlSelfTrue();
 	new (this) IdleSlide;
 	entry();
 	return true;
@@ -28,7 +31,6 @@ bool SLSelfBusy::handleSlSelfFree()
 
 bool SLSelfBusy::handleSlExtFull()
 {
-	data->setSlExtTrue();
 	new (this) BothBusy;
 	entry();
 	return true;

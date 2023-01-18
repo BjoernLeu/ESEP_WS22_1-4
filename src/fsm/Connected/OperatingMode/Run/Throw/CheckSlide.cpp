@@ -13,19 +13,23 @@ CheckSlide::~CheckSlide() {}
 
 void CheckSlide::entry()
 {
-	// std::cout << "CheckSlide entry" << std::endl;
+	std::cout << "CheckSlide entry" << std::endl;
 
 	//bothfree
 	if(data->getSlSelf() && data->getSlExt()){
+		std::cout << "data->getSlSelf() && data->getSlExt()" << std::endl;
 		handleSlBothFree(); 
 	//bothfull
-	} else if (data->getSlSelf() == false && data->getSlExt() == false){
+	} else if (!data->getSlSelf() && !data->getSlExt()){
+		std::cout << "data->getSlSelf() == false && data->getSlExt() == false" << std::endl;
 		handleSlBothFull();
 	//selffull
-	} else if (data->getSlSelf() == false){
+	} else if (!data->getSlSelf() && data->getSlExt()){
+		std::cout << "data->getSlSelf() == false" << std::endl;
 		handleSlSelfFull();
 	//extfull
-	} else if (data->getSlExt() == false){
+	} else if (!data->getSlExt() && data->getSlSelf()){
+		std::cout << "data->getSlExt() == false" << std::endl;
 		handleSlExtFull();
 	} else {
 		std::cout << "Error! Can not read from Slide" << std::endl;
@@ -39,6 +43,7 @@ bool CheckSlide::handleSlSelfFull()
 		entry();
 		return true;
 	} else if (checkFesto() == 2){
+		std::cout << "handleSlSelfFull TooFull" << std::endl;
 		new (this) TooFull;
 		entry();
 		return true;
@@ -83,7 +88,7 @@ bool CheckSlide::handleSlExtFull()
 bool CheckSlide::handleSlBothFull()
 {
 	if(checkFesto() == 1){
-		new (this) SortWPBothFull;
+		new (this) Pass;
 		entry();
 		return true;
 	} else if (checkFesto() == 2){

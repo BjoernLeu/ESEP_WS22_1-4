@@ -10,35 +10,25 @@
 Error::Error(){}
 Error::~Error(){}
 
-bool Error::entryHistory()
-{
-	new(this) Run;
-	//new(this) OperatingMode;
-	entryHistory();
-	return true;
-}
+// bool Error::entryHistory()
+// {
+// 	new(this) Run;
+// 	//new(this) OperatingMode;
+// 	entryHistory();
+// 	return true;
+// }
 
 void Error::entry()
 {
-	// std::cout << "Error entry" << std::endl;
-	substate = new PendingUnreceipted;
+	std::cout << "Error entry" << std::endl;
+	substate = new IdleError;
 	substate->setData(data);
 	substate->entry();
 }
 
 bool Error::handleStartSp()
 {
-	new(this) Run;
-//	new(this) OperatingMode;
-	entryHistory();
-	return true;
-}
-
-bool Error::handlePrinted()
-{
-	new(this) Run;
-//	new(this) OperatingMode;
-	entryHistory();
+	substate->handleStartSp();
 	return true;
 }
 
@@ -50,7 +40,17 @@ bool Error::handleErrorGone()
 
 bool Error::handleResetSp()
 {
-	substate->handleErrorGone();
+	substate->handleResetSp();
+	return true;
+}
+
+bool Error::handleError(){
+	substate->handleError();
+	return true;
+}
+
+bool Error::handlePrinted(){
+	substate->handlePrinted();
 	return true;
 }
 

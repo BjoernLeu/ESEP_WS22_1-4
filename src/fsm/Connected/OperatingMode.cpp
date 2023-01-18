@@ -15,10 +15,19 @@ void OperatingMode::entry()
 {
 	// std::cout << "OperatingMode entry" << std::endl;
 	action->lightOn(GREEN);
-	substate = new IdleRun;
-	substate->setData(data);
-	substate->setAction(action);
-	substate->entry();
+
+	multiSubstateSlide = new Slide();
+	multiSubstateSlide->setData(data);
+	multiSubstateSlide->setAction(action);
+	multiSubstateSlide->entry();
+	multiSubstateIdleRun = new IdleRun();
+	multiSubstateIdleRun->setData(data);
+	multiSubstateIdleRun->setAction(action);
+	multiSubstateIdleRun->entry();
+	multiSubstateError = new Error();
+	multiSubstateError->setData(data);
+	multiSubstateError->setAction(action);
+	multiSubstateError->entry();
 }
 
 void OperatingMode::exit()
@@ -35,22 +44,30 @@ void OperatingMode::exit()
 // }
 bool OperatingMode::handleError() 
 {
-	substate->handleError();
+	std::cout << "handle Error" << std::endl;
+	// multiSubstateIdleRun->handleError();
+	multiSubstateError->handleError();
 	return true;
 }
-// bool OperatingMode::handleError()
-// {
-// 	std::cout << "Error" << std::endl;
-// 	if (MsgSendPulse(coid, -1, static_cast<int>(ERROR), 0) == -1) {
-// 			perror("MsgSendPulse failed");
-// 	}
+bool OperatingMode::handleErrorGone(){
+	multiSubstateError->handleErrorGone();
+	return true;
+}
 
-// 	exit();
-// 	new(this) Error;
-// 	entry();
+bool OperatingMode::handleStartSp(){
+	multiSubstateError->handleStartSp();
+	return true;
+}
 
-// 	return true;
-// }
+bool OperatingMode::handleResetSp(){
+	multiSubstateError->handleResetSp();
+	return true;
+}
+
+bool OperatingMode::handlePrinted(){
+	multiSubstateError->handlePrinted();
+	return true;
+}
 
 bool OperatingMode::handleStopSp()
 {
@@ -63,187 +80,193 @@ bool OperatingMode::handleStopSp()
 
 bool OperatingMode::handleSignalReceipted() 
 {
-	substate->handleSignalReceipted();
+	multiSubstateIdleRun->handleSignalReceipted();
+	multiSubstateSlide->handleSignalReceipted();
 	return true;
 }
 
 bool OperatingMode::handleSlBothFree() 
 {
-	substate->handleSlBothFree();
+	multiSubstateIdleRun->handleSlBothFree();
 	return true;
 }
 
 bool OperatingMode::handleOutOfOrder() 
 {
-	substate->handleOutOfOrder();
+	multiSubstateIdleRun->handleOutOfOrder();
 	return true;
 }
 
 bool OperatingMode::handleFlat() 
 {
-	substate->handleFlat();
+	multiSubstateIdleRun->handleFlat();
 	return true;
 }
 
 bool OperatingMode::handleLbSwFree() 
 {
-	substate->handleLbSwFree();
+	multiSubstateIdleRun->handleLbSwFree();
 	return true;
 }
 
 bool OperatingMode::handleLbSW() 
 {
-	substate->handleLbSW();
+	multiSubstateIdleRun->handleLbSW();
 	return true;
 }
 
 bool OperatingMode::handleSlExtFree() 
 {
-	substate->handleSlExtFree();
+	multiSubstateIdleRun->handleSlExtFree();
+	multiSubstateSlide->handleSlExtFree();
 	return true;
 }
 
 bool OperatingMode::handleSlSelfFull() 
 {
-	substate->handleSlSelfFull();
+	multiSubstateIdleRun->handleSlSelfFull();
+	multiSubstateSlide->handleSlSelfFull();
 	return true;
 }
 
 bool OperatingMode::handleSlFree() 
 {
-	substate->handleSlFree();
+	multiSubstateIdleRun->handleSlFree();
 	return true;
 }
 
 bool OperatingMode::handleSlBothFull() 
 {
-	substate->handleSlBothFull();
+	multiSubstateIdleRun->handleSlBothFull();
 	return true;
 }
 
 bool OperatingMode::handleSlExtFull() 
 {
-	substate->handleSlExtFull();
+	multiSubstateIdleRun->handleSlExtFull();
+	multiSubstateSlide->handleSlExtFull();
 	return true;
 }
 
 bool OperatingMode::handleWpExpected() 
 {
-	substate->handleWpExpected();
+	multiSubstateIdleRun->handleWpExpected();
+	multiSubstateSlide->handleWpExpected();
 	return true;
 }
 
 bool OperatingMode::handleSlSelfFree() 
 {
-	substate->handleSlSelfFree();
+	multiSubstateIdleRun->handleSlSelfFree();
+	multiSubstateSlide->handleSlSelfFree();
 	return true;
 }
 
 bool OperatingMode::handleLbO()
 {
-	substate->handleLbO();
+	multiSubstateIdleRun->handleLbO();
 	return true;
 }
 
 bool OperatingMode::handleLbSL()
 {
-	substate->handleLbSL();
+	multiSubstateIdleRun->handleLbSL();
 	return true;
 }
 bool OperatingMode::handleNoMetal() 
 {
-	substate->handleNoMetal();
+	multiSubstateIdleRun->handleNoMetal();
 	return true;
 }
 
 bool OperatingMode::handleHsBelt()
 {
-	substate->handleHsBelt();
+	multiSubstateIdleRun->handleHsBelt();
 	return true;
 }
 
 bool OperatingMode::handleHsWP()
 {
-	substate->handleHsWP();
+	multiSubstateIdleRun->handleHsWP();
 	return true;
 }
 
 bool OperatingMode::handleEmptyBelt() 
 {
-	substate->handleEmptyBelt();
+	multiSubstateIdleRun->handleEmptyBelt();
 	return true;
 }
 
 bool OperatingMode::handleInOrder()
 {
-	substate->handleInOrder();
+	multiSubstateIdleRun->handleInOrder();
 	return true;
 }
 
 bool OperatingMode::handleWpMetal()
 {
-	substate->handleWpMetal();
+	multiSubstateIdleRun->handleWpMetal();
 	return true;
 }
 
 bool OperatingMode::handleLbI()
 {
-	substate->handleLbI();
+	multiSubstateIdleRun->handleLbI();
 	return true;
 }
 
 bool OperatingMode::handleWpArrived()
 {
-	substate->handleWpArrived();
+	multiSubstateIdleRun->handleWpArrived();
 	return true;
 }
 
 bool OperatingMode::handleTransferOK()
 {
-	substate->handleTransferOK();
+	multiSubstateIdleRun->handleTransferOK();
 	return true;
 }
 
 bool OperatingMode::handleTransferWait()
 {
-	substate->handleTransferWait();
+	multiSubstateIdleRun->handleTransferWait();
 	return true;
 }
 
 bool OperatingMode::handleLbOFree()
 {
-	substate->handleLbOFree();
+	multiSubstateIdleRun->handleLbOFree();
 	return true;
 }
 
 bool OperatingMode::handleWpTransfer()
 {
-	substate->handleWpTransfer();
+	multiSubstateIdleRun->handleWpTransfer();
 	return true;
 }
 
 bool OperatingMode::handleManageDone()
 {
-	substate->handleManageDone();
+	multiSubstateIdleRun->handleManageDone();
 	return true;
 }
 
 bool OperatingMode::handleWpCode(int height){
-	substate->handleWpCode(height);
+	multiSubstateIdleRun->handleWpCode(height);
 	return true;
 }
 
 bool OperatingMode::handleWpDrilling(int height){
-	substate->handleWpDrilling(height);
+	multiSubstateIdleRun->handleWpDrilling(height);
 	return true;
 }
 
 bool OperatingMode::handleWpFlat(int height){
-	substate->handleWpFlat(height);
+	multiSubstateIdleRun->handleWpFlat(height);
 	return true;
 }
 
 bool OperatingMode::handleWpHigh(int height){
-	substate->handleWpHigh(height);
+	multiSubstateIdleRun->handleWpHigh(height);
 	return true;
 }

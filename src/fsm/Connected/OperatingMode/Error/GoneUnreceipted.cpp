@@ -14,7 +14,7 @@ GoneUnreceipted::~GoneUnreceipted() {}
 bool GoneUnreceipted::handlePrinted()
 {
 	exit();
-	new(this) SubEndState;
+	new(this) IdleError;
 	entry();
 	return true;
 }

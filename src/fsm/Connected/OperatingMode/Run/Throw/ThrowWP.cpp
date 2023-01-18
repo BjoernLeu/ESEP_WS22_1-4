@@ -42,9 +42,9 @@ void ThrowWP::throwWP()
 
 void ThrowWP::throwWPOff()
 {
-	if (MsgSendPulse(coid, -1, static_cast<int>(SWITCH_OFF), 0) == -1) {
-		perror("MsgSendPulse failed");
-	}
+	// if (MsgSendPulse(coid, -1, static_cast<int>(SWITCH_OFF), 0) == -1) {
+	// 	perror("MsgSendPulse failed");
+	// }
 }
 
 

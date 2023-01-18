@@ -8,9 +8,9 @@
 #ifndef SRC_FSM_CONNECTED_OPERATINGMODE_RUN_SLIDE_H_
 #define SRC_FSM_CONNECTED_OPERATINGMODE_RUN_SLIDE_H_
 
-#include "../../../gof/BaseState.h"
-#include "../../../gof/SubEndState.h"
-#include "../../../Estop.h"
+#include "../../gof/BaseState.h"
+#include "../../gof/SubEndState.h"
+#include "../../Estop.h"
 #include "Slide/IdleSlide.h"
 
 class Slide : public BaseState{

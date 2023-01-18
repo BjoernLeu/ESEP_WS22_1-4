@@ -119,6 +119,7 @@ enum Event {
 	ERROR,
 	EMPTY_BELT,
 	NO_METAL,
+	ERROR_GONE,
 };
 
 #endif /* SRC_UTILS_EVENTS_H_ */

@@ -14,7 +14,7 @@ WPDisappeared::~WPDisappeared() {}
 bool WPDisappeared::handleStartSp()
 {
 	exit();
-	new(this) SubEndState;
+	new(this) IdleError;
 	entry();
 	return true;
 }

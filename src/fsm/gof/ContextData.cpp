@@ -86,6 +86,10 @@ bool ContextData::getSlExt(){return slExt;}
 void ContextData::setSlSelfTrue(){slSelf = true;}
 void ContextData::setSlSelfFalse(){slSelf = false;}
 bool ContextData::getSlSelf(){return slSelf;}
+/*================Error================*/
+void ContextData::setErrorTrue(){errorState = true;}
+void ContextData::setErrorFalse(){errorState = false;}
+bool ContextData::getError(){return errorState;}
 
 /*================Setter for WP A================*/
 void ContextData::setWpHighATrue(){highA = true;}
