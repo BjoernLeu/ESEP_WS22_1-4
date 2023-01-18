@@ -52,6 +52,8 @@ private:
 	void receivingRoutine(int);
 	void handleInterrupt(void);
 	void handle_pulse(_pulse msg);
+	void slideWatchThread();
+	void slideWatch();
 
 	name_attach_t *attach = 0;
 	int coid, coid2;
@@ -60,9 +62,15 @@ private:
 	bool receivingRunning = false;
 	bool isMetal = false;
 	
+	bool threadSL = false;
+
+	double diff_t_SL;
+
 	double diff_t_start;
 	double diff_t_stop;
 	double diff_t_reset;
+
+	time_t start_t_SL = 0, end_t_SL = 0;
 
 	time_t start_t_start = 0, end_t_start = 0;
 	time_t start_t_stop = 0, end_t_stop = 0;

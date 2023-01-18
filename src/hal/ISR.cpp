@@ -207,14 +207,21 @@ void ISR::handleInterrupt(void) {
 				}
 				break;
 			case P_LIMIT_SLIDE:
-				if (current_level) {
+				if (current_level)
+				{
+					threadSL = true;
 					this->send(coid, static_cast<int>(LB_SL_FREE), 0);
 					this->send(coid, static_cast<int>(LB_SL_SELF_FREE), 0);
 					this->send(coid2, static_cast<int>(LB_SL_EXT_FREE), 0);
-				} else {
-					this->send(coid, static_cast<int>(LB_SL), 0);
-					this->send(coid, static_cast<int>(LB_SL_SELF_FULL), 0);
-					this->send(coid2, static_cast<int>(LB_SL_EXT_FULL), 0);
+				} else
+				{
+					threadSL = false;
+					slideWatchThread();	
+
+					if (diff_t_SL < 3)
+					{
+						this->send(coid, static_cast<int>(LB_SL), 0);
+					}
 				}
 				break;
 			case P_IN_OUTLET:
@@ -298,5 +305,35 @@ void ISR::handleInterrupt(void) {
 			}
 
 		}
+	}
+}
+
+void ISR::slideWatchThread() {
+	std::thread wT (&ISR::slideWatch, this);
+	wT.detach();
+}
+
+void ISR::slideWatch() {
+	
+	time(&start_t_SL);
+
+	while(1){
+		time(&end_t_SL);
+		diff_t_SL = difftime(end_t_SL, start_t_SL);
+		
+		if(threadSL)
+		{
+			std::cout << "-------------------------------> if what" << std::endl;
+			break;
+		}
+
+		if (diff_t_SL > 3) 
+		{
+			std::cout << "Slide Full" << std::endl;
+			this->send(coid, static_cast<int>(LB_SL_SELF_FULL), 0);
+			this->send(coid2, static_cast<int>(LB_SL_EXT_FULL), 0);
+			break;
+		}
+		//usleep(10000);
 	}
 }

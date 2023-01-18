@@ -23,16 +23,16 @@ bool IdleSlide::handleSlSelfFull()
 	return true;
 }
 
-bool IdleSlide::handleWpExpected()
+bool IdleSlide::handleSlExtFull()
 {
-	replyBothFree();
+	new (this) SLExtBusy;
 	entry();
 	return true;
 }
 
-bool IdleSlide::handleSlExtFull()
+bool IdleSlide::handleWpExpected()
 {
-	new (this) SLExtBusy;
+	replyBothFree();
 	entry();
 	return true;
 }
