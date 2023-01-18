@@ -111,6 +111,8 @@ public:
 	//list for expected workpieces
 	std::vector<workpieceExpected> wpExpList;
 
+	workpiece wpFesto1;
+
 	int getNumberWpsOnBelt();
 
 	// void setWPType(int type);

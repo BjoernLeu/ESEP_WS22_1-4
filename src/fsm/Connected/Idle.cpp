@@ -56,6 +56,6 @@ void Idle::loadConf()
 {
 	std::cout << "Load config for workpieces..." << std::endl;
 	data->setLoadConfig();
-    //data->setLoadedConfTrue();
+    data->setLoadedConfTrue();
 	std::cout << "Config for workpieces loaded." << std::endl;	
 }

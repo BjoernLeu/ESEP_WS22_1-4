@@ -110,6 +110,42 @@ void Context::handle_pulse2(_pulse msg) {
 	case FESTO_EXT_FULL:
 		state->handleFestoExtFull();
 		break;
+	case WP_ARRIVED:
+		state->handleWpArrived();
+		break;
+	case WP_TRANSFER:
+		state->handleWpTransfer();
+		break;
+	case TRANSFER_WAIT:
+		state->handleTransferWait();
+		break;
+	case TRANSFER_OK:
+		state->handleTransferOK();
+		break;
+	case WP_HIGH:
+		data.wpFesto1.type = event;
+		data.wpFesto1.height = msg.value.sival_int;
+		data.wpFesto1.metal = false;
+		std::cout << "WP type: WP_HIGH" << std::endl;
+		break;
+	case WP_FLAT:
+		data.wpFesto1.type = event;
+		data.wpFesto1.height = msg.value.sival_int;
+		data.wpFesto1.metal = false;
+		break;
+	case WP_DRILLING:
+		data.wpFesto1.type = event;
+		data.wpFesto1.height = msg.value.sival_int;
+		data.wpFesto1.metal = false;
+		break;
+	case WP_CODE:
+		data.wpFesto1.type = event;
+		data.wpFesto1.height = msg.value.sival_int;
+		data.wpFesto1.metal = false;
+		break;
+	case WP_METAL:
+		data.wpFesto1.metal = true;
+		break;
 	default:
 		std::cout << "Context pulse2 not handled: " << event << std::endl;
 	}
@@ -152,18 +188,6 @@ void Context::handle_pulse(_pulse msg) {
 		break;
 	case ADD_WATCHER:
 		state->handleStartSp();
-		break;
-	case WP_ARRIVED:
-		state->handleWpArrived();
-		break;
-	case WP_TRANSFER:
-		state->handleWpTransfer();
-		break;
-	case TRANSFER_WAIT:
-		state->handleTransferWait();
-		break;
-	case TRANSFER_OK:
-		state->handleTransferOK();
 		break;
 
 
