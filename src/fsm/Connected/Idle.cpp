@@ -14,12 +14,10 @@ void Idle::entry()
 	loadConf();
 	action->lightOn(START_LED);
 	action->lightOn(RESET_LED);
-	for(int i = 0; i < 10000; i++){
-		if(data->getFesto() == 1){
-			action->lightOn(Q1);
-		}else{
-			action->lightOn(Q2);
-		}
+	if(data->getFesto() == 1){
+		action->lightOn(Q1);
+	}else{
+		action->lightOn(Q2);
 	}
 	std::cout << "Q-LED On" << std::endl;
 }

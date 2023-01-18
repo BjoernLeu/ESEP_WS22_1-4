@@ -19,6 +19,8 @@ bool ContextData::blinkQ1;
 bool ContextData::blinkQ2;
 bool ContextData::blinkStart;
 bool ContextData::blinkReset;
+bool ContextData::q1On;
+bool ContextData::q2On;
 
 
 void ContextData::setCoid(int con){ContextData::coid = con;}
@@ -325,28 +327,46 @@ bool ContextData::getWpEmpty() {return wpList.empty();}
 void ContextData::addWpMetal() {
     if(wpList.size() > 1){
         for (int i = 1; i < wpList.size()-1; i++){
-            if(wpList[i].segment == 3 && wpList[i].distance > wpList[i+1].distance){
+            if(wpList[i].segment == 2 && wpList.size() == i+1){
+                std::cout << "addWpMetal letztes aus Liste" << std::endl;
                 wpList[i].metal = true;
+                std::cout << "ID:" << wpList[i].id << std::endl;
+                std::cout << "Type:" << wpList[i].type << std::endl;
+                std::cout << "Metal:" << wpList[i].metal << std::endl;
+                std::cout << "Segment:" << wpList[i].segment << std::endl;
+                break;
+            } else if(wpList[i].segment == 2 && wpList[i+1].segment == 3){        
+                std::cout << "addWpMetal nächstes ist in seg3" << std::endl;
+                wpList[i].metal = true;
+                std::cout << "ID:" << wpList[i].id << std::endl;
+                std::cout << "Type:" << wpList[i].type << std::endl;
+                std::cout << "Metal:" << wpList[i].metal << std::endl;
+                std::cout << "Segment:" << wpList[i].segment << std::endl;
                 break;
             }
         }
     } else {
+        std::cout << "setting metal..." << std::endl;
         wpList[0].metal = true;
+        std::cout << "ID:" << wpList[0].id << std::endl;
+        std::cout << "Type:" << wpList[0].type << std::endl;
+        std::cout << "Metal:" << wpList[0].metal << std::endl;
+        std::cout << "Segment:" << wpList[0].segment << std::endl;
     }
 }
 
 bool ContextData::getWpMetal(){
 	if(wpList.size() > 1){
-        std::cout << "addWpType: wpList.size > 0" << std::endl;
+        std::cout << "getWpMetal: wpList.size > 0" << std::endl;
         for (int i = 1; i < wpList.size()-1; i++){
-            if(wpList[i].segment == 3 && wpList[i].distance > wpList[i+1].distance && wpList[i-1].segment == 2){        
-                std::cout << "addWpType: " << wpList[i].type << std::endl;
+            if(wpList[i].segment == 3 && wpList[i-1].segment == 2){
+                std::cout << "getWpMetal: " << wpList[i].type << std::endl;
                 return wpList[i].metal;
             }
         }
     } else {
-        std::cout << "addWpType: wpList.size <= 1" << std::endl;
-        std::cout << "addWpType: " << wpList[0].type << std::endl;
+        std::cout << "getWpMetal: wpList.size <= 1" << std::endl;
+        std::cout << "getWpMetal: " << wpList[0].type << std::endl;
         return wpList[0].metal;
     }
 }
@@ -357,7 +377,11 @@ void ContextData::addWpType(int type, int height){
     if(wpList.size() > 1){
         std::cout << "addWpType: wpList.size > 0" << std::endl;
         for (int i = 1; i < wpList.size()-1; i++){
-            if(wpList[i].segment == 1 && wpList[i].type == -1){
+            if(wpList[i].segment == 2 && wpList.size() == i+1){
+                wpList[i].type = type;
+                wpList[i].height = height;
+                break;
+            } else if(wpList[i].segment == 2 && wpList[i-1].segment == 1){
                 wpList[i].type = type;
                 wpList[i].height = height;
                 break;
@@ -378,9 +402,14 @@ int ContextData::getWpType(){
     if(wpList.size() > 1){
         std::cout << "getWpType: wpList.size > 0" << std::endl;
         for (int i = 1; i < wpList.size()-1; i++){
-            if(wpList[i].segment == 3 && wpList[i].distance > wpList[i+1].distance && wpList[i-1].segment == 2){        
+            if(wpList[i].segment == 3 && wpList.size() == i+1){
                 std::cout << "getWpType: " << wpList[i].type << std::endl;
                 return wpList[i].type;
+                break;
+            } else if(wpList[i].segment == 3 && wpList[i-1].segment == 2){
+                std::cout << "getWpType: " << wpList[i].type << std::endl;
+                return wpList[i].type;
+                break;
             }
         }
     } else {
@@ -400,10 +429,10 @@ void ContextData::changeSeg2(){
         for (int i = 0; i < wpList.size()-1; i++){
             if(wpList[i].segment == 1 && wpList.size() == i+1){
                 std::cout << "changeSeg2 letztes aus Liste" << std::endl;
-                wpList[0].segment = 2;
+                wpList[i].segment = 2;
             } else if(wpList[i].segment == 1 && wpList[i+1].segment >= 2){        
                 std::cout << "changeSeg2 anderes schon in seg2" << std::endl;
-                wpList[0].segment = 2;
+                wpList[i].segment = 2;
             }
         }
     } else {
@@ -418,10 +447,10 @@ void ContextData::changeSeg3(){
         for (int i = 0; i < wpList.size()-1; i++){
             if(wpList[i].segment == 2 && wpList.size() == i+1){
                 std::cout << "changeSeg3 letztes aus Liste" << std::endl;
-                wpList[0].segment = 3;
+                wpList[i].segment = 3;
             } else if(wpList[i].segment == 2 && wpList[i+1].segment >= 3){        
                 std::cout << "changeSeg3 anderes schon in seg2" << std::endl;
-                wpList[0].segment = 3;
+                wpList[i].segment = 3;
             }
         }
     } else {
@@ -460,3 +489,4 @@ void ContextData::increaseExpectedCount()
 bool ContextData::getExpectedWpHeight(){return wpExpList[expectedCount].height;}
 bool ContextData::getExpectedWpMetal(){return wpExpList[expectedCount].metal;}
 bool ContextData::getExpectedWpIsDrilling(){return wpExpList[expectedCount].isDrilling;}
+
