@@ -69,7 +69,7 @@ void IdleTransferFesto2::motorOff()
 
 void IdleTransferFesto2::sendWpArrived()
 {
-	if (MsgSendPulse(coid, -1, static_cast<int>(WP_ARRIVED), 0) == -1) {
+	if (MsgSendPulse(coidExt, -1, static_cast<int>(WP_ARRIVED), 0) == -1) {
 		perror("MsgSendPulse failed");
 	}
 }

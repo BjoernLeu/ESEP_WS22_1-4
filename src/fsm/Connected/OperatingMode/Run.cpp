@@ -15,9 +15,9 @@ void Run::entry()
 {
 	std::cout << "Run entry" << std::endl;
 	motorOn();
-	if (MsgSendPulse(coid, -1, static_cast<int>(LB_I), 0) == -1) {
-			perror("MsgSendPulse failed");
-	}
+//	if (MsgSendPulse(coid, -1, static_cast<int>(LB_I), 0) == -1) {
+//			perror("MsgSendPulse failed");
+//	}
 	multiSubstateManage = new ManageWP();
 	multiSubstateManage->setData(data);
 	multiSubstateManage->entry();

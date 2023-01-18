@@ -31,7 +31,7 @@ bool IdleRun::handleWpTransfer()
 
 void IdleRun::sendTransferOK() 
 {
-	if (MsgSendPulse(coid, -1, static_cast<int>(TRANSFER_OK), 0) == -1) {
+	if (MsgSendPulse(coidExt, -1, static_cast<int>(TRANSFER_OK), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}
 }

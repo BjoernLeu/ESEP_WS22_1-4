@@ -24,6 +24,15 @@ void WaitFesto1::exit()
 //Transitions
 bool WaitFesto1::handleTransferOK()
 {
+	workpiece wp = data->wpList.back();
+
+	if (MsgSendPulse(coidExt, -1, wp.type, (int)wp.height+0.5) == -1) {
+		perror("MsgSendPulse failed");
+	}
+	if (MsgSendPulse(coidExt, -1, wp.metal, 0) == -1) {
+		perror("MsgSendPulse failed");
+	}
+	data->wpList.pop_back();
 	exit();
 	new (this) IdleTransferFesto1;
 	entry();
