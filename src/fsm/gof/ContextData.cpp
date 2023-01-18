@@ -433,7 +433,7 @@ void ContextData::changeSeg3(){
 /// @param height height workpiece 
 /// @param metal workpiece with metal
 /// @param isDrilling drilling in workpiece
-void ContextData::setAddExpectedWorkpiece(bool height, bool metal, bool isDrilling) 
+void ContextData::setAddExpectedWorkpiece(bool height, bool isDrilling, bool metal) 
 {
     wpExpList.push_back({height, metal, isDrilling});
 }
@@ -445,7 +445,7 @@ void ContextData::increaseExpectedCount()
 {
     if (expectedCount <= 2) 
     {
-        expectedCount++;    
+        expectedCount++;
     }
     else
     {

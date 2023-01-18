@@ -42,29 +42,41 @@ void CheckWP::checkWP()
 	tempExpectedWorkpiece.height = data->getExpectedWpHeight(); 
 	tempExpectedWorkpiece.metal = data->getExpectedWpMetal();
 	tempExpectedWorkpiece.isDrilling = data->getExpectedWpIsDrilling();
-	data->increaseExpectedCount();
 
-	if ((data->getWpType() == WP_HIGH) && tempExpectedWorkpiece.height)
+	int type = data->getWpType(); 
+	bool isMetal = data->getWpMetal();
+
+	//If the workpiece is High
+	if (((type != WP_FLAT) && (type == WP_HIGH) && (type != WP_DRILLING) && !isMetal) && (tempExpectedWorkpiece.height && !tempExpectedWorkpiece.isDrilling && !tempExpectedWorkpiece.metal))
 	{
+		//std::cout << "\t\tHigh in order" << std::endl;
+		data->increaseExpectedCount();
 		handleInOrder();
 	}
-	else if ((data->getWpType() == WP_DRILLING) && tempExpectedWorkpiece.isDrilling)
+	//If the workpiece have a Drilling
+	else if (((type != WP_FLAT) && (type != WP_HIGH) && (type == WP_DRILLING) && !isMetal) && (tempExpectedWorkpiece.height && tempExpectedWorkpiece.isDrilling && !tempExpectedWorkpiece.metal)) 
 	{
-		if (data->getWpMetal() && tempExpectedWorkpiece.metal)
-		{
-			handleInOrder();
-		}
-		else 
-		{
-			handleOutOfOrder();
-		}
+		//std::cout << "\t\tDrilling in order" << std::endl;
+		data->increaseExpectedCount();
+		handleInOrder();
 	}
-	else if ((data->getWpType() == WP_FLAT) && !tempExpectedWorkpiece.height)
+	//If the Workpiece have metal
+	else if (((type != WP_FLAT) && (type != WP_HIGH) && (type == WP_DRILLING) && isMetal) && (tempExpectedWorkpiece.height && tempExpectedWorkpiece.isDrilling && tempExpectedWorkpiece.metal))
 	{
+		//std::cout << "\t\tMetal in order" << std::endl;
+		data->increaseExpectedCount();
+		handleInOrder();
+	}
+	//If the workpiece is flat
+	else if (((type == WP_FLAT) && (type != WP_HIGH) && (type != WP_DRILLING) && !isMetal) && (!tempExpectedWorkpiece.height && !tempExpectedWorkpiece.isDrilling && !tempExpectedWorkpiece.metal))
+	{
+		//std::cout << "\t\tflat in order" << std::endl;
+		data->increaseExpectedCount();
 		handleInOrder();
 	}
 	else 
 	{
+		//std::cout << "\t\telse out of order" << std::endl;
 		handleOutOfOrder();
 	}
 }
