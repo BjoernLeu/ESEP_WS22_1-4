@@ -25,6 +25,7 @@ public:
 	//transitions
 	bool handleConEstablished() override;
 	bool handleEstopSelfPressed() override;
+	bool handleEstopSelfReleased() override;
 
 private:
 	void establishConnection();

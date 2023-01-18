@@ -269,7 +269,7 @@ void ISR::handleInterrupt(void) {
 				}
 				break;
 			case P_ESTOP:
-				if (current_level && current_level != old_level) {
+				if (current_level && (current_level != old_level)) {
 //					this->send(coid, static_cast<int>(ESTOP1_DONE), 0);
 					if (MsgSendPulse(coid, -1, ESTOP_SELF_RELEASED, 0) == -1) {
 						perror("MsgSendPulse failed");

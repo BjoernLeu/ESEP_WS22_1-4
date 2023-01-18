@@ -38,6 +38,8 @@ void Com::handle_pulse(_pulse msg) {
 			serverThread.detach();
 			connectToServer();
 		}
+	}else if(msg.code == KILL_SERVER) {
+		lost = true;
 	}else {
 		this->sendToServer(msg.code, msg.value.sival_int);
 	}
@@ -47,6 +49,7 @@ void Com::handle_pulse(_pulse msg) {
 void Com::connectToServer() {
 	receivingConnect = true;
 //	int i = 0;
+	lost = false;
 	std::cout << "trying to connect" << std::endl;
 	while (receivingConnect) {
 		usleep(100000);
@@ -86,7 +89,6 @@ void Com::handle_pulseOtherFesto(_pulse msg) {
 
 void Com::heartBeatReceive() {
 
-	lost = false;
 	auto start = std::chrono::system_clock::now();
 	std::chrono::duration<double> diff;
 	do {
@@ -96,7 +98,7 @@ void Com::heartBeatReceive() {
 			heartBeat = false;
 		}
 		diff = std::chrono::system_clock::now() - start;
-	} while(diff.count() < 1.0);
+	} while((diff.count() < 1.0) && !lost);
 
 	std::cout << "heartbeat lost" << std::endl;
 
@@ -161,7 +163,7 @@ void Com::server() {
 			}
 		}
 		if(msg.type == KILL_SERVER) {
-
+			serverRunning = false;
 		}
 	}
 	name_detach(attachHere, NAME_FLAG_ATTACH_GLOBAL);

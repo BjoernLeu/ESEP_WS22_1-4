@@ -8,13 +8,18 @@
 #include "HalControl.h"
 
 int HalControl::coid;
+int HalControl::coidExt;
 bool HalControl::switchType;
 
-HalControl::HalControl(const char* nameReceive, const char* nameSend) {
+HalControl::HalControl(const char* nameReceive, const char* nameSend, const char* nameSend2) {
 	if ((attach = name_attach(NULL, nameReceive, 0)) == NULL) {
 		perror("name_attach failed");
 	}
 	if ((coid = name_open(nameSend, 0)) == -1) {
+		perror("name_open failed");
+		exit(EXIT_FAILURE);
+	}
+	if ((coidExt = name_open(nameSend2, 0)) == -1) {
 		perror("name_open failed");
 		exit(EXIT_FAILURE);
 	}
@@ -100,6 +105,9 @@ void HalControl::handle_pulse(_pulse msg) {
 	case SET_SW_TYPE:
 		HalControl::setSwitchType();
 		break;
+	case CHECK_ESTOP:
+		HalControl::getEstop();
+		break;
 	default:
 		std::cout << "no valid event" << std::endl;
 	}
@@ -150,6 +158,19 @@ void HalControl::setSwitchType (){
 		switchType = true;
 	}else{
 		switchType = false;
+	}
+}
+
+void HalControl::getEstop() {
+	uintptr_t gpioBase = mmap_device_io(GPIO_REGISTER_LENGHT, GPIO_PORT0);
+	int current_level = (in32((uintptr_t) gpioBase + GPIO_DATA_IN) >> 27) & 0x1;
+	if(current_level == 0) {
+		if (MsgSendPulse(coid, -1, static_cast<int>(ESTOP_SELF_PRESSED), 0) == -1) {
+				perror("MsgSendPulse failed");
+		}
+		if (MsgSendPulse(coidExt, -1, static_cast<int>(ESTOP_SELF_PRESSED), 0) == -1) {
+				perror("MsgSendPulse failed");
+		}
 	}
 }
 
