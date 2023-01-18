@@ -207,14 +207,26 @@ void ISR::handleInterrupt(void) {
 				}
 				break;
 			case P_LIMIT_SLIDE:
-				if (current_level) {
+				if (current_level)
+				{
 					this->send(coid, static_cast<int>(LB_SL_FREE), 0);
 					this->send(coid, static_cast<int>(LB_SL_SELF_FREE), 0);
 					this->send(coid2, static_cast<int>(LB_SL_EXT_FREE), 0);
-				} else {
-					this->send(coid, static_cast<int>(LB_SL), 0);
-					this->send(coid, static_cast<int>(LB_SL_SELF_FULL), 0);
-					this->send(coid2, static_cast<int>(LB_SL_EXT_FULL), 0);
+				} else
+				{
+					time(&start_t_SW);
+					diff_t_SW = difftime(end_t_SW, start_t_SW);
+					if (diff_t_SW < 3)
+					{
+						std::cout << "Something was thrown" << std::endl;
+						this->send(coid, static_cast<int>(LB_SL), 0);
+					}
+					else
+					{
+						std::cout << "Slide Full" << std::endl;
+						this->send(coid, static_cast<int>(LB_SL_SELF_FULL), 0);
+						this->send(coid2, static_cast<int>(LB_SL_EXT_FULL), 0);
+					}
 				}
 				break;
 			case P_IN_OUTLET:
