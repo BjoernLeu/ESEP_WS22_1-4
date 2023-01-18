@@ -60,13 +60,13 @@ private:
 	bool receivingRunning = false;
 	bool isMetal = false;
 	
-	double diff_t_SW;
+	double diff_t_SL;
 
 	double diff_t_start;
 	double diff_t_stop;
 	double diff_t_reset;
 
-	time_t start_t_SW = 0, end_t_SW = 0;
+	time_t start_t_SL = 0, end_t_SL = 0;
 
 	time_t start_t_start = 0, end_t_start = 0;
 	time_t start_t_stop = 0, end_t_stop = 0;

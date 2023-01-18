@@ -209,19 +209,20 @@ void ISR::handleInterrupt(void) {
 			case P_LIMIT_SLIDE:
 				if (current_level)
 				{
+					time(&start_t_SL);
 					this->send(coid, static_cast<int>(LB_SL_FREE), 0);
 					this->send(coid, static_cast<int>(LB_SL_SELF_FREE), 0);
 					this->send(coid2, static_cast<int>(LB_SL_EXT_FREE), 0);
 				} else
 				{
-					time(&start_t_SW);
-					diff_t_SW = difftime(end_t_SW, start_t_SW);
-					if (diff_t_SW < 3)
+					time(&end_t_SL);
+					diff_t_SL = difftime(end_t_SL, start_t_SL);
+					if (diff_t_SL < 7)
 					{
 						std::cout << "Something was thrown" << std::endl;
 						this->send(coid, static_cast<int>(LB_SL), 0);
 					}
-					else
+					else if (diff_t_SW >=7)
 					{
 						std::cout << "Slide Full" << std::endl;
 						this->send(coid, static_cast<int>(LB_SL_SELF_FULL), 0);
