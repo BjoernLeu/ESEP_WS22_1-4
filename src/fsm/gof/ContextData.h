@@ -221,7 +221,7 @@ public:
 	
 
 	//============Expected Workpieces==================
-	void setAddExpectedWorkpiece(bool height, bool metal, bool isDrilling);
+	void setAddExpectedWorkpiece(bool height, bool isDrilling, bool metal);
 	void increaseExpectedCount();
 	bool getExpectedWpHeight();
 	bool getExpectedWpMetal();
