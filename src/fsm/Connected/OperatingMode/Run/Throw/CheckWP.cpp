@@ -40,12 +40,9 @@ void CheckWP::checkWP()
 	} tempExpectedWorkpiece;
 
 	tempExpectedWorkpiece.height = data->getExpectedWpHeight(); 
-	tempExpectedWorkpiece.height = data->getExpectedWpMetal();
-	tempExpectedWorkpiece.height = data->getExpectedWpIsDrilling();
+	tempExpectedWorkpiece.metal = data->getExpectedWpMetal();
+	tempExpectedWorkpiece.isDrilling = data->getExpectedWpIsDrilling();
 	data->increaseExpectedCount();
-	std::cout << "\tstruct height " << tempExpectedWorkpiece.height << std::endl << "\tmetal " << tempExpectedWorkpiece.metal << std::endl << "\tdrilling " << tempExpectedWorkpiece.isDrilling << std::endl;
-
-
 
 	if ((data->getWpType() == WP_HIGH) == tempExpectedWorkpiece.height)
 	{

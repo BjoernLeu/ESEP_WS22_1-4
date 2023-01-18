@@ -453,6 +453,10 @@ void ContextData::increaseExpectedCount()
     }
 }
 
-int ContextData::getExpectedWpHeight(){return wpExpList[expectedCount].height;}
-int ContextData::getExpectedWpMetal(){return wpExpList[expectedCount].metal;}
-int ContextData::getExpectedWpIsDrilling(){return wpExpList[expectedCount].isDrilling;}
+
+
+
+
+bool ContextData::getExpectedWpHeight(){return wpExpList[expectedCount].height;}
+bool ContextData::getExpectedWpMetal(){return wpExpList[expectedCount].metal;}
+bool ContextData::getExpectedWpIsDrilling(){return wpExpList[expectedCount].isDrilling;}
