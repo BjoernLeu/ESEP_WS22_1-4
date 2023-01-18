@@ -44,13 +44,13 @@ void CheckWP::checkWP()
 	tempExpectedWorkpiece.isDrilling = data->getExpectedWpIsDrilling();
 	data->increaseExpectedCount();
 
-	if ((data->getWpType() == WP_HIGH) == tempExpectedWorkpiece.height)
+	if ((data->getWpType() == WP_HIGH) && tempExpectedWorkpiece.height)
 	{
 		handleInOrder();
 	}
-	else if ((data->getWpType() == WP_DRILLING) == tempExpectedWorkpiece.isDrilling)
+	else if ((data->getWpType() == WP_DRILLING) && tempExpectedWorkpiece.isDrilling)
 	{
-		if (data->getWpMetal() == tempExpectedWorkpiece.metal)
+		if (data->getWpMetal() && tempExpectedWorkpiece.metal)
 		{
 			handleInOrder();
 		}
@@ -59,7 +59,7 @@ void CheckWP::checkWP()
 			handleOutOfOrder();
 		}
 	}
-	else if ((data->getWpType() == WP_FLAT) == !tempExpectedWorkpiece.height)
+	else if ((data->getWpType() == WP_FLAT) && !tempExpectedWorkpiece.height)
 	{
 		handleInOrder();
 	}
@@ -68,4 +68,3 @@ void CheckWP::checkWP()
 		handleOutOfOrder();
 	}
 }
-
