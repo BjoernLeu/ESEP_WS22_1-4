@@ -12,12 +12,14 @@ SLExtBusy::~SLExtBusy() {}
 
 void SLExtBusy::entry()
 {
-	std::cout << "IdleSlide entry" << std::endl;
+	std::cout << "SLExtBusy entry" << std::endl;
+	data->setSlExtTrue();
 	action->blinkingOn(YELLOW, SLOW);
 }
 
 bool SLExtBusy::handleSlExtFree()
 {
+	data->setSlExtFalse();
 	new (this) IdleSlide;
 	entry();
 	return true;
@@ -25,6 +27,7 @@ bool SLExtBusy::handleSlExtFree()
 
 bool SLExtBusy::handleSlSelfFull()
 {
+	data->setSlSelfTrue();
 	new (this) BothBusy;
 	entry();
 	return true;

@@ -17,7 +17,6 @@ void BothBusy::entry(){
 bool BothBusy::handleWpExpected()
 {
 	replyBothFull();
-	entry();
 	return true;
 }
 

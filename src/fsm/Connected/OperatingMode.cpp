@@ -33,7 +33,11 @@ void OperatingMode::exit()
 // 	entryHistory();
 // 	return true;
 // }
-
+bool OperatingMode::handleError() 
+{
+	substate->handleError();
+	return true;
+}
 // bool OperatingMode::handleError()
 // {
 // 	std::cout << "Error" << std::endl;

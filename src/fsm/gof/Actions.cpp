@@ -45,7 +45,7 @@ void Actions::lightOn(int light){
 	case 5:
     	// std::cout << "q2-on" << std::endl;
 		if (MsgSendPulse(ContextData::coid, -1, static_cast<int>(LIGHT_Q2_ON), 0) == -1) {
-			perror("MsgSendPulse failed");
+				perror("MsgSendPulse failed");
 		}
 		break;
 	case 6:

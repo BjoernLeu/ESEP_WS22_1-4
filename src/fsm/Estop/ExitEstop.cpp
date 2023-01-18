@@ -15,10 +15,12 @@ void ExitEstop::entry()
 	std::cout << "ExitEstop entry" << std::endl;
 	data->setEstopSelfFalse();
 	data->setEstopExtFalse();
+	action->lightOn(RESET_LED);
 }
 
 bool ExitEstop::handleEstopExtPressed() 
 {
+	action->lightOff(RESET_LED);
 	new (this) EstopExt;
 	entry();
 	return true;
@@ -26,6 +28,7 @@ bool ExitEstop::handleEstopExtPressed()
 
 bool ExitEstop::handleEstopSelfPressed() 
 {
+	action->lightOff(RESET_LED);
 	new (this) EstopSelf;
 	entry();
 	return true;

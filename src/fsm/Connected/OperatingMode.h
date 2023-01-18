@@ -50,7 +50,7 @@ public:
 	bool handleTransferWait() override;
 	bool handleLbOFree() override;
 	bool handleWpTransfer() override;
-	//bool handleError()override;
+	bool handleError()override;
 	bool handleManageDone() override;
 	bool handleWpCode(int height) override;
 	bool handleWpDrilling(int height) override;
