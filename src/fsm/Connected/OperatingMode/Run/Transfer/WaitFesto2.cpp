@@ -33,7 +33,6 @@ bool WaitFesto2::handleLbOFree()
 
 bool WaitFesto2::handleLbSL()
 {
-	data->wpList.pop_back();
 	exit();
 	motorOn();
 	new (this) IdleTransferFesto2;

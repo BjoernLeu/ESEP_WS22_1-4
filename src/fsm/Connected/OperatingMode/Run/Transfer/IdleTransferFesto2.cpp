@@ -18,7 +18,6 @@ void IdleTransferFesto2::entry()
 //transitions
 bool IdleTransferFesto2::handleLbSL()
 {
-	data->wpList.pop_back();
 	emptyBelt();
 	entry();
 	return true;
