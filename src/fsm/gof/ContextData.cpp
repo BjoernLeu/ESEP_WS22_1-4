@@ -259,12 +259,18 @@ void ContextData::setSectorDiff_max()
     s1_length_max = hsWP_fast_max - lbI_fast_max;
     s2_length_max = lbSW_fast_max - hsWP_fast_max;
     s3_length_max = lbO_fast_max - lbSW_fast_max;
+    segmentDistanceListMax[0] = std::chrono::duration<double>(s1_length_max).count() + 0.5;
+    segmentDistanceListMax[1] = std::chrono::duration<double>(s2_length_max).count() + 0.5;
+    segmentDistanceListMax[2] = std::chrono::duration<double>(s3_length_max).count() + 0.5;
 }
 void ContextData::setSectorDiff_min()
 {
     s1_length_min = hsWP_fast_min - lbI_fast_min;
     s2_length_min = lbSW_fast_min - hsWP_fast_min;
     s3_length_min = lbO_fast_min - lbSW_fast_min;
+    segmentDistanceListMin[0] = std::chrono::duration<double>(s1_length_min).count() - 0.5;
+    segmentDistanceListMin[1] = std::chrono::duration<double>(s2_length_min).count() - 0.5;
+    segmentDistanceListMin[2] = std::chrono::duration<double>(s3_length_min).count() - 0.5;
     segmentDistanceList[0] = std::chrono::duration<double>(s1_length_min).count();
     segmentDistanceList[1] = std::chrono::duration<double>(s1_length_max + s2_length_min).count();
     segmentDistanceList[2] = std::chrono::duration<double>(s1_length_max + s2_length_min + s3_length_min).count();
@@ -303,7 +309,7 @@ double ContextData::getSlowFactor(){return slowFactor;}
     };
 */
 void ContextData::printVector(){
-    for (int i = 0; i < wpList.size()-1; i++){
+    for (int i = 0; i < (int)wpList.size()-1; i++){
         std::cout << "ID:" << wpList[i].id << std::endl;
         std::cout << "Type:" << wpList[i].type << std::endl;
         std::cout << "Metal:" << wpList[i].metal << std::endl;

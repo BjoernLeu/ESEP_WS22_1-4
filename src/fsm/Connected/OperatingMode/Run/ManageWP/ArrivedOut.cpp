@@ -29,7 +29,22 @@ bool ArrivedOut::handleManageDone()
 //methods
 void ArrivedOut::checkEarly()
 {
-
+	workpiece arrivedWp = {-1, -1, false, -1, false, 3, 0};
+	for(workpiece wp: data->wpList) {
+		if(wp.segment == 3) {
+			arrivedWp = wp;
+		}
+	}
+	if(arrivedWp.distance < data->segmentDistanceListMin[3]) {
+ 		if (MsgSendPulse(coid, -1, static_cast<int>(ERROR), 0) == -1) {
+ 			perror("MsgSendPulse failed");
+ 		}
+ 		if (MsgSendPulse(coidExt, -1, static_cast<int>(ERROR), 0) == -1) {
+ 			perror("MsgSendPulse failed");
+ 		}
+	}
+	data->wpList.pop_back();
+	handleManageDone();
 }
 
 void ArrivedOut::manageList()

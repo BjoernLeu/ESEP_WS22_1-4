@@ -126,6 +126,8 @@ public:
 	// int getWPSegment();
 	// double distance;
 	double segmentDistanceList[3] = {-1, -1, -1};
+	double segmentDistanceListMin[3] = {-1, -1, -1};
+	double segmentDistanceListMax[3] = {-1, -1, -1};
 
 	double slowFactor = 0;
 

@@ -74,30 +74,45 @@ void ManageWP::watchWPLate() {
 				addDistance *= data->getSlowFactor();
 			}
 			
-			for(std::vector<workpiece>::iterator it = data->wpList.begin(); it != data->wpList.end(); ++it) {
-				(*it).distance += addDistance;
+			for(std::vector<workpiece>::iterator it = data->wpList.begin(); it != data->wpList.end(); it++) {
+				it->distance += addDistance;
 				// std::cout << "(*it).distance: " << (*it).distance << std::endl;
 				// std::cout << "(*it).segment: " << (*it).segment << std::endl;
 				// std::cout << "SEGMENT DISTANCE IN LIST" << data->segmentDistanceList[(*it).segment - 1] << std::endl;
-				// if((*it).distance > data->segmentDistanceList[(*it).segment - 1]) {
-				// 	if ((*it).segment == 3){
-				// 		std::cout << "ENDE VON SEGMENT 3!!!!" << std::endl;
-				// 	}else {
-				// 		(*it).segment = (*it).segment + 1;
-				// 		std::cout << "(*it).segment: " << (*it).segment << std::endl;
-				// 	}
-				// }
+				if(it->distance > data->segmentDistanceListMax[it->segment - 1]) {
+//				 	if ((*it).segment == 3){
+//				 		std::cout << "ENDE VON SEGMENT 3!!!!" << std::endl;
+//				 	}else {
+//				 		(*it).segment = (*it).segment + 1;
+//				 		std::cout << "(*it).segment: " << (*it).segment << std::endl;
+//				 	}
+
+			 		if (MsgSendPulse(coid, -1, static_cast<int>(ERROR), 0) == -1) {
+			 			perror("MsgSendPulse failed");
+			 		}
+			 		if (MsgSendPulse(coidExt, -1, static_cast<int>(ERROR), 0) == -1) {
+			 			perror("MsgSendPulse failed");
+			 		}
+			 		data->wpList.erase(it);
+				}
 			}
 
-			// for(workpiece wp: data->wpList) {
-			// 	wp.distance += addDistance;
-			// 	if(wp.distance > data->segmentDistanceList[wp.segment]) {
-			// 		//send Error here
-			// 	}
-			// }
+//			 for(workpiece wp: data->wpList) {
+//			 	wp.distance += addDistance;
+//			 	if(wp.distance > data->segmentDistanceListMax[wp.segment-1]) {
+//			 		//send Error here
+//			 		if (MsgSendPulse(coid, -1, static_cast<int>(ERROR), 0) == -1) {
+//			 			perror("MsgSendPulse failed");
+//			 		}
+//			 		if (MsgSendPulse(coidExt, -1, static_cast<int>(ERROR), 0) == -1) {
+//			 			perror("MsgSendPulse failed");
+//			 		}
+//			 		data->wpList.erase(__position);
+//			 	}
+//			 }
 		}
 		prev = now;
-		usleep(50000);
+		usleep(100000);
 	}
 	
 }
