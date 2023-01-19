@@ -29,13 +29,14 @@ bool ArrivedSwitch::handleManageDone()
 //methods
 void ArrivedSwitch::checkEarly()
 {
-	workpiece arrivedWp = {-1, -1, false, -1, false, 2, 0};
+	workpiece *arrivedWp;
+	data->wpListM.lock();
 	for(workpiece wp: data->wpList) {
 		if(wp.segment == 2) {
-			arrivedWp = wp;
+			arrivedWp = &wp;
 		}
 	}
-	if(arrivedWp.distance < data->segmentDistanceListMin[2]) {
+	if(arrivedWp->distance < data->segmentDistanceListMin[2]) {
  		if (MsgSendPulse(coid, -1, static_cast<int>(ERROR), 0) == -1) {
  			perror("MsgSendPulse failed");
  		}
@@ -43,10 +44,11 @@ void ArrivedSwitch::checkEarly()
  			perror("MsgSendPulse failed");
  		}
 	}
-	if(arrivedWp.id != -1) {
-		arrivedWp.segment = 3;
-		arrivedWp.distance = 0;
+	if(arrivedWp->id != 0) {
+		arrivedWp->segment = 3;
+		arrivedWp->distance = 0;
 	}
+	data->wpListM.unlock();
 	handleManageDone();
 }
 

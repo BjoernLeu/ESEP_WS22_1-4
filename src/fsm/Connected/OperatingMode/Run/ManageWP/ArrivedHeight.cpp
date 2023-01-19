@@ -29,13 +29,18 @@ bool ArrivedHeight::handleManageDone()
 //methods
 void ArrivedHeight::checkEarly()
 {
-	workpiece arrivedWp = {-1, -1, false, -1, false, 1, 0};
+	std::cout << "ArrivedHeight checkEarly" << std::endl;
+	workpiece *arrivedWp;
+	data->wpListM.lock();
 	for(workpiece wp: data->wpList) {
+		std::cout << "in for loop" << std::endl;
 		if(wp.segment == 1) {
-			arrivedWp = wp;
+			arrivedWp = &wp;
 		}
 	}
-	if(arrivedWp.distance < data->segmentDistanceListMin[0]) {
+	std::cout << "left for loop" << std::endl;
+	if(arrivedWp->distance < data->segmentDistanceListMin[0]) {
+		std::cout << "ArrivedHeight Error" << std::endl;
  		if (MsgSendPulse(coid, -1, static_cast<int>(ERROR), 0) == -1) {
  			perror("MsgSendPulse failed");
  		}
@@ -43,10 +48,13 @@ void ArrivedHeight::checkEarly()
  			perror("MsgSendPulse failed");
  		}
 	}
-	if(arrivedWp.id != -1) {
-		arrivedWp.segment = 2;
-		arrivedWp.distance = 0;
+	if(arrivedWp->id != 0) {
+		std::cout << "changing segment" << std::endl;
+		arrivedWp->segment = 2;
+		arrivedWp->distance = 0;
 	}
+	data->wpListM.unlock();
+	std::cout << "handleManageDone()" << std::endl;
 	handleManageDone();
 }
 

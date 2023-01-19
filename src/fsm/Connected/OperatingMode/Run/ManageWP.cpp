@@ -73,10 +73,11 @@ void ManageWP::watchWPLate() {
 			if(data->motorSlow) {
 				addDistance *= data->getSlowFactor();
 			}
-			
+			data->wpListM.lock();
 			for(std::vector<workpiece>::iterator it = data->wpList.begin(); it != data->wpList.end(); it++) {
 				it->distance += addDistance;
-				// std::cout << "(*it).distance: " << (*it).distance << std::endl;
+				 std::cout << "it->distance: " << it->distance << std::endl;
+				 std::cout << "it->segment: " << it->segment << std::endl;
 				// std::cout << "(*it).segment: " << (*it).segment << std::endl;
 				// std::cout << "SEGMENT DISTANCE IN LIST" << data->segmentDistanceList[(*it).segment - 1] << std::endl;
 				if(it->distance > data->segmentDistanceListMax[it->segment - 1]) {
@@ -94,8 +95,10 @@ void ManageWP::watchWPLate() {
 			 			perror("MsgSendPulse failed");
 			 		}
 			 		data->wpList.erase(it);
+
 				}
 			}
+			data->wpListM.unlock();
 
 //			 for(workpiece wp: data->wpList) {
 //			 	wp.distance += addDistance;

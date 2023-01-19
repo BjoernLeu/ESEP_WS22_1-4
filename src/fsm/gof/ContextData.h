@@ -16,6 +16,7 @@
 #include <iterator>
 #include <ctime>
 #include <chrono>
+#include <mutex>
 #include <sys/dispatch.h>
 #include "../../utils/Events.h"
 #include "../Connected/OperatingMode/Run/MeasurePolling.h"
@@ -106,6 +107,7 @@ public:
 	void setSlSelfFalse();
 	bool getSlSelf();
 
+	std::mutex wpListM;
 	//List for workpieces
 	std::vector<workpiece> wpList;
 	//list for expected workpieces

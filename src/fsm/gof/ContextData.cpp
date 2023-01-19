@@ -406,6 +406,7 @@ void ContextData::addWpType(int type, int height){
         wpList[0].type = type;
         wpList[0].height = height;
     }
+    std::cout << "addWpType success" << std::endl;
 }
  /**
   * @brief Returns the Wp Type of the Wp in lbSW

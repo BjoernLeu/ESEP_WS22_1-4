@@ -29,13 +29,15 @@ bool ArrivedOut::handleManageDone()
 //methods
 void ArrivedOut::checkEarly()
 {
-	workpiece arrivedWp = {-1, -1, false, -1, false, 3, 0};
+	workpiece *arrivedWp;
+	data->wpListM.lock();
 	for(workpiece wp: data->wpList) {
 		if(wp.segment == 3) {
-			arrivedWp = wp;
+			arrivedWp = &wp;
 		}
 	}
-	if(arrivedWp.distance < data->segmentDistanceListMin[3]) {
+	data->wpListM.unlock();
+	if(arrivedWp->distance < data->segmentDistanceListMin[3]) {
  		if (MsgSendPulse(coid, -1, static_cast<int>(ERROR), 0) == -1) {
  			perror("MsgSendPulse failed");
  		}
@@ -43,7 +45,7 @@ void ArrivedOut::checkEarly()
  			perror("MsgSendPulse failed");
  		}
 	}
-	data->wpList.pop_back();
+//	data->wpList.pop_back();
 	handleManageDone();
 }
 

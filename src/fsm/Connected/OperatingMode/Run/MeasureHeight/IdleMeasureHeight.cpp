@@ -12,7 +12,7 @@ IdleMeasureHeight::~IdleMeasureHeight() {}
 
 bool IdleMeasureHeight::handleHsWP()
 {
-	data->changeSeg2();
+//	data->changeSeg2();
 	new (this) Measure;
 	entry();
 	return true;
