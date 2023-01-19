@@ -66,3 +66,8 @@ bool Transfer::handleLbI()
 	substate->handleLbI();
 	return true;
 }
+
+bool Transfer::handleErrorGone(){
+	substate->handleErrorGone();
+	return true;
+}

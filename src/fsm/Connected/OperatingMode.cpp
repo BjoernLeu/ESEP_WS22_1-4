@@ -51,6 +51,7 @@ bool OperatingMode::handleError()
 }
 bool OperatingMode::handleErrorGone(){
 	multiSubstateError->handleErrorGone();
+	multiSubstateIdleRun->handleErrorGone();
 	return true;
 }
 

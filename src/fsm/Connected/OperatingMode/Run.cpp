@@ -77,6 +77,11 @@ bool Run::entryHistory()
 	return true;
 }
 
+bool Run::handleErrorGone(){
+	multiSubstateTransfer->handleErrorGone();
+	return true;
+}
+
 bool Run::handleEmptyBelt() 
 {
 	exit();

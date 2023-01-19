@@ -53,6 +53,7 @@ public:
 	bool handleWpDrilling(int height) override;
 	bool handleWpFlat(int height) override;
 	bool handleWpHigh(int height) override;
+	bool handleErrorGone() override;
 
 
 	//methods

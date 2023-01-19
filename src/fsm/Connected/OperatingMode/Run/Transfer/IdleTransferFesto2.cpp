@@ -52,6 +52,12 @@ bool IdleTransferFesto2::handleLbI()
 	return true;
 }
 
+bool IdleTransferFesto2::handleErrorGone()
+{
+	emptyBelt();
+	return true;
+}
+
 //Methods
 void IdleTransferFesto2::emptyBelt()
 {

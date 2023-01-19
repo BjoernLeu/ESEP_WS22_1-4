@@ -23,6 +23,15 @@ void SLSelfBusy::entry()
 
 bool SLSelfBusy::handleSlSelfFree()
 {
+	if(data->getError()){
+		data->clearVector();
+		if (MsgSendPulse(coid, -1, static_cast<int>(ERROR_GONE), 0) == -1) {
+			perror("MsgSendPulse failed");
+		}
+		if (MsgSendPulse(coidExt, -1, static_cast<int>(ERROR_GONE), 0) == -1) {
+			perror("MsgSendPulse failed");
+		}
+	}
 	data->setSlSelfTrue();
 	new (this) IdleSlide;
 	entry();

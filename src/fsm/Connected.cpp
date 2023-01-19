@@ -12,12 +12,12 @@ Connected::~Connected() {}
 
 void Connected::entry() 
 {
-	// std::cout << "Connected entry" << std::endl;
+	std::cout << "Connected entry, Estopself: " << data->getEstopSelf() << std::endl;
 
 	if (MsgSendPulse(coid, -1, static_cast<int>(CHECK_ESTOP), 0) == -1) {
 			perror("MsgSendPulse failed");
 	}
-
+	std::cout << "Connected entry, Estopself: " << data->getEstopSelf() << std::endl;
 	if(data->getEstopSelf()) {
 		if (MsgSendPulse(coid, -1, static_cast<int>(ESTOP_SELF_PRESSED), 0) == -1) {
 				perror("MsgSendPulse failed");

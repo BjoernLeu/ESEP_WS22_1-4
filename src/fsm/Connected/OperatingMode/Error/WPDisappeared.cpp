@@ -28,7 +28,7 @@ void WPDisappeared::entry()
 void WPDisappeared::exit()
 {
 	std::cout << "WPDisappeared exit" << std::endl;
-	motorOn();
+	// motorOn();
 }
 
 void WPDisappeared::motorOn()

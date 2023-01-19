@@ -13,7 +13,7 @@ EstopSelf::~EstopSelf() {}
 void EstopSelf::entry() 
 {
 	std::cout << "EstopSelf entry" << std::endl;
-	
+	ContextData::eStopOn = true;
 	if (MsgSendPulse(coid, -1, static_cast<int>(STOP_ALL), 0) == -1) {
 		perror("MsgSendPulse failed");
 	}

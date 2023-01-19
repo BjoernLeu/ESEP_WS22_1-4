@@ -19,6 +19,15 @@ void SLExtBusy::entry()
 
 bool SLExtBusy::handleSlExtFree()
 {
+	if(data->getError()){
+		data->clearVector();
+		if (MsgSendPulse(coid, -1, static_cast<int>(ERROR_GONE), 0) == -1) {
+			perror("MsgSendPulse failed");
+		}
+		if (MsgSendPulse(coidExt, -1, static_cast<int>(ERROR_GONE), 0) == -1) {
+			perror("MsgSendPulse failed");
+		}
+	}
 	data->setSlExtTrue();
 	new (this) IdleSlide;
 	entry();

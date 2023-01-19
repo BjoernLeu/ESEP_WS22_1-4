@@ -36,7 +36,9 @@ bool ExitEstop::handleEstopSelfPressed()
 
 bool ExitEstop::handleResetSp()
 {
+	ContextData::eStopOn = false;;
 	action->lightOff(RED);
+	data->clearVector();
 	if(data->getConnection()){
 		new (this) SubEndState;
 		entry();

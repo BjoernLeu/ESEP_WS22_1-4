@@ -29,7 +29,7 @@ void GoneUnreceipted::entry()
 void GoneUnreceipted::exit()
 {
 	std::cout << "GoneUnreceipted exit" << std::endl;
-	motorOn();
+	// motorOn();
 }
 
 void GoneUnreceipted::printError()

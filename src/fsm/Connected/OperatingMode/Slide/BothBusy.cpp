@@ -28,6 +28,7 @@ bool BothBusy::handleWpExpected()
 bool BothBusy::handleSlSelfFree()
 {
 	if(data->getError()){
+		data->clearVector();
 		if (MsgSendPulse(coid, -1, static_cast<int>(ERROR_GONE), 0) == -1) {
 			perror("MsgSendPulse failed");
 		}

@@ -177,6 +177,7 @@ void HalControl::getEstop() {
 	uintptr_t gpioBase = mmap_device_io(GPIO_REGISTER_LENGHT, GPIO_PORT0);
 	int current_level = (in32((uintptr_t) gpioBase + GPIO_DATA_IN) >> 27) & 0x1;
 	if(current_level == 0) {
+		std::cout << "Estop Self Pressed" << std::endl;
 		if (MsgSendPulse(coid, -1, static_cast<int>(ESTOP_SELF_PRESSED), 0) == -1) {
 				perror("MsgSendPulse failed");
 		}

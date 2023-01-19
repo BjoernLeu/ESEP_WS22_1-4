@@ -106,6 +106,8 @@ public:
 	void setSlSelfFalse();
 	bool getSlSelf();
 
+	void clearVector();
+
 	//List for workpieces
 	std::vector<workpiece> wpList;
 	//list for expected workpieces
@@ -244,6 +246,7 @@ public:
 	static bool blinkReset;
 	static bool q1On;
 	static bool q2On;
+	static bool eStopOn;
 
 private:
 	// Workpiece A

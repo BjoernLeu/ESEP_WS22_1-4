@@ -32,7 +32,7 @@ void GoneReceipted::exit()
 	action->lightOff(RED);
 	receipted();
 	sendSignalSlide();
-	motorOn();
+	// motorOn();
 }
 
 void GoneReceipted::receipted()

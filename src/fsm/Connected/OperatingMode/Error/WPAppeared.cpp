@@ -29,7 +29,7 @@ void WPAppeared::entry()
 void WPAppeared::exit()
 {
 	std::cout << "WPAppeared exit" << std::endl;
-	motorOn();
+	// motorOn();
 }
 
 void WPAppeared::addToList()
