@@ -27,6 +27,7 @@ class IdleTransferFesto2 : public BaseState{
 		bool handleLbOFree() override;
 		bool handleWpTransfer() override;
 		bool handleLbI() override;
+		bool handleErrorGone() override;
 
 	private:
 		void emptyBelt();

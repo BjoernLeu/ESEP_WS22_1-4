@@ -11,9 +11,9 @@
 #include "IdleSlide.h"
 #include "SLExtBusy.h"
 #include "SLSelfBusy.h"
-#include "../../../../gof/BaseState.h"
-#include "../../../../gof/SubEndState.h"
-#include "../../../../Estop.h"
+#include "../../../gof/BaseState.h"
+#include "../../../gof/SubEndState.h"
+#include "../../../Estop.h"
 
 class BothBusy : public BaseState{
 public:

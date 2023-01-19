@@ -106,6 +106,8 @@ public:
 	void setSlSelfFalse();
 	bool getSlSelf();
 
+	void clearVector();
+
 	//List for workpieces
 	std::vector<workpiece> wpList;
 	//list for expected workpieces
@@ -202,6 +204,10 @@ public:
 	void setSlowFactor();
 	double getSlowFactor();
 
+	void setErrorTrue();
+	void setErrorFalse();
+	bool getError();
+
 //================= WP LIST =================
 	void incWpCount();
 	void decWpCount();
@@ -240,6 +246,7 @@ public:
 	static bool blinkReset;
 	static bool q1On;
 	static bool q2On;
+	static bool eStopOn;
 
 private:
 	// Workpiece A
@@ -302,6 +309,8 @@ private:
 
 	//expected wp from 0 to 2
 	int expectedCount = 0;
+
+	bool errorState = false;
 };
 
 #endif /* SRC_FSM_GOF_CONTEXTDATA_H_ */

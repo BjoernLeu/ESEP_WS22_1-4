@@ -165,12 +165,14 @@ protected:
 	ContextData *data;
 	Actions *action;
 	BaseState *substate;
+	BaseState *multiSubstateIdleRun;
 	BaseState *multiSubstateManage;
 	BaseState *multiSubstateHeight;
 	BaseState *multiSubstateMetal;
 	BaseState *multiSubstateThrow;
 	BaseState *multiSubstateSlide;
 	BaseState *multiSubstateTransfer;
+	BaseState *multiSubstateError;
 };
 
 #endif /* SRC_STM_GOF_BASESTATE_H_ */

@@ -14,7 +14,7 @@ WPDisappeared::~WPDisappeared() {}
 bool WPDisappeared::handleStartSp()
 {
 	exit();
-	new(this) SubEndState;
+	new(this) IdleError;
 	entry();
 	return true;
 }
@@ -28,7 +28,7 @@ void WPDisappeared::entry()
 void WPDisappeared::exit()
 {
 	std::cout << "WPDisappeared exit" << std::endl;
-	motorOn();
+	// motorOn();
 }
 
 void WPDisappeared::motorOn()

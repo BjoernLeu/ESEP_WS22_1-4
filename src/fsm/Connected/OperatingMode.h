@@ -11,7 +11,8 @@
 #include "../gof/BaseState.h"
 #include "../gof/SubEndState.h"
 #include "Idle.h"
-//#include "Error.h"
+#include "OperatingMode/Slide.h"
+#include "OperatingMode/Error.h"
 #include "OperatingMode/IdleRun.h"
 #include "../Estop.h"
 #include <string>
@@ -57,6 +58,10 @@ public:
 	bool handleWpFlat(int height) override;
 	bool handleWpHigh(int height) override;
 	bool handleSlExtFree() override;
+	bool handleErrorGone() override;
+	bool handleStartSp() override;
+	bool handleResetSp() override;
+	bool handlePrinted() override;
 
 	//methods
 	void entry() override;

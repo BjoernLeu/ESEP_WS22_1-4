@@ -146,6 +146,18 @@ void Context::handle_pulse2(_pulse msg) {
 	case WP_METAL:
 		data.wpFesto1.metal = true;
 		break;
+	case LB_SL_EXT_FULL:
+		state->handleSlExtFull();
+		break;
+	case LB_SL_EXT_FREE:
+		state->handleSlExtFree();
+		break;
+	case ERROR:
+		state->handleError();
+		break;
+	case ERROR_GONE:
+		state->handleErrorGone();
+		break;
 	default:
 		std::cout << "Context pulse2 not handled: " << event << std::endl;
 	}
@@ -310,6 +322,9 @@ void Context::handle_pulse(_pulse msg) {
 		break;
 	case NO_METAL:
 		state->handleNoMetal();
+		break;
+	case ERROR_GONE:
+		state->handleErrorGone();
 		break;
 	default:
 		std::cout << "not handled:" << event << std::endl;

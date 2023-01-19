@@ -21,7 +21,7 @@ void GoneReceipted::entry()
 bool GoneReceipted::handleStartSp()
 {
 	exit();
-	new(this) SubEndState;
+	new(this) IdleError;
 	entry();
 	return true;
 }
@@ -32,7 +32,7 @@ void GoneReceipted::exit()
 	action->lightOff(RED);
 	receipted();
 	sendSignalSlide();
-	motorOn();
+	// motorOn();
 }
 
 void GoneReceipted::receipted()

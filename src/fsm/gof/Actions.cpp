@@ -194,6 +194,9 @@ void Actions::blinking(int light, int speed){
 				perror("MsgSendPulse failed");
 			}
 			usleep(speed);
+			if(ContextData::eStopOn){
+				break;
+			}
 			if (MsgSendPulse(ContextData::coid, -1, static_cast<int>(LIGHT_RED_OFF), 0) == -1) {
 				perror("MsgSendPulse failed");
 			}
@@ -378,6 +381,9 @@ void Actions::timeBlinking(int light, int speed, int seconds){
 			std::chrono::duration<double> elapsed_seconds = now-prev;
 			if(elapsed_seconds > std::chrono::seconds(seconds))
 			{
+				if(ContextData::eStopOn){
+					break;
+				}
 				if (MsgSendPulse(ContextData::coid, -1, static_cast<int>(LIGHT_RED_OFF), 0) == -1) {
 					perror("MsgSendPulse failed");
 				}

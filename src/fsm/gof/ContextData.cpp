@@ -21,6 +21,7 @@ bool ContextData::blinkStart;
 bool ContextData::blinkReset;
 bool ContextData::q1On;
 bool ContextData::q2On;
+bool ContextData::eStopOn;
 
 
 void ContextData::setCoid(int con){ContextData::coid = con;}
@@ -86,7 +87,10 @@ bool ContextData::getSlExt(){return slExt;}
 void ContextData::setSlSelfTrue(){slSelf = true;}
 void ContextData::setSlSelfFalse(){slSelf = false;}
 bool ContextData::getSlSelf(){return slSelf;}
-
+/*================Error================*/
+void ContextData::setErrorTrue(){errorState = true;}
+void ContextData::setErrorFalse(){errorState = false;}
+bool ContextData::getError(){return errorState;}
 /*================Setter for WP A================*/
 void ContextData::setWpHighATrue(){highA = true;}
 void ContextData::setWpHighAFalse(){highA = false;}
@@ -494,3 +498,7 @@ bool ContextData::getExpectedWpIsDrilling(){return wpExpList[expectedCount].isDr
 //         std::cout << "isDrilling: " << wpExpList[i].isDrilling << std::endl;
 //     }
 // }
+
+void ContextData::clearVector(){
+    wpList.clear();
+}

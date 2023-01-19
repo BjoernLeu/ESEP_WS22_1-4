@@ -30,9 +30,6 @@ void Run::entry()
 	multiSubstateThrow = new Throw();
 	multiSubstateThrow->setData(data);
 	multiSubstateThrow->entry();
-	multiSubstateSlide = new Slide();
-	multiSubstateSlide->setData(data);
-	multiSubstateSlide->entry();
 	multiSubstateTransfer = new Transfer();
 	multiSubstateTransfer->setData(data);
 	multiSubstateTransfer->entry();
@@ -71,12 +68,6 @@ bool Run::entryHistory()
 		multiSubstateThrow->entry();
 	}
 
-	if (multiSubstateSlide->isSubEndState()) {
-		entry();
-	} else if (!multiSubstateSlide->entryHistory()) {
-		multiSubstateSlide->entry();
-	}
-
 	if (multiSubstateTransfer->isSubEndState()) {
 		entry();
 	} else if (!multiSubstateTransfer->entryHistory()) {
@@ -86,12 +77,8 @@ bool Run::entryHistory()
 	return true;
 }
 
-bool Run::handleError()
-{
-	std::cout << "Error" << std::endl;
-	exit();
-	new(this) Error;
-	entry();
+bool Run::handleErrorGone(){
+	multiSubstateTransfer->handleErrorGone();
 	return true;
 }
 
@@ -106,7 +93,6 @@ bool Run::handleEmptyBelt()
 bool Run::handleSignalReceipted() 
 {
 	multiSubstateThrow->handleSignalReceipted();
-	multiSubstateSlide->handleSignalReceipted();
 	return true;
 }
 
@@ -139,7 +125,6 @@ bool Run::handleLbSW()
 bool Run::handleSlSelfFull() 
 {
 	multiSubstateThrow->handleSlSelfFull();
-	multiSubstateSlide->handleSlSelfFull();
 	return true;
 }
 
@@ -158,19 +143,6 @@ bool Run::handleSlBothFull()
 bool Run::handleSlExtFull() 
 {
 	multiSubstateThrow->handleSlExtFull();
-	multiSubstateSlide->handleSlExtFull();
-	return true;
-}
-
-bool Run::handleWpExpected() 
-{
-	multiSubstateSlide->handleWpExpected();
-	return true;
-}
-
-bool Run::handleSlSelfFree() 
-{
-	multiSubstateSlide->handleSlSelfFree();
 	return true;
 }
 
@@ -221,12 +193,6 @@ bool Run::handleLbI()
 bool Run::handleInOrder() 
 {
 	multiSubstateThrow->handleInOrder();
-	return true;
-}
-
-bool Run::handleSlExtFree() 
-{
-	multiSubstateSlide->handleSlExtFree();
 	return true;
 }
 

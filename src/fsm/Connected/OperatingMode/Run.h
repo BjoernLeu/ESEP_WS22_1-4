@@ -16,7 +16,6 @@
 #include "Run/MeasureHeight.h"
 #include "Run/MetalState.h"
 #include "Run/Throw.h"
-#include "Run/Slide.h"
 //#include "../Error.h"
 #include "Error.h"
 
@@ -36,8 +35,6 @@ public:
 	bool handleLbSW() override;
 	bool handleLbSwFree() override;
 	bool handleFlat() override;	
-	bool handleWpExpected() override;
-	bool handleSlSelfFree() override;
 	bool handleLbO() override;
 	bool handleLbSL() override;
 	bool handleHsBelt() override;
@@ -51,13 +48,12 @@ public:
 	bool handleTransferWait() override;
 	bool handleLbOFree() override;
 	bool handleWpTransfer() override;
-	bool handleError()override;
 	bool handleManageDone() override;
 	bool handleWpCode(int height) override;
 	bool handleWpDrilling(int height) override;
 	bool handleWpFlat(int height) override;
 	bool handleWpHigh(int height) override;
-	bool handleSlExtFree() override;
+	bool handleErrorGone() override;
 
 
 	//methods

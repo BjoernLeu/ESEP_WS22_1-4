@@ -27,6 +27,7 @@ bool TooFull::handleSignalReceipted()
 
 void TooFull::sendError()
 {
+	data->setErrorTrue();
 	if (MsgSendPulse(coid, -1, static_cast<int>(ERROR), 0) == -1) {
 		perror("MsgSendPulse failed");
 	}

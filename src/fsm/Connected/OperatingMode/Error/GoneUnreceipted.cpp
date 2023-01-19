@@ -14,7 +14,7 @@ GoneUnreceipted::~GoneUnreceipted() {}
 bool GoneUnreceipted::handlePrinted()
 {
 	exit();
-	new(this) SubEndState;
+	new(this) IdleError;
 	entry();
 	return true;
 }
@@ -29,7 +29,7 @@ void GoneUnreceipted::entry()
 void GoneUnreceipted::exit()
 {
 	std::cout << "GoneUnreceipted exit" << std::endl;
-	motorOn();
+	// motorOn();
 }
 
 void GoneUnreceipted::printError()

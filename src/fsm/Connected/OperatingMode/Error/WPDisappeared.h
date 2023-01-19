@@ -11,6 +11,7 @@
 #include "../../../gof/BaseState.h"
 #include "../../../gof/SubEndState.h"
 #include "../../../Estop.h"
+#include "IdleError.h"
 
 //#include "../../gof/BaseState.h"
 //#include "../../gof/SubEndState.h"

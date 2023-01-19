@@ -10,9 +10,9 @@
 
 #include "IdleSlide.h"
 #include "BothBusy.h"
-#include "../../../../gof/BaseState.h"
-#include "../../../../gof/SubEndState.h"
-#include "../../../../Estop.h"
+#include "../../../gof/BaseState.h"
+#include "../../../gof/SubEndState.h"
+#include "../../../Estop.h"
 
 class SLSelfBusy : public BaseState{
 public:

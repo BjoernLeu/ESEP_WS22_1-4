@@ -30,6 +30,7 @@ public:
 	bool handleLbOFree() override;
 	bool handleWpTransfer() override;
 	bool handleLbI() override;
+	bool handleErrorGone() override;
 
 };
 

@@ -11,7 +11,7 @@
 #include "../../gof/SubEndState.h"
 #include "../../gof/BaseState.h"
 #include "Error/PendingUnreceipted.h"
-#include "Run.h"
+// #include "Run.h"
 #include "../../Estop.h"
 
 //#include "../gof/SubEndState.h"
@@ -20,19 +20,20 @@
 //#include "OperatingMode.h"
 //#include "../Estop.h"
 
-class Error : BaseState {
+class Error : public BaseState {
 public:
 	Error();
 	virtual ~Error();
 	
 	//transitions
-	bool handleStartSp();
-	bool handlePrinted();
-	bool handleErrorGone();
-	bool handleResetSp();
+	bool handleStartSp() override;
+	bool handlePrinted() override;
+	bool handleErrorGone() override;
+	bool handleResetSp() override;
+	bool handleError() override;
 
 	//methods
-	bool entryHistory() override;
+	// bool entryHistory() override;
 	void entry() override;
 
 }; 

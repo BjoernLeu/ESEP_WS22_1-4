@@ -12,7 +12,7 @@ IdleSlide::~IdleSlide() {}
 
 void IdleSlide::entry()
 {
-	// std::cout << "IdleSlide entry" << std::endl;
+	std::cout << "IdleSlide entry" << std::endl;
 	action->blinkingOff(YELLOW);
 }
 
